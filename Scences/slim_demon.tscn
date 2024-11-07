@@ -112,14 +112,15 @@ script = ExtResource("1_f0wh1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(34, -16)
+position = Vector2(-0.5, -16)
 sprite_frames = SubResource("SpriteFrames_puu7e")
 animation = &"Idle"
-autoplay = "Crouch"
+autoplay = "Idle"
+frame_progress = 0.467746
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(33.5, -18)
+position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_quko2")
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
@@ -130,6 +131,8 @@ wait_time = 0.1
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.05
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]
