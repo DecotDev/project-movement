@@ -116,7 +116,7 @@ position = Vector2(-0.5, -16)
 sprite_frames = SubResource("SpriteFrames_puu7e")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.00933913
+frame_progress = 0.35298
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
