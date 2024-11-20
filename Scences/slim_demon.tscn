@@ -117,7 +117,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quko2"]
-size = Vector2(11, 36)
+size = Vector2(10, 36)
 
 [node name="Slim_demon" type="CharacterBody2D"]
 scale = Vector2(4, 4)
@@ -125,12 +125,11 @@ script = ExtResource("1_f0wh1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-0.5, -16)
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_puu7e")
 animation = &"WallSliding"
 autoplay = "Idle"
-frame_progress = 0.278962
-flip_h = true
+frame_progress = 0.257506
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)
@@ -150,6 +149,16 @@ position = Vector2(0, -30)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
+
+[node name="WallSlideLeft" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -18)
+target_position = Vector2(-6, 0)
+
+[node name="WallSlideRight" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -18)
+target_position = Vector2(6, 0)
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]

@@ -58,8 +58,10 @@ func _physics_process(delta: float) -> void:
 			input_double_jump()  # Handle double jump input
 			if velocity.y < 200:
 				if !is_crouching and !is_sliding:
+				#if !is_crouching and !is_sliding and !is_on_wall():
 					%AnimatedSprite2D.play("Falling")
 			else: 
+				#if !is_crouching and !is_sliding:
 				if !is_crouching and !is_sliding:
 					%AnimatedSprite2D.play("Jumping")
 
@@ -70,7 +72,8 @@ func horizontal_move(input):
 	return input.x != 0
 
 func apply_gravity():
-	is_sliding = false
+	if !is_on_wall_slide(): is_sliding = false
+	#if !is_on_wall(): is_sliding = false
 	velocity.y += gravity
 	velocity.y = min(velocity.y, max_gravity)
 
@@ -104,7 +107,16 @@ func can_crouch():
 	return is_on_floor()
 	
 func can_wall_slide():
-	return is_on_wall() and !is_on_floor() and (velocity.y > 200)
+	#return is_on_wall() and !is_on_floor() and (velocity.y > 200)
+	return is_on_wall_slide() and !is_on_floor() and (velocity.y > 200)
+	
+func is_on_wall_slide():
+	if (not %WallSlideLeft.is_colliding() or is_on_floor()) and (not %WallSlideRight.is_colliding() or is_on_floor()): return false
+	var collider = %WallSlideLeft.get_collider()
+	var collider2 = %WallSlideRight.get_collider()
+	if (not collider is TileMapLayer) and (not collider2 is TileMapLayer): return false
+	return true
+		
 
 func input_crouch():
 	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("Down"):
