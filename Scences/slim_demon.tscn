@@ -160,5 +160,12 @@ unique_name_in_owner = true
 position = Vector2(0, -18)
 target_position = Vector2(6, 0)
 
+[node name="VelocityLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -61.25
+offset_top = -79.5
+offset_right = -32.25
+offset_bottom = -56.5
+
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]
