@@ -134,9 +134,17 @@ func can_crouch():
 	return is_on_wall_slide() and !is_on_floor() and (velocity.y > 200)"""
 func can_wall_slide_left():
 	#return is_on_wall() and !is_on_floor() and (velocity.y > 200)
+	if velocity.y < -400:
+		#%AnimatedSprite2D.flip_h = true
+		%AnimatedSprite2D.play("Falling")
+		return false
 	return is_on_wall_slide_left() and !is_on_floor() and (velocity.y > 200)
 func can_wall_slide_right():
 	#return is_on_wall() and !is_on_floor() and (velocity.y > 200)
+	if velocity.y < -400:
+		#%AnimatedSprite2D.flip_h = true
+		%AnimatedSprite2D.play("Falling")
+		return false
 	return is_on_wall_slide_right() and !is_on_floor() and (velocity.y > 200)
 	
 """func is_on_wall_slide():
