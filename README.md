@@ -1,2 +1,2 @@
 # project-movement
- A movWment based Godot platformer game.
+ A movement based Godot platformer game.
