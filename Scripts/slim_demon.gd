@@ -9,10 +9,15 @@ var jump_force = -1300
 var double_jumps = 1
 var is_crouching = false # New flag for crouch state
 var is_sliding = false
+var coyote_jump = false
+var was_on_floor = false
+var just_left_ground = false
+
 @onready var velocity_label = %VelocityLabel
 
 func _physics_process(delta: float) -> void:
 	var input = Vector2.ZERO
+
 	
 	# Handle horizontal input from both Arrow keys and WASD
 	if (Input.is_action_pressed("ui_left") or Input.is_action_pressed("Left")) and (Input.is_action_pressed("ui_right") or Input.is_action_pressed("Right")):
@@ -54,9 +59,6 @@ func _physics_process(delta: float) -> void:
 		
 		if can_jump():
 			input_jump()  # Check for jump input
-
-		if is_on_floor():
-			double_jumps = 1  # Reset double jumps on the floor
 		else:
 			input_double_jump()  # Handle double jump input
 			if velocity.y < 200:
@@ -67,10 +69,21 @@ func _physics_process(delta: float) -> void:
 				#if !is_crouching and !is_sliding:
 				if !is_crouching and !is_sliding:
 					%AnimatedSprite2D.play("Jumping")
+		if is_on_floor():
+			double_jumps = 1  # Reset double jumps on the floor
 
+
+	was_on_floor = is_on_floor()
 	
+	'''MOVE AND SLIDE'''
 	move_and_slide()
-	velocity_label.text = "Vel Y: " + str(velocity.y) + "\nVel X: " + str(velocity.x)
+	
+	just_left_ground = not is_on_floor() and was_on_floor
+	#if just_left_ground and velocity.y >= 0:
+	if just_left_ground and velocity.y >= 0:
+		coyote_jump = true
+		%CoyoteJumpTimer.start()
+	velocity_label.text = "Vel Y: " + str(velocity.y) + "\nVel X: " + str(velocity.x) + "\nCoyote: " + str(coyote_jump) + "\nTimer: " + str(%CoyoteJumpTimer.time_left)
 
 func horizontal_move(input):
 	return input.x != 0
@@ -90,12 +103,16 @@ func apply_acceleration(amount):
 
 func input_jump():
 	# Check if W or Up is pressed for jumping, and the player is on the floor
-	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("Up")) and is_on_floor():
+	#if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("Up")) and is_on_floor():
+	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("Up")):
+		coyote_jump = false
+		#%CoyoteJumpTimer.stop()
 		velocity.y = jump_force
 
 func input_double_jump():
 	# Check if W or Up is pressed for double jump, and the player has double jumps available
 	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("Up")) and double_jumps > 0:
+		#coyote_jump = false
 		velocity.y = jump_force
 		double_jumps -= 1
 		
@@ -112,7 +129,6 @@ func wall_slide_left():
 	%AnimatedSprite2D.flip_h = true
 	#if velocity.y < -200: 	%AnimatedSprite2D.play("Jumping")
 	#else: %AnimatedSprite2D.play("WallSliding")
-	print(velocity.y)
 	%AnimatedSprite2D.play("WallSliding")
 func wall_slide_right():
 	double_jumps = 1
@@ -120,11 +136,11 @@ func wall_slide_right():
 	velocity.y += gravity
 	velocity.y = min(velocity.y, 200)
 	%AnimatedSprite2D.flip_h = false
-	print(velocity.y)
+	#print(velocity.y)
 	%AnimatedSprite2D.play("WallSliding")
 
 func can_jump():
-	return is_on_floor()
+	return is_on_floor() or coyote_jump
 
 func can_crouch():
 	return is_on_floor()
@@ -170,3 +186,7 @@ func input_crouch():
 			%AnimatedSprite2D.play("Crouch")
 		is_crouching = true
 		apply_friction()
+
+
+func _on_coyote_jump_timer_timeout() -> void:
+	coyote_jump = false 

@@ -127,9 +127,8 @@ script = ExtResource("1_f0wh1")
 unique_name_in_owner = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_puu7e")
-animation = &"WallSliding"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.257506
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)
@@ -142,7 +141,8 @@ wait_time = 0.1
 
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.05
+wait_time = 0.11
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -30)
@@ -162,12 +162,13 @@ target_position = Vector2(6, 0)
 
 [node name="VelocityLabel" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = -75.0
-offset_top = -83.25
-offset_right = -46.0
-offset_bottom = -19.25
+offset_left = -100.25
+offset_top = -97.25
+offset_right = 19.75
+offset_bottom = -33.25
 scale = Vector2(0.325, 0.325)
 theme_override_font_sizes/font_size = 46
+text = "Label"
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]
