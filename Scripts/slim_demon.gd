@@ -12,6 +12,10 @@ var is_sliding = false
 var coyote_jump = false
 var was_on_floor = false
 var just_left_ground = false
+var dash_available = false
+var dash_force = 3.6
+var dashing = false
+var old_input = 0
 
 @onready var velocity_label = %VelocityLabel
 
@@ -34,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("ui_down") or Input.is_action_pressed("Down"):
 		input.y = 1
 
+	if input.x != 0: old_input = input.x
 	#if can_wall_slide():
 	#	wall_slide()
 	if can_wall_slide_left(): wall_slide_left()
@@ -52,7 +57,7 @@ func _physics_process(delta: float) -> void:
 			if !is_crouching and !is_sliding:
 				%AnimatedSprite2D.play("Idle")
 		else:
-			apply_acceleration(input.x)
+			if !dashing: apply_acceleration(input.x)
 			if !is_crouching and !is_sliding:
 				%AnimatedSprite2D.play("Run")
 			%AnimatedSprite2D.flip_h = input.x < 0
@@ -75,7 +80,13 @@ func _physics_process(delta: float) -> void:
 
 	was_on_floor = is_on_floor()
 	
+	input_dash()
+	if dashing:
+		print(velocity.x)
+		
+	
 	'''MOVE AND SLIDE'''
+	
 	move_and_slide()
 	
 	just_left_ground = not is_on_floor() and was_on_floor
@@ -99,7 +110,13 @@ func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, friction)
 
 func apply_acceleration(amount):
+	print("before vel = " + str(velocity.x))
+	print("before acc = " + str(acceleration))
+	print("before direction = " + str(amount))
+	print("before maxspeed = " + str(max_speed))
+	
 	velocity.x = move_toward(velocity.x, max_speed * amount, acceleration)
+	print("after vel = " + str(velocity.x))
 
 func input_jump():
 	# Check if W or Up is pressed for jumping, and the player is on the floor
@@ -116,6 +133,15 @@ func input_double_jump():
 		velocity.y = jump_force
 		double_jumps -= 1
 		
+func input_dash():
+	if (Input.is_action_just_pressed("Shift")) and can_dash():
+		dash_available = false
+		%DashRefresh.start()
+		%DashDuration.start()
+		dashing = true
+		velocity.x = velocity.x * dash_force
+		
+
 func wall_slide():
 	is_sliding = true
 	velocity.y += gravity
@@ -145,9 +171,6 @@ func can_jump():
 func can_crouch():
 	return is_on_floor()
 	
-"""func can_wall_slide():
-	#return is_on_wall() and !is_on_floor() and (velocity.y > 200)
-	return is_on_wall_slide() and !is_on_floor() and (velocity.y > 200)"""
 func can_wall_slide_left():
 	#return is_on_wall() and !is_on_floor() and (velocity.y > 200)
 	if velocity.y < -400:
@@ -163,12 +186,9 @@ func can_wall_slide_right():
 		return false
 	return is_on_wall_slide_right() and !is_on_floor() and (velocity.y > 200)
 	
-"""func is_on_wall_slide():
-	if (not %WallSlideLeft.is_colliding() or is_on_floor()) and (not %WallSlideRight.is_colliding() or is_on_floor()): return false
-	var collider = %WallSlideLeft.get_collider()
-	var collider2 = %WallSlideRight.get_collider()
-	if (not collider is TileMapLayer) and (not collider2 is TileMapLayer): return false
-	return true"""
+func can_dash():
+	return dash_available
+
 func is_on_wall_slide_left():
 	if not %WallSlideLeft.is_colliding() or is_on_floor(): return false
 	var collider = %WallSlideLeft.get_collider()
@@ -190,3 +210,10 @@ func input_crouch():
 
 func _on_coyote_jump_timer_timeout() -> void:
 	coyote_jump = false 
+
+
+func _on_dash_timer_timeout() -> void:
+	dash_available = true
+
+func _on_dash_duration_timeout() -> void:
+	dashing = false
