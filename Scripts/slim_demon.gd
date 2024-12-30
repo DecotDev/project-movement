@@ -80,9 +80,9 @@ func _physics_process(delta: float) -> void:
 
 	was_on_floor = is_on_floor()
 	
-	input_dash()
-	if dashing:
-		print(velocity.x)
+	input_dash(old_input)
+	#if dashing:
+	#	print(velocity.x)
 		
 	
 	'''MOVE AND SLIDE'''
@@ -110,13 +110,13 @@ func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, friction)
 
 func apply_acceleration(amount):
-	print("before vel = " + str(velocity.x))
-	print("before acc = " + str(acceleration))
-	print("before direction = " + str(amount))
-	print("before maxspeed = " + str(max_speed))
+	#print("before vel = " + str(velocity.x))
+	#print("before acc = " + str(acceleration))
+	#print("before direction = " + str(amount))
+	#print("before maxspeed = " + str(max_speed))
 	
 	velocity.x = move_toward(velocity.x, max_speed * amount, acceleration)
-	print("after vel = " + str(velocity.x))
+	#print("after vel = " + str(velocity.x))
 
 func input_jump():
 	# Check if W or Up is pressed for jumping, and the player is on the floor
@@ -133,13 +133,15 @@ func input_double_jump():
 		velocity.y = jump_force
 		double_jumps -= 1
 		
-func input_dash():
+func input_dash(input):
 	if (Input.is_action_just_pressed("Shift")) and can_dash():
 		dash_available = false
 		%DashRefresh.start()
 		%DashDuration.start()
 		dashing = true
-		velocity.x = velocity.x * dash_force
+		#velocity.x = velocity.x * dash_force
+		velocity.x = (550 * input) * dash_force
+		
 		
 
 func wall_slide():

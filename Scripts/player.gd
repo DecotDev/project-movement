@@ -8,23 +8,23 @@ extends CharacterBody2D
 # This function will run every frame and handle the player's movement and jumping
 func _physics_process(delta: float) -> void:
 	var input = Vector2.ZERO
-	input.x = Input.get_axis("ui_left", "ui_right")
+	input.x = Input.get_axis("Left", "Right")
 	# Apply gravity when not on the ground
 	if not is_on_floor():
 		%AnimatedSprite2D.play("Jumping")
 		velocity.y += gravity * delta
 	else:
 		# If the player is on the ground and jumps
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("Up"):
 			%AnimatedSprite2D.play("Jumping")
 			velocity.y = -jump_strength  # Negative because up is negative in 2D
 			
 
 	# Check for left and right movement inputs and update horizontal velocity
-	var direction: float = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	var direction: float = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	velocity.x = direction * speed
 	
-	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("Right") or Input.is_action_pressed("Left"):
 		%AnimatedSprite2D.play("Walking")
 		%AnimatedSprite2D.flip_h = input.x > 0
 	else:
