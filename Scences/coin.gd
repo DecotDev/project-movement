@@ -1,0 +1,9 @@
+extends Area2D
+
+
+func _on_body_entered(body: Player) -> void:
+	if body.name == "Lumber":
+		body.score += 1
+		print(body.score)
+		SoundPleyer.play_sound()
+		self.queue_free()

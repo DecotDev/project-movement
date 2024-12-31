@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://tkukihame2k"]
+
+[ext_resource type="Texture2D" uid="uid://0nq466hghl2q" path="res://Assets/Items/coin0.png" id="1_c2bo0"]
+[ext_resource type="Script" path="res://Scences/coin.gd" id="1_dspv3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0aei"]
+atlas = ExtResource("1_c2bo0")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lciaw"]
+radius = 141.004
+
+[node name="Coin" type="Area2D"]
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_dspv3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+texture = SubResource("AtlasTexture_g0aei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lciaw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

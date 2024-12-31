@@ -35,15 +35,6 @@ position = Vector2(1155, 815)
 [node name="Coin3" parent="." instance=ExtResource("3_qncsd")]
 position = Vector2(1265, 815)
 
-[node name="Coin6" parent="." instance=ExtResource("3_qncsd")]
-position = Vector2(1405, 646)
-
-[node name="Coin7" parent="." instance=ExtResource("3_qncsd")]
-position = Vector2(1465, 646)
-
-[node name="Coin8" parent="." instance=ExtResource("3_qncsd")]
-position = Vector2(1523, 646)
-
 [node name="Coin4" parent="." instance=ExtResource("3_qncsd")]
 position = Vector2(1206, 815)
 
@@ -53,8 +44,5 @@ position = Vector2(1096, 815)
 [connection signal="body_entered" from="Coin" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coin2" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coin3" to="Lumber" method="_on_coin_body_entered"]
-[connection signal="body_entered" from="Coin6" to="Lumber" method="_on_coin_body_entered"]
-[connection signal="body_entered" from="Coin7" to="Lumber" method="_on_coin_body_entered"]
-[connection signal="body_entered" from="Coin8" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coin4" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coin5" to="Lumber" method="_on_coin_body_entered"]
