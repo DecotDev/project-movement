@@ -252,8 +252,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 editor_draw_drag_margin = true
 
-[node name="HighJumpTimer" type="Timer" parent="."]
+[node name="JumpHighTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
 
-[connection signal="timeout" from="HighJumpTimer" to="StateMachine/Jumping" method="_on_high_jump_timer_timeout"]
+[connection signal="timeout" from="JumpHighTimer" to="StateMachine/Jumping" method="_on_high_jump_timer_timeout"]

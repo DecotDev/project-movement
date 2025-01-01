@@ -1,9 +1,12 @@
 extends PlayerState
 @onready
 var Sprite = %Sprite2D
+@onready
+var jump_high_timer = $JumpHighTimer
 
 func enter(previous_state_path: String, data := {}) -> void:
 	player.velocity.y = -player.jump_impulse
+	jump_high_timer.start()
 	player.animation_player.play("Jump")
 
 func physics_update(delta: float) -> void:
