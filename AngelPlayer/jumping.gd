@@ -19,3 +19,7 @@ func physics_update(delta: float) -> void:
 
 	if player.velocity.y >= 0:
 		finished.emit(FALLING)
+
+
+func _on_high_jump_timer_timeout() -> void:
+	pass # Replace with function body.
