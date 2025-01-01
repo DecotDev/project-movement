@@ -229,6 +229,11 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ax1kc")
 debug_color = Color(0.884491, 0.240838, 0.584226, 0.247059)
 
+[node name="JumpHighTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.075
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_i0uop")
 initial_state = NodePath("Idle")
@@ -252,8 +257,4 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 editor_draw_drag_margin = true
 
-[node name="JumpHighTimer" type="Timer" parent="."]
-wait_time = 0.15
-one_shot = true
-
-[connection signal="timeout" from="JumpHighTimer" to="StateMachine/Jumping" method="_on_high_jump_timer_timeout"]
+[connection signal="timeout" from="JumpHighTimer" to="StateMachine/Jumping" method="_on_jump_high_timer_timeout"]

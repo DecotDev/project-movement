@@ -7,6 +7,8 @@ var animation_sprite = $AnimatedSprite2D
 var animation_player = $AnimationPlayer
 @onready
 var Sprite = %Sprite2D
+@onready
+var jump_high_timer = %JumpHighTimer
 
 var speed = 550
 var jump_impulse = 1400
