@@ -18,3 +18,4 @@ var friction = 0
 var air_friction = 0
 var input = Vector2.ZERO
 var score = 0
+var BufferJump = false

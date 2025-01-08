@@ -231,7 +231,11 @@ debug_color = Color(0.884491, 0.240838, 0.584226, 0.247059)
 
 [node name="JumpHighTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.075
+wait_time = 0.06
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
