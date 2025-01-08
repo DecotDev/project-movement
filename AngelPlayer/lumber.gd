@@ -9,6 +9,8 @@ var animation_player = $AnimationPlayer
 var Sprite = %Sprite2D
 @onready
 var jump_high_timer = %JumpHighTimer
+@onready
+var jump_buffer_timer = %JumpBufferTimer
 
 var speed = 550
 var jump_impulse = 1400
@@ -18,4 +20,4 @@ var friction = 0
 var air_friction = 0
 var input = Vector2.ZERO
 var score = 0
-var BufferJump = false
+var buffered_jump = false

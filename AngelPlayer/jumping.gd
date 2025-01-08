@@ -4,9 +4,12 @@ var Sprite = %Sprite2D
 
 
 func enter(previous_state_path: String, data := {}) -> void:
-	player.velocity.y = -player.jump_impulse
-	player.jump_high_timer.start()
-	player.animation_player.play("Jump")
+	if player.buffered_jump:
+		player.velocity.y = -player.jump_impulse
+	else:
+		player.velocity.y = -player.jump_impulse
+		player.jump_high_timer.start()
+		player.animation_player.play("Jump")
 
 func physics_update(delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")
