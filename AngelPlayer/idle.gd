@@ -14,3 +14,6 @@ func physics_update(_delta: float) -> void:
 		finished.emit(JUMPING)
 	elif (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")) and (!Input.is_action_pressed("Left") or !Input.is_action_pressed("Right")):
 		finished.emit(RUNNING)
+
+func _on_jump_buffer_wait_timer_timeout() -> void:
+	finished.emit(JUMPING)

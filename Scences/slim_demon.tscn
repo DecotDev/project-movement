@@ -137,7 +137,7 @@ shape = SubResource("RectangleShape2D_quko2")
 [node name="JumpBufferTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_callback = 0
-wait_time = 0.1
+one_shot = true
 
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 unique_name_in_owner = true

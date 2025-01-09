@@ -239,6 +239,11 @@ unique_name_in_owner = true
 wait_time = 0.1
 one_shot = true
 
+[node name="JumpBufferWaitTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.02
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_i0uop")
 initial_state = NodePath("Idle")
@@ -264,3 +269,4 @@ editor_draw_drag_margin = true
 
 [connection signal="timeout" from="JumpHighTimer" to="StateMachine/Jumping" method="_on_jump_high_timer_timeout"]
 [connection signal="timeout" from="JumpBufferTimer" to="StateMachine/Falling" method="_on_jump_buffer_timer_timeout"]
+[connection signal="timeout" from="JumpBufferWaitTimer" to="StateMachine/Idle" method="_on_jump_buffer_wait_timer_timeout"]

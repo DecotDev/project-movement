@@ -20,14 +20,13 @@ func physics_update(delta: float) -> void:
 		player.jump_buffer_timer.start()
 		player.buffered_jump = true
 		
-	if player.is_on_floor() and player.buffered_jump:
-		finished.emit(JUMPING)
-	elif player.is_on_floor():
+	if player.is_on_floor():
+		if player.buffered_jump:
+			player.jump_buffer_wait_timer.start()
 		if is_equal_approx(input_direction_x, 0.0):
 			finished.emit(IDLE)
 		else:
 			finished.emit(RUNNING)
-
-
+		
 func _on_jump_buffer_timer_timeout() -> void:
 	player.buffered_jump = false

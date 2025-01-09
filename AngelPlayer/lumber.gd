@@ -11,6 +11,8 @@ var Sprite = %Sprite2D
 var jump_high_timer = %JumpHighTimer
 @onready
 var jump_buffer_timer = %JumpBufferTimer
+@onready
+var jump_buffer_wait_timer = %JumpBufferWaitTimer
 
 var speed = 550
 var jump_impulse = 1400
