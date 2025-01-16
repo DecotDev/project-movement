@@ -13,8 +13,13 @@ var jump_high_timer = %JumpHighTimer
 var jump_buffer_timer = %JumpBufferTimer
 @onready
 var jump_buffer_wait_timer = %JumpBufferWaitTimer
+@onready
+var coyote_timer = %CoyoteTimer
+@onready
+var state_label = %StateLabel
 
-var speed = 550
+#var speed = 550
+var speed = 600
 var jump_impulse = 1400
 var gravity = 4000
 var acceleration = 600000
@@ -23,3 +28,5 @@ var air_friction = 0
 var input = Vector2.ZERO
 var score = 0
 var buffered_jump = false
+var coyote_jump = false
+var was_on_floor = false

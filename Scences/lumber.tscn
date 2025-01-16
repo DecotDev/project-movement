@@ -244,6 +244,11 @@ unique_name_in_owner = true
 wait_time = 0.02
 one_shot = true
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_i0uop")
 initial_state = NodePath("Idle")
@@ -267,6 +272,17 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 editor_draw_drag_margin = true
 
+[node name="StateLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 1
+offset_left = -121.0
+offset_top = -110.0
+offset_right = 173.0
+offset_bottom = -38.0
+theme_override_font_sizes/font_size = 52
+text = "null"
+
 [connection signal="timeout" from="JumpHighTimer" to="StateMachine/Jumping" method="_on_jump_high_timer_timeout"]
 [connection signal="timeout" from="JumpBufferTimer" to="StateMachine/Falling" method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="JumpBufferWaitTimer" to="StateMachine/Idle" method="_on_jump_buffer_wait_timer_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="StateMachine/Falling" method="_on_coyote_timer_timeout"]

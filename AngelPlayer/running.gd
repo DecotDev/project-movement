@@ -5,6 +5,7 @@ var Sprite = %Sprite2D
 func enter(previous_state_path: String, data := {}) -> void:
 	#if player.velocity.x != 0.0:
 		#player.animation_player.play("Run")
+	player.state_label.text = "Running"
 	player.animation_player.play("Run")
 
 func physics_update(delta: float) -> void:
@@ -18,6 +19,8 @@ func physics_update(delta: float) -> void:
 	player.move_and_slide()
 
 	if not player.is_on_floor():
+		player.was_on_floor = true
+		player.coyote_jump = true
 		finished.emit(FALLING)
 	elif Input.is_action_just_pressed("Up"):
 		finished.emit(JUMPING)

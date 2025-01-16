@@ -4,7 +4,9 @@ var Sprite = %Sprite2D
 
 
 func enter(previous_state_path: String, data := {}) -> void:
+	player.state_label.text = "Falling"
 	player.animation_player.play("Fall")
+	player.coyote_timer.start()
 
 func physics_update(delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")
@@ -19,6 +21,9 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("Up"):
 		player.jump_buffer_timer.start()
 		player.buffered_jump = true
+	
+	if Input.is_action_just_pressed("Up") and player.was_on_floor and player.coyote_jump:
+		finished.emit(JUMPING)
 		
 	if player.is_on_floor():
 		if player.buffered_jump:
@@ -30,3 +35,6 @@ func physics_update(delta: float) -> void:
 		
 func _on_jump_buffer_timer_timeout() -> void:
 	player.buffered_jump = false
+	
+func _on_coyote_timer_timeout() -> void:
+	player.coyote_jump = false
