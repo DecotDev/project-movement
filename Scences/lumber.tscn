@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c5b8wa7kknj3k"]
+[gd_scene load_steps=28 format=3 uid="uid://c5b8wa7kknj3k"]
 
 [ext_resource type="Script" path="res://AngelPlayer/lumber.gd" id="1_0u7ud"]
 [ext_resource type="Texture2D" uid="uid://b0p3dsdnffaps" path="res://Assets/Heaven/Chars/lumber.png" id="1_wrv2l"]
@@ -198,6 +198,9 @@ region = Rect2(0, 0, 0, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1kc"]
 size = Vector2(18, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slkpi"]
+size = Vector2(28, 68)
+
 [node name="Lumber" type="CharacterBody2D"]
 script = ExtResource("1_0u7ud")
 
@@ -206,8 +209,7 @@ visible = false
 position = Vector2(2, 0)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xpr0p")
-animation = &"Run"
-frame_progress = 0.0920273
+animation = &"Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -282,7 +284,14 @@ offset_bottom = -38.0
 theme_override_font_sizes/font_size = 52
 text = "null"
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_slkpi")
+
 [connection signal="timeout" from="JumpHighTimer" to="StateMachine/Jumping" method="_on_jump_high_timer_timeout"]
 [connection signal="timeout" from="JumpBufferTimer" to="StateMachine/Falling" method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="JumpBufferWaitTimer" to="StateMachine/Idle" method="_on_jump_buffer_wait_timer_timeout"]
+[connection signal="timeout" from="JumpBufferWaitTimer" to="StateMachine/Running" method="_on_jump_buffer_wait_timer_timeout"]
 [connection signal="timeout" from="CoyoteTimer" to="StateMachine/Falling" method="_on_coyote_timer_timeout"]

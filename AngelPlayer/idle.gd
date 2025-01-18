@@ -20,3 +20,4 @@ func physics_update(_delta: float) -> void:
 
 func _on_jump_buffer_wait_timer_timeout() -> void:
 	finished.emit(JUMPING)
+	

@@ -27,3 +27,7 @@ func physics_update(delta: float) -> void:
 	#elif is_equal_approx(input_direction_x, 0.0):
 	elif is_equal_approx(input_direction_x, 0.0):
 		finished.emit(IDLE)
+
+
+func _on_jump_buffer_wait_timer_timeout() -> void:
+	finished.emit(JUMPING)
