@@ -284,6 +284,15 @@ offset_bottom = -38.0
 theme_override_font_sizes/font_size = 52
 text = "null"
 
+[node name="VelYLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -134.0
+offset_top = -182.0
+offset_right = 25.0
+offset_bottom = -124.0
+theme_override_font_sizes/font_size = 42
+text = "Velocity"
+
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

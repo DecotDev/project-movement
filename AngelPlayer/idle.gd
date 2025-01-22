@@ -5,8 +5,9 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.velocity.x = 0.0
 	player.animation_player.play("Idle")
 
-func physics_update(_delta: float) -> void:
-	player.velocity.y += player.gravity * _delta
+func physics_update(delta: float) -> void:
+	#player.velocity.y += player.gravity * delta
+	player.Vel_Y_label.text = "Vel: " + str(player.velocity.y)
 	player.move_and_slide()
 
 	if not player.is_on_floor():

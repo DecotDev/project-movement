@@ -11,11 +11,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 func physics_update(delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")
 	player.velocity.x = player.speed * input_direction_x
-	player.velocity.y += player.gravity * delta
+	#player.velocity.y += player.gravity * delta
 	if input_direction_x < 0:
 		Sprite.flip_h = true
 	if input_direction_x > 0:
 		Sprite.flip_h = false
+	player.Vel_Y_label.text = "Vel: " + str(player.velocity.y)
 	player.move_and_slide()
 
 	if not player.is_on_floor():

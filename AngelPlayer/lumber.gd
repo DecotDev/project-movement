@@ -17,11 +17,17 @@ var jump_buffer_wait_timer = %JumpBufferWaitTimer
 var coyote_timer = %CoyoteTimer
 @onready
 var state_label = %StateLabel
+@onready
+var Vel_Y_label = %VelYLabel
 
 #var speed = 550
 var speed = 600
+#var jump_impulse = 1400
+#var gravity = 4000
 var jump_impulse = 1400
 var gravity = 4000
+var fast_fall_vel = 200
+var max_y_speed = 1300
 var acceleration = 600000
 var friction = 0
 var air_friction = 0

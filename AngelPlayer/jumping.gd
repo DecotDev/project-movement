@@ -22,6 +22,9 @@ func physics_update(delta: float) -> void:
 	if input_direction_x > 0:
 		Sprite.flip_h = false
 
+	if Input.is_action_pressed("Down"):
+		player.velocity.y += player.fast_fall_vel
+	player.Vel_Y_label.text = "Vel: " + str(player.velocity.y)
 	player.move_and_slide()
 
 	if player.velocity.y >= 0:
