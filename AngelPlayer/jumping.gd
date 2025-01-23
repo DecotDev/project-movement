@@ -22,8 +22,13 @@ func physics_update(delta: float) -> void:
 	if input_direction_x > 0:
 		Sprite.flip_h = false
 
+	#if Input.is_action_pressed("Down") and !player.coyote_jump:
+		#if player.velocity.y < 800:
+			#player.velocity.y += player.fast_fall_vel - 120
+		#else:
+			#player.velocity.y += player.fast_fall_vel
 	if Input.is_action_pressed("Down"):
-		player.velocity.y += player.fast_fall_vel
+		player.velocity.y += player.fast_fall_vel - 80
 	player.Vel_Y_label.text = "Vel: " + str(player.velocity.y)
 	player.move_and_slide()
 
