@@ -7,7 +7,8 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	#player.velocity.y += player.gravity * delta
-	player.Vel_Y_label.text = "Vel: " + str(player.velocity.y)
+	player.vel_y_label.text = "Vel: " + str(player.velocity.y)
+	player.vel_x_label.text = "Speed: " + str(player.velocity.x)
 	player.move_and_slide()
 
 	if not player.is_on_floor():

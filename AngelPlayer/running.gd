@@ -16,7 +16,8 @@ func physics_update(delta: float) -> void:
 		Sprite.flip_h = true
 	if input_direction_x > 0:
 		Sprite.flip_h = false
-	player.Vel_Y_label.text = "Vel: " + str(player.velocity.y)
+	player.vel_y_label.text = "Vel: " + str(player.velocity.y)
+	player.vel_x_label.text = "Speed: " + str(player.velocity.x)
 	player.move_and_slide()
 
 	if not player.is_on_floor():

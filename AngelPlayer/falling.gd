@@ -7,11 +7,20 @@ var Sprite = %Sprite2D
 func enter(previous_state_path: String, data := {}) -> void:
 	player.state_label.text = "Falling"
 	player.animation_player.play("Fall")
+	if player.just_dashed:
+		player.dash_fall_impulse_timer.start()
 	player.coyote_timer.start()
 
 func physics_update(delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")
-	player.velocity.x = player.speed * input_direction_x
+	player.velocity.x = player.speed * input_direction_x 
+	if player.just_dashed:
+		#player.dash_fall_impulse_timer.start()
+		
+		player.velocity.x += player.dash_impulse
+		player.dash_impulse *= 0.90
+		print("hola")
+	
 	player.velocity.y += player.gravity * delta
 	
 	if player.velocity.y > player.max_y_speed:
@@ -26,7 +35,8 @@ func physics_update(delta: float) -> void:
 			player.velocity.y += player.fast_fall_vel - 120
 		else:
 			player.velocity.y += player.fast_fall_vel
-	player.Vel_Y_label.text = "Vel: " + str(player.velocity.y)
+	player.vel_y_label.text = "Vel: " + str(player.velocity.y)
+	player.vel_x_label.text = "Speed: " + str(player.velocity.x)
 	player.move_and_slide()
 		
 	if Input.is_action_just_pressed("Up"):
@@ -49,3 +59,9 @@ func _on_jump_buffer_timer_timeout() -> void:
 	
 func _on_coyote_timer_timeout() -> void:
 	player.coyote_jump = false
+
+
+func _on_dash_fall_impulse_timeout() -> void:
+	player.dash_label.text = "false"
+	player.dash_impulse = player.dash_impulse_reset
+	player.just_dashed = false
