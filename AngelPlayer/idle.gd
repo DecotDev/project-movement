@@ -4,6 +4,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.state_label.text = "Idle"
 	player.velocity.x = 0.0
 	player.animation_player.play("Idle")
+	player.just_dashed = false
 
 func physics_update(delta: float) -> void:
 	#player.velocity.y += player.gravity * delta

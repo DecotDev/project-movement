@@ -18,7 +18,7 @@ func physics_update(delta: float) -> void:
 		#player.dash_fall_impulse_timer.start()
 		
 		player.velocity.x += player.dash_impulse
-		player.dash_impulse *= 0.90
+		player.dash_impulse *= 0.94
 		print("hola")
 	
 	player.velocity.y += player.gravity * delta

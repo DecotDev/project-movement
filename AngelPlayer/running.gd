@@ -7,6 +7,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 		#player.animation_player.play("Run")
 	player.state_label.text = "Running"
 	player.animation_player.play("Run")
+	player.just_dashed = false
 
 func physics_update(delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")

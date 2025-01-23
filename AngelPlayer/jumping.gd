@@ -9,6 +9,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	#else:
 	player.state_label.text = "Jumping"
 	player.was_on_floor = false
+	player.just_dashed = false
 	player.velocity.y = -player.jump_impulse
 	player.jump_high_timer.start()
 	player.animation_player.play("Jump")

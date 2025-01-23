@@ -11,7 +11,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.dash_finish_timer.start()
 
 func physics_update(delta: float) -> void:
-	player.velocity.x = (600 * input_direction_x) * 2.6
+	player.velocity.x = (600 * input_direction_x) * 2
 	player.velocity.y = 0
 	player.vel_y_label.text = "Vel: " + str(player.velocity.y)
 	player.vel_x_label.text = "Speed: " + str(player.velocity.x)
