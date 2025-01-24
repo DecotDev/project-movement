@@ -1,6 +1,6 @@
 extends PlayerState
 @onready
-var Sprite = %Sprite2D
+var Sprite: = %Sprite2D
 
 
 func enter(previous_state_path: String, data := {}) -> void:
@@ -10,6 +10,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.state_label.text = "Jumping"
 	player.was_on_floor = false
 	player.just_dashed = false
+	player.dash_label.text = "false"
 	player.velocity.y = -player.jump_impulse
 	player.jump_high_timer.start()
 	player.animation_player.play("Jump")
@@ -17,7 +18,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 func physics_update(delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")
 	player.velocity.x = player.speed * input_direction_x
-	player.velocity.y += player.gravity * delta
+	player.velocity.y += round(player.gravity * delta)
 	if input_direction_x < 0:
 		Sprite.flip_h = true
 	if input_direction_x > 0:

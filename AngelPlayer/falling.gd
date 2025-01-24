@@ -1,7 +1,6 @@
 extends PlayerState
 @onready
-var Sprite = %Sprite2D
-
+var Sprite: Node = %Sprite2D
 
 
 func enter(previous_state_path: String, data := {}) -> void:
@@ -15,13 +14,14 @@ func physics_update(delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")
 	player.velocity.x = player.speed * input_direction_x 
 	if player.just_dashed:
-		#player.dash_fall_impulse_timer.start()
-		
+		if player.dash_slow_fall <= 5:
+			player.dash_slow_fall += 1
+			player.velocity.y *= 0.85
 		player.velocity.x += player.dash_impulse
 		player.dash_impulse *= 0.94
-		print("hola")
+
 	
-	player.velocity.y += player.gravity * delta
+	player.velocity.y += round(player.gravity * delta)
 	
 	if player.velocity.y > player.max_y_speed:
 		player.velocity.y = player.max_y_speed
@@ -45,7 +45,10 @@ func physics_update(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Up") and player.was_on_floor and player.coyote_jump:
 		finished.emit(JUMPING)
-		
+	
+	if Input.is_action_just_pressed("Shift"):
+		finished.emit(DASHING)
+	
 	if player.is_on_floor():
 		if player.buffered_jump:
 			player.jump_buffer_wait_timer.start()
@@ -63,5 +66,4 @@ func _on_coyote_timer_timeout() -> void:
 
 func _on_dash_fall_impulse_timeout() -> void:
 	player.dash_label.text = "false"
-	player.dash_impulse = player.dash_impulse_reset
 	player.just_dashed = false

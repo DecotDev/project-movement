@@ -1,6 +1,6 @@
 extends PlayerState
 @onready
-var Sprite = %Sprite2D
+var Sprite: = %Sprite2D
 
 func enter(previous_state_path: String, data := {}) -> void:
 	#if player.velocity.x != 0.0:
@@ -8,6 +8,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.state_label.text = "Running"
 	player.animation_player.play("Run")
 	player.just_dashed = false
+	player.dash_label.text = "false"
 
 func physics_update(delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")

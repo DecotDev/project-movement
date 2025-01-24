@@ -1,21 +1,21 @@
 extends CharacterBody2D
 
-var gravity = 82
-var max_gravity = 1300
-var friction = 100
-var max_speed = 550
-var acceleration = 180
-var jump_force = -1300
-var double_jumps = 1
-var is_crouching = false # New flag for crouch state
-var is_sliding = false
-var coyote_jump = false
-var was_on_floor = false
-var just_left_ground = false
-var dash_available = false
-var dash_force = 3.6
-var dashing = false
-var old_input = 0
+var gravity: = 82
+var max_gravity: = 1300
+var friction: = 100
+var max_speed: = 550
+var acceleration: = 180
+var jump_force: = -1300
+var double_jumps: = 1
+var is_crouching: = false # New flag for crouch state
+var is_sliding: = false
+var coyote_jump: = false
+var was_on_floor: = false
+var just_left_ground: = false
+var dash_available: = false
+var dash_force: = 3.6
+var dashing: = false
+var old_input: = 0
 
 @onready var velocity_label = %VelocityLabel
 
@@ -188,17 +188,17 @@ func can_wall_slide_right():
 		return false
 	return is_on_wall_slide_right() and !is_on_floor() and (velocity.y > 200)
 	
-func can_dash():
+func can_dash() -> bool:
 	return dash_available
 
-func is_on_wall_slide_left():
+func is_on_wall_slide_left() -> bool:
 	if not %WallSlideLeft.is_colliding() or is_on_floor(): return false
-	var collider = %WallSlideLeft.get_collider()
+	var collider: Node = %WallSlideLeft.get_collider()
 	if not collider is TileMapLayer: return false
 	return true
-func is_on_wall_slide_right():
+func is_on_wall_slide_right() -> bool:
 	if not %WallSlideRight.is_colliding() or is_on_floor(): return false
-	var collider = %WallSlideRight.get_collider()
+	var collider: Node = %WallSlideRight.get_collider()
 	if not collider is TileMapLayer: return false
 	return true
 
