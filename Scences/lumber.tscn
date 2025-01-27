@@ -321,6 +321,7 @@ text = "null"
 
 [node name="VelYLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -141.0
 offset_top = -202.0
 offset_right = 18.0
@@ -330,6 +331,7 @@ text = "Velocity"
 
 [node name="VelXLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -136.0
 offset_top = -146.0
 offset_right = 23.0

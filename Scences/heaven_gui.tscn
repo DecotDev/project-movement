@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx13mehul60kb"]
+
+[ext_resource type="Texture2D" uid="uid://bs74t7m0fhshk" path="res://Assets/Heaven/GUI/godot_icon.png" id="1_lahjv"]
+[ext_resource type="Script" path="res://Scripts/heaven_gui.gd" id="1_sutog"]
+
+[node name="HeavenGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sutog")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 404.0
+offset_bottom = 140.0
+scale = Vector2(0.14, 0.14)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_lahjv")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_lahjv")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_lahjv")
