@@ -16,7 +16,7 @@ func physics_update(delta: float) -> void:
 	if player.just_dashed:
 		if player.dash_slow_fall <= 5:
 			player.dash_slow_fall += 1
-			player.velocity.y *= 0.85
+			player.velocity.y = round(player.velocity.y * 0.85)
 		player.velocity.x += player.dash_impulse
 		player.dash_impulse *= 0.94
 

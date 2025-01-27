@@ -17,10 +17,10 @@ var dash_force: = 3.6
 var dashing: = false
 var old_input: = 0
 
-@onready var velocity_label = %VelocityLabel
+@onready var velocity_label: = %VelocityLabel
 
 func _physics_process(delta: float) -> void:
-	var input = Vector2.ZERO
+	var input: = Vector2.ZERO
 
 	
 	# Handle horizontal input from both Arrow keys and WASD
@@ -96,20 +96,20 @@ func _physics_process(delta: float) -> void:
 		%CoyoteJumpTimer.start()
 	velocity_label.text = "Vel Y: " + str(velocity.y) + "\nVel X: " + str(velocity.x) + "\nCoyote: " + str(coyote_jump) + "\nTimer: " + str(%CoyoteJumpTimer.time_left)
 
-func horizontal_move(input):
+func horizontal_move(input: Vector2) -> bool:
 	return input.x != 0
 
-func apply_gravity():
+func apply_gravity() -> void:
 	if !is_on_wall_slide_left() and !is_on_wall_slide_right(): is_sliding = false
 	#if !is_on_wall_slide(): is_sliding = false
 	#if !is_on_wall(): is_sliding = false
 	velocity.y += gravity
 	velocity.y = min(velocity.y, max_gravity)
 
-func apply_friction():
+func apply_friction() -> void:
 	velocity.x = move_toward(velocity.x, 0, friction)
 
-func apply_acceleration(amount):
+func apply_acceleration(amount: int) -> void:
 	#print("before vel = " + str(velocity.x))
 	#print("before acc = " + str(acceleration))
 	#print("before direction = " + str(amount))
@@ -118,7 +118,7 @@ func apply_acceleration(amount):
 	velocity.x = move_toward(velocity.x, max_speed * amount, acceleration)
 	#print("after vel = " + str(velocity.x))
 
-func input_jump():
+func input_jump() -> void:
 	# Check if W or Up is pressed for jumping, and the player is on the floor
 	#if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("Up")) and is_on_floor():
 	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("Up")):
@@ -126,14 +126,14 @@ func input_jump():
 		#%CoyoteJumpTimer.stop()
 		velocity.y = jump_force
 
-func input_double_jump():
+func input_double_jump() -> void:
 	# Check if W or Up is pressed for double jump, and the player has double jumps available
 	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("Up")) and double_jumps > 0:
 		#coyote_jump = false
 		velocity.y = jump_force
 		double_jumps -= 1
 		
-func input_dash(input):
+func input_dash(input: int) -> void:
 	if (Input.is_action_just_pressed("Shift")) and can_dash():
 		dash_available = false
 		%DashRefresh.start()
@@ -144,12 +144,12 @@ func input_dash(input):
 		
 		
 
-func wall_slide():
+func wall_slide() -> void:
 	is_sliding = true
 	velocity.y += gravity
 	velocity.y = min(velocity.y, 200)
 	%AnimatedSprite2D.play("WallSliding")
-func wall_slide_left():
+func wall_slide_left() -> void:
 	double_jumps = 1
 	is_sliding = true
 	velocity.y += gravity
@@ -158,7 +158,7 @@ func wall_slide_left():
 	#if velocity.y < -200: 	%AnimatedSprite2D.play("Jumping")
 	#else: %AnimatedSprite2D.play("WallSliding")
 	%AnimatedSprite2D.play("WallSliding")
-func wall_slide_right():
+func wall_slide_right() -> void:
 	double_jumps = 1
 	is_sliding = true
 	velocity.y += gravity
@@ -167,20 +167,20 @@ func wall_slide_right():
 	#print(velocity.y)
 	%AnimatedSprite2D.play("WallSliding")
 
-func can_jump():
+func can_jump() -> bool:
 	return is_on_floor() or coyote_jump
 
-func can_crouch():
+func can_crouch() -> bool:
 	return is_on_floor()
 	
-func can_wall_slide_left():
+func can_wall_slide_left() -> bool:
 	#return is_on_wall() and !is_on_floor() and (velocity.y > 200)
 	if velocity.y < -400:
 		#%AnimatedSprite2D.flip_h = true
 		%AnimatedSprite2D.play("Falling")
 		return false
 	return is_on_wall_slide_left() and !is_on_floor() and (velocity.y > 200)
-func can_wall_slide_right():
+func can_wall_slide_right() -> bool:
 	#return is_on_wall() and !is_on_floor() and (velocity.y > 200)
 	if velocity.y < -400:
 		#%AnimatedSprite2D.flip_h = true
@@ -202,7 +202,7 @@ func is_on_wall_slide_right() -> bool:
 	if not collider is TileMapLayer: return false
 	return true
 
-func input_crouch():
+func input_crouch() -> void:
 	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("Down"):
 		if %AnimatedSprite2D.animation != "Crouch":
 			%AnimatedSprite2D.play("Crouch")

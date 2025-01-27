@@ -21,7 +21,7 @@ SoundPleyer="*res://Scences/sound_pleyer.tscn"
 
 [debug]
 
-gdscript/warnings/untyped_declaration=1
+gdscript/warnings/untyped_declaration=2
 
 [display]
 

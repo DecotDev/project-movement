@@ -21,9 +21,9 @@ func physics_update(delta: float) -> void:
 	#else:
 		#player.velocity.y *= 0.84
 	if player.velocity.y > 0 and input_direction_x != 0:
-		player.velocity.y *= 0.5 #4
+		player.velocity.y = round(player.velocity.y * 0.5) #4
 	else:
-		player.velocity.y *= 0.9
+		player.velocity.y = round(player.velocity.y * 0.9)
 	if player.velocity.y < 0:
 		print(str(player.velocity.y))
 	player.vel_y_label.text = "Vel: " + str(player.velocity.y)
