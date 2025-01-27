@@ -45,5 +45,5 @@ func _on_jump_high_timer_timeout() -> void:
 	if !Input.is_action_pressed("Up"):
 		if player.velocity.y < -650:
 			player.velocity.y = -650
-	else:
-		print("High jump")
+	#else:
+		#print("High jump")

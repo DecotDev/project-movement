@@ -14,7 +14,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.dash_finish_timer.start()
 
 func physics_update(delta: float) -> void:
-	print( str(input_direction_x))
+	#print( str(input_direction_x))
 	player.velocity.x = (600 * input_direction_x) * 2
 	#if player.velocity.y < 0:
 		#player.velocity.y *= 0.9
@@ -24,8 +24,8 @@ func physics_update(delta: float) -> void:
 		player.velocity.y = round(player.velocity.y * 0.5) #4
 	else:
 		player.velocity.y = round(player.velocity.y * 0.9)
-	if player.velocity.y < 0:
-		print(str(player.velocity.y))
+	#if player.velocity.y < 0:
+		#print(str(player.velocity.y))
 	player.vel_y_label.text = "Vel: " + str(player.velocity.y)
 	player.vel_x_label.text = "Speed: " + str(player.velocity.x)
 	player.move_and_slide()
