@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://5x5anb8yhuwj"]
+[gd_scene load_steps=2 format=3 uid="uid://pel0twlyod5h"]
 
-[ext_resource type="Script" path="res://sound_pleyer.gd" id="1_7sgr6"]
+[ext_resource type="Script" path="res://Scripts/sound_player.gd" id="1_7ba34"]
 
-[node name="SoundPleyer" type="Node"]
-script = ExtResource("1_7sgr6")
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_7ba34")
 
 [node name="AudioPlayers" type="Node" parent="."]
 

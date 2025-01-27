@@ -5,5 +5,5 @@ func _on_body_entered(body: Player) -> void:
 	if body.name == "Lumber":
 		body.score += 1
 		print(body.score)
-		SoundPleyer.play_sound(SoundPleyer.pick_coin)
+		SoundPlayer.play_sound(SoundPlayer.pick_coin)
 		self.queue_free()

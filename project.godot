@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SoundPleyer="*res://Scences/sound_pleyer.tscn"
+SoundPlayer="*res://Scences/sound_player.tscn"
 
 [debug]
 

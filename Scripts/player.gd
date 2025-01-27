@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 # This function will run every frame and handle the player's movement and jumping
 func _physics_process(delta: float) -> void:
-	var input = Vector2.ZERO
+	var input: = Vector2.ZERO
 	input.x = Input.get_axis("Left", "Right")
 	# Apply gravity when not on the ground
 	if not is_on_floor():
@@ -32,5 +32,5 @@ func _physics_process(delta: float) -> void:
 
 	# Move the player based on velocity
 	move_and_slide()
-func horizontal_move(input):
+func horizontal_move(input: Vector2) -> bool:
 	return input.x != 0
