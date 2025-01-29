@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://su36nwt2p6xr" path="res://Scences/spike.tscn" id="5_ik0pd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76jn0"]
-size = Vector2(2247, 163)
+size = Vector2(1814, 163)
 
 [node name="HeavenMain" type="Node2D"]
 script = ExtResource("1_l8av3")
@@ -23,7 +23,7 @@ texture = ExtResource("1_8p2lp")
 position = Vector2(40, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1125.5, 977.5)
+position = Vector2(909, 977.5)
 shape = SubResource("RectangleShape2D_76jn0")
 debug_color = Color(0.784432, 0.406175, 0.413918, 0.42)
 
