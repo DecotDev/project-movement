@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bh0opwr3bpgia"]
+[gd_scene load_steps=10 format=4 uid="uid://bh0opwr3bpgia"]
 
 [ext_resource type="Texture2D" uid="uid://dyclqf3yqxltr" path="res://Assets/Heaven/Bakground/heavenMainBg.png" id="1_8p2lp"]
 [ext_resource type="Script" path="res://Scences/heaven_main.gd" id="1_l8av3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tkukihame2k" path="res://Scences/coin.tscn" id="3_qncsd"]
 [ext_resource type="PackedScene" uid="uid://xda3hm6jkonn" path="res://Scences/green_tile_map.tscn" id="4_cp6mn"]
 [ext_resource type="PackedScene" uid="uid://su36nwt2p6xr" path="res://Scences/spike.tscn" id="5_ik0pd"]
+[ext_resource type="PackedScene" uid="uid://b2m5av577jxks" path="res://Scences/portal.tscn" id="8_e0m4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76jn0"]
 size = Vector2(1814, 163)
@@ -98,6 +99,9 @@ scale = Vector2(24, 4)
 position = Vector2(5880, 848)
 scale = Vector2(15, 4)
 
+[node name="Portal" parent="." instance=ExtResource("8_e0m4b")]
+position = Vector2(114, 741)
+
 [connection signal="body_entered" from="Coins/Coin" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coins/Coin2" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coins/Coin3" to="Lumber" method="_on_coin_body_entered"]
@@ -106,3 +110,4 @@ scale = Vector2(15, 4)
 [connection signal="body_entered" from="Coins/Coin8" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coins/Coin4" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coins/Coin5" to="Lumber" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

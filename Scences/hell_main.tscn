@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://coibfkpqkmlbp"]
+
+[ext_resource type="PackedScene" uid="uid://cfmbl6ed0fskd" path="res://Scences/demon.tscn" id="1_v8cfb"]
+
+[node name="HellMain" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 99.0
+offset_top = 57.0
+offset_right = 1802.0
+offset_bottom = 1035.0
+color = Color(0.152941, 0, 0, 0.643137)
+metadata/_edit_use_anchors_ = true
+
+[node name="Demon" parent="." instance=ExtResource("1_v8cfb")]
+position = Vector2(980, 587)
