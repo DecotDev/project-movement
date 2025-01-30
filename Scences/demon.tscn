@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfmbl6ed0fskd"]
+[gd_scene load_steps=6 format=3 uid="uid://cfmbl6ed0fskd"]
 
 [ext_resource type="Texture2D" uid="uid://rtmsfy7rluqb" path="res://icon.svg" id="1_e58e1"]
 [ext_resource type="Script" path="res://Scripts/demon.gd" id="1_fs57w"]
+[ext_resource type="PackedScene" uid="uid://bh6srcfj8h0k0" path="res://Scences/gun.tscn" id="3_nkav8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3kdx"]
-radius = 31.0161
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c8ava"]
+radius = 36.0
 
 [node name="Demon" type="CharacterBody2D"]
 script = ExtResource("1_fs57w")
@@ -13,8 +17,17 @@ script = ExtResource("1_fs57w")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_e58e1")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s3kdx")
 debug_color = Color(0.937794, 1.2514e-05, 0.626455, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_c8ava")
+debug_color = Color(0, 0.6, 0.701961, 0.215686)
+
+[node name="Gun" parent="." instance=ExtResource("3_nkav8")]
+position = Vector2(38, 0)
