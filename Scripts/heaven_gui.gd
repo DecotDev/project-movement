@@ -7,10 +7,10 @@ var heart_empty: = preload("res://Assets/Heaven/GUI/godot_icon_black.png")
 var label_coins: = %Coins
 
 func update_health_icon() -> void:
-	for i in %HBoxContainer.get_child_count():
+	for i in %HealthContainer.get_child_count():
 		if Global.player_health > i:
 			print("vida")
-			%HBoxContainer.get_child(i).texture = heart_full
+			%HealthContainer.get_child(i).texture = heart_full
 		else:
 			print("-1 vida")
-			%HBoxContainer.get_child(i).texture = heart_empty
+			%HealthContainer.get_child(i).texture = heart_empty

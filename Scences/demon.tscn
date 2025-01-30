@@ -30,4 +30,4 @@ shape = SubResource("CircleShape2D_c8ava")
 debug_color = Color(0, 0.6, 0.701961, 0.215686)
 
 [node name="Gun" parent="." instance=ExtResource("3_nkav8")]
-position = Vector2(38, 0)
+position = Vector2(35, 0)
