@@ -2,36 +2,34 @@ extends CharacterBody2D
 
 
 class_name Character
+var input_direction_x: float
+var movement_speed: int = 40
+var last_movement: = Vector2.UP
 
-var movementSpeed: int = 40
 
-func handleInput() -> void:
-	var moveDirection: = Input.get_vector("Left","Right","Up","Down")
-	velocity = moveDirection * movementSpeed
+func movement() -> void:
+	var x_mov: = Input.get_action_strength("Right") - Input.get_action_strength("Left")
+	var y_mov: = Input.get_action_strength("Down") - Input.get_action_strength("Up")
+	var mov: = Vector2(x_mov,y_mov)
+	if mov.x > 0:
+		$Sprite2D.flip_h = true
+	elif mov.x < 0:
+		$Sprite2D.flip_h = false
+
+	if mov != Vector2.ZERO:
+		last_movement = mov
+		#if walkTimer.is_stopped():
+			#if sprite.frame >= sprite.hframes - 1:
+				#sprite.frame = 0
+			#else:
+				#sprite.frame += 1
+			#walkTimer.start()
 	
-func _process(_delta: float) -> void:
-	##Plays animation if pressed once
-	#if Input.is_action_just_pressed("primaryAttack"):
-		#$AnimationPlayer.play("primary")
-	#if Input.is_action_pressed("primaryAttack"):
-		#$AnimationPlayer.play("primary")
-		#if Input.is_action_pressed("Left"):
-			#$Sprite2D.flip_h = true
-		#if Input.is_action_pressed("Right"):
-			#$Sprite2D.flip_h = false
-	#else:
-		#if Input.is_action_pressed("Up"):
-			#$AnimationPlayer.play("walk")
-			#
-		#if Input.is_action_pressed("Down"):
-			#$AnimationPlayer.play("walk")
-			#
-		#if Input.is_action_pressed("Left"):
-			#$AnimationPlayer.play("walk")
-			#$Sprite2D.flip_h = true
-			#
-		#if Input.is_action_pressed("Right"):
-			#$AnimationPlayer.play("walk")
-			#$Sprite2D.flip_h = false
-	handleInput()
+	velocity = mov.normalized()*movement_speed
 	move_and_slide()
+func physics_process(delta: float) -> void:
+	movement()
+	#input_direction_x = Input.get_axis("Left","Right")
+	#velocity.x = 80 * input_direction_x 
+	#move_and_slide()
+ 

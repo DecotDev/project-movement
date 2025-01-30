@@ -1,18 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://coibfkpqkmlbp"]
+[gd_scene load_steps=3 format=3 uid="uid://coibfkpqkmlbp"]
 
+[ext_resource type="Texture2D" uid="uid://d4hgtouw1jcdv" path="res://Assets/Heaven/TileMaps/green.png" id="1_petcd"]
 [ext_resource type="PackedScene" uid="uid://cfmbl6ed0fskd" path="res://Scences/demon.tscn" id="1_v8cfb"]
 
 [node name="HellMain" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = 99.0
-offset_top = 57.0
-offset_right = 1802.0
-offset_bottom = 1035.0
-color = Color(0.152941, 0, 0, 0.643137)
-metadata/_edit_use_anchors_ = true
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(490.25, 618.25)
+scale = Vector2(327.833, 413.167)
+texture = ExtResource("1_petcd")
 
 [node name="Demon" parent="." instance=ExtResource("1_v8cfb")]
 position = Vector2(980, 587)
