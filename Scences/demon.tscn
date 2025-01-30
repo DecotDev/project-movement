@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfmbl6ed0fskd"]
+[gd_scene load_steps=7 format=3 uid="uid://cfmbl6ed0fskd"]
 
-[ext_resource type="Texture2D" uid="uid://rtmsfy7rluqb" path="res://icon.svg" id="1_e58e1"]
 [ext_resource type="Script" path="res://Scripts/demon.gd" id="1_fs57w"]
+[ext_resource type="Texture2D" uid="uid://3sf44jrnvenc" path="res://Assets/char_red0.png" id="2_u5h4x"]
 [ext_resource type="PackedScene" uid="uid://bh6srcfj8h0k0" path="res://Scences/gun.tscn" id="3_nkav8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao7xs"]
+atlas = ExtResource("2_u5h4x")
+region = Rect2(1, 0, 6, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3kdx"]
 radius = 32.0
@@ -14,8 +18,14 @@ radius = 36.0
 script = ExtResource("1_fs57w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_e58e1")
+unique_name_in_owner = true
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_ao7xs")
+flip_h = true
+
+[node name="Gun" parent="." instance=ExtResource("3_nkav8")]
+unique_name_in_owner = true
+position = Vector2(0, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s3kdx")
@@ -29,5 +39,9 @@ debug_color = Color(0.937794, 1.2514e-05, 0.626455, 0.42)
 shape = SubResource("CircleShape2D_c8ava")
 debug_color = Color(0, 0.6, 0.701961, 0.215686)
 
-[node name="Gun" parent="." instance=ExtResource("3_nkav8")]
-position = Vector2(35, 0)
+[node name="MouseLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -38.0
+offset_top = -150.0
+offset_right = 2.0
+offset_bottom = -127.0

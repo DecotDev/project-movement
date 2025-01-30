@@ -12,13 +12,13 @@ collision_mask = 2
 script = ExtResource("1_gjown")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(26, 0)
+position = Vector2(22, 0)
 shape = SubResource("RectangleShape2D_ol467")
 
 [node name="CrossHair" type="Marker2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="CrossHair"]
-position = Vector2(26, 0)
+position = Vector2(22, 0)
 scale = Vector2(0.40625, 0.109375)
 texture = ExtResource("1_ju5tt")
 
@@ -26,5 +26,9 @@ texture = ExtResource("1_ju5tt")
 unique_name_in_owner = true
 position = Vector2(64, 0)
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 0.8
+one_shot = true
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
