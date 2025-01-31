@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfmbl6ed0fskd"]
+[gd_scene load_steps=8 format=3 uid="uid://cfmbl6ed0fskd"]
 
 [ext_resource type="Script" path="res://Scripts/demon.gd" id="1_fs57w"]
 [ext_resource type="Texture2D" uid="uid://3sf44jrnvenc" path="res://Assets/char_red0.png" id="2_u5h4x"]
 [ext_resource type="PackedScene" uid="uid://bh6srcfj8h0k0" path="res://Scences/gun.tscn" id="3_nkav8"]
+[ext_resource type="Script" path="res://Scences/camera_2d.gd" id="4_wb88l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ao7xs"]
 atlas = ExtResource("2_u5h4x")
@@ -32,6 +33,10 @@ shape = SubResource("CircleShape2D_s3kdx")
 debug_color = Color(0.937794, 1.2514e-05, 0.626455, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("4_wb88l")
 
 [node name="Area2D" type="Area2D" parent="."]
 

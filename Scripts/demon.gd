@@ -8,6 +8,8 @@ var mouse_label: = %MouseLabel
 var sprite: = %Sprite2D
 @onready
 var gun: = %Gun
+@onready
+var camera: = %Camera2D
 
 var mouse_pos: Vector2
 var gun_moved_left: bool = false
@@ -40,5 +42,5 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Test"):
 		gun.position = Vector2(0,0)
 	
-	mouse_label.text = ("Char X: " + str(position.x) + "\nChar Y: " + str(position.y) + "\nMaus X: " + str(get_global_mouse_position()))
+	mouse_label.text = ("Char X: " + str(position.x) + "\nChar Y: " + str(position.y) + "\nMaus X: " + str(get_global_mouse_position()) + "\nCamera X: " + str(camera.position.x) + "\nCamera Y: " + str(camera.position.y))
 	#look_at(get_global_mouse_position())
