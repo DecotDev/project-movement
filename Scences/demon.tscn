@@ -34,8 +34,8 @@ debug_color = Color(0.937794, 1.2514e-05, 0.626455, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
-position_smoothing_enabled = true
-position_smoothing_speed = 2.0
+top_level = true
+position_smoothing_speed = 20.0
 script = ExtResource("4_wb88l")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -46,6 +46,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.215686)
 
 [node name="MouseLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -38.0
 offset_top = -150.0
 offset_right = 2.0
