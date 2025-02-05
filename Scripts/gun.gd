@@ -6,6 +6,11 @@ var reload_timer: Node = %ReloadTimer
 var magazine_size: int = 8
 var ammo: int = 8
 var reloading: bool = false
+var gui: Node = null
+
+func _ready() -> void:
+	gui = get_tree().get_root().find_child("HellGUI", true, false)
+	gui.update_ammo_label(ammo, magazine_size)
 
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -16,6 +21,7 @@ func _physics_process(delta: float) -> void:
 
 func shoot() -> void:
 	ammo -= 1
+	gui.update_ammo_label(ammo, magazine_size)
 	const BULLET = preload("res://Scences/bullet.tscn")
 	var new_bullet: = BULLET.instantiate()
 	new_bullet.global_position = %ShootingPoint.global_position
@@ -28,4 +34,5 @@ func reload() -> void:
 
 func _on_reload_timer_timeout() -> void:
 	ammo = magazine_size
+	gui.update_ammo_label(ammo, magazine_size)
 	reloading = false

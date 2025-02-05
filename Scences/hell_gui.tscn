@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=5 format=3 uid="uid://dbi28s0peaois"]
+
+[ext_resource type="Script" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
+[ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uup6e"]
+atlas = ExtResource("2_5t775")
+region = Rect2(0, 0, 36, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nmvd"]
+atlas = ExtResource("2_5t775")
+region = Rect2(36, 0, 36, 18)
 
 [node name="HellGUI" type="Control"]
 layout_mode = 3
@@ -7,5 +18,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p8bu5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_top = 71.0
+offset_right = 36.0
+offset_bottom = 89.0
+scale = Vector2(4, 4)
+texture_under = SubResource("AtlasTexture_uup6e")
+texture_progress = SubResource("AtlasTexture_4nmvd")
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureProgressBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 100.0
+offset_bottom = 67.0
+
+[node name="AmmoLeftLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "8/8"
+horizontal_alignment = 1
