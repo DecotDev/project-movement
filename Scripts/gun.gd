@@ -11,6 +11,7 @@ var gui: Node = null
 func _ready() -> void:
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	gui.update_ammo_label(ammo, magazine_size)
+	#gui.update_flame_bar(ammo)
 
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -30,9 +31,11 @@ func shoot() -> void:
 
 func reload() -> void:
 	reloading = true
+	gui.enable_reloading()
 	reload_timer.start()
 
 func _on_reload_timer_timeout() -> void:
 	ammo = magazine_size
 	gui.update_ammo_label(ammo, magazine_size)
+	gui.disable_reloading()
 	reloading = false
