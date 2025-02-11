@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://coibfkpqkmlbp"]
+[gd_scene load_steps=5 format=3 uid="uid://coibfkpqkmlbp"]
 
 [ext_resource type="Texture2D" uid="uid://cwyskgv43joaf" path="res://Assets/Hell/hex.png" id="1_fetqg"]
 [ext_resource type="PackedScene" uid="uid://cfmbl6ed0fskd" path="res://Scences/demon.tscn" id="1_v8cfb"]
 [ext_resource type="PackedScene" uid="uid://dbi28s0peaois" path="res://Scences/hell_gui.tscn" id="3_v8ioc"]
+[ext_resource type="PackedScene" uid="uid://qllip7vlobs6" path="res://Scences/enemy.tscn" id="4_372xq"]
 
 [node name="HellMain" type="Node2D"]
 
@@ -16,3 +17,65 @@ region_rect = Rect2(0, 0, 1920, 1080)
 [node name="Demon" parent="." instance=ExtResource("1_v8cfb")]
 
 [node name="HellGUI" parent="." instance=ExtResource("3_v8ioc")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(1226, -390)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(1145, -888)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-487, 834)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-1665, 79)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-21, -512)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-1155, -418)
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-406, -690)
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(562, -704)
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(547, 798)
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(1317, 111)
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(1226, -390)
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(1145, -888)
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-487, 834)
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-1665, 79)
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-21, -512)
+
+[node name="Enemy16" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-1155, -418)
+
+[node name="Enemy17" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(-406, -690)
+
+[node name="Enemy18" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(562, -704)
+
+[node name="Enemy19" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(547, 798)
+
+[node name="Enemy20" parent="Enemies" instance=ExtResource("4_372xq")]
+position = Vector2(1317, 111)

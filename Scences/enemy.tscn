@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://qllip7vlobs6"]
+
+[ext_resource type="Texture2D" uid="uid://pham1re3iyvv" path="res://Assets/Hell/enemy.png" id="1_606mj"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_ckjr3"]
+
+[sub_resource type="Animation" id="Animation_8crib"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tiis3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_57apd"]
+resource_name = "Hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_735dd"]
+_data = {
+"Hurt": SubResource("Animation_57apd"),
+"Idle": SubResource("Animation_8crib"),
+"RESET": SubResource("Animation_tiis3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8vcw"]
+size = Vector2(14, 12)
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ckjr3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_735dd")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_606mj")
+hframes = 8
+vframes = 8
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, -6, 4, -4, 4, -8, 6, -8, 8, -5, 8, 1, 4, 8, -4, 8, -8, 1, -8, -5, -6, -8, -4, -8, -4, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_y8vcw")
