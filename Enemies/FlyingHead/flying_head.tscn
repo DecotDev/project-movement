@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://qllip7vlobs6"]
 
-[ext_resource type="Texture2D" uid="uid://pham1re3iyvv" path="res://Assets/Hell/enemy.png" id="1_606mj"]
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_ckjr3"]
+[ext_resource type="Texture2D" uid="uid://pham1re3iyvv" path="res://Enemies/FlyingHead/enemy.png" id="1_606mj"]
+[ext_resource type="Script" path="res://Enemies/FlyingHead/enemy.gd" id="1_ckjr3"]
 
 [sub_resource type="Animation" id="Animation_57apd"]
 resource_name = "Hurt"
@@ -58,7 +58,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8vcw"]
 size = Vector2(14, 12)
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="FlyingHead" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 collision_layer = 2
 collision_mask = 2
