@@ -8,7 +8,6 @@ const DASHING = "Dashing"
 
 var player: Player
 
-
 func _ready() -> void:
 	await owner.ready
 	player = owner as Player

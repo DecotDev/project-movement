@@ -1,13 +1,9 @@
 class_name FlyingHeadState extends State
 
-const IDLE = "Idle"
-const RUNNING = "Running"
-const JUMPING = "Jumping"
-const FALLING = "Falling"
-const DASHING = "Dashing"
+const MOVING = "Moving"
+const HURT = "Hurt"
 
 var flying_head: FlyingHead
-
 
 func _ready() -> void:
 	await owner.ready

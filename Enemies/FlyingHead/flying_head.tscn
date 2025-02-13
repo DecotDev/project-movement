@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://qllip7vlobs6"]
+[gd_scene load_steps=11 format=3 uid="uid://qllip7vlobs6"]
 
 [ext_resource type="Texture2D" uid="uid://pham1re3iyvv" path="res://Enemies/FlyingHead/enemy.png" id="1_606mj"]
-[ext_resource type="Script" path="res://Enemies/FlyingHead/enemy.gd" id="1_ckjr3"]
+[ext_resource type="Script" path="res://Enemies/FlyingHead/flying_head.gd" id="1_urndj"]
+[ext_resource type="Script" path="res://StateMachine/state_machine.gd" id="3_6ism7"]
+[ext_resource type="Script" path="res://Enemies/FlyingHead/moving.gd" id="4_dn8th"]
+[ext_resource type="Script" path="res://Enemies/FlyingHead/hurt.gd" id="5_n1ptx"]
 
 [sub_resource type="Animation" id="Animation_57apd"]
 resource_name = "Hurt"
@@ -59,10 +62,9 @@ _data = {
 size = Vector2(14, 12)
 
 [node name="FlyingHead" type="CharacterBody2D"]
-scale = Vector2(4, 4)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_ckjr3")
+script = ExtResource("1_urndj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -72,15 +74,38 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
 texture = ExtResource("1_606mj")
 hframes = 8
 vframes = 8
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4, 4)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(0, -6, 4, -4, 4, -8, 6, -8, 8, -5, 8, 1, 4, 8, -4, 8, -8, 1, -8, -5, -6, -8, -4, -8, -4, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
+scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_y8vcw")
+
+[node name="StateLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_6ism7")
+
+[node name="Moving" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("4_dn8th")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("5_n1ptx")
+
+[node name="HurtTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]

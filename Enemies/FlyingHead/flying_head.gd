@@ -1,12 +1,22 @@
 class_name FlyingHead
-extends Node
+extends CharacterBody2D
 
+@onready
+var animation_player: = $AnimationPlayer
+@onready
+var state_label: = %StateLabel
+@onready
+var demon: CharacterBody2D
+@onready
+var moving: = %Moving
+@onready
+var hurt_timer: = %HurtTimer
 
-# Called when the node enters the scene tree for the first time.
+var health: int = 3
+var direction: Vector2
+var rng: = RandomNumberGenerator.new()
+var dir_countdown: int = 0
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	demon = get_tree().get_root().find_child("Demon", true, false)
+	%AnimationPlayer.play("Idle")
