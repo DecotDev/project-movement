@@ -20,3 +20,6 @@ var dir_countdown: int = 0
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	%AnimationPlayer.play("Idle")
+	
+func take_damage() -> void:
+	moving.finished.emit("Hurt")

@@ -21,8 +21,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body != Demon:
+	#print(body.name)
+	#if body == FlyingHead:
+		#queue_free()
+		#body.moving.finished.emit("Hurt")
+		
+		
+	if body.has_method("take_damage"):
+		body.take_damage()
 		queue_free()
-		body.moving.finished.emit("Hurt")
-	#if body.has_method("take_damage"):
-		#body.take_damage()
