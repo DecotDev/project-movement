@@ -10,14 +10,29 @@ var sprite: = %Sprite2D
 var gun: = %Gun
 @onready
 var camera: = %Camera2D
-
+@onready
+var hitbox: = %Hitbox
+@onready
+var roll_timer: = %RollTimer
 
 var gun_moved_left: bool = false
 var gun_moved_right: bool = false
 
 var input_direction: Vector2
-var movement_speed: int = 40
+var movement_speed: int = 24
+var invencible: bool = false
 
+var gui: Node = null
+
+func _ready() -> void:
+	gui = get_tree().get_root().find_child("HellGUI", true, false)
+	#gui.update_health_label()
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.has_method("damage_demon") and !invencible:
+		Global.demon_health -= 1
+		gui.update_health_label()
 #func _physics_process(delta: float) -> void:
 		#mouse_label.text = ("Char X: " + str(position.x) + "\nChar Y: " + str(position.y) + "\nMaus X: " + str(get_global_mouse_position()) + "\nCamera X: " + str(camera.position.x) + "\nCamera Y: " + str(camera.position.y) + "\nMD_df X: " + str(camera.mouse_demon_diff.x) +"\nMD_df Y: " + str(camera.mouse_demon_diff.y))
 	#camera.mouse_pos = get_global_mouse_position()

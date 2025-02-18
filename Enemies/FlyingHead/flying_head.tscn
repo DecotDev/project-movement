@@ -79,10 +79,10 @@ texture = ExtResource("1_606mj")
 hframes = 8
 vframes = 8
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 scale = Vector2(4, 4)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
 polygon = PackedVector2Array(0, -6, 4, -4, 4, -8, 6, -8, 8, -5, 8, 1, 4, 8, -4, 8, -8, 1, -8, -5, -6, -8, -4, -8, -4, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

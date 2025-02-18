@@ -23,3 +23,6 @@ func _ready() -> void:
 	
 func take_damage() -> void:
 	moving.finished.emit("Hurt")
+	
+func damage_demon() -> void:
+	pass

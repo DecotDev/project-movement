@@ -4,10 +4,13 @@ extends Control
 var flame_bar: = %TextureProgressBar
 @onready
 var reloading_label: = %ReloadingLabel
+@onready
+var health_label: = %HealthLabel
 
 func _ready() -> void:
 	flame_bar.max_value = 8
 	flame_bar.value = 8
+	health_label.text = ("Health: " + str(Global.demon_health))
 	#%TextureProgressBar.value = 2
 
 func update_ammo_label(ammo: int, magazine_size: int) -> void:
@@ -23,3 +26,6 @@ func enable_reloading() -> void:
 	
 func disable_reloading() -> void:
 	reloading_label.visible = false
+	
+func update_health_label() -> void:
+	health_label.text = ("Health: " + str(Global.demon_health))

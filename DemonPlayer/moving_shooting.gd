@@ -1,6 +1,4 @@
 extends DemonPlayerState
-@onready
-var Sprite: = %Sprite2D
 
 func enter(previous_state_path: String, data := {}) -> void:
 	pass
@@ -26,8 +24,15 @@ func physics_update(delta: float) -> void:
 			demon.gun.position.x = + 16
 			demon.gun_moved_left = false
 			demon.gun_moved_right = true
+	if Input.is_action_just_pressed("Space"):
+		finished.emit(ROLL)
 
-	if Input.is_action_just_pressed("Test"):
-		pass
-	#	gun.position = Vector2(0,0)
-	
+
+
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	pass
+	#if body.has_method("damage_demon"):
+		#Global.demon_health -= 1
+		#demon.gui.update_health_label()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfmbl6ed0fskd"]
+[gd_scene load_steps=11 format=3 uid="uid://cfmbl6ed0fskd"]
 
 [ext_resource type="Script" path="res://DemonPlayer/demon.gd" id="1_fs57w"]
 [ext_resource type="Texture2D" uid="uid://3sf44jrnvenc" path="res://Assets/char_red0.png" id="2_u5h4x"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="4_wb88l"]
 [ext_resource type="Script" path="res://StateMachine/state_machine.gd" id="5_o03x4"]
 [ext_resource type="Script" path="res://DemonPlayer/moving_shooting.gd" id="6_4cuj1"]
+[ext_resource type="Script" path="res://DemonPlayer/roll.gd" id="7_e703d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ao7xs"]
 atlas = ExtResource("2_u5h4x")
@@ -40,9 +41,12 @@ top_level = true
 position_smoothing_speed = 20.0
 script = ExtResource("4_wb88l")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_c8ava")
 debug_color = Color(0, 0.6, 0.701961, 0.215686)
 
@@ -59,3 +63,15 @@ script = ExtResource("5_o03x4")
 
 [node name="MovingShooting" type="Node" parent="StateMachine"]
 script = ExtResource("6_4cuj1")
+
+[node name="Roll" type="Node" parent="StateMachine"]
+script = ExtResource("7_e703d")
+
+[node name="RollTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="StateMachine/MovingShooting" method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="RollTimer" to="StateMachine/Roll" method="_on_roll_timer_timeout"]
