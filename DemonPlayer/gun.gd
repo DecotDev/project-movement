@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 func shoot() -> void:
 	ammo -= 1
 	gui.update_ammo_label(ammo, magazine_size)
-	const BULLET = preload("res://Scences/bullet.tscn")
+	const BULLET = preload("res://DemonPlayer/bullet.tscn")
 	var new_bullet: = BULLET.instantiate()
 	new_bullet.global_position = %ShootingPoint.global_position
 	new_bullet.global_rotation = %ShootingPoint.global_rotation
