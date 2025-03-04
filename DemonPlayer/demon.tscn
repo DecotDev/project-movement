@@ -52,7 +52,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.215686)
 
 [node name="MouseLabel" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
 offset_left = -38.0
 offset_top = -150.0
 offset_right = 2.0

@@ -1,6 +1,6 @@
 extends PlayerState
 @onready
-var Sprite: = %Sprite2D
+var Sprite: = %Sprite2D 
 
 func enter(previous_state_path: String, data := {}) -> void:
 	#if player.velocity.x != 0.0:
