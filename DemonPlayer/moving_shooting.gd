@@ -1,7 +1,7 @@
 extends DemonPlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	pass
+	state_label.text = "MovShoot"
 
 
 func physics_update(delta: float) -> void:

@@ -5,6 +5,13 @@ const ROLL = "Roll"
 
 var demon: Demon
 
+@onready
+var state_label: = %StateLabel
+@onready
+var animation_player: = %AnimationPlayer
+@onready
+var sprite_s_d: = %SpriteSD
+
 func _ready() -> void:
 	await owner.ready
 	demon = owner as Demon

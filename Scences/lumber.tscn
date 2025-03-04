@@ -233,7 +233,7 @@ animation = &"Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_l5nyu")
+&"": SubResource("AnimationLibrary_l5nyu")
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

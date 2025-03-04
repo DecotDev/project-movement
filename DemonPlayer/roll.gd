@@ -1,6 +1,8 @@
 extends DemonPlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	demon.velocity *= 1.5
+	state_label.text = "Roll"
 	demon.roll_timer.start()
 	demon.invencible = true
 

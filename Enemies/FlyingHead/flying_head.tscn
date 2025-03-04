@@ -70,7 +70,7 @@ script = ExtResource("1_urndj")
 unique_name_in_owner = true
 root_node = NodePath("../Sprite2D")
 libraries = {
-"": SubResource("AnimationLibrary_735dd")
+&"": SubResource("AnimationLibrary_735dd")
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
