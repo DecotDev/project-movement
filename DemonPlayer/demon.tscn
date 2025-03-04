@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cfmbl6ed0fskd"]
 
 [ext_resource type="Script" uid="uid://bcpd1cbky14ky" path="res://DemonPlayer/demon.gd" id="1_fs57w"]
-[ext_resource type="Texture2D" uid="uid://d364pk0131ior" path="res://Assets/slim_demon_5.png" id="2_h0ij0"]
+[ext_resource type="Texture2D" uid="uid://b771eucd5bq4s" path="res://DemonPlayer/SuitDemon.png" id="2_h0ij0"]
 [ext_resource type="Texture2D" uid="uid://3sf44jrnvenc" path="res://Assets/char_red0.png" id="2_u5h4x"]
 [ext_resource type="PackedScene" uid="uid://bh6srcfj8h0k0" path="res://DemonPlayer/gun.tscn" id="3_nkav8"]
 [ext_resource type="Script" uid="uid://bf7smifukhp5g" path="res://Scripts/camera_2d.gd" id="4_wb88l"]
@@ -24,12 +24,16 @@ script = ExtResource("1_fs57w")
 
 [node name="SpriteSlimDemon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-64, -84)
+scale = Vector2(4, 4)
 texture = ExtResource("2_h0ij0")
-hframes = 7
-vframes = 4
+centered = false
+hframes = 8
+vframes = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(8, 8)
 texture = SubResource("AtlasTexture_ao7xs")
 flip_h = true
@@ -57,7 +61,6 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(116, -61)
 shape = SubResource("CircleShape2D_c8ava")
 debug_color = Color(0, 0.6, 0.701961, 0.215686)
 

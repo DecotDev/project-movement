@@ -127,8 +127,9 @@ script = ExtResource("1_f0wh1")
 unique_name_in_owner = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_puu7e")
-animation = &"Idle"
+animation = &"Crouch"
 autoplay = "Idle"
+frame_progress = 0.603584
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)

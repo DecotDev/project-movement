@@ -10,7 +10,7 @@ var state_label: = %StateLabel
 @onready
 var animation_player: = %AnimationPlayer
 @onready
-var sprite_s_d: = %SpriteSD
+var sprite_s_d: = %SpriteSlimDemon
 
 func _ready() -> void:
 	await owner.ready

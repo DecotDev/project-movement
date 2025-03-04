@@ -13,6 +13,7 @@ func physics_update(delta: float) -> void:
 	
 	if demon.camera.mouse_pos.x < demon.position.x:
 		demon.sprite.flip_h = false
+		sprite_s_d.flip_h = true
 		if !demon.gun_moved_left:
 
 			demon.gun.position.x = -16
@@ -20,6 +21,7 @@ func physics_update(delta: float) -> void:
 			demon.gun_moved_right = false
 	else:
 		demon.sprite.flip_h = true
+		sprite_s_d.flip_h = false
 		if !demon.gun_moved_right:
 			demon.gun.position.x = + 16
 			demon.gun_moved_left = false
