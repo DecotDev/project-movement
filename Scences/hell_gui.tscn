@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbi28s0peaois"]
 
-[ext_resource type="Script" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
+[ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uup6e"]

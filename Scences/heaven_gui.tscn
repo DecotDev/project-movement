@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx13mehul60kb"]
 
 [ext_resource type="Texture2D" uid="uid://bs74t7m0fhshk" path="res://Assets/Heaven/GUI/godot_icon.png" id="1_lahjv"]
-[ext_resource type="Script" path="res://Scripts/heaven_gui.gd" id="1_sutog"]
+[ext_resource type="Script" uid="uid://d383agfrsyfk6" path="res://Scripts/heaven_gui.gd" id="1_sutog"]
 
 [node name="HeavenGUI" type="Control"]
 layout_mode = 3

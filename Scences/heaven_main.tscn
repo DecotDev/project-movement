@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://bh0opwr3bpgia"]
 
 [ext_resource type="Texture2D" uid="uid://dyclqf3yqxltr" path="res://Assets/Heaven/Bakground/heavenMainBg.png" id="1_8p2lp"]
-[ext_resource type="Script" path="res://heaven_main.gd" id="1_l8av3"]
+[ext_resource type="Script" uid="uid://blvvpu04djaw1" path="res://heaven_main.gd" id="1_l8av3"]
 [ext_resource type="PackedScene" uid="uid://c5b8wa7kknj3k" path="res://Scences/lumber.tscn" id="2_oyb2g"]
 [ext_resource type="PackedScene" uid="uid://dx13mehul60kb" path="res://Scences/heaven_gui.tscn" id="3_5nbyf"]
 [ext_resource type="PackedScene" uid="uid://tkukihame2k" path="res://Scences/coin.tscn" id="3_qncsd"]

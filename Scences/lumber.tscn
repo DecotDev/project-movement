@@ -1,14 +1,14 @@
 [gd_scene load_steps=31 format=3 uid="uid://c5b8wa7kknj3k"]
 
-[ext_resource type="Script" path="res://AngelPlayer/lumber.gd" id="1_0u7ud"]
+[ext_resource type="Script" uid="uid://ba4h7p5wwvjjp" path="res://AngelPlayer/lumber.gd" id="1_0u7ud"]
 [ext_resource type="Texture2D" uid="uid://b0p3dsdnffaps" path="res://Assets/Heaven/Chars/lumber.png" id="1_wrv2l"]
-[ext_resource type="Script" path="res://AngelPlayer/idle.gd" id="3_2di42"]
-[ext_resource type="Script" path="res://StateMachine/state_machine.gd" id="3_i0uop"]
+[ext_resource type="Script" uid="uid://bysi54m4b6lmm" path="res://AngelPlayer/idle.gd" id="3_2di42"]
+[ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="3_i0uop"]
 [ext_resource type="Texture2D" uid="uid://ceflo7isqanpf" path="res://Assets/Heaven/Chars/lumber04.png" id="3_lte0i"]
-[ext_resource type="Script" path="res://AngelPlayer/running.gd" id="4_agx24"]
-[ext_resource type="Script" path="res://AngelPlayer/jumping.gd" id="5_wnbuf"]
-[ext_resource type="Script" path="res://AngelPlayer/falling.gd" id="6_sys07"]
-[ext_resource type="Script" path="res://AngelPlayer/dashing.gd" id="8_q0ewp"]
+[ext_resource type="Script" uid="uid://buwssrk45jqis" path="res://AngelPlayer/running.gd" id="4_agx24"]
+[ext_resource type="Script" uid="uid://cc813n7unnd2p" path="res://AngelPlayer/jumping.gd" id="5_wnbuf"]
+[ext_resource type="Script" uid="uid://daf3yj47cg6kd" path="res://AngelPlayer/falling.gd" id="6_sys07"]
+[ext_resource type="Script" uid="uid://cvi0ieawhof4n" path="res://AngelPlayer/dashing.gd" id="8_q0ewp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb7jq"]
 atlas = ExtResource("1_wrv2l")
@@ -203,12 +203,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l5nyu"]
 _data = {
-"Dash": SubResource("Animation_nlkj3"),
-"Fall": SubResource("Animation_bxpf4"),
-"Idle": SubResource("Animation_phfjy"),
-"Jump": SubResource("Animation_6xycc"),
-"RESET": SubResource("Animation_1uw5g"),
-"Run": SubResource("Animation_eyhxb")
+&"Dash": SubResource("Animation_nlkj3"),
+&"Fall": SubResource("Animation_bxpf4"),
+&"Idle": SubResource("Animation_phfjy"),
+&"Jump": SubResource("Animation_6xycc"),
+&"RESET": SubResource("Animation_1uw5g"),
+&"Run": SubResource("Animation_eyhxb")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6xto"]

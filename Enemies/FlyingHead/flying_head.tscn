@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://qllip7vlobs6"]
 
 [ext_resource type="Texture2D" uid="uid://pham1re3iyvv" path="res://Enemies/FlyingHead/enemy.png" id="1_606mj"]
-[ext_resource type="Script" path="res://Enemies/FlyingHead/flying_head.gd" id="1_urndj"]
-[ext_resource type="Script" path="res://StateMachine/state_machine.gd" id="3_6ism7"]
-[ext_resource type="Script" path="res://Enemies/FlyingHead/moving.gd" id="4_dn8th"]
-[ext_resource type="Script" path="res://Enemies/FlyingHead/hurt.gd" id="5_n1ptx"]
+[ext_resource type="Script" uid="uid://gu0ng8yhi8wd" path="res://Enemies/FlyingHead/flying_head.gd" id="1_urndj"]
+[ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="3_6ism7"]
+[ext_resource type="Script" uid="uid://bilfng4ahdhsk" path="res://Enemies/FlyingHead/moving.gd" id="4_dn8th"]
+[ext_resource type="Script" uid="uid://byxut1ep6i60f" path="res://Enemies/FlyingHead/hurt.gd" id="5_n1ptx"]
 
 [sub_resource type="Animation" id="Animation_57apd"]
 resource_name = "Hurt"
@@ -53,9 +53,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_735dd"]
 _data = {
-"Hurt": SubResource("Animation_57apd"),
-"Idle": SubResource("Animation_8crib"),
-"RESET": SubResource("Animation_tiis3")
+&"Hurt": SubResource("Animation_57apd"),
+&"Idle": SubResource("Animation_8crib"),
+&"RESET": SubResource("Animation_tiis3")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8vcw"]
