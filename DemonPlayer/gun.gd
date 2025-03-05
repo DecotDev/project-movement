@@ -2,6 +2,8 @@ extends Area2D
 
 @onready
 var reload_timer: Node = %ReloadTimer
+@onready
+var sprite: = %Sprite
 
 var magazine_size: int = 8
 var ammo: int = 8

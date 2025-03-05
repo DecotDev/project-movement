@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6h14y4qbn3kh"
-path="res://.godot/imported/enemy.png-04ed58655b25bc0138c9aa01362be649.ctex"
+uid="uid://86464mahes61"
+path="res://.godot/imported/gun.png-6afc0225a2d556cc4397a92e3eb7b4d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/FlyingHead/enemy.png"
-dest_files=["res://.godot/imported/enemy.png-04ed58655b25bc0138c9aa01362be649.ctex"]
+source_file="res://DemonPlayer/gun.png"
+dest_files=["res://.godot/imported/gun.png-6afc0225a2d556cc4397a92e3eb7b4d1.ctex"]
 
 [params]
 

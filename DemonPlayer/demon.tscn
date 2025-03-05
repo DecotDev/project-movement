@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfmbl6ed0fskd"]
+[gd_scene load_steps=15 format=3 uid="uid://cfmbl6ed0fskd"]
 
 [ext_resource type="Script" uid="uid://bcpd1cbky14ky" path="res://DemonPlayer/demon.gd" id="1_fs57w"]
-[ext_resource type="Texture2D" uid="uid://b771eucd5bq4s" path="res://DemonPlayer/SuitDemon.png" id="2_h0ij0"]
 [ext_resource type="Texture2D" uid="uid://3sf44jrnvenc" path="res://Assets/char_red0.png" id="2_u5h4x"]
 [ext_resource type="PackedScene" uid="uid://bh6srcfj8h0k0" path="res://DemonPlayer/gun.tscn" id="3_nkav8"]
 [ext_resource type="Script" uid="uid://bf7smifukhp5g" path="res://Scripts/camera_2d.gd" id="4_wb88l"]
@@ -9,9 +8,51 @@
 [ext_resource type="Script" uid="uid://bd1q8l2gayb6i" path="res://DemonPlayer/moving_shooting.gd" id="6_4cuj1"]
 [ext_resource type="Script" uid="uid://0e1387hali6x" path="res://DemonPlayer/roll.gd" id="7_e703d"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_surqq"]
+load_path = "res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ao7xs"]
 atlas = ExtResource("2_u5h4x")
 region = Rect2(1, 0, 6, 8)
+
+[sub_resource type="Animation" id="Animation_surqq"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteSlimDemon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_h0ij0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteSlimDemon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x675w"]
+_data = {
+&"Idle": SubResource("Animation_surqq"),
+&"RESET": SubResource("Animation_h0ij0")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3kdx"]
 radius = 32.0
@@ -24,12 +65,14 @@ script = ExtResource("1_fs57w")
 
 [node name="SpriteSlimDemon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-64, -84)
+z_index = 3
+position = Vector2(-64, -76)
 scale = Vector2(4, 4)
-texture = ExtResource("2_h0ij0")
+texture = SubResource("CompressedTexture2D_surqq")
 centered = false
 hframes = 8
 vframes = 8
+frame = 9
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -40,9 +83,13 @@ flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_x675w")
+}
 
 [node name="Gun" parent="." instance=ExtResource("3_nkav8")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(0, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

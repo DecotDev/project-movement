@@ -2,6 +2,7 @@ extends DemonPlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
 	state_label.text = "MovShoot"
+	%AnimationPlayer.play("Idle")
 
 
 func physics_update(delta: float) -> void:
@@ -16,16 +17,18 @@ func physics_update(delta: float) -> void:
 		sprite_s_d.flip_h = true
 		if !demon.gun_moved_left:
 
-			demon.gun.position.x = -16
+			demon.gun.position.x = -25
 			demon.gun_moved_left = true
 			demon.gun_moved_right = false
+			demon.gun.sprite.flip_v = true
 	else:
 		demon.sprite.flip_h = true
 		sprite_s_d.flip_h = false
 		if !demon.gun_moved_right:
-			demon.gun.position.x = + 16
+			demon.gun.position.x = + 25
 			demon.gun_moved_left = false
 			demon.gun_moved_right = true
+			demon.gun.sprite.flip_v = false
 	if Input.is_action_just_pressed("Space"):
 		finished.emit(ROLL)
 
