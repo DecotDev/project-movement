@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7dtx43pp45m5"]
+[gd_scene load_steps=6 format=3 uid="uid://c7dtx43pp45m5"]
 
 [ext_resource type="Script" uid="uid://gywsn2ktlclt" path="res://DemonPlayer/bullet.gd" id="1_tcukp"]
 [ext_resource type="Texture2D" uid="uid://rtmsfy7rluqb" path="res://icon.svg" id="2_erv4u"]
+[ext_resource type="Texture2D" uid="uid://b71prkabyscpo" path="res://Assets/Guns/Bullet.png" id="3_k1iyp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f36t8"]
-radius = 10.7703
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kygl"]
+atlas = ExtResource("3_k1iyp")
 
 [node name="Bullet" type="Area2D"]
 top_level = true
@@ -14,10 +18,18 @@ collision_mask = 3
 script = ExtResource("1_tcukp")
 
 [node name="Projectile" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.175, 0.175)
 texture = ExtResource("2_erv4u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f36t8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_6kygl")
+hframes = 4
+vframes = 4
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
