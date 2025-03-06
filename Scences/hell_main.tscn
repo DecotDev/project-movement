@@ -24,62 +24,11 @@ offset_bottom = -3.0
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(1226, -390)
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(1145, -888)
-
 [node name="Enemy3" parent="Enemies" instance=ExtResource("4_372xq")]
 position = Vector2(-487, 834)
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-1665, 79)
-
-[node name="Enemy5" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-21, -512)
-
-[node name="Enemy6" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-1155, -418)
-
-[node name="Enemy7" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-406, -690)
-
-[node name="Enemy8" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(562, -704)
 
 [node name="Enemy9" parent="Enemies" instance=ExtResource("4_372xq")]
 position = Vector2(547, 798)
 
 [node name="Enemy10" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(1317, 111)
-
-[node name="Enemy11" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(1226, -390)
-
-[node name="Enemy12" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(1145, -888)
-
-[node name="Enemy13" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-487, 834)
-
-[node name="Enemy14" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-1665, 79)
-
-[node name="Enemy15" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-21, -512)
-
-[node name="Enemy16" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-1155, -418)
-
-[node name="Enemy17" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(-406, -690)
-
-[node name="Enemy18" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(562, -704)
-
-[node name="Enemy19" parent="Enemies" instance=ExtResource("4_372xq")]
-position = Vector2(547, 798)
-
-[node name="Enemy20" parent="Enemies" instance=ExtResource("4_372xq")]
 position = Vector2(1317, 111)

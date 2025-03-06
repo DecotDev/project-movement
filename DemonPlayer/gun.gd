@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 		if ammo > 0: shoot()
 	if Input.is_action_just_pressed("Reload") and ammo != magazine_size and !reloading:
 		reload()
+	%Sprite2D.global_position = %ShootingPoint.global_position
 
 func shoot() -> void:
 	shot_sound()
@@ -32,10 +33,12 @@ func shoot() -> void:
 	var new_bullet: = BULLET.instantiate()
 	if sprite.flip_v == true:
 		new_bullet.global_position = %ShootingPoint.global_position
-		new_bullet.global_position.y -= 22
+		new_bullet.global_rotation = %ShootingPoint.global_rotation
+		#new_bullet.global_position.y -= 22
+		#new_bullet.global_rotation += 0.3
 	else:
 		new_bullet.global_position = %ShootingPoint.global_position
-	new_bullet.global_rotation = %ShootingPoint.global_rotation
+		new_bullet.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_bullet)
 
 func shot_sound() -> void:
