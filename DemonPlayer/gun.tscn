@@ -1,20 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh6srcfj8h0k0"]
+[gd_scene load_steps=6 format=3 uid="uid://bh6srcfj8h0k0"]
 
 [ext_resource type="Script" uid="uid://b06fbu74l35el" path="res://DemonPlayer/gun.gd" id="1_coawq"]
-[ext_resource type="Texture2D" uid="uid://86464mahes61" path="res://DemonPlayer/gun.png" id="2_ou0ql"]
 [ext_resource type="Texture2D" uid="uid://rtmsfy7rluqb" path="res://icon.svg" id="3_ou0ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ol467"]
 size = Vector2(52, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xleyw"]
-atlas = ExtResource("2_ou0ql")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_emllk"]
 load_path = "res://.godot/imported/USP-45L.png-ca17f66da1ba0a775bd3fe7c228ff3db.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mc16o"]
 atlas = SubResource("CompressedTexture2D_emllk")
+region = Rect2(0, 8, 0, 26)
 
 [node name="Gun" type="Area2D"]
 collision_layer = 0
@@ -26,33 +23,29 @@ position = Vector2(22, 0)
 shape = SubResource("RectangleShape2D_ol467")
 
 [node name="CrossHair" type="Marker2D" parent="."]
-
-[node name="Sprite" type="Sprite2D" parent="CrossHair"]
 unique_name_in_owner = true
-visible = false
-z_index = 1
-scale = Vector2(4, 4)
-texture = SubResource("AtlasTexture_xleyw")
-hframes = 2
-vframes = 2
-
-[node name="ShootingPoint" type="Marker2D" parent="CrossHair"]
-unique_name_in_owner = true
-position = Vector2(50, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="CrossHair/ShootingPoint"]
-unique_name_in_owner = true
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_ou0ql")
 
 [node name="SpriteTest" type="Sprite2D" parent="CrossHair"]
 unique_name_in_owner = true
-position = Vector2(0, 4)
+position = Vector2(1, 5)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_mc16o")
 offset = Vector2(13.5, -2)
 hframes = 2
 vframes = 2
+
+[node name="ShootingPointRight" type="Marker2D" parent="CrossHair"]
+unique_name_in_owner = true
+position = Vector2(50, -7)
+
+[node name="Sprite2D" type="Sprite2D" parent="CrossHair/ShootingPointRight"]
+unique_name_in_owner = true
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_ou0ql")
+
+[node name="ShootingPointLeft" type="Marker2D" parent="CrossHair"]
+unique_name_in_owner = true
+position = Vector2(50, 7)
 
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true

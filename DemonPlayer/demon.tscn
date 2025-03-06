@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfmbl6ed0fskd"]
+[gd_scene load_steps=16 format=3 uid="uid://cfmbl6ed0fskd"]
 
 [ext_resource type="Script" uid="uid://bcpd1cbky14ky" path="res://DemonPlayer/demon.gd" id="1_fs57w"]
 [ext_resource type="Texture2D" uid="uid://3sf44jrnvenc" path="res://Assets/char_red0.png" id="2_u5h4x"]
+[ext_resource type="PackedScene" uid="uid://fli80nfnirp4" path="res://DemonPlayer/gun_refactor.tscn" id="3_h0ij0"]
 [ext_resource type="PackedScene" uid="uid://bh6srcfj8h0k0" path="res://DemonPlayer/gun.tscn" id="3_nkav8"]
 [ext_resource type="Script" uid="uid://bf7smifukhp5g" path="res://Scripts/camera_2d.gd" id="4_wb88l"]
 [ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="5_o03x4"]
@@ -86,6 +87,10 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_x675w")
 }
+
+[node name="GunRefactor" parent="." instance=ExtResource("3_h0ij0")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Gun" parent="." instance=ExtResource("3_nkav8")]
 unique_name_in_owner = true

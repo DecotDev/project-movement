@@ -1,11 +1,9 @@
-extends Area2D
+extends Sprite2D
 
 @onready
 var reload_timer: Node = %ReloadTimer
 @onready
 var sprite: = %SpriteTest
-@onready
-var cross_hair: = %CrossHair
 
 var magazine_size: int = 12
 var ammo: int = 12
@@ -24,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		if ammo > 0: shoot()
 	if Input.is_action_just_pressed("Reload") and ammo != magazine_size and !reloading:
 		reload()
-	%Sprite2D.global_position = %ShootingPointLeft.global_position
+	%Sprite2D.global_position = %ShootingPoint.global_position
 
 func shoot() -> void:
 	shot_sound()
@@ -34,21 +32,14 @@ func shoot() -> void:
 	const BULLET = preload("res://DemonPlayer/bullet.tscn")
 	var new_bullet: = BULLET.instantiate()
 	if sprite.flip_v == true:
-		#new_bullet.global_position = %CrossHair.global_position
-		#new_bullet.global_rotation = %ShootingPoint.global_rotation
-		new_bullet.global_position = %ShootingPointLeft.global_position
-		new_bullet.global_rotation = %ShootingPointLeft.global_rotation
-		#new_bullet.position.y -= 11
+		new_bullet.global_position = %ShootingPoint.global_position
+		new_bullet.global_rotation = %ShootingPoint.global_rotation
 		#new_bullet.position.y -= 22
 		#new_bullet.global_rotation += 0.3
-		%ShootingPointLeft.add_child(new_bullet)
 	else:
-		#new_bullet.global_position = %CrossHair.global_position
-		#new_bullet.global_rotation = %ShootingPoint.global_rotation
-		new_bullet.global_position = %ShootingPointRight.global_position
-		new_bullet.global_rotation = %ShootingPointRight.global_rotation
-		#new_bullet.position.y -= 11
-		%ShootingPointRight.add_child(new_bullet)
+		new_bullet.global_position = %ShootingPoint.global_position
+		new_bullet.global_rotation = %ShootingPoint.global_rotation
+	%ShootingPoint.add_child(new_bullet)
 
 func shot_sound() -> void:
 	SoundPlayer.play_sound(SoundPlayer.supressed_shot)
