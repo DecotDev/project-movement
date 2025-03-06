@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b18wufe8yvxhi"
+path="res://.godot/imported/GunSilencer 6064_22_1_preview.mp3-5bf9cfc58283e440b415f4d22a01afd9.mp3str"
+
+[deps]
+
+source_file="res://Assets/UncategorizedSounds/GunSilencer 6064_22_1_preview.mp3"
+dest_files=["res://.godot/imported/GunSilencer 6064_22_1_preview.mp3-5bf9cfc58283e440b415f4d22a01afd9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

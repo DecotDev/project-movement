@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b26bovv1e4ph4"
+path="res://.godot/imported/MachineGunSilence PE1104101_preview.mp3-0682f568e50c4d3cdd2a4a53ebbd385b.mp3str"
+
+[deps]
+
+source_file="res://Assets/UncategorizedSounds/MachineGunSilence PE1104101_preview.mp3"
+dest_files=["res://.godot/imported/MachineGunSilence PE1104101_preview.mp3-0682f568e50c4d3cdd2a4a53ebbd385b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

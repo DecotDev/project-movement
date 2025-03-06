@@ -3,7 +3,7 @@ extends Area2D
 @onready
 var reload_timer: Node = %ReloadTimer
 @onready
-var sprite: = %Sprite
+var sprite: = %SpriteTest
 
 var magazine_size: int = 8
 var ammo: int = 8
@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 		reload()
 
 func shoot() -> void:
+	shot_sound()
 	ammo -= 1
 	gui.update_ammo_label(ammo, magazine_size)
 	const BULLET = preload("res://DemonPlayer/bullet.tscn")
@@ -30,6 +31,10 @@ func shoot() -> void:
 	new_bullet.global_position = %ShootingPoint.global_position
 	new_bullet.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_bullet)
+
+func shot_sound() -> void:
+	SoundPlayer.play_sound(SoundPlayer.supressed_shot)
+
 
 func reload() -> void:
 	reloading = true

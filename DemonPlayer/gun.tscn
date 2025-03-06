@@ -1,14 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh6srcfj8h0k0"]
+[gd_scene load_steps=7 format=3 uid="uid://bh6srcfj8h0k0"]
 
 [ext_resource type="Script" uid="uid://b06fbu74l35el" path="res://DemonPlayer/gun.gd" id="1_coawq"]
 [ext_resource type="Texture2D" uid="uid://86464mahes61" path="res://DemonPlayer/gun.png" id="2_ou0ql"]
-[ext_resource type="Texture2D" uid="uid://rtmsfy7rluqb" path="res://icon.svg" id="2_wbx3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ol467"]
 size = Vector2(52, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xleyw"]
 atlas = ExtResource("2_ou0ql")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_emllk"]
+load_path = "res://.godot/imported/USP-45L.png-ca17f66da1ba0a775bd3fe7c228ff3db.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc16o"]
+atlas = SubResource("CompressedTexture2D_emllk")
 
 [node name="Gun" type="Area2D"]
 collision_layer = 0
@@ -23,6 +28,7 @@ shape = SubResource("RectangleShape2D_ol467")
 
 [node name="Sprite" type="Sprite2D" parent="CrossHair"]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_xleyw")
@@ -34,11 +40,13 @@ unique_name_in_owner = true
 position = Vector2(23, -2)
 scale = Vector2(0.40625, 0.109375)
 
-[node name="SpriteOld" type="Sprite2D" parent="CrossHair"]
-visible = false
-position = Vector2(22, 0)
-scale = Vector2(0.40625, 0.109375)
-texture = ExtResource("2_wbx3p")
+[node name="SpriteTest" type="Sprite2D" parent="CrossHair"]
+unique_name_in_owner = true
+position = Vector2(27, 0)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_mc16o")
+hframes = 2
+vframes = 2
 
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true

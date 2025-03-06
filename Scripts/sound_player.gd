@@ -1,6 +1,7 @@
 extends Node
 
 const pick_coin: = preload("res://Assets/Sounds/Coin/coin0.wav") 
+const supressed_shot: = preload("res://Assets/Guns/SupressedShot.wav")
 
 @onready
 var audioPlayers: = $AudioPlayers
