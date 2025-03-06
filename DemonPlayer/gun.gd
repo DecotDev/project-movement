@@ -5,8 +5,8 @@ var reload_timer: Node = %ReloadTimer
 @onready
 var sprite: = %SpriteTest
 
-var magazine_size: int = 8
-var ammo: int = 8
+var magazine_size: int = 12
+var ammo: int = 12
 var reloading: bool = false
 var gui: Node = null
 

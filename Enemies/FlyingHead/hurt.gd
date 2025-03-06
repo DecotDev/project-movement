@@ -9,14 +9,20 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	flying_head.move_and_slide()
+	flying_head.velocity *= 0.86
 
 func take_damage() -> void:
 	flying_head.animation_player.play("Hurt")
-	flying_head.velocity *= 0.3
+	push_back()
+	#flying_head.velocity *= 0.3
 	flying_head.health -= 1
 	if flying_head.health <= 0:
 		flying_head.queue_free()
 
+func push_back() -> void:
+	flying_head.direction = flying_head.global_position.direction_to(flying_head.demon.global_position)
+	flying_head.velocity = -flying_head.direction * 700.0 
+	#flying_head.move_and_slide()
 
 func _on_hurt_timer_timeout() -> void:
 	finished.emit(MOVING)

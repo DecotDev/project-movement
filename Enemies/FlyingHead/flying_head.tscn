@@ -109,5 +109,7 @@ script = ExtResource("5_n1ptx")
 
 [node name="HurtTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
 
 [connection signal="timeout" from="HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]

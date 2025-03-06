@@ -43,7 +43,7 @@ offset_bottom = 67.0
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
-text = "8/8"
+text = "12/12"
 horizontal_alignment = 1
 
 [node name="ReloadingLabel" type="Label" parent="CanvasLayer"]
@@ -56,9 +56,15 @@ offset_bottom = 528.0
 theme_override_font_sizes/font_size = 32
 text = "Reloading"
 
+[node name="AmmoTypeLabel" type="Label" parent="CanvasLayer"]
+offset_top = 74.0
+offset_right = 58.0
+offset_bottom = 97.0
+text = ".45 ACP"
+
 [node name="HealthLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_top = 68.0
+offset_top = 94.0
 offset_right = 100.0
-offset_bottom = 91.0
+offset_bottom = 117.0
 text = "Health"

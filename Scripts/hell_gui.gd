@@ -8,8 +8,8 @@ var reloading_label: = %ReloadingLabel
 var health_label: = %HealthLabel
 
 func _ready() -> void:
-	flame_bar.max_value = 8
-	flame_bar.value = 8
+	flame_bar.max_value = 12
+	flame_bar.value = 12
 	health_label.text = ("Health: " + str(Global.demon_health))
 	#%TextureProgressBar.value = 2
 
