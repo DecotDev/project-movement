@@ -90,7 +90,6 @@ libraries = {
 [node name="Gun" parent="." instance=ExtResource("3_nkav8")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(0, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s3kdx")

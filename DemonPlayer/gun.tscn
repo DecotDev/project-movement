@@ -38,7 +38,6 @@ vframes = 2
 [node name="ShootingPoint" type="Marker2D" parent="CrossHair"]
 unique_name_in_owner = true
 position = Vector2(26, -11)
-scale = Vector2(0.40625, 0.109375)
 
 [node name="SpriteTest" type="Sprite2D" parent="CrossHair"]
 unique_name_in_owner = true

@@ -30,7 +30,11 @@ func shoot() -> void:
 	gui.update_ammo_label(ammo, magazine_size)
 	const BULLET = preload("res://DemonPlayer/bullet.tscn")
 	var new_bullet: = BULLET.instantiate()
-	new_bullet.global_position = %ShootingPoint.global_position
+	if sprite.flip_v == true:
+		new_bullet.global_position = %ShootingPoint.global_position
+		new_bullet.global_position.y -= 22
+	else:
+		new_bullet.global_position = %ShootingPoint.global_position
 	new_bullet.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_bullet)
 
