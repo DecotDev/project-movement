@@ -29,6 +29,7 @@ func physics_update(delta: float) -> void:
 			demon.gun_moved_left = false
 			demon.gun_moved_right = true
 			demon.gun.sprite.flip_v = false
+
 	if Input.is_action_just_pressed("Space"):
 		finished.emit(ROLL)
 

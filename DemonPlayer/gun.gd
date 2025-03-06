@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
+	blowback_reset()
 	if Input.is_action_just_pressed("Shoot") and !reloading:
 		if ammo > 0: shoot()
 	if Input.is_action_just_pressed("Reload") and ammo != magazine_size and !reloading:
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 
 func shoot() -> void:
 	shot_sound()
+	blowback()
 	ammo -= 1
 	gui.update_ammo_label(ammo, magazine_size)
 	const BULLET = preload("res://DemonPlayer/bullet.tscn")
@@ -35,6 +37,19 @@ func shoot() -> void:
 func shot_sound() -> void:
 	SoundPlayer.play_sound(SoundPlayer.supressed_shot)
 
+func blowback() -> void:
+	if sprite.flip_v == true:
+		sprite.rotation += 0.5
+	else:
+		sprite.rotation -= 0.5
+	print(str (sprite.rotation))
+	
+func blowback_reset() -> void:
+	if sprite.flip_v == true:
+		#sprite.rotation *= -1
+		sprite.rotation = lerp(sprite.rotation, 0.0, 0.3)
+	else:
+		sprite.rotation = lerp(sprite.rotation, 0.0, 0.3)
 
 func reload() -> void:
 	reloading = true
