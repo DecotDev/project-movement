@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg2p2wrlqjdmt"
-path="res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"
+uid="uid://bm8ckauwb62oa"
+path="res://.godot/imported/SuitDemon.png-975a1ed773b12778ff9cc38aed0e4b4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DemonPlayer/SuitDemon.png"
-dest_files=["res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"]
+source_file="res://SuitDemon.png"
+dest_files=["res://.godot/imported/SuitDemon.png-975a1ed773b12778ff9cc38aed0e4b4d.ctex"]
 
 [params]
 

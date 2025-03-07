@@ -2,14 +2,14 @@ extends DemonPlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
 	state_label.text = "MovShoot"
-	%AnimationPlayer.play("Idle")
+	%AnimationPlayer.play("Run")
 
 
 func physics_update(delta: float) -> void:
 	demon.camera.mouse_pos = demon.get_global_mouse_position()
 	demon.input_direction = Input.get_vector("Left","Right","Up","Down")
 	#input_direction = input_direction.normalized()
-	demon.velocity = demon.input_direction * 550
+	demon.velocity = demon.input_direction * 450
 	demon.move_and_slide()
 	
 	if demon.camera.mouse_pos.x < demon.position.x:

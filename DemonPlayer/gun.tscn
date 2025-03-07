@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh6srcfj8h0k0"]
+[gd_scene load_steps=5 format=3 uid="uid://bh6srcfj8h0k0"]
 
 [ext_resource type="Script" uid="uid://b06fbu74l35el" path="res://DemonPlayer/gun.gd" id="1_coawq"]
-[ext_resource type="Texture2D" uid="uid://rtmsfy7rluqb" path="res://icon.svg" id="3_ou0ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ol467"]
 size = Vector2(52, 14)
@@ -19,6 +18,7 @@ collision_mask = 2
 script = ExtResource("1_coawq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(22, 0)
 shape = SubResource("RectangleShape2D_ol467")
 
@@ -27,25 +27,20 @@ unique_name_in_owner = true
 
 [node name="SpriteTest" type="Sprite2D" parent="CrossHair"]
 unique_name_in_owner = true
-position = Vector2(1, 5)
+position = Vector2(-2, 7)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_mc16o")
-offset = Vector2(13.5, -2)
+offset = Vector2(13.5, -3.5)
 hframes = 2
 vframes = 2
 
 [node name="ShootingPointRight" type="Marker2D" parent="CrossHair"]
 unique_name_in_owner = true
-position = Vector2(50, -7)
-
-[node name="Sprite2D" type="Sprite2D" parent="CrossHair/ShootingPointRight"]
-unique_name_in_owner = true
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_ou0ql")
+position = Vector2(50, -8)
 
 [node name="ShootingPointLeft" type="Marker2D" parent="CrossHair"]
 unique_name_in_owner = true
-position = Vector2(50, 7)
+position = Vector2(50, 8)
 
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true
