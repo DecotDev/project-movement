@@ -107,6 +107,7 @@ debug_color = Color(0.937794, 1.2514e-05, 0.626455, 0.42)
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 top_level = true
+zoom = Vector2(2, 2)
 position_smoothing_speed = 20.0
 script = ExtResource("4_wb88l")
 

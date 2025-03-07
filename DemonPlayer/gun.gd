@@ -49,6 +49,23 @@ func shoot() -> void:
 		new_bullet.global_rotation = %ShootingPointRight.global_rotation
 		#new_bullet.position.y -= 11
 		%ShootingPointRight.add_child(new_bullet)
+	eject_shell()
+
+func eject_shell() -> void:
+	const SHELL = preload("res://Assets/Guns/bullet_shell.tscn")
+	var new_shell: = SHELL.instantiate()
+	if sprite.flip_v == true:
+		new_shell.global_position = %EjectionPointLeft.global_position
+		new_shell.global_rotation = %EjectionPointLeft.global_rotation
+		new_shell.scale.x = 2
+		new_shell.scale.y = 2
+		%EjectionPointLeft.add_child(new_shell)
+	else:
+		new_shell.global_position = %EjectionPointRight.global_position
+		new_shell.global_rotation = %EjectionPointRight.global_rotation
+		new_shell.scale.x = 2
+		new_shell.scale.y = 2
+		%EjectionPointRight.add_child(new_shell)
 
 func shot_sound() -> void:
 	SoundPlayer.play_sound(SoundPlayer.supressed_shot)

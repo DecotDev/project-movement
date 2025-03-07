@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds4icmyr7tbo4"]
+
+[ext_resource type="Texture2D" uid="uid://17ku7npe8pca" path="res://Assets/Guns/BulletShells.png" id="1_0nvr4"]
+[ext_resource type="Script" uid="uid://cc2ia4j4rppno" path="res://Assets/Guns/bullet_shell.gd" id="2_mw66k"]
+
+[node name="BulletShell" type="Sprite2D"]
+top_level = true
+z_index = 2
+texture = ExtResource("1_0nvr4")
+hframes = 4
+vframes = 4
+script = ExtResource("2_mw66k")
+
+[node name="FallingTimer" type="Timer" parent="."]
+one_shot = true
