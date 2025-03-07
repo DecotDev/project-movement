@@ -10,7 +10,7 @@ var speed: = 30
 var falling: = true
 
 func _ready() -> void:
-	direction = Vector2(rng.randf_range(-5,5),rng.randf_range(-8,-16))
+	direction = Vector2(rng.randf_range(-6,6),rng.randf_range(-8,-16))
 	final_rotation = rng.randf_range(0.0,360.0)
 
 func _physics_process(delta: float) -> void:
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 				fase = 0
 
 		if fase == 0:
-			falling_speed = Vector2(direction.x ,rng.randf_range(30,70) * 10)
+			falling_speed = Vector2(direction.x ,rng.randf_range(30,80) * 10)
 			fase = 2
 			
 		if fase == 2:
@@ -37,11 +37,11 @@ func _physics_process(delta: float) -> void:
 			direction.x = lerp(direction.x, 0.0, 0.1)
 			direction.y = lerp(direction.y, 0.0, 0.1)
 			#if is_equal_approx(direction.y, 0.0):
-			if direction.y < 0.01:
+			if direction.y < 1:
 				falling = false
 			#rotation_degrees = lerp
 
-		print( str(direction.y))
+		#print( str(direction.y))
 		position += direction * delta * speed
 
 

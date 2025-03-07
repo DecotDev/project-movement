@@ -50,7 +50,7 @@ func shoot() -> void:
 		#new_bullet.position.y -= 11
 		%ShootingPointRight.add_child(new_bullet)
 	eject_shell()
-
+	
 func eject_shell() -> void:
 	const SHELL = preload("res://Assets/Guns/bullet_shell.tscn")
 	var new_shell: = SHELL.instantiate()
@@ -75,7 +75,7 @@ func blowback() -> void:
 		sprite.rotation += 0.5
 	else:
 		sprite.rotation -= 0.5
-	print(str (sprite.rotation))
+	#print(str (sprite.rotation))
 	
 func blowback_reset() -> void:
 	if sprite.flip_v == true:
