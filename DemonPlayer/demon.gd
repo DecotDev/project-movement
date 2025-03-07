@@ -4,8 +4,8 @@ class_name Demon
 
 @onready
 var mouse_label: = %MouseLabel
-@onready
-var sprite: = %Sprite2D
+#@onready
+#var sprite: = %SpriteSuitDemon
 @onready
 var gun: = %Gun
 @onready

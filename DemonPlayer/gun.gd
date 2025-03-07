@@ -22,9 +22,9 @@ func _physics_process(delta: float) -> void:
 	blowback_reset()
 	if Input.is_action_just_pressed("Shoot") and !reloading:
 		if ammo > 0: shoot()
+		else: dry_fire()
 	if Input.is_action_just_pressed("Reload") and ammo != magazine_size and !reloading:
 		reload()
-	%Sprite2D.global_position = %ShootingPointLeft.global_position
 
 func shoot() -> void:
 	shot_sound()
@@ -68,9 +68,13 @@ func blowback_reset() -> void:
 		sprite.rotation = lerp(sprite.rotation, 0.0, 0.3)
 
 func reload() -> void:
+	SoundPlayer.play_sound(SoundPlayer.mag_and_rag)
 	reloading = true
 	gui.enable_reloading()
 	reload_timer.start()
+	
+func dry_fire() -> void:
+	SoundPlayer.play_sound(SoundPlayer.dry_fire)
 
 func _on_reload_timer_timeout() -> void:
 	ammo = magazine_size

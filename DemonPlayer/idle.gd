@@ -1,17 +1,14 @@
 extends DemonPlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	state_label.text = "MovShoot"
-	%AnimationPlayer.play("Run")
-
+	state_label.text = "Idle"
+	%AnimationPlayer.play("Idle")
+	demon.velocity = Vector2(0,0)
+	demon.move_and_slide()
 
 func physics_update(delta: float) -> void:
 	demon.camera.mouse_pos = demon.get_global_mouse_position()
-	demon.input_direction = Input.get_vector("Left","Right","Up","Down")
-	#input_direction = input_direction.normalized()
-	demon.velocity = demon.input_direction * 450
-	demon.move_and_slide()
-	
+
 	if demon.camera.mouse_pos.x < demon.position.x:
 		sprite.flip_h = true
 		if !demon.gun_moved_left:
@@ -30,9 +27,9 @@ func physics_update(delta: float) -> void:
 
 	if Input.is_action_just_pressed("Space"):
 		finished.emit(ROLL)
-	elif is_equal_approx(demon.input_direction.x, 0.0) and is_equal_approx(demon.input_direction.y, 0.0):
-		finished.emit(IDLE)
 
+	if Input.is_action_pressed("Left") or Input.is_action_pressed("Right") or Input.is_action_pressed("Up") or Input.is_action_pressed("Down"):
+		finished.emit(MOVING_SHOOTING)
 
 
 

@@ -2,6 +2,7 @@ class_name DemonPlayerState extends State
 
 const MOVING_SHOOTING = "MovingShooting"
 const ROLL = "Roll"
+const IDLE = "Idle"
 
 var demon: Demon
 
@@ -10,7 +11,7 @@ var state_label: = %StateLabel
 @onready
 var animation_player: = %AnimationPlayer
 @onready
-var sprite_s_d: = %SpriteSlimDemon
+var sprite: = %SpriteSuitDemon
 
 func _ready() -> void:
 	await owner.ready
