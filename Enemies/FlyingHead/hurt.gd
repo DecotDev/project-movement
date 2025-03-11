@@ -17,6 +17,8 @@ func take_damage() -> void:
 	#flying_head.velocity *= 0.3
 	flying_head.health -= 1
 	if flying_head.health <= 0:
+		Global.killed_enemies += 1
+		flying_head.gui.update_enemies_label()
 		flying_head.queue_free()
 
 func push_back() -> void:

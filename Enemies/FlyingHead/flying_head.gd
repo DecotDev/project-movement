@@ -17,9 +17,12 @@ var direction: Vector2
 var rng: = RandomNumberGenerator.new()
 var dir_countdown: int = 0
 
+var gui: Node = null
+
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	%AnimationPlayer.play("Idle")
+	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	
 func take_damage() -> void:
 	moving.finished.emit("Hurt")

@@ -5,7 +5,7 @@
 
 [node name="BulletShell" type="Sprite2D"]
 top_level = true
-z_index = 2
+z_index = 1
 texture = ExtResource("1_0nvr4")
 hframes = 4
 vframes = 4

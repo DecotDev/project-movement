@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://coibfkpqkmlbp"]
+[gd_scene load_steps=5 format=3 uid="uid://coibfkpqkmlbp"]
 
 [ext_resource type="Texture2D" uid="uid://cwyskgv43joaf" path="res://Assets/Hell/hex.png" id="1_fetqg"]
 [ext_resource type="PackedScene" uid="uid://cfmbl6ed0fskd" path="res://DemonPlayer/demon.tscn" id="1_v8cfb"]
 [ext_resource type="PackedScene" uid="uid://dbi28s0peaois" path="res://Scences/hell_gui.tscn" id="3_v8ioc"]
+[ext_resource type="PackedScene" uid="uid://qllip7vlobs6" path="res://Enemies/FlyingHead/flying_head.tscn" id="4_bhe51"]
 
 [node name="HellMain" type="Node2D"]
 
@@ -22,3 +23,15 @@ offset_right = -7.0
 offset_bottom = -3.0
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="FlyingHead" parent="." instance=ExtResource("4_bhe51")]
+position = Vector2(27, 698)
+
+[node name="FlyingHead2" parent="." instance=ExtResource("4_bhe51")]
+position = Vector2(406, 627)
+
+[node name="FlyingHead4" parent="." instance=ExtResource("4_bhe51")]
+position = Vector2(-637, 648)
+
+[node name="FlyingHead3" parent="." instance=ExtResource("4_bhe51")]
+position = Vector2(-222, 644)

@@ -64,6 +64,7 @@ load_path = "res://.godot/imported/enemy.png-04ed58655b25bc0138c9aa01362be649.ct
 size = Vector2(14, 12)
 
 [node name="FlyingHead" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_urndj")

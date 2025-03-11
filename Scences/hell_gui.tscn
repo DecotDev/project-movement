@@ -68,3 +68,10 @@ offset_top = 94.0
 offset_right = 100.0
 offset_bottom = 117.0
 text = "Health"
+
+[node name="EnemiesLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_top = 116.0
+offset_right = 66.0
+offset_bottom = 139.0
+text = "Enemies: 0"

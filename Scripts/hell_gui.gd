@@ -6,6 +6,8 @@ var flame_bar: = %TextureProgressBar
 var reloading_label: = %ReloadingLabel
 @onready
 var health_label: = %HealthLabel
+@onready
+var enemies_label: = %EnemiesLabel
 
 func _ready() -> void:
 	flame_bar.max_value = 12
@@ -29,3 +31,6 @@ func disable_reloading() -> void:
 	
 func update_health_label() -> void:
 	health_label.text = ("Health: " + str(Global.demon_health))
+	
+func update_enemies_label() -> void:
+	enemies_label.text = ("Enemeies killed: " + str(Global.killed_enemies))

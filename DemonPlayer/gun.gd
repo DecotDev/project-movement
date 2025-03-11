@@ -50,6 +50,7 @@ func shoot() -> void:
 		#new_bullet.position.y -= 11
 		%ShootingPointRight.add_child(new_bullet)
 	eject_shell()
+
 	
 func eject_shell() -> void:
 	const SHELL = preload("res://Assets/Guns/bullet_shell.tscn")
