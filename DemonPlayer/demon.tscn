@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfmbl6ed0fskd"]
+[gd_scene load_steps=17 format=3 uid="uid://cfmbl6ed0fskd"]
 
 [ext_resource type="Script" uid="uid://bcpd1cbky14ky" path="res://DemonPlayer/demon.gd" id="1_fs57w"]
 [ext_resource type="PackedScene" uid="uid://bh6srcfj8h0k0" path="res://DemonPlayer/gun.tscn" id="3_nkav8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bd1q8l2gayb6i" path="res://DemonPlayer/moving_shooting.gd" id="6_4cuj1"]
 [ext_resource type="Script" uid="uid://0e1387hali6x" path="res://DemonPlayer/roll.gd" id="7_e703d"]
 [ext_resource type="Script" uid="uid://2f30dfmafv3g" path="res://DemonPlayer/idle.gd" id="7_surqq"]
+[ext_resource type="Texture2D" uid="uid://cxepbpwnagrhw" path="res://DemonPlayer/SuitDemonShadow.png" id="8_h0ij0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_surqq"]
 load_path = "res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"
@@ -74,6 +75,9 @@ radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c8ava"]
 radius = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x675w"]
+atlas = ExtResource("8_h0ij0")
 
 [node name="Demon" type="CharacterBody2D"]
 script = ExtResource("1_fs57w")
@@ -150,6 +154,11 @@ script = ExtResource("7_surqq")
 unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_x675w")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="StateMachine/MovingShooting" method="_on_hitbox_body_entered"]
