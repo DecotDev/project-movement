@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cwyskgv43joaf" path="res://Assets/Hell/hex.png" id="1_fetqg"]
 [ext_resource type="PackedScene" uid="uid://cfmbl6ed0fskd" path="res://DemonPlayer/demon.tscn" id="1_v8cfb"]
 [ext_resource type="PackedScene" uid="uid://dbi28s0peaois" path="res://Scences/hell_gui.tscn" id="3_v8ioc"]
-[ext_resource type="PackedScene" uid="uid://qllip7vlobs6" path="res://Enemies/FlyingHead/flying_head.tscn" id="4_bhe51"]
+[ext_resource type="PackedScene" uid="uid://bjjsfbbmi0rvq" path="res://Hell/Spawner/spawner.tscn" id="4_bhe51"]
 
 [node name="HellMain" type="Node2D"]
 
@@ -24,14 +24,17 @@ offset_bottom = -3.0
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="FlyingHead" parent="." instance=ExtResource("4_bhe51")]
-position = Vector2(27, 698)
+[node name="Spawner" parent="." instance=ExtResource("4_bhe51")]
 
-[node name="FlyingHead2" parent="." instance=ExtResource("4_bhe51")]
-position = Vector2(406, 627)
+[node name="Marker2D" type="Marker2D" parent="Spawner/Spawns" index="0"]
+position = Vector2(-736, -473)
 
-[node name="FlyingHead4" parent="." instance=ExtResource("4_bhe51")]
-position = Vector2(-637, 648)
+[node name="Marker2D2" type="Marker2D" parent="Spawner/Spawns" index="1"]
+position = Vector2(-91, -504)
 
-[node name="FlyingHead3" parent="." instance=ExtResource("4_bhe51")]
-position = Vector2(-222, 644)
+[node name="Marker2D3" type="Marker2D" parent="Spawner/Spawns" index="2"]
+position = Vector2(542, -426)
+
+[connection signal="child_exiting_tree" from="Spawner/Enemies" to="Spawner" method="_on_enemies_child_exiting_tree"]
+
+[editable path="Spawner"]

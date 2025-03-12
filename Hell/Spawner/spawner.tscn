@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjjsfbbmi0rvq"]
+
+[ext_resource type="Script" uid="uid://bgpmy422346e8" path="res://Hell/Spawner/spawner.gd" id="1_lyar2"]
+
+[node name="Spawner" type="Node"]
+script = ExtResource("1_lyar2")
+
+[node name="WaveTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="SpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Spawns" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Enemies" type="Node" parent="."]
+unique_name_in_owner = true

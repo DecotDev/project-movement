@@ -8,6 +8,8 @@ var reloading_label: = %ReloadingLabel
 var health_label: = %HealthLabel
 @onready
 var enemies_label: = %EnemiesLabel
+@onready
+var wave_label: = %WaveLabel
 
 func _ready() -> void:
 	flame_bar.max_value = 12
@@ -34,3 +36,6 @@ func update_health_label() -> void:
 	
 func update_enemies_label() -> void:
 	enemies_label.text = ("Enemeies killed: " + str(Global.killed_enemies))
+	
+func update_wave_label() -> void:
+	wave_label.text = ("Wave " + str(Global.current_wave))
