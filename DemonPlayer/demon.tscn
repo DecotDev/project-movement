@@ -12,6 +12,9 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_surqq"]
 load_path = "res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x675w"]
+atlas = ExtResource("8_h0ij0")
+
 [sub_resource type="Animation" id="Animation_surqq"]
 resource_name = "Idle"
 length = 0.6
@@ -76,9 +79,6 @@ radius = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_c8ava"]
 radius = 36.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x675w"]
-atlas = ExtResource("8_h0ij0")
-
 [node name="Demon" type="CharacterBody2D"]
 script = ExtResource("1_fs57w")
 
@@ -92,6 +92,12 @@ centered = false
 hframes = 8
 vframes = 8
 frame = 9
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 24)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_x675w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -154,11 +160,6 @@ script = ExtResource("7_surqq")
 unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true
-
-[node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(0, 24)
-scale = Vector2(4, 4)
-texture = SubResource("AtlasTexture_x675w")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="StateMachine/MovingShooting" method="_on_hitbox_body_entered"]

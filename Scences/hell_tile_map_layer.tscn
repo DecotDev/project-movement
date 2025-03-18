@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyqmka5o1vy3y"]
+
+[ext_resource type="Texture2D" uid="uid://citn3i4udsump" path="res://Assets/Hell/hell_tiles.png" id="1_uifv5"]
+[ext_resource type="Script" uid="uid://d10yokjv4fc2i" path="res://Scripts/hell_tile_map_layer.gd" id="2_vsrum"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vsrum"]
+texture = ExtResource("1_uifv5")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_m2k78"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_vsrum")
+
+[node name="HellTileMapLayer" type="TileMapLayer"]
+tile_set = SubResource("TileSet_m2k78")
+rendering_quadrant_size = 32
+script = ExtResource("2_vsrum")
+random_int = 3
