@@ -39,7 +39,7 @@ func shoot() -> void:
 		#new_bullet.global_rotation = %ShootingPoint.global_rotation
 		new_bullet.global_position = %ShootingPointLeft.global_position
 		new_bullet.global_rotation = %ShootingPointLeft.global_rotation
-		new_bullet.global_rotation += rng.randf_range(-0.1, 0.1)
+		new_bullet.global_rotation += rng.randf_range(-0.14, 0.14)
 		#new_bullet.position.y -= 11
 		#new_bullet.position.y -= 22
 		#new_bullet.global_rotation += 0.3
@@ -49,7 +49,7 @@ func shoot() -> void:
 		#new_bullet.global_rotation = %ShootingPoint.global_rotation
 		new_bullet.global_position = %ShootingPointRight.global_position
 		new_bullet.global_rotation = %ShootingPointRight.global_rotation
-		new_bullet.global_rotation += rng.randf_range(-0.1, 0.1)
+		new_bullet.global_rotation += rng.randf_range(-0.14, 0.14)
 		#new_bullet.position.y -= 11
 		%ShootingPointRight.add_child(new_bullet)
 	eject_shell()

@@ -5,7 +5,7 @@ var rng: = RandomNumberGenerator.new()
 @onready
 var flying_head: = preload("res://Enemies/FlyingHead/flying_head.tscn")
 @onready
-var enemie_spawn: Array[int] = [3,5,7,8,10]
+var enemie_spawn: Array[int] = [5,9,15,20,24,30]
 
 var gui: Node = null
 var wave_ongoing: bool = false
@@ -19,7 +19,7 @@ func spawn_enemies() -> void:
 	wave_ongoing = true
 	gui.update_wave_label()
 	for i in enemie_spawn[Global.current_wave]:
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.3).timeout
 		var fh: = flying_head.instantiate()
 		var spawn_length: = %Spawns.get_child_count()-1
 		var rand_num: = rng.randi_range(0,spawn_length)

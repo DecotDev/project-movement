@@ -25,10 +25,10 @@ func physics_update(delta: float) -> void:
 			demon.gun_moved_right = true
 			demon.gun.sprite.flip_v = false
 
-	if Input.is_action_just_pressed("Space"):
-		finished.emit(ROLL)
+	#if Input.is_action_just_pressed("Space"):
+		#finished.emit(ROLL)
 
-	if Input.is_action_pressed("Left") or Input.is_action_pressed("Right") or Input.is_action_pressed("Up") or Input.is_action_pressed("Down"):
+	if (Input.is_action_pressed("Left") or Input.is_action_pressed("Right") or Input.is_action_pressed("Up") or Input.is_action_pressed("Down")) and !((Input.is_action_pressed("Left") and Input.is_action_pressed("Right")) or (Input.is_action_pressed("Up") and Input.is_action_pressed("Down"))):
 		finished.emit(MOVING_SHOOTING)
 
 

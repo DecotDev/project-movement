@@ -12,7 +12,7 @@ var moving: = %Moving
 @onready
 var hurt_timer: = %HurtTimer
 
-var health: int = 1
+var health: int = 4
 var direction: Vector2
 var rng: = RandomNumberGenerator.new()
 var dir_countdown: int = 0

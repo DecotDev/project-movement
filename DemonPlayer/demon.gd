@@ -14,7 +14,10 @@ var camera: = %Camera2D
 var hitbox: = %Hitbox
 @onready
 var roll_timer: = %RollTimer
+@onready
+var roll_cooldown_timer: = %RollCooldownTimer
 
+var roll_available: bool = false
 var gun_moved_left: bool = false
 var gun_moved_right: bool = false
 
@@ -27,6 +30,7 @@ var gui: Node = null
 func _ready() -> void:
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	#gui.update_health_label()
+	roll_cooldown_timer.start()
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
@@ -60,3 +64,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	##	gun.position = Vector2(0,0)
 	#
 	##look_at(get_global_mouse_position())
+
+
+func _on_roll_cooldown_timer_timeout() -> void:
+	roll_available = true

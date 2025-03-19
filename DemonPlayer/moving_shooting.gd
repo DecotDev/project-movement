@@ -28,7 +28,9 @@ func physics_update(delta: float) -> void:
 			demon.gun_moved_right = true
 			demon.gun.sprite.flip_v = false
 
-	if Input.is_action_just_pressed("Space"):
+	if Input.is_action_just_pressed("Space") and demon.roll_available:
+		demon.roll_available = false
+		demon.roll_cooldown_timer.start()
 		finished.emit(ROLL)
 	elif is_equal_approx(demon.input_direction.x, 0.0) and is_equal_approx(demon.input_direction.y, 0.0):
 		finished.emit(IDLE)

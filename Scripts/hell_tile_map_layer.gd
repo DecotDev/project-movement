@@ -1,4 +1,5 @@
 extends TileMapLayer
+@onready
 var rng: = RandomNumberGenerator.new()
 
  
@@ -25,10 +26,10 @@ func tilemap_randomization(random_input: int) -> void:
  
  
 # If you want to randomize on runtime:
-#func _ready():
-#    var rng = RandomNumberGenerator.new()
-#    rng.randomize()
-#
-#    for cell_position in get_used_cells():
-#        var num = rng.randi_range(0, 24)
-#        set_cellv(cell_position, num)
+func _ready() -> void:
+   #var rng = RandomNumberGenerator.new()
+	rng.randomize()
+
+	for cell_position in get_used_cells():
+		var num: = rng.randi_range(0, 2)
+		set_cell(cell_position, num)
