@@ -36,7 +36,7 @@ func play_sound(sound: AudioStream) -> void:
 func play_music(music: AudioStream, music_position: float) -> void:
 	
 	actual_song_num = rng.randi_range(0, hell_music.size()-1)
-	background_music_player.stream = hell_music[actual_song_num]
-	#var actual_song: AudioStream = actual_song
+	var actual_song: AudioStream = hell_music[actual_song_num]
+	background_music_player.stream = actual_song
 	
 	background_music_player.play(music_position)
