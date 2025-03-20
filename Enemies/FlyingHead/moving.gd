@@ -12,7 +12,7 @@ func physics_update(delta: float) -> void:
 		changeDirection()
 		flying_head.dir_countdown = flying_head.rng.randf_range(20,60)
 	flying_head.dir_countdown -= 1
-	flying_head.velocity = flying_head.direction * 180.0 
+	flying_head.velocity = flying_head.direction * flying_head.speed
 	flying_head.move_and_slide()
 
 func changeDirection() -> void:

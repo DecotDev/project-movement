@@ -36,8 +36,6 @@ offset_top = -3.0
 offset_right = -7.0
 offset_bottom = -3.0
 
-[node name="Enemies" type="Node" parent="."]
-
 [node name="Spawner" parent="." instance=ExtResource("4_bhe51")]
 
 [node name="Marker2D" type="Marker2D" parent="Spawner/Spawns" index="0"]

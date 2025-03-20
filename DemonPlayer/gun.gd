@@ -19,6 +19,7 @@ func _ready() -> void:
 	#gui.update_flame_bar(ammo)
 
 func _physics_process(delta: float) -> void:
+	
 	look_at(get_global_mouse_position())
 	blowback_reset()
 	if Input.is_action_just_pressed("Shoot") and !reloading:

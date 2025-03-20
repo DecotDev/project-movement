@@ -13,6 +13,7 @@ var moving: = %Moving
 var hurt_timer: = %HurtTimer
 
 var health: int = 4
+var speed: int = 220
 var direction: Vector2
 var rng: = RandomNumberGenerator.new()
 var dir_countdown: int = 0

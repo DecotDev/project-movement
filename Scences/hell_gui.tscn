@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=6 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
+[ext_resource type="PackedScene" uid="uid://b7a5aaeilaif4" path="res://music_player.tscn" id="2_j2pc1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uup6e"]
 atlas = ExtResource("2_5t775")
@@ -16,11 +17,19 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -29.0
+offset_right = -29.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p8bu5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MusicPlayer" parent="CanvasLayer" instance=ExtResource("2_j2pc1")]
+offset_left = 494.0
+offset_top = 1.0
+offset_right = -1126.0
+offset_bottom = -779.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true

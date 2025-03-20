@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7a5aaeilaif4"]
+
+[ext_resource type="Script" uid="uid://bl8pt7mve5l48" path="res://music_player.gd" id="1_nkgi7"]
+
+[node name="MusicPlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1620.0
+offset_bottom = -780.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nkgi7")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_right = 119.0
+offset_bottom = 31.0
+focus_mode = 0
+text = "Play Music"
+
+[node name="Prevoius" type="Button" parent="."]
+layout_mode = 0
+offset_right = 27.0
+offset_bottom = 31.0
+focus_mode = 0
+text = "<<"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_right = 148.0
+offset_bottom = 31.0
+focus_mode = 0
+text = ">>"
+
+[connection signal="pressed" from="Play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Prevoius" to="." method="_on_prevoius_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
