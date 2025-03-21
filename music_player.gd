@@ -15,8 +15,8 @@ func _on_button_pressed() -> void:
 
 
 func _on_prevoius_pressed() -> void:
-	pass # Replace with function body.
+	SoundPlayer.play_previous_song()
 
 
 func _on_next_pressed() -> void:
-	pass # Replace with function body.
+	SoundPlayer.play_next_song()
