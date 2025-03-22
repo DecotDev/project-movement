@@ -13,7 +13,7 @@ config_version=5
 config/name="Project Movement"
 run/main_scene="res://Scences/world.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-run/max_fps=60
+run/max_fps=165
 config/icon="res://icon.svg"
 
 [autoload]
@@ -126,7 +126,7 @@ Space={
 [navigation]
 
 2d/snap/snap_2d_vertices_to_pixel=true
-2d/snap/snap_2d_transforms_to_pixel=false
+2d/snap/snap_2d_transforms_to_pixel=true
 
 [rendering]
 

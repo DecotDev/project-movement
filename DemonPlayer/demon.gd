@@ -17,6 +17,8 @@ var roll_timer: = %RollTimer
 @onready
 var roll_cooldown_timer: = %RollCooldownTimer
 
+var speed: = 380 #was 450
+
 var roll_available: bool = false
 var gun_moved_left: bool = false
 var gun_moved_right: bool = false
