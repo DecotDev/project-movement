@@ -2,6 +2,8 @@ extends Node
 
 var rng: = RandomNumberGenerator.new()
 
+var music_player: Node = null
+
 const pick_coin: = preload("res://Assets/Sounds/Coin/coin0.wav") 
 const supressed_shot: = preload("res://Assets/Guns/SupressedShot.wav")
 const mag_and_rag: = preload("res://Assets/Guns/MagAndRack.mp3")
@@ -22,9 +24,10 @@ var actual_song_num: int
 var previous_song_num: int
 
 var hell_music: Array[AudioStream] = [pick_coin, hellfire_symphony, hellfire_chill_symphony, demon_dancefloor, pixelated_inferno]
+var hell_music_info: Array[String] = ["Coin - Pitch", "Hellfire Symphony", "Hellfire Chill","Demon dancefloor", "Pixelated Inferno"]
 
-#func _ready() -> void:
-	#hell_music.append(hellfire_chill_symphony)
+func _ready() -> void:
+	music_player = get_tree().get_root().find_child("MusicPlayer", true, false)
 
 func play_sound(sound: AudioStream) -> void:
 	for audioStreamPlayer in audioPlayers.get_children():
@@ -63,3 +66,4 @@ func _on_background_music_player_finished() -> void:
 	previous_song_num = actual_song_num
 	actual_song_num = 0
 	play_music(null, 0)
+	music_player.update_playing_label()
