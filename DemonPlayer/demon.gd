@@ -13,13 +13,14 @@ var camera: = %Camera2D
 @onready
 var hitbox: = %Hitbox
 @onready
-var roll_timer: = %RollTimer
+var dash_timer: = %DashTimer
 @onready
-var roll_cooldown_timer: = %RollCooldownTimer
+var dash_cooldown_timer: = %DashCooldownTimer
 
 var speed: = 380 #was 450
 
-var roll_available: bool = false
+
+var dash_available: bool = false
 var gun_moved_left: bool = false
 var gun_moved_right: bool = false
 
@@ -27,13 +28,20 @@ var input_direction: Vector2
 var movement_speed: int = 24
 var invencible: bool = false
 
+var dash_cooldown: float = 1.2
+
 var gui: Node = null
 
 func _ready() -> void:
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	#gui.update_health_label()
-	roll_cooldown_timer.start()
+	dash_cooldown_timer.wait_time = dash_cooldown
+	dash_cooldown_timer.start()
 
+func update_skills_coowldown() -> void:
+	if !dash_available:
+		var progress: float = (dash_cooldown_timer.time_left / dash_cooldown) * 100
+		gui.update_dash_cooldown_bar(progress) 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("damage_demon") and !invencible:
@@ -68,5 +76,5 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	##look_at(get_global_mouse_position())
 
 
-func _on_roll_cooldown_timer_timeout() -> void:
-	roll_available = true
+func _on_dash_cooldown_timer_timeout() -> void:
+	dash_available = true

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
 [ext_resource type="PackedScene" uid="uid://b7a5aaeilaif4" path="res://music_player.tscn" id="2_j2pc1"]
-[ext_resource type="Texture2D" uid="uid://cwqp8xxlapj78" path="res://Hell/GUI/dash.png" id="4_bggr5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uup6e"]
 atlas = ExtResource("2_5t775")
@@ -13,12 +12,15 @@ region = Rect2(36, 0, 36, 18)
 atlas = ExtResource("2_5t775")
 region = Rect2(0, 0, 36, 18)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j2pc1"]
+load_path = "res://.godot/imported/dash.png-55e7f0c8034d4f6db7654ce0bc558279.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_55ewe"]
-atlas = ExtResource("4_bggr5")
+atlas = SubResource("CompressedTexture2D_j2pc1")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsaaw"]
-atlas = ExtResource("4_bggr5")
+atlas = SubResource("CompressedTexture2D_j2pc1")
 region = Rect2(0, 0, 16, 16)
 
 [node name="HellGUI" type="Control"]
@@ -35,8 +37,8 @@ script = ExtResource("1_p8bu5")
 [node name="MusicPlayer" parent="CanvasLayer" instance=ExtResource("2_j2pc1")]
 offset_left = 1768.0
 offset_top = 4.0
-offset_right = 148.0
-offset_bottom = -776.0
+offset_right = -40.0
+offset_bottom = -995.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -101,13 +103,13 @@ offset_bottom = 70.0
 theme_override_font_sizes/font_size = 48
 text = "Wave 0"
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="DashCooldownBar" type="TextureProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
 offset_left = 444.0
 offset_top = 4.0
 offset_right = 460.0
 offset_bottom = 20.0
 scale = Vector2(4, 4)
-value = 60.0
 rounded = true
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_55ewe")

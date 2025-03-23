@@ -11,6 +11,7 @@ func physics_update(delta: float) -> void:
 	#input_direction = input_direction.normalized()
 	demon.velocity = demon.input_direction * demon.speed
 	demon.move_and_slide()
+	demon.update_skills_coowldown()
 	
 	if demon.camera.mouse_pos.x < demon.position.x:
 		sprite.flip_h = true
@@ -28,10 +29,8 @@ func physics_update(delta: float) -> void:
 			demon.gun_moved_right = true
 			demon.gun.sprite.flip_v = false
 
-	if Input.is_action_just_pressed("Space") and demon.roll_available:
-		demon.roll_available = false
-		demon.roll_cooldown_timer.start()
-		finished.emit(ROLL)
+	if Input.is_action_just_pressed("Space") and demon.dash_available:
+		finished.emit(DASH)
 	elif is_equal_approx(demon.input_direction.x, 0.0) and is_equal_approx(demon.input_direction.y, 0.0):
 		finished.emit(IDLE)
 

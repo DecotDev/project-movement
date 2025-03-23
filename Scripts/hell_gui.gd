@@ -10,6 +10,8 @@ var health_label: = %HealthLabel
 var enemies_label: = %EnemiesLabel
 @onready
 var wave_label: = %WaveLabel
+@onready
+var dash_cooldown_bar: = %DashCooldownBar
 
 func _ready() -> void:
 	flame_bar.max_value = 12
@@ -39,3 +41,6 @@ func update_enemies_label() -> void:
 	
 func update_wave_label() -> void:
 	wave_label.text = ("Wave " + str(Global.current_wave))
+	
+func update_dash_cooldown_bar(progress: float) -> void:
+	dash_cooldown_bar.value = 100 - progress

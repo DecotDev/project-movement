@@ -1,7 +1,7 @@
 class_name DemonPlayerState extends State
 
 const MOVING_SHOOTING = "MovingShooting"
-const ROLL = "Roll"
+const DASH = "Dash"
 const IDLE = "Idle"
 
 var demon: Demon
