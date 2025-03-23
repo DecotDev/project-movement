@@ -37,7 +37,7 @@ script = ExtResource("1_p8bu5")
 [node name="MusicPlayer" parent="CanvasLayer" instance=ExtResource("2_j2pc1")]
 offset_left = 1768.0
 offset_top = 4.0
-offset_right = -40.0
+offset_right = 0.0
 offset_bottom = -995.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
