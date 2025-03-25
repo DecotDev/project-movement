@@ -7,4 +7,4 @@ var ammo: int = 12
 
 var killed_enemies: int = 0
 
-var current_wave: int = 0
+var current_wave: int = 1

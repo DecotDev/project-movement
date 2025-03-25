@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7a5aaeilaif4"]
+[gd_scene load_steps=3 format=3 uid="uid://b7a5aaeilaif4"]
 
 [ext_resource type="Script" uid="uid://bl8pt7mve5l48" path="res://music_player.gd" id="1_nkgi7"]
+[ext_resource type="Texture2D" uid="uid://0nwljxi2uo0d" path="res://Hell/GUI/music_bar.png" id="2_k4xj7"]
 
 [node name="MusicPlayer" type="Control"]
 layout_mode = 3
@@ -13,39 +14,46 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nkgi7")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(68, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("2_k4xj7")
+
 [node name="PlayingLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 39.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 312.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 24
 text = "Now playing"
 clip_text = true
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 40.0
-offset_right = 170.0
-offset_bottom = 71.0
+offset_left = 205.0
+offset_top = 61.0
+offset_right = 295.0
+offset_bottom = 92.0
 focus_mode = 0
 text = "Play Music"
 
 [node name="Prevoius" type="Button" parent="."]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 40.0
-offset_right = 78.0
-offset_bottom = 71.0
+offset_left = 176.0
+offset_top = 61.0
+offset_right = 203.0
+offset_bottom = 92.0
 focus_mode = 0
 text = "<<"
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 40.0
-offset_right = 199.0
-offset_bottom = 71.0
+offset_left = 297.0
+offset_top = 61.0
+offset_right = 324.0
+offset_bottom = 92.0
 focus_mode = 0
 text = ">>"
 
