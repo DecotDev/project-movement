@@ -1,7 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7a5aaeilaif4"]
+[gd_scene load_steps=10 format=3 uid="uid://b7a5aaeilaif4"]
 
 [ext_resource type="Script" uid="uid://bl8pt7mve5l48" path="res://music_player.gd" id="1_nkgi7"]
 [ext_resource type="Texture2D" uid="uid://0nwljxi2uo0d" path="res://Hell/GUI/music_bar.png" id="2_k4xj7"]
+[ext_resource type="Texture2D" uid="uid://dersei1n13niv" path="res://Hell/GUI/play_butons.png" id="3_p3pav"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2ugy"]
+atlas = ExtResource("3_p3pav")
+region = Rect2(97, 0, 20, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3pav"]
+atlas = ExtResource("3_p3pav")
+region = Rect2(97, 12, 20, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8ia0"]
+atlas = ExtResource("3_p3pav")
+region = Rect2(86, 0, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqnhx"]
+atlas = ExtResource("3_p3pav")
+region = Rect2(86, 12, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjark"]
+atlas = ExtResource("3_p3pav")
+region = Rect2(117, 0, 11.9, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnyht"]
+atlas = ExtResource("3_p3pav")
+region = Rect2(117, 12, 11.9, 12)
 
 [node name="MusicPlayer" type="Control"]
 layout_mode = 3
@@ -31,6 +56,7 @@ text = "Now playing"
 clip_text = true
 
 [node name="Play" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 205.0
 offset_top = 61.0
@@ -40,6 +66,7 @@ focus_mode = 0
 text = "Play Music"
 
 [node name="Prevoius" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 176.0
 offset_top = 61.0
@@ -49,6 +76,7 @@ focus_mode = 0
 text = "<<"
 
 [node name="Next" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 297.0
 offset_top = 61.0
@@ -57,6 +85,39 @@ offset_bottom = 92.0
 focus_mode = 0
 text = ">>"
 
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 60.0
+offset_right = 212.0
+offset_bottom = 72.0
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_a2ugy")
+texture_pressed = SubResource("AtlasTexture_p3pav")
+
+[node name="PreviousButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 60.0
+offset_right = 159.0
+offset_bottom = 72.0
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_u8ia0")
+texture_pressed = SubResource("AtlasTexture_nqnhx")
+
+[node name="NextButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 60.0
+offset_right = 283.0
+offset_bottom = 72.0
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_rjark")
+texture_pressed = SubResource("AtlasTexture_vnyht")
+
 [connection signal="pressed" from="Play" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Prevoius" to="." method="_on_prevoius_pressed"]
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
