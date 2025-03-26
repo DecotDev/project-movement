@@ -31,10 +31,10 @@ texture = SubResource("CompressedTexture2D_bhe51")
 [node name="Demon" parent="." instance=ExtResource("1_v8cfb")]
 
 [node name="HellGUI" parent="." instance=ExtResource("3_v8ioc")]
-offset_left = -7.0
-offset_top = -22.0
-offset_right = -7.0
-offset_bottom = -22.0
+offset_left = -2.0
+offset_top = -26.0
+offset_right = -2.0
+offset_bottom = -26.0
 
 [node name="Spawner" parent="." instance=ExtResource("4_bhe51")]
 
