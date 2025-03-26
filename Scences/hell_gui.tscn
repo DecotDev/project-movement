@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=12 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
 [ext_resource type="PackedScene" uid="uid://b7a5aaeilaif4" path="res://music_player.tscn" id="2_j2pc1"]
+[ext_resource type="Texture2D" uid="uid://b15cjxq2yb68i" path="res://Hell/GUI/Weapons/weapon_case.png" id="4_bggr5"]
+[ext_resource type="Texture2D" uid="uid://ci8o72rjavjgt" path="res://Hell/GUI/skills_bg.png" id="5_55ewe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uup6e"]
 atlas = ExtResource("2_5t775")
@@ -22,6 +24,10 @@ region = Rect2(32, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsaaw"]
 atlas = SubResource("CompressedTexture2D_j2pc1")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86yr6"]
+atlas = ExtResource("4_bggr5")
+region = Rect2(0, 32, 64, 32)
 
 [node name="HellGUI" type="Control"]
 layout_mode = 3
@@ -104,12 +110,37 @@ text = "Wave 0"
 
 [node name="DashCooldownBar" type="TextureProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 444.0
-offset_top = 4.0
-offset_right = 460.0
-offset_bottom = 20.0
+offset_left = 871.0
+offset_top = 999.0
+offset_right = 887.0
+offset_bottom = 1015.0
 scale = Vector2(4, 4)
+value = 80.0
 rounded = true
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_55ewe")
 texture_progress = SubResource("AtlasTexture_xsaaw")
+
+[node name="DashCooldownBar2" type="TextureProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 974.0
+offset_top = 999.0
+offset_right = 990.0
+offset_bottom = 1015.0
+scale = Vector2(4, 4)
+value = 80.0
+rounded = true
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_55ewe")
+texture_progress = SubResource("AtlasTexture_xsaaw")
+
+[node name="WeaponCase" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(128, 1016)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_86yr6")
+
+[node name="SkillsBackground" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(959, 952)
+scale = Vector2(4, 4)
+texture = ExtResource("5_55ewe")
