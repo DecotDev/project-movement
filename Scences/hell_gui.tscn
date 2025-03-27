@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=27 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
+[ext_resource type="Texture2D" uid="uid://3b2afpah6xcq" path="res://Hell/GUI/health_full.png" id="2_ag6gy"]
 [ext_resource type="PackedScene" uid="uid://b7a5aaeilaif4" path="res://music_player.tscn" id="2_j2pc1"]
 [ext_resource type="Texture2D" uid="uid://b15cjxq2yb68i" path="res://Hell/GUI/Weapons/weapon_case.png" id="4_bggr5"]
 [ext_resource type="FontFile" uid="uid://b5wfqv3qxbl38" path="res://Hell/GUI/pixelmix_bold.ttf" id="4_xsaaw"]
@@ -9,6 +10,63 @@
 [ext_resource type="FontFile" uid="uid://cdwa148tbe0v" path="res://Hell/GUI/PublicPixel.ttf" id="5_86yr6"]
 [ext_resource type="Texture2D" uid="uid://i35no0y5d5sf" path="res://Hell/GUI/health_under.png" id="8_j367u"]
 [ext_resource type="Texture2D" uid="uid://b30l0v3mynlkq" path="res://Hell/GUI/health_over.png" id="9_ag6gy"]
+
+[sub_resource type="Animation" id="Animation_75i6p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c0px6"]
+resource_name = "full_beat"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.7, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.6, 4.6), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhryp"]
+_data = {
+&"RESET": SubResource("Animation_75i6p"),
+&"full_beat": SubResource("Animation_c0px6")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghusu"]
+atlas = ExtResource("2_ag6gy")
+region = Rect2(0, 0, 26, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0px6"]
+atlas = ExtResource("8_j367u")
+region = Rect2(0, 0, 26, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75i6p"]
+atlas = ExtResource("9_ag6gy")
+region = Rect2(0, 0, 26, 33)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xhryp"]
+load_path = "res://.godot/imported/health_progress.png-cf1aff2616cdebed7aa889a604484b2a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymdol"]
+atlas = SubResource("CompressedTexture2D_xhryp")
+region = Rect2(0, 0, 26, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uup6e"]
 atlas = ExtResource("2_5t775")
@@ -46,21 +104,6 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("4_bggr5")
 region = Rect2(0, 32, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0px6"]
-atlas = ExtResource("8_j367u")
-region = Rect2(0, 0, 26, 33)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_75i6p"]
-atlas = ExtResource("9_ag6gy")
-region = Rect2(0, 0, 26, 33)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xhryp"]
-load_path = "res://.godot/imported/health_progress.png-cf1aff2616cdebed7aa889a604484b2a.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ymdol"]
-atlas = SubResource("CompressedTexture2D_xhryp")
-region = Rect2(0, 0, 26, 33)
-
 [node name="HellGUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -71,6 +114,30 @@ grow_vertical = 2
 script = ExtResource("1_p8bu5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_xhryp")
+}
+autoplay = "full_beat"
+
+[node name="Health" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(68, 82)
+texture = SubResource("AtlasTexture_ghusu")
+
+[node name="HealthProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+visible = false
+offset_left = 53.0
+offset_top = 63.5
+offset_right = 79.0
+offset_bottom = 96.5
+scale = Vector2(4, 4)
+pivot_offset = Vector2(13, 16.5)
+value = 100.0
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_c0px6")
+texture_over = SubResource("AtlasTexture_75i6p")
+texture_progress = SubResource("AtlasTexture_ymdol")
 
 [node name="MusicPlayer" parent="CanvasLayer" instance=ExtResource("2_j2pc1")]
 offset_left = 1596.0
@@ -169,15 +236,3 @@ z_index = -1
 position = Vector2(959, 952)
 scale = Vector2(4, 4)
 texture = ExtResource("5_55ewe")
-
-[node name="HealthProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 34.0
-offset_bottom = 41.0
-scale = Vector2(4, 4)
-value = 100.0
-fill_mode = 3
-texture_under = SubResource("AtlasTexture_c0px6")
-texture_over = SubResource("AtlasTexture_75i6p")
-texture_progress = SubResource("AtlasTexture_ymdol")
