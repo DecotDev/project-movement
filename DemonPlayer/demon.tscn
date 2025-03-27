@@ -73,8 +73,8 @@ _data = {
 &"Run": SubResource("Animation_x675w")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s3kdx"]
-radius = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0ij0"]
+size = Vector2(56, 17)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c8ava"]
 radius = 36.0
@@ -110,9 +110,10 @@ unique_name_in_owner = true
 z_index = 2
 position = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_s3kdx")
-debug_color = Color(0.937794, 1.2514e-05, 0.626455, 0.42)
+[node name="WalkBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24.5)
+shape = SubResource("RectangleShape2D_h0ij0")
+debug_color = Color(0.909583, 0.271589, 0.324396, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true

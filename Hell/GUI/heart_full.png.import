@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cejwfmwoc01nn"
-path="res://.godot/imported/hell_tiles.png-2bd077b305c482063fde61ac6d608522.ctex"
+uid="uid://b4xvm4egh0qii"
+path="res://.godot/imported/heart_full.png-c10d1c65e29462067b924c76024531f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hell/hell_tiles.png"
-dest_files=["res://.godot/imported/hell_tiles.png-2bd077b305c482063fde61ac6d608522.ctex"]
+source_file="res://Hell/GUI/heart_full.png"
+dest_files=["res://.godot/imported/heart_full.png-c10d1c65e29462067b924c76024531f3.ctex"]
 
 [params]
 

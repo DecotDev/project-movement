@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=18 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
 [ext_resource type="PackedScene" uid="uid://b7a5aaeilaif4" path="res://music_player.tscn" id="2_j2pc1"]
 [ext_resource type="Texture2D" uid="uid://b15cjxq2yb68i" path="res://Hell/GUI/Weapons/weapon_case.png" id="4_bggr5"]
+[ext_resource type="FontFile" uid="uid://b5wfqv3qxbl38" path="res://Hell/GUI/pixelmix_bold.ttf" id="4_xsaaw"]
 [ext_resource type="Texture2D" uid="uid://ci8o72rjavjgt" path="res://Hell/GUI/skills_bg.png" id="5_55ewe"]
+[ext_resource type="FontFile" uid="uid://cdwa148tbe0v" path="res://Hell/GUI/PublicPixel.ttf" id="5_86yr6"]
+[ext_resource type="Texture2D" uid="uid://b4xvm4egh0qii" path="res://Hell/GUI/heart_full.png" id="8_6b0sy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uup6e"]
 atlas = ExtResource("2_5t775")
@@ -13,6 +16,19 @@ region = Rect2(36, 0, 36, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nmvd"]
 atlas = ExtResource("2_5t775")
 region = Rect2(0, 0, 36, 18)
+
+[sub_resource type="LabelSettings" id="LabelSettings_86yr6"]
+font = ExtResource("4_xsaaw")
+font_size = 32
+font_color = Color(0.5, 0, 0.0666666, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6b0sy"]
+font = ExtResource("5_86yr6")
+font_size = 80
+font_color = Color(1, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j2pc1"]
 load_path = "res://.godot/imported/dash.png-55e7f0c8034d4f6db7654ce0bc558279.ctex"
@@ -28,6 +44,10 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_86yr6"]
 atlas = ExtResource("4_bggr5")
 region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j367u"]
+atlas = ExtResource("8_6b0sy")
+region = Rect2(0, 0, 26, 33)
 
 [node name="HellGUI" type="Control"]
 layout_mode = 3
@@ -47,26 +67,22 @@ offset_bottom = -1080.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 offset_right = 36.0
 offset_bottom = 18.0
 scale = Vector2(4, 4)
 texture_under = SubResource("AtlasTexture_uup6e")
 texture_progress = SubResource("AtlasTexture_4nmvd")
 
-[node name="Label" type="Label" parent="CanvasLayer/TextureProgressBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_right = 100.0
-offset_bottom = 67.0
-
-[node name="AmmoLeftLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="AmmoLeftLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_left = 15.0
+offset_top = 913.0
+offset_right = 119.0
+offset_bottom = 945.0
 theme_override_font_sizes/font_size = 46
 text = "12/12"
+label_settings = SubResource("LabelSettings_86yr6")
 horizontal_alignment = 1
 
 [node name="ReloadingLabel" type="Label" parent="CanvasLayer"]
@@ -78,12 +94,6 @@ offset_right = 1052.0
 offset_bottom = 528.0
 theme_override_font_sizes/font_size = 32
 text = "Reloading"
-
-[node name="AmmoTypeLabel" type="Label" parent="CanvasLayer"]
-offset_top = 74.0
-offset_right = 58.0
-offset_bottom = 97.0
-text = ".45 ACP"
 
 [node name="HealthLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -101,18 +111,21 @@ text = "Enemies: 0"
 
 [node name="WaveLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 211.0
-offset_top = 3.0
-offset_right = 378.0
-offset_bottom = 70.0
+offset_left = 720.0
+offset_top = 43.0
+offset_right = 1200.0
+offset_bottom = 123.0
 theme_override_font_sizes/font_size = 48
-text = "Wave 0"
+text = "WAVE 0"
+label_settings = SubResource("LabelSettings_6b0sy")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DashCooldownBar" type="TextureProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 871.0
+offset_left = 879.0
 offset_top = 999.0
-offset_right = 887.0
+offset_right = 895.0
 offset_bottom = 1015.0
 scale = Vector2(4, 4)
 value = 80.0
@@ -144,3 +157,11 @@ z_index = -1
 position = Vector2(959, 952)
 scale = Vector2(4, 4)
 texture = ExtResource("5_55ewe")
+
+[node name="HealthProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_top = 2.0
+offset_right = 26.0
+offset_bottom = 35.0
+scale = Vector2(4, 4)
+value = 100.0
+texture_progress = SubResource("AtlasTexture_j367u")

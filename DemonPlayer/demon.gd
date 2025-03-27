@@ -39,9 +39,13 @@ func _ready() -> void:
 	dash_cooldown_timer.start()
 
 func update_skills_coowldown() -> void:
+	var progress: float
 	if !dash_available:
-		var progress: float = (dash_cooldown_timer.time_left / dash_cooldown) * 100
-		gui.update_dash_cooldown_bar(progress) 
+		progress= (dash_cooldown_timer.time_left / dash_cooldown) * 100
+	else:
+		progress = 0
+	gui.update_dash_cooldown_bar(progress)
+	
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("damage_demon") and !invencible:

@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cyqmka5o1vy3y"]
 
-[ext_resource type="Texture2D" uid="uid://dsb05dndl5dmy" path="res://Assets/Hell/hell_tiles.png" id="1_uifv5"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fomc7"]
+load_path = "res://.godot/imported/hell_tiles.png-2bd077b305c482063fde61ac6d608522.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2k78"]
-texture = ExtResource("1_uifv5")
+texture = SubResource("CompressedTexture2D_fomc7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -13,6 +14,8 @@ texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uifv5"]
 load_path = "res://.godot/imported/hell_tiles.png-2bd077b305c482063fde61ac6d608522.ctex"
