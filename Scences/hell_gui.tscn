@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=22 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
@@ -7,7 +7,8 @@
 [ext_resource type="FontFile" uid="uid://b5wfqv3qxbl38" path="res://Hell/GUI/pixelmix_bold.ttf" id="4_xsaaw"]
 [ext_resource type="Texture2D" uid="uid://ci8o72rjavjgt" path="res://Hell/GUI/skills_bg.png" id="5_55ewe"]
 [ext_resource type="FontFile" uid="uid://cdwa148tbe0v" path="res://Hell/GUI/PublicPixel.ttf" id="5_86yr6"]
-[ext_resource type="Texture2D" uid="uid://b4xvm4egh0qii" path="res://Hell/GUI/heart_full.png" id="8_6b0sy"]
+[ext_resource type="Texture2D" uid="uid://i35no0y5d5sf" path="res://Hell/GUI/health_under.png" id="8_j367u"]
+[ext_resource type="Texture2D" uid="uid://b30l0v3mynlkq" path="res://Hell/GUI/health_over.png" id="9_ag6gy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uup6e"]
 atlas = ExtResource("2_5t775")
@@ -45,8 +46,19 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("4_bggr5")
 region = Rect2(0, 32, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j367u"]
-atlas = ExtResource("8_6b0sy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0px6"]
+atlas = ExtResource("8_j367u")
+region = Rect2(0, 0, 26, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75i6p"]
+atlas = ExtResource("9_ag6gy")
+region = Rect2(0, 0, 26, 33)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xhryp"]
+load_path = "res://.godot/imported/health_progress.png-cf1aff2616cdebed7aa889a604484b2a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymdol"]
+atlas = SubResource("CompressedTexture2D_xhryp")
 region = Rect2(0, 0, 26, 33)
 
 [node name="HellGUI" type="Control"]
@@ -165,4 +177,7 @@ offset_right = 34.0
 offset_bottom = 41.0
 scale = Vector2(4, 4)
 value = 100.0
-texture_progress = SubResource("AtlasTexture_j367u")
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_c0px6")
+texture_over = SubResource("AtlasTexture_75i6p")
+texture_progress = SubResource("AtlasTexture_ymdol")

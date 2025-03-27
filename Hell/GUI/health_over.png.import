@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4xvm4egh0qii"
-path="res://.godot/imported/heart_full.png-c10d1c65e29462067b924c76024531f3.ctex"
+uid="uid://b30l0v3mynlkq"
+path="res://.godot/imported/health_over.png-b419b87192d993dfee3cf37102e328bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Hell/GUI/heart_full.png"
-dest_files=["res://.godot/imported/heart_full.png-c10d1c65e29462067b924c76024531f3.ctex"]
+source_file="res://Hell/GUI/health_over.png"
+dest_files=["res://.godot/imported/health_over.png-b419b87192d993dfee3cf37102e328bd.ctex"]
 
 [params]
 
