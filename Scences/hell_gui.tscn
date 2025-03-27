@@ -97,16 +97,16 @@ text = "Reloading"
 
 [node name="HealthLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_top = 94.0
+offset_top = 158.0
 offset_right = 100.0
-offset_bottom = 117.0
+offset_bottom = 181.0
 text = "Health"
 
 [node name="EnemiesLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_top = 116.0
-offset_right = 66.0
-offset_bottom = 139.0
+offset_top = 176.0
+offset_right = 83.0
+offset_bottom = 199.0
 text = "Enemies: 0"
 
 [node name="WaveLabel" type="Label" parent="CanvasLayer"]
@@ -159,9 +159,10 @@ scale = Vector2(4, 4)
 texture = ExtResource("5_55ewe")
 
 [node name="HealthProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_top = 2.0
-offset_right = 26.0
-offset_bottom = 35.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 34.0
+offset_bottom = 41.0
 scale = Vector2(4, 4)
 value = 100.0
 texture_progress = SubResource("AtlasTexture_j367u")
