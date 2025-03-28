@@ -1,7 +1,7 @@
 extends Node
 var player_health: int = 3
 var player_coins: int = 0
-var demon_health: int = 5
+var demon_health: int = 6
 var magazine_size: int = 12
 var ammo: int = 12
 

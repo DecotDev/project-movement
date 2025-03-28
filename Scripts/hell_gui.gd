@@ -12,11 +12,15 @@ var enemies_label: = %EnemiesLabel
 var wave_label: = %WaveLabel
 @onready
 var dash_cooldown_bar: = %DashCooldownBar
+@onready
+var health_flask: = %HealthFlask
+@onready
+var animation_player: = %AnimationPlayer
 
 func _ready() -> void:
 	flame_bar.max_value = 12
 	flame_bar.value = 12
-	health_label.text = ("Health: " + str(Global.demon_health))
+	update_health_label()
 	#%TextureProgressBar.value = 2
 
 func update_ammo_label(ammo: int, magazine_size: int) -> void:
@@ -35,6 +39,19 @@ func disable_reloading() -> void:
 	
 func update_health_label() -> void:
 	health_label.text = ("Health: " + str(Global.demon_health))
+	var demon_health: = Global.demon_health 
+	if demon_health > 5:
+		animation_player.play("6_beat")
+	elif demon_health > 4:
+		animation_player.play("5_beat")
+	elif demon_health > 3:
+		animation_player.play("4_beat")
+	elif demon_health > 2:
+		animation_player.play("3_beat")
+	elif demon_health > 1:
+		animation_player.play("2_beat")
+	elif demon_health > 0:
+		animation_player.play("1_beat")
 	
 func update_enemies_label() -> void:
 	enemies_label.text = ("Enemeies killed: " + str(Global.killed_enemies))
