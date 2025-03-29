@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx01sxoe7r3fc"
-path="res://.godot/imported/play_butons.png-01821c244b015330971490d88c8e0932.ctex"
+uid="uid://0nwljxi2uo0d"
+path="res://.godot/imported/music_bar.png-fe94d9d55744ca2f7a6c0f660ef4940b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Hell/GUI/play_butons.png"
-dest_files=["res://.godot/imported/play_butons.png-01821c244b015330971490d88c8e0932.ctex"]
+source_file="res://Hell/GUI/MusicPlayer/music_bar.png"
+dest_files=["res://.godot/imported/music_bar.png-fe94d9d55744ca2f7a6c0f660ef4940b.ctex"]
 
 [params]
 

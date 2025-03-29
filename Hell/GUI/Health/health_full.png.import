@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://due0qh5ssg6ju"
-path="res://.godot/imported/health_flask.png-0b0abfa6e4a2f3f9aa3a249edd753a03.ctex"
+uid="uid://3b2afpah6xcq"
+path="res://.godot/imported/health_full.png-b0e8dd6400b221044b68d9360b8a43c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Hell/GUI/health_flask.png"
-dest_files=["res://.godot/imported/health_flask.png-0b0abfa6e4a2f3f9aa3a249edd753a03.ctex"]
+source_file="res://Hell/GUI/Health/health_full.png"
+dest_files=["res://.godot/imported/health_full.png-b0e8dd6400b221044b68d9360b8a43c7.ctex"]
 
 [params]
 

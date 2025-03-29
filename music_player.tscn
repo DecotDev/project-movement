@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7a5aaeilaif4"]
 
 [ext_resource type="Script" uid="uid://bl8pt7mve5l48" path="res://music_player.gd" id="1_nkgi7"]
-[ext_resource type="Texture2D" uid="uid://0nwljxi2uo0d" path="res://Hell/GUI/music_bar.png" id="2_k4xj7"]
-[ext_resource type="FontFile" uid="uid://fjt3f14rqfdo" path="res://Hell/GUI/PIXELADE.TTF" id="3_p3pav"]
+[ext_resource type="Texture2D" uid="uid://0nwljxi2uo0d" path="res://Hell/GUI/MusicPlayer/music_bar.png" id="2_k4xj7"]
+[ext_resource type="FontFile" uid="uid://fjt3f14rqfdo" path="res://Hell/GUI/Fonts/PIXELADE.TTF" id="3_p3pav"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k4xj7"]
 load_path = "res://.godot/imported/play_butons.png-01821c244b015330971490d88c8e0932.ctex"

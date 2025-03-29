@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b5wfqv3qxbl38"
-path="res://.godot/imported/pixelmix_bold.ttf-aeb8ed96fe18aedcc766242f4228f77a.fontdata"
+uid="uid://rmq03ewxgn0g"
+path="res://.godot/imported/I-pixel-u.ttf-b6ecc4f297bea302945cc38fd9c86d51.fontdata"
 
 [deps]
 
-source_file="res://Hell/GUI/pixelmix_bold.ttf"
-dest_files=["res://.godot/imported/pixelmix_bold.ttf-aeb8ed96fe18aedcc766242f4228f77a.fontdata"]
+source_file="res://Hell/GUI/Fonts/I-pixel-u.ttf"
+dest_files=["res://.godot/imported/I-pixel-u.ttf-b6ecc4f297bea302945cc38fd9c86d51.fontdata"]
 
 [params]
 

@@ -17,11 +17,14 @@ var health_flask: = %HealthFlask
 @onready
 var animation_player: = %AnimationPlayer
 
+var wave_text_duration: int = 6
+
 func _ready() -> void:
 	flame_bar.max_value = 12
 	flame_bar.value = 12
 	update_health_label()
 	#%TextureProgressBar.value = 2
+	wave_label.text = ("")
 
 func update_ammo_label(ammo: int, magazine_size: int) -> void:
 	%AmmoLeftLabel.text = (str(ammo) + "/" + str(magazine_size))
@@ -57,7 +60,11 @@ func update_enemies_label() -> void:
 	enemies_label.text = ("Enemeies killed: " + str(Global.killed_enemies))
 	
 func update_wave_label() -> void:
-	wave_label.text = ("Wave " + str(Global.current_wave))
+	wave_label.text = ("WAVE " + str(Global.current_wave))
+	wave_label.visible = true
+	await get_tree().create_timer(wave_text_duration).timeout
+	
+	wave_label.visible = false
 	
 func update_dash_cooldown_bar(progress: float) -> void:
 	dash_cooldown_bar.value = 100 - progress

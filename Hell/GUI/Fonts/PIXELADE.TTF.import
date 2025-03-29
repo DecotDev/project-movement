@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ciudsec66kgfr"
-path="res://.godot/imported/Pixeled.ttf-5140ec569fefff28c78a6f897a327efd.fontdata"
+uid="uid://fjt3f14rqfdo"
+path="res://.godot/imported/PIXELADE.TTF-6159e95af671a398122192bcdf4feecf.fontdata"
 
 [deps]
 
-source_file="res://Hell/GUI/Pixeled.ttf"
-dest_files=["res://.godot/imported/Pixeled.ttf-5140ec569fefff28c78a6f897a327efd.fontdata"]
+source_file="res://Hell/GUI/Fonts/PIXELADE.TTF"
+dest_files=["res://.godot/imported/PIXELADE.TTF-6159e95af671a398122192bcdf4feecf.fontdata"]
 
 [params]
 

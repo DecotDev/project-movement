@@ -1,16 +1,190 @@
-[gd_scene load_steps=34 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=39 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
-[ext_resource type="Texture2D" uid="uid://3b2afpah6xcq" path="res://Hell/GUI/health_full.png" id="2_ag6gy"]
-[ext_resource type="Texture2D" uid="uid://due0qh5ssg6ju" path="res://Hell/GUI/health_flask.png" id="2_c0px6"]
+[ext_resource type="Texture2D" uid="uid://3b2afpah6xcq" path="res://Hell/GUI/Health/health_full.png" id="2_ag6gy"]
+[ext_resource type="Texture2D" uid="uid://due0qh5ssg6ju" path="res://Hell/GUI/Health/health_flask.png" id="2_c0px6"]
 [ext_resource type="PackedScene" uid="uid://b7a5aaeilaif4" path="res://music_player.tscn" id="2_j2pc1"]
 [ext_resource type="Texture2D" uid="uid://b15cjxq2yb68i" path="res://Hell/GUI/Weapons/weapon_case.png" id="4_bggr5"]
-[ext_resource type="FontFile" uid="uid://b5wfqv3qxbl38" path="res://Hell/GUI/pixelmix_bold.ttf" id="4_xsaaw"]
-[ext_resource type="Texture2D" uid="uid://ci8o72rjavjgt" path="res://Hell/GUI/skills_bg.png" id="5_55ewe"]
-[ext_resource type="FontFile" uid="uid://cdwa148tbe0v" path="res://Hell/GUI/PublicPixel.ttf" id="5_86yr6"]
-[ext_resource type="Texture2D" uid="uid://i35no0y5d5sf" path="res://Hell/GUI/health_under.png" id="8_j367u"]
-[ext_resource type="Texture2D" uid="uid://b30l0v3mynlkq" path="res://Hell/GUI/health_over.png" id="9_ag6gy"]
+[ext_resource type="FontFile" uid="uid://b5wfqv3qxbl38" path="res://Hell/GUI/Fonts/pixelmix_bold.ttf" id="4_xsaaw"]
+[ext_resource type="Texture2D" uid="uid://ci8o72rjavjgt" path="res://Hell/GUI/Skills/skills_bg.png" id="5_55ewe"]
+[ext_resource type="FontFile" uid="uid://cdwa148tbe0v" path="res://Hell/GUI/Fonts/PublicPixel.ttf" id="5_86yr6"]
+[ext_resource type="Texture2D" uid="uid://i35no0y5d5sf" path="res://Hell/GUI/Health/health_under.png" id="8_j367u"]
+[ext_resource type="Texture2D" uid="uid://b30l0v3mynlkq" path="res://Hell/GUI/Health/health_over.png" id="9_ag6gy"]
+[ext_resource type="Texture2D" uid="uid://b263xj6efbyb0" path="res://Assets/Guns/USP-45.png" id="11_75i6p"]
+
+[sub_resource type="Animation" id="Animation_nu5im"]
+resource_name = "1_beat"
+length = 1.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthFlask:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.3, 4.3), Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HealthFlask:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_2giok"]
+resource_name = "2_beat"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthFlask:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.4, 4.4), Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HealthFlask:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_xp5jw"]
+resource_name = "3_beat"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthFlask:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.5, 4.5), Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HealthFlask:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_ghusu"]
+resource_name = "4_beat"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthFlask:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.5, 4.5), Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HealthFlask:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ymdol"]
+resource_name = "5_beat"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthFlask:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.6, 4.6), Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HealthFlask:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_xhryp"]
+resource_name = "6_beat"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthFlask:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.6, 4.6), Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HealthFlask:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_75i6p"]
 length = 0.001
@@ -68,179 +242,6 @@ tracks/0/keys = {
 "values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.6, 4.6), Vector2(4, 4)]
 }
 
-[sub_resource type="Animation" id="Animation_xhryp"]
-resource_name = "6_beat"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HealthFlask:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.6, 4.6), Vector2(4, 4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HealthFlask:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_ymdol"]
-resource_name = "5_beat"
-length = 1.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HealthFlask:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.6, 4.6), Vector2(4, 4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HealthFlask:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_ghusu"]
-resource_name = "4_beat"
-length = 1.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HealthFlask:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.76, 1, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.5, 4.5), Vector2(4, 4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HealthFlask:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-
-[sub_resource type="Animation" id="Animation_xp5jw"]
-resource_name = "3_beat"
-length = 1.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HealthFlask:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.1, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.5, 4.5), Vector2(4, 4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HealthFlask:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_2giok"]
-resource_name = "2_beat"
-length = 1.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HealthFlask:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.4, 4.4), Vector2(4, 4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HealthFlask:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_nu5im"]
-resource_name = "1_beat"
-length = 1.9
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HealthFlask:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.5, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4, 4), Vector2(4, 4), Vector2(4.3, 4.3), Vector2(4, 4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HealthFlask:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xhryp"]
 _data = {
 &"1_beat": SubResource("Animation_nu5im"),
@@ -293,15 +294,29 @@ shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j2pc1"]
-load_path = "res://.godot/imported/dash.png-55e7f0c8034d4f6db7654ce0bc558279.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_75i6p"]
+load_path = "res://.godot/imported/dash.png-4a6ff274349ec8e5a73f1f58c1932e51.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55ewe"]
-atlas = SubResource("CompressedTexture2D_j2pc1")
+atlas = SubResource("CompressedTexture2D_75i6p")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsaaw"]
-atlas = SubResource("CompressedTexture2D_j2pc1")
+atlas = SubResource("CompressedTexture2D_75i6p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c0px6"]
+load_path = "res://.godot/imported/dash.png-55e7f0c8034d4f6db7654ce0bc558279.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhryp"]
+atlas = SubResource("CompressedTexture2D_c0px6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ymdol"]
+load_path = "res://.godot/imported/dash.png-55e7f0c8034d4f6db7654ce0bc558279.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp5jw"]
+atlas = SubResource("CompressedTexture2D_ymdol")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86yr6"]
@@ -409,7 +424,7 @@ offset_top = 43.0
 offset_right = 1200.0
 offset_bottom = 123.0
 theme_override_font_sizes/font_size = 48
-text = "WAVE 0"
+text = "WAVE 1"
 label_settings = SubResource("LabelSettings_6b0sy")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -437,13 +452,18 @@ scale = Vector2(4, 4)
 value = 80.0
 rounded = true
 fill_mode = 3
-texture_under = SubResource("AtlasTexture_55ewe")
-texture_progress = SubResource("AtlasTexture_xsaaw")
+texture_under = SubResource("AtlasTexture_xhryp")
+texture_progress = SubResource("AtlasTexture_xp5jw")
 
 [node name="WeaponCase" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(128, 1016)
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_86yr6")
+
+[node name="Gun" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(199, 1108)
+scale = Vector2(5.275, 5.275)
+texture = ExtResource("11_75i6p")
 
 [node name="SkillsBackground" type="Sprite2D" parent="CanvasLayer"]
 z_index = -1

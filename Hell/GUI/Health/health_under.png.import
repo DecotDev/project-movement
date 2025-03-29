@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0nwljxi2uo0d"
-path="res://.godot/imported/music_bar.png-a66dc767df528b1f7dad5d4750369b60.ctex"
+uid="uid://i35no0y5d5sf"
+path="res://.godot/imported/health_under.png-855595f5438eb28146613c3d2442b66f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Hell/GUI/music_bar.png"
-dest_files=["res://.godot/imported/music_bar.png-a66dc767df528b1f7dad5d4750369b60.ctex"]
+source_file="res://Hell/GUI/Health/health_under.png"
+dest_files=["res://.godot/imported/health_under.png-855595f5438eb28146613c3d2442b66f.ctex"]
 
 [params]
 
