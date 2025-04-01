@@ -10,3 +10,5 @@ var killed_enemies: int = 0
 var current_wave: int = 1
 
 var sound_effects_db: float = -2.4
+
+var gui_focus: bool = false

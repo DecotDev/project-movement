@@ -22,11 +22,17 @@ func _physics_process(delta: float) -> void:
 	
 	look_at(get_global_mouse_position())
 	blowback_reset()
-	if Input.is_action_just_pressed("Shoot") and !reloading:
+	
+	if Input.is_action_just_pressed("Shoot") and !reloading and !Global.gui_focus:
 		if ammo > 0: shoot()
 		else: dry_fire()
 	if Input.is_action_just_pressed("Reload") and ammo != magazine_size and !reloading:
 		reload()
+
+#func _unhandled_input(event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("Shoot") and !reloading:
+		#if ammo > 0: shoot()
+		#else: dry_fire()
 
 func shoot() -> void:
 	shot_sound()

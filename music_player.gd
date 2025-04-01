@@ -37,3 +37,21 @@ func _on_previous_button_pressed() -> void:
 func update_playing_label() -> void:
 	await get_tree().create_timer(0.1).timeout
 	playing_label.text = (str(SoundPlayer.hell_music_info[SoundPlayer.actual_song_num]))
+
+func _on_play_button_mouse_entered() -> void:
+	Global.gui_focus = true
+
+func _on_play_button_mouse_exited() -> void:
+	Global.gui_focus = false
+
+func _on_next_button_mouse_entered() -> void:
+	Global.gui_focus = true
+
+func _on_next_button_mouse_exited() -> void:
+	Global.gui_focus = false
+
+func _on_previous_button_mouse_entered() -> void:
+	Global.gui_focus = true
+
+func _on_previous_button_mouse_exited() -> void:
+	Global.gui_focus = false

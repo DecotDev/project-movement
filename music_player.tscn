@@ -99,7 +99,13 @@ label_settings = SubResource("LabelSettings_rjark")
 vertical_alignment = 1
 clip_text = true
 
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="PlayButton" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="toggled" from="PlayButton" to="." method="_on_play_button_toggled"]
+[connection signal="mouse_entered" from="PreviousButton" to="." method="_on_previous_button_mouse_entered"]
+[connection signal="mouse_exited" from="PreviousButton" to="." method="_on_previous_button_mouse_exited"]
 [connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="mouse_entered" from="NextButton" to="." method="_on_next_button_mouse_entered"]
+[connection signal="mouse_exited" from="NextButton" to="." method="_on_next_button_mouse_exited"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
