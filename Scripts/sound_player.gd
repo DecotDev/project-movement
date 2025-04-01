@@ -33,6 +33,7 @@ func play_sound(sound: AudioStream) -> void:
 	for audioStreamPlayer in audioPlayers.get_children():
 		if not audioStreamPlayer.playing:
 			audioStreamPlayer.stream = sound
+			audioStreamPlayer.volume_db = Global.sound_effects_db
 			audioStreamPlayer.play()
 			break
 			
