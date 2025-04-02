@@ -109,6 +109,8 @@ radius = 347.092
 radius = 791.71
 
 [node name="Temple" type="CharacterBody2D"]
+light_mask = 2
+visibility_layer = 2
 z_index = 1
 script = ExtResource("1_f8p47")
 
@@ -120,7 +122,6 @@ hframes = 4
 vframes = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(1.84, 1.84)
 polygon = PackedVector2Array(-40, 44, 44, 44, 32, -16, -28, -16)
 disabled = true
 
