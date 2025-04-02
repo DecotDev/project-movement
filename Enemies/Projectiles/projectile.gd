@@ -6,7 +6,7 @@ var travelled_distance: = 0
 var direction: Vector2
 var demon: CharacterBody2D
 var charging: bool = true
-var desviation: float = 0.02
+var deviation: float = 0.02
 
 const SPEED = 200
 const RANGE = 2000
@@ -14,7 +14,7 @@ const RANGE = 2000
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	direction = global_position.direction_to(demon.global_position)
-	direction += Vector2(rng.randf_range(-desviation, desviation),rng.randf_range(-desviation, desviation))
+	direction += Vector2(rng.randf_range(-deviation, deviation),rng.randf_range(-deviation, deviation))
 	
 	charge()
 	
