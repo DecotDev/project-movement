@@ -9,6 +9,7 @@ var last_h: bool = false
 
 func enter(previous_state_path: String, data := {}) -> void:
 	%AnimationPlayer.play("Jiggle")
+	temple.direction = Vector2(0,0)
 	%AnimationPlayer.get_animation(%AnimationPlayer.current_animation).loop_mode = 1
 	state_label.text = "Patrol Y"
 	up = false

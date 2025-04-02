@@ -8,6 +8,8 @@ var right: bool = true
 var last_h: bool = false
 
 func enter(previous_state_path: String, data := {}) -> void:
+	temple.can_lock_player = true
+	temple.direction = Vector2(0,0)
 	%AnimationPlayer.play("Jiggle")
 	%AnimationPlayer.get_animation(%AnimationPlayer.current_animation).loop_mode = 1
 	state_label.text = "Patrol X"
