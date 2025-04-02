@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqxo6jxe3yg04"]
+[gd_scene load_steps=16 format=3 uid="uid://cqxo6jxe3yg04"]
 
 [ext_resource type="Script" uid="uid://cr1ta043l2wkv" path="res://Enemies/Temple/temple.gd" id="1_f8p47"]
 [ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="1_yrx7d"]
 [ext_resource type="Script" uid="uid://b3ooikffkiilg" path="res://Enemies/Temple/patrol_x.gd" id="3_k7spc"]
 [ext_resource type="Script" uid="uid://djny2mhmy44y4" path="res://Enemies/Temple/patrol_y.gd" id="4_a50vg"]
 [ext_resource type="Script" uid="uid://bfbire5j4bv6e" path="res://Enemies/Temple/charging.gd" id="5_ft7e5"]
+[ext_resource type="Script" uid="uid://nlffsolumg4o" path="res://Enemies/Temple/shooting.gd" id="6_kggnc"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0um8"]
 load_path = "res://.godot/imported/temple.png-cefd5664df802ac1d4472e02a08b74e6.ctex"
@@ -75,12 +76,30 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_kggnc"]
+resource_name = "Reload"
+length = 1.5
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2, 1.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [13, 12, 11, 10, 9, 8, 7, 6, 5, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4o6r0"]
 _data = {
 &"Charge": SubResource("Animation_k7spc"),
 &"Ignite": SubResource("Animation_f8p47"),
 &"Jiggle": SubResource("Animation_l4q42"),
-&"RESET": SubResource("Animation_b82kl")
+&"RESET": SubResource("Animation_b82kl"),
+&"Reload": SubResource("Animation_kggnc")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k7spc"]
@@ -122,6 +141,7 @@ script = ExtResource("4_a50vg")
 script = ExtResource("5_ft7e5")
 
 [node name="Shooting" type="Node" parent="StateMachine"]
+script = ExtResource("6_kggnc")
 
 [node name="StateLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -151,6 +171,7 @@ text = "Velocity"
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_k7spc")
 
 [node name="ReactivationTimer" type="Timer" parent="."]
@@ -161,8 +182,13 @@ one_shot = true
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+visible = false
 shape = SubResource("CircleShape2D_ft7e5")
 debug_color = Color(0.863112, 0.310559, 0.471548, 0.42)
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2, -22)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ReactivationTimer" to="." method="_on_reactivation_timer_timeout"]

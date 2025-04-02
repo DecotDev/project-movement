@@ -29,11 +29,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Reload") and ammo != magazine_size and !reloading:
 		reload()
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if Input.is_action_just_pressed("Shoot") and !reloading:
-		#if ammo > 0: shoot()
-		#else: dry_fire()
-
 func shoot() -> void:
 	shot_sound()
 	blowback()

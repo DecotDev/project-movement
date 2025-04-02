@@ -18,8 +18,9 @@ func physics_update(delta: float) -> void:
 	velocity_x = temple.velocity.x
 	velocity_y = temple.velocity.y
 	if velocity_x == 10 or velocity_y == 10 or velocity_x == -10 or velocity_y == -10:
-		await %AnimationPlayer.animation_finished
-		#finished.emit(SHOOTING)
+		if %AnimationPlayer.is_playing():
+			await %AnimationPlayer.animation_finished
+		finished.emit(SHOOTING)
 	else:
 		temple.velocity.x = lerp(temple.velocity.x, 0.0 , 0.02)
 		temple.velocity.y = lerp(temple.velocity.y, 0.0 , 0.02)
