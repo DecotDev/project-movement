@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://coibfkpqkmlbp"]
+[gd_scene load_steps=8 format=4 uid="uid://coibfkpqkmlbp"]
 
 [ext_resource type="Texture2D" uid="uid://cwyskgv43joaf" path="res://Assets/Hell/hex.png" id="1_fetqg"]
 [ext_resource type="PackedScene" uid="uid://cfmbl6ed0fskd" path="res://DemonPlayer/demon.tscn" id="1_v8cfb"]
 [ext_resource type="PackedScene" uid="uid://dbi28s0peaois" path="res://Scences/hell_gui.tscn" id="3_v8ioc"]
 [ext_resource type="PackedScene" uid="uid://bjjsfbbmi0rvq" path="res://Hell/Spawner/spawner.tscn" id="4_bhe51"]
 [ext_resource type="PackedScene" uid="uid://cyqmka5o1vy3y" path="res://Scences/hell_tile_map_layer.tscn" id="5_s1aee"]
+[ext_resource type="PackedScene" uid="uid://cqxo6jxe3yg04" path="res://Enemies/Temple/temple.tscn" id="6_s1aee"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bhe51"]
 load_path = "res://.godot/imported/hell_round.png-1807142aca463375e4b07cb337858147.ctex"
@@ -63,6 +64,9 @@ position = Vector2(-984, 412)
 
 [node name="Marker2D9" type="Marker2D" parent="Spawner/Spawns" index="9"]
 position = Vector2(-981, -228)
+
+[node name="Temple" parent="." instance=ExtResource("6_s1aee")]
+position = Vector2(-724, 110)
 
 [connection signal="child_exiting_tree" from="Spawner/Enemies" to="Spawner" method="_on_enemies_child_exiting_tree"]
 

@@ -1,12 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqxo6jxe3yg04"]
+[gd_scene load_steps=14 format=3 uid="uid://cqxo6jxe3yg04"]
+
+[ext_resource type="Script" uid="uid://cr1ta043l2wkv" path="res://Enemies/Temple/temple.gd" id="1_f8p47"]
+[ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="1_yrx7d"]
+[ext_resource type="Script" uid="uid://b3ooikffkiilg" path="res://Enemies/Temple/patrol_x.gd" id="3_k7spc"]
+[ext_resource type="Script" uid="uid://djny2mhmy44y4" path="res://Enemies/Temple/patrol_y.gd" id="4_a50vg"]
+[ext_resource type="Script" uid="uid://bfbire5j4bv6e" path="res://Enemies/Temple/charging.gd" id="5_ft7e5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0um8"]
 load_path = "res://.godot/imported/temple.png-cefd5664df802ac1d4472e02a08b74e6.ctex"
 
-[sub_resource type="Animation" id="Animation_l4q42"]
-resource_name = "Load"
-length = 2.0
-step = 0.2
+[sub_resource type="Animation" id="Animation_k7spc"]
+resource_name = "Charge"
+length = 1.75
+step = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,10 +20,44 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"times": PackedFloat32Array(0, 0.35, 0.7, 1.05, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_f8p47"]
+resource_name = "Ignite"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_l4q42"]
+resource_name = "Jiggle"
+length = 1.9
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 1, 2, 3, 4, 3, 2, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_b82kl"]
@@ -37,22 +77,93 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4o6r0"]
 _data = {
-&"Load": SubResource("Animation_l4q42"),
+&"Charge": SubResource("Animation_k7spc"),
+&"Ignite": SubResource("Animation_f8p47"),
+&"Jiggle": SubResource("Animation_l4q42"),
 &"RESET": SubResource("Animation_b82kl")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k7spc"]
+radius = 347.092
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ft7e5"]
+radius = 791.71
+
 [node name="Temple" type="CharacterBody2D"]
+script = ExtResource("1_f8p47")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
 texture = SubResource("CompressedTexture2D_h0um8")
 hframes = 4
 vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_4o6r0")
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
-polygon = PackedVector2Array(-6, -6, 7, -6, 11, 11, -10, 11)
+polygon = PackedVector2Array(-6.25, -5, 7.25, -5, 11, 11, -10, 11)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_yrx7d")
+
+[node name="PatrolX" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("3_k7spc")
+
+[node name="PatrolY" type="Node" parent="StateMachine"]
+script = ExtResource("4_a50vg")
+
+[node name="Charging" type="Node" parent="StateMachine"]
+script = ExtResource("5_ft7e5")
+
+[node name="Shooting" type="Node" parent="StateMachine"]
+
+[node name="StateLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -19.0
+offset_top = -49.0
+offset_right = 21.0
+offset_bottom = -26.0
+text = "State"
+
+[node name="DirectionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -14.0
+offset_top = 45.0
+offset_right = 26.0
+offset_bottom = 68.0
+text = "Dir"
+
+[node name="VelocityLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -27.0
+offset_top = 70.0
+offset_right = 34.0
+offset_bottom = 93.0
+text = "Velocity"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_k7spc")
+
+[node name="ReactivationTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_ft7e5")
+debug_color = Color(0.863112, 0.310559, 0.471548, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="ReactivationTimer" to="." method="_on_reactivation_timer_timeout"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

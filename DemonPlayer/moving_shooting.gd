@@ -3,6 +3,7 @@ extends DemonPlayerState
 func enter(previous_state_path: String, data := {}) -> void:
 	state_label.text = "MovShoot"
 	%AnimationPlayer.play("Run")
+	
 
 
 func physics_update(delta: float) -> void:
