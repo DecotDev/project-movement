@@ -16,6 +16,9 @@ var shooting: bool = false
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
+	
+func take_damage() -> void:
+	pass
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

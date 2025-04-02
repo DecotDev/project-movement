@@ -109,23 +109,26 @@ radius = 347.092
 radius = 791.71
 
 [node name="Temple" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_f8p47")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(4, 4)
 texture = SubResource("CompressedTexture2D_h0um8")
 hframes = 4
 vframes = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.84, 1.84)
+polygon = PackedVector2Array(-40, 44, 44, 44, 32, -16, -28, -16)
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_4o6r0")
 }
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-6.25, -5, 7.25, -5, 11, 11, -10, 11)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("1_yrx7d")

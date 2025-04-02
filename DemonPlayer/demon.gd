@@ -51,6 +51,11 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("damage_demon") and !invencible:
 		Global.demon_health -= 1
 		gui.update_health_label()
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.has_method("damage_demon") and !invencible:
+		Global.demon_health -= 1
+		gui.update_health_label()
 #func _physics_process(delta: float) -> void:
 		#mouse_label.text = ("Char X: " + str(position.x) + "\nChar Y: " + str(position.y) + "\nMaus X: " + str(get_global_mouse_position()) + "\nCamera X: " + str(camera.position.x) + "\nCamera Y: " + str(camera.position.y) + "\nMD_df X: " + str(camera.mouse_demon_diff.x) +"\nMD_df Y: " + str(camera.mouse_demon_diff.y))
 	#camera.mouse_pos = get_global_mouse_position()
