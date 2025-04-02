@@ -8,7 +8,7 @@ var demon: CharacterBody2D
 var charging: bool = true
 var deviation: float = 0.02
 
-const SPEED = 200
+const SPEED = 340
 const RANGE = 2000
 
 func _ready() -> void:

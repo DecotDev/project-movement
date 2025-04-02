@@ -43,16 +43,16 @@ _data = {
 }
 
 [node name="Projectile" type="Area2D"]
+top_level = true
 script = ExtResource("1_fnfa7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fnfa7")
+debug_color = Color(0.638697, 0.52553, 0, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_a0imw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-top_level = true
-shape = SubResource("CircleShape2D_fnfa7")
-debug_color = Color(0.638697, 0.52553, 0, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

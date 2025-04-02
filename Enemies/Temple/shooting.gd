@@ -1,8 +1,12 @@
 extends TempleState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	temple.shooting = true
+	print("e- Shooting")
+	print("shooting: " + str(temple.shooting))
 	state_label.text = "Shooting"
 	%AnimationPlayer.play("Ignite")
+	#print("Start shoot state")
 	shoot()
 
 func shoot() -> void:
@@ -10,10 +14,11 @@ func shoot() -> void:
 	const PROJECTILE = preload("res://Enemies/Projectiles/projectile.tscn")
 	var new_projectile: = PROJECTILE.instantiate()
 	#shot_sound()
-	new_projectile.global_position = %ShootPoint.position
+	new_projectile.global_position = %ShootPoint.global_position
 	#new_projectile.global_rotation = %ShootPoint.rotation
 	#new_projectile.global_rotation += rng.randf_range(-0.02, 0.02)
 	%ShootPoint.add_child(new_projectile)
+	#print("Projectile shoot")
 	
 	%AnimationPlayer.play("Reload")
 	await %AnimationPlayer.animation_finished

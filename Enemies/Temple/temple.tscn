@@ -171,18 +171,16 @@ text = "Velocity"
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource("CircleShape2D_k7spc")
 
 [node name="ReactivationTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-visible = false
 shape = SubResource("CircleShape2D_ft7e5")
 debug_color = Color(0.863112, 0.310559, 0.471548, 0.42)
 
@@ -192,4 +190,5 @@ position = Vector2(2, -22)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ReactivationTimer" to="." method="_on_reactivation_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
