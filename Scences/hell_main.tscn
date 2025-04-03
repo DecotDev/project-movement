@@ -68,6 +68,12 @@ position = Vector2(-981, -228)
 [node name="Temple" parent="Spawner/Enemies" index="0" instance=ExtResource("6_s1aee")]
 position = Vector2(-649, -464)
 
+[node name="Temple2" parent="Spawner/Enemies" index="1" instance=ExtResource("6_s1aee")]
+position = Vector2(-224, 314)
+
+[node name="Temple3" parent="Spawner/Enemies" index="2" instance=ExtResource("6_s1aee")]
+position = Vector2(555, -282)
+
 [connection signal="child_exiting_tree" from="Spawner/Enemies" to="Spawner" method="_on_enemies_child_exiting_tree"]
 
 [editable path="Spawner"]

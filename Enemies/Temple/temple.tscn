@@ -1,15 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqxo6jxe3yg04"]
+[gd_scene load_steps=19 format=3 uid="uid://cqxo6jxe3yg04"]
 
 [ext_resource type="Script" uid="uid://cr1ta043l2wkv" path="res://Enemies/Temple/temple.gd" id="1_f8p47"]
 [ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="1_yrx7d"]
+[ext_resource type="Texture2D" uid="uid://dg2jgsutymflq" path="res://Enemies/Temple/Burn.png" id="2_indmw"]
 [ext_resource type="Script" uid="uid://b3ooikffkiilg" path="res://Enemies/Temple/patrol_x.gd" id="3_k7spc"]
 [ext_resource type="Script" uid="uid://djny2mhmy44y4" path="res://Enemies/Temple/patrol_y.gd" id="4_a50vg"]
 [ext_resource type="Script" uid="uid://bfbire5j4bv6e" path="res://Enemies/Temple/charging.gd" id="5_ft7e5"]
 [ext_resource type="Script" uid="uid://nlffsolumg4o" path="res://Enemies/Temple/shooting.gd" id="6_kggnc"]
 [ext_resource type="Script" uid="uid://dq8thf4uvawps" path="res://Enemies/Temple/destroyed.gd" id="7_gck77"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kggnc"]
-size = Vector2(120, 90)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0um8"]
 load_path = "res://.godot/imported/temple.png-cefd5664df802ac1d4472e02a08b74e6.ctex"
@@ -21,7 +19,7 @@ step = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,7 +35,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,7 +53,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -70,10 +68,22 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -87,7 +97,7 @@ step = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -97,9 +107,27 @@ tracks/0/keys = {
 "values": [13, 12, 11, 10, 9, 8, 7, 6, 5, 4]
 }
 
+[sub_resource type="Animation" id="Animation_gt6tl"]
+resource_name = "Fire"
+length = 0.72
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4o6r0"]
 _data = {
 &"Charge": SubResource("Animation_k7spc"),
+&"Fire": SubResource("Animation_gt6tl"),
 &"Ignite": SubResource("Animation_f8p47"),
 &"Jiggle": SubResource("Animation_l4q42"),
 &"RESET": SubResource("Animation_b82kl"),
@@ -118,11 +146,16 @@ visibility_layer = 2
 z_index = 1
 script = ExtResource("1_f8p47")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 6)
-shape = SubResource("RectangleShape2D_kggnc")
+[node name="Fire" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(10, -48)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_indmw")
+vframes = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 z_index = 1
 scale = Vector2(4, 4)
 texture = SubResource("CompressedTexture2D_h0um8")
@@ -131,7 +164,6 @@ vframes = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-40, 44, 44, 44, 32, -16, -28, -16)
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
