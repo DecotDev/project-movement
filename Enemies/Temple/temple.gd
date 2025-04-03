@@ -19,7 +19,7 @@ var destroyed: bool = false
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
-	%Fire.set_deferred("visible", false)
+	%Explosion.set_deferred("visible", false)
 	
 func take_damage() -> void:
 	if health != 0:

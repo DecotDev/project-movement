@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://qllip7vlobs6"]
+[gd_scene load_steps=11 format=3 uid="uid://qllip7vlobs6"]
 
 [ext_resource type="Script" uid="uid://gu0ng8yhi8wd" path="res://Enemies/FlyingHead/flying_head.gd" id="1_urndj"]
 [ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="3_6ism7"]
@@ -78,9 +78,6 @@ _data = {
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ytw1b"]
 load_path = "res://.godot/imported/flying_head.png-a2e068c8d3458ce204928a7c9ecb6ec8.ctex"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8vcw"]
-size = Vector2(14, 12)
-
 [node name="FlyingHead" type="CharacterBody2D"]
 light_mask = 2
 visibility_layer = 2
@@ -106,13 +103,6 @@ vframes = 8
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
 unique_name_in_owner = true
 polygon = PackedVector2Array(-32, 4, -16, 32, 16, 32, 32, 4, 32, -20, 24, -32, -24, -32, -32, -20)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 1)
-scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_y8vcw")
-disabled = true
 
 [node name="StateLabel" type="Label" parent="."]
 unique_name_in_owner = true

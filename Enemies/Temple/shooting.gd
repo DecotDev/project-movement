@@ -10,7 +10,8 @@ func enter(previous_state_path: String, data := {}) -> void:
 	shoot()
 
 func shoot() -> void:
-	await %AnimationPlayer.animation_finished
+	if %AnimationPlayer.is_playing():
+		await %AnimationPlayer.animation_finished
 	const PROJECTILE = preload("res://Enemies/Projectiles/projectile.tscn")
 	var new_projectile: = PROJECTILE.instantiate()
 	#shot_sound()
