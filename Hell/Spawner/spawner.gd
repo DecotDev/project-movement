@@ -5,6 +5,8 @@ var rng: = RandomNumberGenerator.new()
 @onready
 var flying_head: = preload("res://Enemies/FlyingHead/flying_head.tscn")
 @onready
+var temple: = preload("res://Enemies/Temple/temple.tscn")
+@onready
 var enemie_spawn: Array[int] = [1,5,9,15,20,24,30]
 
 var gui: Node = null

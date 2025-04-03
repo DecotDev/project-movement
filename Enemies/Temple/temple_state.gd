@@ -4,6 +4,7 @@ const PATROL_X = "PatrolX"
 const PATROL_Y = "PatrolY"
 const CHARGING = "Charging"
 const SHOOTING = "Shooting"
+const DESTROYED = "Destroyed"
 
 var temple: Temple
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqxo6jxe3yg04"]
+[gd_scene load_steps=18 format=3 uid="uid://cqxo6jxe3yg04"]
 
 [ext_resource type="Script" uid="uid://cr1ta043l2wkv" path="res://Enemies/Temple/temple.gd" id="1_f8p47"]
 [ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="1_yrx7d"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://djny2mhmy44y4" path="res://Enemies/Temple/patrol_y.gd" id="4_a50vg"]
 [ext_resource type="Script" uid="uid://bfbire5j4bv6e" path="res://Enemies/Temple/charging.gd" id="5_ft7e5"]
 [ext_resource type="Script" uid="uid://nlffsolumg4o" path="res://Enemies/Temple/shooting.gd" id="6_kggnc"]
+[ext_resource type="Script" uid="uid://dq8thf4uvawps" path="res://Enemies/Temple/destroyed.gd" id="7_gck77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kggnc"]
+size = Vector2(120, 90)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0um8"]
 load_path = "res://.godot/imported/temple.png-cefd5664df802ac1d4472e02a08b74e6.ctex"
@@ -114,6 +118,10 @@ visibility_layer = 2
 z_index = 1
 script = ExtResource("1_f8p47")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 6)
+shape = SubResource("RectangleShape2D_kggnc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 scale = Vector2(4, 4)
@@ -147,6 +155,9 @@ script = ExtResource("5_ft7e5")
 [node name="Shooting" type="Node" parent="StateMachine"]
 script = ExtResource("6_kggnc")
 
+[node name="Destroyed" type="Node" parent="StateMachine"]
+script = ExtResource("7_gck77")
+
 [node name="StateLabel" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = -19.0
@@ -172,9 +183,10 @@ offset_right = 34.0
 offset_bottom = 93.0
 text = "Velocity"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_k7spc")
 
 [node name="ReactivationTimer" type="Timer" parent="."]
@@ -182,9 +194,10 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_ft7e5")
 debug_color = Color(0.863112, 0.310559, 0.471548, 0.42)
 
@@ -192,7 +205,7 @@ debug_color = Color(0.863112, 0.310559, 0.471548, 0.42)
 unique_name_in_owner = true
 position = Vector2(2, -22)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="timeout" from="ReactivationTimer" to="." method="_on_reactivation_timer_timeout"]
-[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
-[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
