@@ -17,8 +17,12 @@ func take_damage() -> void:
 	#flying_head.velocity *= 0.3
 	flying_head.health -= 1
 	if flying_head.health <= 0:
+		flying_head.dead = true
+		%Hitbox.set_deferred("disabled", true)
 		Global.killed_enemies += 1
 		flying_head.gui.update_enemies_label()
+		%AnimationPlayer.play("Destroyed")
+		await  %AnimationPlayer.animation_finished
 		flying_head.queue_free()
 
 func push_back() -> void:
@@ -27,4 +31,5 @@ func push_back() -> void:
 	#flying_head.move_and_slide()
 
 func _on_hurt_timer_timeout() -> void:
-	finished.emit(MOVING)
+	if !flying_head.dead:
+		finished.emit(MOVING)

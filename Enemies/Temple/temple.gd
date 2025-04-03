@@ -6,7 +6,7 @@ var gui: Node = null
 var demon: CharacterBody2D
 
 #Stats
-var health: int = 10
+var health: int = 4 #10
 var speed: int = 240
 var reactivation_time: float = 2.0
 
@@ -22,7 +22,12 @@ func _ready() -> void:
 	%Fire.set_deferred("visible", false)
 	
 func take_damage() -> void:
-	health -= 1
+	if health != 0:
+		if !shooting:
+			%AuxAnimationPlayer.play("Hurt")
+		else:
+			%AuxAnimationPlayer.play("SmallHurt")
+		health -= 1
 	if health <= 0:
 		destroyed = true
 		#%DetectionArea.get_child(0).set_deferred("disabled", true)

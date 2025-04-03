@@ -37,8 +37,6 @@ func physics_update(delta: float) -> void:
 	temple.velocity = temple.direction * temple.speed
 	temple.move_and_slide()
 
-func take_damage() -> void:
-	pass
 	#flying_head.animation_player.play("Hurt")
 	#push_back()
 	#flying_head.health -= 1
