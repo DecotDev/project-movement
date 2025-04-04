@@ -5,6 +5,8 @@ func enter(previous_state_path: String, data := {}) -> void:
 	print("e- Shooting")
 	print("shooting: " + str(temple.shooting))
 	state_label.text = "Shooting"
+	if %AnimationPlayer.current_animation == "Charging":
+		await %AnimationPlayer.animation_finished
 	%AnimationPlayer.play("Ignite")
 	#print("Start shoot state")
 	shoot()

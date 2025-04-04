@@ -25,7 +25,9 @@ func physics_update(delta: float) -> void:
 	temple.velocity.y = lerp(temple.velocity.y, 0.0 , 0.02)
 	temple.move_and_slide()
 	%VelocityLabel.text = ("X: " + str(temple.velocity.x) +  " Y: " + str(temple.velocity.y))
-	if !%AnimationPlayer.is_playing():
+	if %AnimationPlayer.current_animation == "Charging":
+	#if !%AnimationPlayer.is_playing():
+		await %AnimationPlayer.animation_finished
 		if !temple.shooting:
 			temple.shooting = true
 			finished.emit(SHOOTING)
