@@ -6,6 +6,8 @@ const CHARGING = "Charging"
 const SHOOTING = "Shooting"
 const DESTROYED = "Destroyed"
 
+const PROJECTILE = preload("res://Enemies/Projectiles/projectile.tscn")
+
 var temple: Temple
 
 @onready

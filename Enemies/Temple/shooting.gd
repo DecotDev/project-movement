@@ -1,31 +1,28 @@
 extends TempleState
 
+var projectile: Area2D
+
 func enter(previous_state_path: String, data := {}) -> void:
+	
 	temple.shooting = true
 	print("e- Shooting")
-	print("shooting: " + str(temple.shooting))
+	#print("shooting: " + str(temple.shooting))
 	state_label.text = "Shooting"
-	if %AnimationPlayer.current_animation == "Charging":
-		await %AnimationPlayer.animation_finished
+	#if %AnimationPlayer.current_animation == "Charging":
+		#await %AnimationPlayer.animation_finished
 	%AnimationPlayer.play("Ignite")
-	#print("Start shoot state")
-	shoot()
 
-func shoot() -> void:
-	if %AnimationPlayer.is_playing():
-		await %AnimationPlayer.animation_finished
-	const PROJECTILE = preload("res://Enemies/Projectiles/projectile.tscn")
-	var new_projectile: = PROJECTILE.instantiate()
-	#shot_sound()
-	new_projectile.global_position = %ShootPoint.global_position
-	#new_projectile.global_rotation = %ShootPoint.rotation
-	#new_projectile.global_rotation += rng.randf_range(-0.02, 0.02)
-	%ShootPoint.add_child(new_projectile)
-	#print("Projectile shoot")
+	#if temple.can_shoot:
+		#shoot()
 	
-	%AnimationPlayer.play("Reload")
-	await %AnimationPlayer.animation_finished
-	finished.emit(SHOOTING)
+
+#func shoot() -> void:
+	##temple.can_shoot = false
+	#print("Shoot function called")
+	
+	#if %AnimationPlayer.is_playing():
+		#await %AnimationPlayer.animation_finished
+
 
 	
 #func physics_update(delta: float) -> void:
@@ -39,3 +36,26 @@ func shoot() -> void:
 		#await %AnimationPlayer.animation_finished
 		#finished.emit(SHOOTING)
 	#
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Ignite":
+		var new_projectile: = PROJECTILE.instantiate()
+		#shot_sound()
+		new_projectile.global_position = %ShootPoint.global_position
+		#new_projectile.global_rotation = %ShootPoint.rotation
+		#new_projectile.global_rotation += rng.randf_range(-0.02, 0.02)
+		temple.add_child(new_projectile)
+		#print("Projectile shoot")
+		
+		%AnimationPlayer.play("Reload")
+		#await %AnimationPlayer.animation_finished
+		#print("Shoot function ENDED")
+		#finished.emit(SHOOTING)
+	if anim_name == "Reload":
+		print("Shoot function ENDED")
+		if temple.demon_out_of_range:
+			finished.emit(PATROL_X)
+		else:
+			finished.emit(SHOOTING)
+		
