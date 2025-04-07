@@ -204,14 +204,14 @@ _data = {
 radius = 350.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ft7e5"]
-radius = 780.0
+radius = 700.0
 
 [node name="Temple" type="CharacterBody2D"]
 light_mask = 2
 visibility_layer = 2
 z_index = 1
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_f8p47")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -279,6 +279,7 @@ script = ExtResource("7_gck77")
 
 [node name="StateLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -19.0
 offset_top = -49.0
 offset_right = 21.0
@@ -296,6 +297,7 @@ text = "Dir"
 
 [node name="VelocityLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -27.0
 offset_top = 70.0
 offset_right = 34.0

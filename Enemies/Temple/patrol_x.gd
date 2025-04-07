@@ -9,7 +9,7 @@ var last_h: bool = false
 
 func enter(previous_state_path: String, data := {}) -> void:
 	temple.shooting = false
-	print("e- Patrol X")
+	#print("e- Patrol X")
 	#print("shooting: " + str(temple.shooting))
 	temple.can_lock_player = true
 	temple.direction = Vector2(0,0)

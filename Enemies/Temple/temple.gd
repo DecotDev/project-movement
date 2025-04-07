@@ -6,10 +6,11 @@ extends CharacterBody2D
 #Connections
 var gui: Node = null
 var demon: CharacterBody2D
+var projectiles: Node
 
 #Stats
 var health: int = 4 #10
-var speed: int = 240
+var speed: int = 280
 var reactivation_time: float = 2.0
 
 #Control
@@ -23,6 +24,7 @@ var demon_out_of_range: = false
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
+	projectiles = get_tree().get_root().find_child("Projectiles", true, false)
 	%Explosion.set_deferred("visible", false)
 	
 func take_damage() -> void:

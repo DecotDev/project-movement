@@ -5,7 +5,7 @@ var projectile: Area2D
 func enter(previous_state_path: String, data := {}) -> void:
 	
 	temple.shooting = true
-	print("e- Shooting")
+	#print("e- Shooting")
 	#print("shooting: " + str(temple.shooting))
 	state_label.text = "Shooting"
 	#if %AnimationPlayer.current_animation == "Charging":
@@ -45,7 +45,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		new_projectile.global_position = %ShootPoint.global_position
 		#new_projectile.global_rotation = %ShootPoint.rotation
 		#new_projectile.global_rotation += rng.randf_range(-0.02, 0.02)
-		temple.add_child(new_projectile)
+		temple.projectiles.add_child(new_projectile)
 		#print("Projectile shoot")
 		
 		%AnimationPlayer.play("Reload")
@@ -53,7 +53,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		#print("Shoot function ENDED")
 		#finished.emit(SHOOTING)
 	if anim_name == "Reload":
-		print("Shoot function ENDED")
+		#print("Shoot function ENDED")
 		if temple.demon_out_of_range:
 			finished.emit(PATROL_X)
 		else:

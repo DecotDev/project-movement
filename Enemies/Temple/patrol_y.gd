@@ -9,7 +9,7 @@ var last_h: bool = false
 
 func enter(previous_state_path: String, data := {}) -> void:
 	temple.shooting = false
-	print("e- Patrol Y")
+	#print("e- Patrol Y")
 	#print("shooting: " + str(temple.shooting))
 	temple.can_lock_player = true
 	%AnimationPlayer.play("Jiggle")

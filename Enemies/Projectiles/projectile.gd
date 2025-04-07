@@ -8,20 +8,23 @@ var demon: CharacterBody2D
 var charging: bool = true
 var deviation: float = 0.02
 
-const SPEED = 340
+const SPEED = 480
 const RANGE = 2000
 
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
-	direction = global_position.direction_to(demon.global_position)
-	direction += Vector2(rng.randf_range(-deviation, deviation),rng.randf_range(-deviation, deviation))
+	#direction = global_position.direction_to(demon.global_position)
+	#direction += Vector2(rng.randf_range(-deviation, deviation),rng.randf_range(-deviation, deviation))
 	
 	charge()
 	
 func charge() -> void:
 	%AnimationPlayer.play("Charge")
 	await %AnimationPlayer.animation_finished
+	direction = global_position.direction_to(demon.global_position)
+	direction += Vector2(rng.randf_range(-deviation, deviation),rng.randf_range(-deviation, deviation))
 	charging = false
+	
 
 
 func _physics_process(delta: float) -> void:

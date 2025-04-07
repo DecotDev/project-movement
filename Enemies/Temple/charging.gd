@@ -5,7 +5,7 @@ var velocity_y: int
 
 func enter(previous_state_path: String, data := {}) -> void:
 	#temple.can_lock_player = false
-	print("e- Charging")
+	#print("e- Charging")
 	#print("shooting: " + str(temple.shooting))
 	state_label.text = "Charging"
 	#%AnimationPlayer.play("Charge")
