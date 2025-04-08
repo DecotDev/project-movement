@@ -1,37 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyqmka5o1vy3y"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fomc7"]
-load_path = "res://.godot/imported/hell_tiles.png-2bd077b305c482063fde61ac6d608522.ctex"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2k78"]
-texture = SubResource("CompressedTexture2D_fomc7")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uifv5"]
-load_path = "res://.godot/imported/hell_tiles.png-2bd077b305c482063fde61ac6d608522.ctex"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vsrum"]
-texture = SubResource("CompressedTexture2D_uifv5")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
+[gd_scene load_steps=2 format=3 uid="uid://cyqmka5o1vy3y"]
 
 [sub_resource type="TileSet" id="TileSet_m2k78"]
+resource_local_to_scene = true
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_vsrum")
-sources/0 = SubResource("TileSetAtlasSource_m2k78")
 
 [node name="HellTileMapLayer" type="TileMapLayer"]
 tile_set = SubResource("TileSet_m2k78")
