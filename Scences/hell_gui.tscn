@@ -423,9 +423,9 @@ text = "Health"
 
 [node name="HellOrbsLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_top = 197.0
+offset_top = 249.0
 offset_right = 90.0
-offset_bottom = 220.0
+offset_bottom = 272.0
 text = "Hell Orbs: 0"
 
 [node name="EnemiesLabel" type="Label" parent="CanvasLayer"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2aqldwsbkyso"
-path="res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"
+uid="uid://cmihuk651niu8"
+path="res://.godot/imported/SmallGlow.png-704dba14bfa4e03e36400cdfcaf231a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DemonPlayer/SuitDemon.png"
-dest_files=["res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"]
+source_file="res://Currency/HellOrbs/Small/SmallGlow.png"
+dest_files=["res://.godot/imported/SmallGlow.png-704dba14bfa4e03e36400cdfcaf231a0.ctex"]
 
 [params]
 

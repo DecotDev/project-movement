@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2aqldwsbkyso"
-path="res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"
+uid="uid://5a1fdvs2dhar"
+path="res://.godot/imported/SmallBorder.png-9835d0f773377f947dc9c3bded0ca85c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DemonPlayer/SuitDemon.png"
-dest_files=["res://.godot/imported/SuitDemon.png-0764165475bab84826d88fbfa79111cc.ctex"]
+source_file="res://Currency/HellOrbs/Small/SmallBorder.png"
+dest_files=["res://.godot/imported/SmallBorder.png-9835d0f773377f947dc9c3bded0ca85c.ctex"]
 
 [params]
 
