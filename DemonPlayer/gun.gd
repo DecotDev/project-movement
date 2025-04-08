@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Shoot") and !reloading and !Global.gui_focus:
 		if ammo > 0: shoot()
 		else: dry_fire()
-	if Input.is_action_just_pressed("Reload") and ammo != magazine_size and !reloading:
+	if (Input.is_action_just_pressed("Reload") or Input.is_action_just_pressed("RightMouse") ) and ammo != magazine_size and !reloading:
 		reload()
 
 func shoot() -> void:

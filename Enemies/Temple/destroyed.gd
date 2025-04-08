@@ -1,7 +1,8 @@
 extends TempleState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print("e- Destroy")
+	temple.gen_orb()
+	#print("e- Destroy")
 	state_label.text = "Destroy"
 	%Explosion.set_deferred("visible", true)
 	%AnimationPlayer.play("Explosion")

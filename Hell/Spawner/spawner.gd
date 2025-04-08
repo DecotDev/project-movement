@@ -72,3 +72,7 @@ func next_wave() -> void:
 
 func _on_enemies_child_exiting_tree(node: Node) -> void:
 	_on_enemy_killed()
+
+
+func _on_orbs_child_exiting_tree(node: Node) -> void:
+	gui.update_hell_orbs_label()

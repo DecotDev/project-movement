@@ -7,7 +7,7 @@ script = ExtResource("1_lyar2")
 
 [node name="WaveTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 136.866
+wait_time = 2.0
 one_shot = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
@@ -21,3 +21,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Projectiles" type="Node" parent="."]
+
+[node name="Orbs" type="Node" parent="."]
+
+[connection signal="child_exiting_tree" from="Orbs" to="." method="_on_orbs_child_exiting_tree"]

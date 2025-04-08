@@ -68,3 +68,6 @@ func update_wave_label() -> void:
 	
 func update_dash_cooldown_bar(progress: float) -> void:
 	dash_cooldown_bar.value = 100 - progress
+	
+func update_hell_orbs_label() -> void:
+	%HellOrbsLabel.text = ("Orbs: " + str(Global.hell_orbs))

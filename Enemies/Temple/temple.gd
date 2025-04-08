@@ -7,6 +7,8 @@ extends CharacterBody2D
 var gui: Node = null
 var demon: CharacterBody2D
 var projectiles: Node
+var orbs: Node
+const SMALL_HELL_ORB = preload("res://Currency/HellOrbs/Small/small_hell_orb.tscn")
 
 #Stats
 var health: int = 4 #10
@@ -19,12 +21,14 @@ var can_lock_player: bool = true
 var shooting: bool = false
 var destroyed: bool = false
 var demon_out_of_range: = false
+var rng: = RandomNumberGenerator.new()
 #var can_shoot: bool = true
 
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	projectiles = get_tree().get_root().find_child("Projectiles", true, false)
+	orbs = get_tree().get_root().find_child("Orbs", true, false)
 	%Explosion.set_deferred("visible", false)
 	
 func take_damage() -> void:
@@ -41,6 +45,12 @@ func take_damage() -> void:
 		Global.killed_enemies += 1
 		gui.update_enemies_label()
 		%PatrolX.finished.emit("Destroyed")
+		
+func gen_orb() -> void:
+	if rng.randi_range(1,2) == 1:
+		var new_orb: = SMALL_HELL_ORB.instantiate()
+		new_orb.global_position = global_position
+		orbs.add_child(new_orb)
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is Demon and can_lock_player:

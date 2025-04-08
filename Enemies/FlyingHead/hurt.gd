@@ -22,6 +22,7 @@ func take_damage() -> void:
 		Global.killed_enemies += 1
 		flying_head.gui.update_enemies_label()
 		%AnimationPlayer.play("Destroyed")
+		flying_head.gen_orb()
 		await  %AnimationPlayer.animation_finished
 		flying_head.queue_free()
 

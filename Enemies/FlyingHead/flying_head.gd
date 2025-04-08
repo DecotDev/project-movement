@@ -13,6 +13,8 @@ var moving: = %Moving
 @onready
 var hurt_timer: = %HurtTimer
 var gui: Node = null
+var orbs: Node
+const SMALL_HELL_ORB: = preload("res://Currency/HellOrbs/Small/small_hell_orb.tscn")
 
 #Stats
 var health: int = 4
@@ -30,6 +32,7 @@ func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	%AnimationPlayer.play("Idle")
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
+	orbs = get_tree().get_root().find_child("Orbs", true, false)
 	
 func take_damage() -> void:
 	if !dead:
@@ -37,3 +40,9 @@ func take_damage() -> void:
 	
 func damage_demon() -> void:
 	pass
+
+func gen_orb() -> void:
+	if rng.randi_range(1,3) > 1:
+		var new_orb: = SMALL_HELL_ORB.instantiate()
+		new_orb.global_position = global_position
+		orbs.add_child(new_orb)

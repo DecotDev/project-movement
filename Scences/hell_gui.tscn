@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=41 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cdwa148tbe0v" path="res://Hell/GUI/Fonts/PublicPixel.ttf" id="5_86yr6"]
 [ext_resource type="Texture2D" uid="uid://i35no0y5d5sf" path="res://Hell/GUI/Health/health_under.png" id="8_j367u"]
 [ext_resource type="Texture2D" uid="uid://b30l0v3mynlkq" path="res://Hell/GUI/Health/health_over.png" id="9_ag6gy"]
+[ext_resource type="FontFile" uid="uid://fjt3f14rqfdo" path="res://Hell/GUI/Fonts/PIXELADE.TTF" id="9_xhryp"]
 [ext_resource type="Texture2D" uid="uid://b263xj6efbyb0" path="res://Assets/Guns/USP-45.png" id="11_75i6p"]
 
 [sub_resource type="Animation" id="Animation_nu5im"]
@@ -286,6 +287,11 @@ font = ExtResource("4_xsaaw")
 font_size = 32
 font_color = Color(0.5, 0, 0.0666666, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ymdol"]
+font = ExtResource("9_xhryp")
+font_size = 52
+shadow_size = 0
+
 [sub_resource type="LabelSettings" id="LabelSettings_6b0sy"]
 font = ExtResource("5_86yr6")
 font_size = 80
@@ -354,6 +360,10 @@ visible = false
 position = Vector2(68, 82)
 texture = SubResource("AtlasTexture_ghusu")
 
+[node name="ReloadBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="HealthProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 visible = false
 offset_left = 53.0
@@ -396,12 +406,13 @@ horizontal_alignment = 1
 [node name="ReloadingLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-offset_left = 899.0
-offset_top = 483.0
-offset_right = 1052.0
-offset_bottom = 528.0
+offset_left = 888.0
+offset_top = 306.0
+offset_right = 1041.0
+offset_bottom = 351.0
 theme_override_font_sizes/font_size = 32
 text = "Reloading"
+label_settings = SubResource("LabelSettings_ymdol")
 
 [node name="HealthLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -409,6 +420,13 @@ offset_top = 158.0
 offset_right = 100.0
 offset_bottom = 181.0
 text = "Health"
+
+[node name="HellOrbsLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_top = 197.0
+offset_right = 90.0
+offset_bottom = 220.0
+text = "Hell Orbs: 0"
 
 [node name="EnemiesLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true

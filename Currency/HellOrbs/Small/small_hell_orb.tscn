@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://05w4sgwjdqn2"]
+
+[ext_resource type="Texture2D" uid="uid://pad1r0m8xynp" path="res://Currency/HellOrbs/Small/SmallHellOrb.png" id="1_gfb14"]
+[ext_resource type="Script" uid="uid://rgxoyhvbjtp" path="res://Currency/HellOrbs/Small/small_hell_orb.gd" id="1_ovofi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovofi"]
+radius = 12.0
+
+[node name="SmallHellOrb" type="Area2D"]
+script = ExtResource("1_ovofi")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_gfb14")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 15
+visibility_layer = 15
+shape = SubResource("CircleShape2D_ovofi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
