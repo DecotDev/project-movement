@@ -520,9 +520,9 @@ text = "Health"
 
 [node name="HellOrbsLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 58.0
+offset_left = 60.0
 offset_top = 231.0
-offset_right = 125.0
+offset_right = 127.0
 offset_bottom = 271.0
 text = "0"
 label_settings = SubResource("LabelSettings_ghusu")
@@ -589,7 +589,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("5_55ewe")
 
 [node name="DisplayOrbs" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(27, 249)
+position = Vector2(29, 249)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7wb5k")
 autoplay = "default"
