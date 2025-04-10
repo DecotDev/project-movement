@@ -87,7 +87,7 @@ shape = SubResource("CircleShape2D_ovofi")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7p77r")
 autoplay = "default"
-frame_progress = 0.674176
+frame_progress = 0.846794
 centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckr7qyryemr0e"]
+
+[ext_resource type="Script" uid="uid://bk3tsujkjv3qu" path="res://Currency/HellOrbs/Big/big_hell_orb.gd" id="1_5ged0"]
+[ext_resource type="Texture2D" uid="uid://c7axnmmhjugx7" path="res://Currency/HellOrbs/Big/BigGlow.png" id="3_xm7u0"]
+
+[sub_resource type="Animation" id="Animation_jvfon"]
+resource_name = "Idle"
+length = 1.08
+loop_mode = 1
+step = 0.09
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.18, 0.27, 0.36, 0.45, 0.54, 0.63, 0.72, 0.81, 0.9, 0.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_3ld0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4oeh"]
+_data = {
+&"Idle": SubResource("Animation_jvfon"),
+&"RESET": SubResource("Animation_3ld0p")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mem8h"]
+load_path = "res://.godot/imported/BigOrb.png-f37e1586735bd61e4e927410135790be.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8x6th"]
+radius = 24.0
+
+[node name="big_hell_orb" type="Area2D"]
+script = ExtResource("1_5ged0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u4oeh")
+}
+autoplay = "Idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = SubResource("CompressedTexture2D_mem8h")
+centered = false
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(26, 26)
+shape = SubResource("CircleShape2D_8x6th")
+
+[node name="Glow" type="Sprite2D" parent="."]
+position = Vector2(-20, -20)
+scale = Vector2(4, 4)
+texture = ExtResource("3_xm7u0")
+centered = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

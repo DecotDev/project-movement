@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=56 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://bf43q1p026icw" path="res://Assets/Hell/LoadFlame.png" id="2_5t775"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b30l0v3mynlkq" path="res://Hell/GUI/Health/health_over.png" id="9_ag6gy"]
 [ext_resource type="FontFile" uid="uid://fjt3f14rqfdo" path="res://Hell/GUI/Fonts/PIXELADE.TTF" id="9_xhryp"]
 [ext_resource type="Texture2D" uid="uid://b263xj6efbyb0" path="res://Assets/Guns/USP-45.png" id="11_75i6p"]
+[ext_resource type="Texture2D" uid="uid://by4w0ogajnfxk" path="res://Currency/HellOrbs/Big/BigOrb.png" id="14_ymdol"]
 
 [sub_resource type="Animation" id="Animation_nu5im"]
 resource_name = "1_beat"
@@ -292,6 +293,10 @@ font = ExtResource("9_xhryp")
 font_size = 52
 shadow_size = 0
 
+[sub_resource type="LabelSettings" id="LabelSettings_ghusu"]
+font = ExtResource("9_xhryp")
+font_size = 39
+
 [sub_resource type="LabelSettings" id="LabelSettings_6b0sy"]
 font = ExtResource("5_86yr6")
 font_size = 80
@@ -328,6 +333,98 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_86yr6"]
 atlas = ExtResource("4_bggr5")
 region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2giok"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu5im"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hf2k"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkjwl"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlihj"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(0, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0hmx"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(12, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygxcl"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(24, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ejoh"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(36, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ae82"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(0, 24, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q6q4"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(12, 24, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j2p8"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(24, 24, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bslae"]
+atlas = ExtResource("14_ymdol")
+region = Rect2(36, 24, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wb5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2giok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu5im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hf2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkjwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlihj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0hmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygxcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ejoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ae82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q6q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j2p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bslae")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
 
 [node name="HellGUI" type="Control"]
 layout_mode = 3
@@ -423,10 +520,12 @@ text = "Health"
 
 [node name="HellOrbsLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_top = 249.0
-offset_right = 90.0
-offset_bottom = 272.0
-text = "Hell Orbs: 0"
+offset_left = 58.0
+offset_top = 231.0
+offset_right = 125.0
+offset_bottom = 271.0
+text = "0"
+label_settings = SubResource("LabelSettings_ghusu")
 
 [node name="EnemiesLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -488,3 +587,10 @@ z_index = -1
 position = Vector2(959, 952)
 scale = Vector2(4, 4)
 texture = ExtResource("5_55ewe")
+
+[node name="DisplayOrbs" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(27, 249)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_7wb5k")
+autoplay = "default"
+frame_progress = 0.946477
