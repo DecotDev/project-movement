@@ -1,8 +1,6 @@
 extends Control
 
 @onready
-var flame_bar: = %TextureProgressBar
-@onready
 var reloading_label: = %ReloadingLabel
 @onready
 var health_label: = %HealthLabel
@@ -20,19 +18,13 @@ var animation_player: = %AnimationPlayer
 var wave_text_duration: int = 6
 
 func _ready() -> void:
-	flame_bar.max_value = 12
-	flame_bar.value = 12
 	update_health_label()
 	#%TextureProgressBar.value = 2
 	wave_label.text = ("")
 
 func update_ammo_label(ammo: int, magazine_size: int) -> void:
 	%AmmoLeftLabel.text = (str(ammo) + "/" + str(magazine_size))
-	update_flame_bar(ammo)
 
-func update_flame_bar(ammo: int) -> void:
-	%TextureProgressBar.value = ammo
-	#flame_bar.value = ammo
 
 func enable_reloading() -> void:
 	reloading_label.visible = true

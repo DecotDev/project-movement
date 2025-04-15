@@ -16,7 +16,6 @@ var gui: Node = null
 func _ready() -> void:
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	gui.update_ammo_label(ammo, magazine_size)
-	#gui.update_flame_bar(ammo)
 
 func _physics_process(delta: float) -> void:
 	

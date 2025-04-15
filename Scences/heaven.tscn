@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dk2feu1d2wp8e" path="res://Scences/tile_map_layer.tscn" id="1_hfdet"]
 [ext_resource type="Script" uid="uid://cfqe0kk3w312t" path="res://Scripts/heaven.gd" id="1_oh6sr"]
 [ext_resource type="PackedScene" uid="uid://b2m5av577jxks" path="res://Scences/portal.tscn" id="3_edwlj"]
-[ext_resource type="PackedScene" uid="uid://c5b8wa7kknj3k" path="res://Scences/lumber.tscn" id="4_t2bla"]
+[ext_resource type="PackedScene" uid="uid://c5b8wa7kknj3k" path="res://AngelPlayer/lumber.tscn" id="4_t2bla"]
 
 [node name="Heaven" type="Node2D"]
 script = ExtResource("1_oh6sr")

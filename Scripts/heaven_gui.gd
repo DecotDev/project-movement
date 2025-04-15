@@ -1,7 +1,7 @@
 extends Control
 
-var heart_full: = preload("res://Assets/Heaven/GUI/godot_icon.png")
-var heart_empty: = preload("res://Assets/Heaven/GUI/godot_icon_black.png")
+var heart_full: = preload("res://Heaven/GUI/godot_icon.png")
+var heart_empty: = preload("res://Heaven/GUI/godot_icon_black.png")
 
 @onready
 var label_coins: = %Coins
