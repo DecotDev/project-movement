@@ -223,6 +223,8 @@ size = Vector2(24, 68)
 
 [node name="Lumber" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 3
+collision_mask = 7
 script = ExtResource("1_0u7ud")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -304,6 +306,7 @@ script = ExtResource("8_q0ewp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -30)
+zoom = Vector2(1.6, 1.6)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0

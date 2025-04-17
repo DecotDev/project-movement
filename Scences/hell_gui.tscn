@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://3b2afpah6xcq" path="res://Hell/GUI/Health/health_full.png" id="2_ag6gy"]
 [ext_resource type="Texture2D" uid="uid://due0qh5ssg6ju" path="res://Hell/GUI/Health/health_flask.png" id="2_c0px6"]
-[ext_resource type="PackedScene" uid="uid://b7a5aaeilaif4" path="res://music_player.tscn" id="2_j2pc1"]
+[ext_resource type="PackedScene" uid="uid://b7a5aaeilaif4" path="res://Hell/GUI/music_player.tscn" id="2_j2pc1"]
 [ext_resource type="Texture2D" uid="uid://b15cjxq2yb68i" path="res://Hell/GUI/Weapons/weapon_case.png" id="4_bggr5"]
 [ext_resource type="FontFile" uid="uid://b5wfqv3qxbl38" path="res://Hell/GUI/Fonts/pixelmix_bold.ttf" id="4_xsaaw"]
 [ext_resource type="Texture2D" uid="uid://ci8o72rjavjgt" path="res://Hell/GUI/Skills/skills_bg.png" id="5_55ewe"]

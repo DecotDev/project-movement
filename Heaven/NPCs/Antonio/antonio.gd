@@ -1,7 +1,16 @@
 extends CharacterBody2D
 
+#Connections
 @onready
 var animation_player: = %AnimationPlayer
+@onready
+var interaction_area: = %InteractionArea
+
+func _ready() -> void:
+	interaction_area.interact = Callable(self, "_on_interact")
+	
+func _on_interact() -> void:
+	print("Hi")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:

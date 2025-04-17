@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://coxh6hgcgcwsp"]
+
+[ext_resource type="FontFile" uid="uid://fjt3f14rqfdo" path="res://Hell/GUI/Fonts/PIXELADE.TTF" id="1_8nk5k"]
+[ext_resource type="Script" uid="uid://ddad504fo81qs" path="res://Both/Interaction/interaction_manager.gd" id="1_34vei"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_34vei"]
+font = ExtResource("1_8nk5k")
+font_size = 51
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_34vei")
+
+[node name="InteractionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_right = 62.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "[E] TO INTERACT"
+label_settings = SubResource("LabelSettings_34vei")
+horizontal_alignment = 1
+vertical_alignment = 1

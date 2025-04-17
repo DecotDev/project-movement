@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://biahw6dfm1g0d"]
+[gd_scene load_steps=11 format=3 uid="uid://biahw6dfm1g0d"]
 
 [ext_resource type="Texture2D" uid="uid://bp6ts6nfstc8s" path="res://Heaven/NPCs/Antonio/Antonio.png" id="1_cnb0f"]
 [ext_resource type="Script" uid="uid://dvn28tuitqeoc" path="res://Heaven/NPCs/Antonio/antonio.gd" id="1_t28l7"]
+[ext_resource type="PackedScene" uid="uid://dlxiise7nb8i0" path="res://Both/Interaction/InteractionArea/interaction_area.tscn" id="3_yeu5k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeu5k"]
-radius = 65.0308
+radius = 30.1961
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t28l7"]
 size = Vector2(24, 68)
@@ -27,21 +28,6 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_o718p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="Animation" id="Animation_b58am"]
 resource_name = "IdleNear"
 length = 0.9
@@ -60,6 +46,21 @@ tracks/0/keys = {
 "values": [3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_o718p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4a8h0"]
 _data = {
 &"Idle": SubResource("Animation_yeu5k"),
@@ -67,8 +68,12 @@ _data = {
 &"RESET": SubResource("Animation_o718p")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o718p"]
+radius = 67.0671
+
 [node name="Antonio" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 0
+collision_mask = 3
 script = ExtResource("1_t28l7")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -77,6 +82,7 @@ texture = ExtResource("1_cnb0f")
 hframes = 6
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(2.225, 2.225)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_yeu5k")
@@ -93,6 +99,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_4a8h0")
 }
 autoplay = "Idle"
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_yeu5k")]
+unique_name_in_owner = true
+action_name = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_o718p")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
