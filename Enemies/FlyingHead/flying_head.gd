@@ -17,7 +17,7 @@ var orbs: Node
 const SMALL_HELL_ORB: = preload("res://Currency/HellOrbs/Small/small_hell_orb.tscn")
 
 #Stats
-var health: int = 4
+var health: int = 3
 var speed: int = 220
 
 #Control
