@@ -6,11 +6,20 @@ var animation_player: = %AnimationPlayer
 @onready
 var interaction_area: = %InteractionArea
 
+#Data
+const lines: Array[String] = [
+	"Hi, welcome to Heaven!",
+	"By the way, I'm Antonio",
+	"Bueno, en español mejor", 
+	"Que beinvenido, me llamo Antonio y que ¡VIVA FRANCO!"
+]
+
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 func _on_interact() -> void:
 	print("Hi")
+	DialogManager.start_dialog(global_position, lines)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:

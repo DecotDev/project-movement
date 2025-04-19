@@ -101,10 +101,13 @@ position = Vector2(5880, 848)
 scale = Vector2(15, 4)
 
 [node name="Portal" parent="." instance=ExtResource("8_e0m4b")]
-position = Vector2(114, 741)
+position = Vector2(-932, 822)
 
 [node name="Antonio" parent="." instance=ExtResource("9_ffcaw")]
 position = Vector2(642, 820)
+
+[node name="Antonio2" parent="." instance=ExtResource("9_ffcaw")]
+position = Vector2(344, 820)
 
 [connection signal="body_entered" from="Coins/Coin" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coins/Coin2" to="Lumber" method="_on_coin_body_entered"]
