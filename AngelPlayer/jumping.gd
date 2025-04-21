@@ -16,6 +16,13 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.animation_player.play("Jump")
 
 func physics_update(delta: float) -> void:
+	if Global.angel_player_bloqued:
+		player.velocity.x = 0
+		player.velocity.y += round(player.gravity * delta)
+		player.move_and_slide()
+		if player.velocity.y >= 0:
+			finished.emit(FALLING)
+		return
 	var input_direction_x := Input.get_axis("Left", "Right")
 	player.velocity.x = player.speed * input_direction_x
 	player.velocity.y += round(player.gravity * delta)

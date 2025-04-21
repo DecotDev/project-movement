@@ -11,6 +11,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.coyote_timer.start()
 
 func physics_update(delta: float) -> void:
+	if Global.angel_player_bloqued:
+		player.velocity.y += round(player.gravity * delta)
+		player.move_and_slide()
+		if player.is_on_floor():
+			finished.emit(IDLE)
+		return
 	var input_direction_x := Input.get_axis("Left", "Right")
 	player.velocity.x = player.speed * input_direction_x 
 	if player.just_dashed:

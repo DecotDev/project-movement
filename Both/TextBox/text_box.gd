@@ -13,7 +13,7 @@ const MAX_WIDTH: int = 560 #512 #256
 var text: String = ""
 var letter_index: int = 0
 
-var letter_time: float = 0.04
+var letter_time: float = 0.03
 var space_time: float = 0.06
 var punctuation_time: float = 0.2
 
