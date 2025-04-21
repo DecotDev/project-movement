@@ -10,7 +10,7 @@ const MAX_WIDTH: int = 256
 var text: String = ""
 var letter_index: int = 0
 
-var letter_time: float = 0.03
+var letter_time: float = 0.04
 var space_time: float = 0.06
 var punctuation_time: float = 0.2
 
@@ -50,6 +50,13 @@ func _display_letter() -> void:
 			timer.start(space_time)
 		_:
 			timer.start(letter_time)
+			#SoundPlayer.play_dialog_sfx(text[letter_index])
+			#play_dialog_sfx()
+			SoundPlayer.play_sfx_1(SoundPlayer.bep2)
+			#SoundPlayer.play_dialog_sfx()
+			
+#func play_dialog_sfx() -> void:
+	#SoundPlayer.play_dialog_sfx(SoundPlayer.bep2)
 
 func _on_letter_display_timer_timeout() -> void:
 	_display_letter()
