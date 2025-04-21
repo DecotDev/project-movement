@@ -8,6 +8,10 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.dash_label.text = "false"
 
 func physics_update(delta: float) -> void:
+	
+	if Global.angel_player_bloqued:
+		return
+	
 	#player.velocity.y += player.gravity * delta
 	player.vel_y_label.text = "Vel: " + str(player.velocity.y)
 	player.vel_x_label.text = "Speed: " + str(player.velocity.x)

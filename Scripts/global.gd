@@ -1,4 +1,6 @@
 extends Node
+
+var angel_player_bloqued: bool = false
 var player_health: int = 3
 var player_coins: int = 0
 var demon_health: int = 6

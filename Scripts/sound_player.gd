@@ -50,27 +50,6 @@ func play_sfx_1(sound: AudioStream) -> void:
 	sfx_1.volume_db = Global.sound_effects_db
 	sfx_1.play()
 
-func play_dialog_sfx(letter: String) -> void:
-	sfx_1.pitch_scale += randf_range(-0.1, 0.1)
-	if letter in ["a", "e", "i", "o", "U"]:
-		sfx_1.stream = bep2
-		sfx_1.pitch_scale += 0.2
-		sfx_1.play()
-
-	
-func play_random_dialog_sfx() -> void:
-	var sound_num: int = rng.randi_range(1,3)
-	sfx_1.volume_db = Global.sound_effects_db
-	match sound_num:
-		1:
-			sfx_1.stream = bep1
-		2:
-			sfx_1.stream = bep2
-		3:
-			sfx_1.stream = bep3
-			
-	sfx_1.play()
-
 func play_music(music: AudioStream, music_position: float) -> void:
 	if actual_song_num == 0:
 		actual_song_num = rng.randi_range(1, hell_music.size()-1)

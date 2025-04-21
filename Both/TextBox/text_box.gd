@@ -4,8 +4,11 @@ extends MarginContainer
 var label: = %TextLabel
 @onready
 var timer: = %LetterDisplayTimer
+@onready
+var next_mark: = $NinePatchRect/Control/NextMark
 
-const MAX_WIDTH: int = 256
+
+const MAX_WIDTH: int = 560 #512 #256
 
 var text: String = ""
 var letter_index: int = 0
@@ -29,8 +32,8 @@ func display_text(text_to_display: String) -> void:
 		await  resized # wait for y resize
 		custom_minimum_size.y = size.y
 	
-	global_position.x -= size.x #/ 2
-	global_position.y -= size.y + 96
+	global_position.x -= size.x / 2
+	global_position.y -= size.y + 54
 	
 	label.text = ""
 	_display_letter()
@@ -41,6 +44,7 @@ func _display_letter() -> void:
 	letter_index += 1
 	if letter_index >= text.length():
 		finished_displaying.emit()
+		next_mark.visible = true
 		return
 		
 	match text[letter_index]:
@@ -50,13 +54,9 @@ func _display_letter() -> void:
 			timer.start(space_time)
 		_:
 			timer.start(letter_time)
-			#SoundPlayer.play_dialog_sfx(text[letter_index])
-			#play_dialog_sfx()
+
 			SoundPlayer.play_sfx_1(SoundPlayer.bep2)
-			#SoundPlayer.play_dialog_sfx()
-			
-#func play_dialog_sfx() -> void:
-	#SoundPlayer.play_dialog_sfx(SoundPlayer.bep2)
+
 
 func _on_letter_display_timer_timeout() -> void:
 	_display_letter()

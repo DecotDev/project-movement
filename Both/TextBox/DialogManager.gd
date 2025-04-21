@@ -24,6 +24,7 @@ func start_dialog(position: Vector2, lines: Array[String]) -> void:
 	_show_text_box()
 	
 	is_dialog_active = true
+	Global.angel_player_bloqued = true
 
 func _show_text_box() -> void:
 	text_box = text_box_scene.instantiate()
@@ -42,6 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		current_line_index += 1
 		if current_line_index >= dialog_lines.size():
 			is_dialog_active = false
+			Global.angel_player_bloqued = false
 			current_line_index = 0
 			return
 		_show_text_box()

@@ -11,6 +11,11 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.dash_label.text = "false"
 
 func physics_update(delta: float) -> void:
+	
+	if Global.angel_player_bloqued:
+		finished.emit(IDLE)
+		return
+		
 	var input_direction_x := Input.get_axis("Left", "Right")
 	player.velocity.x = player.speed * input_direction_x
 	#player.velocity.y += player.gravity * delta
