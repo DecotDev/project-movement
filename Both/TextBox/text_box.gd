@@ -19,6 +19,9 @@ var punctuation_time: float = 0.2
 
 signal finished_displaying()
 
+func _ready() -> void:
+	scale = Vector2.ZERO
+
 func display_text(text_to_display: String) -> void:
 	text = text_to_display
 	label.text = text_to_display
@@ -36,6 +39,12 @@ func display_text(text_to_display: String) -> void:
 	global_position.y -= size.y + 54
 	
 	label.text = ""
+	
+	pivot_offset = Vector2(size.x / 2, size.y)
+	
+	var tween: = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(1,1), 0.30).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
 	_display_letter()
 	
 func _display_letter() -> void:
@@ -57,6 +66,11 @@ func _display_letter() -> void:
 
 			SoundPlayer.play_sfx_1(SoundPlayer.bep2)
 
+func _hide_text_box() -> void:
+	var tween1 := get_tree().create_tween()
+	tween1.tween_property(self, "scale", Vector2(0, 0), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	await tween1.finished
+	queue_free()
 
 func _on_letter_display_timer_timeout() -> void:
 	_display_letter()

@@ -39,11 +39,16 @@ func _on_text_box_finished_displalying() -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("AdvanceDialog") and is_dialog_active and can_advance_line:
-		text_box.queue_free()
 		current_line_index += 1
+		if current_line_index < dialog_lines.size():
+			text_box.queue_free()
+		#current_line_index += 1
 		if current_line_index >= dialog_lines.size():
+			print("index >= dailog lines size")
 			is_dialog_active = false
 			Global.angel_player_bloqued = false
 			current_line_index = 0
+			
+			await text_box._hide_text_box()
 			return
 		_show_text_box()

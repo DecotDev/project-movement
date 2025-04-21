@@ -23,7 +23,9 @@ func _process(delta: float) -> void:
 		interaction_label.visible = true
 	else:
 		interaction_label.visible = false
-
+	if Global.angel_player_bloqued:
+		interaction_label.visible = false
+	#else: interaction_label.visible = true
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("E-Key") && can_interact:
 		if active_areas.size() > 0:
