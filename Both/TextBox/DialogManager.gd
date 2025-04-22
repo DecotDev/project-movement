@@ -44,7 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			text_box.queue_free()
 		#current_line_index += 1
 		if current_line_index >= dialog_lines.size():
-			print("index >= dailog lines size")
+			#print("index >= dailog lines size")
 			is_dialog_active = false
 			Global.angel_player_bloqued = false
 			current_line_index = 0

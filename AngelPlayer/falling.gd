@@ -1,6 +1,6 @@
 extends PlayerState
 @onready
-var Sprite: Node = %Sprite2D
+var sprite: Node = %Sprite2D
 
 
 func enter(previous_state_path: String, data := {}) -> void:
@@ -33,9 +33,9 @@ func physics_update(delta: float) -> void:
 		player.velocity.y = player.max_y_speed
 	
 	if input_direction_x < 0:
-		Sprite.flip_h = true
+		sprite.flip_h = true
 	if input_direction_x > 0:
-		Sprite.flip_h = false
+		sprite.flip_h = false
 	if Input.is_action_pressed("Down") and !player.coyote_jump:
 		if player.velocity.y < 800:
 			player.velocity.y += player.fast_fall_vel - 120
@@ -52,7 +52,7 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("Up") and player.was_on_floor and player.coyote_jump:
 		finished.emit(JUMPING)
 	
-	if Input.is_action_just_pressed("Shift"):
+	if Input.is_action_just_pressed("Shift") and !player.just_dashed:
 		finished.emit(DASHING)
 	
 	if player.is_on_floor():

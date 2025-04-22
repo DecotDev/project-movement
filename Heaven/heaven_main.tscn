@@ -108,6 +108,7 @@ position = Vector2(642, 820)
 
 [node name="Antonio2" parent="." instance=ExtResource("9_ffcaw")]
 position = Vector2(344, 820)
+lines = Array[String](["Hi, I'm Antonio 2"])
 
 [connection signal="body_entered" from="Coins/Coin" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coins/Coin2" to="Lumber" method="_on_coin_body_entered"]

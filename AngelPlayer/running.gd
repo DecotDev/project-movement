@@ -1,6 +1,6 @@
 extends PlayerState
 @onready
-var Sprite: = %Sprite2D 
+var sprite: = %Sprite2D 
 
 func enter(previous_state_path: String, data := {}) -> void:
 	#if player.velocity.x != 0.0:
@@ -20,9 +20,9 @@ func physics_update(delta: float) -> void:
 	player.velocity.x = player.speed * input_direction_x
 	#player.velocity.y += player.gravity * delta
 	if input_direction_x < 0:
-		Sprite.flip_h = true
+		sprite.flip_h = true
 	if input_direction_x > 0:
-		Sprite.flip_h = false
+		sprite.flip_h = false
 	player.vel_y_label.text = "Vel: " + str(player.velocity.y)
 	player.vel_x_label.text = "Speed: " + str(player.velocity.x)
 	player.move_and_slide()

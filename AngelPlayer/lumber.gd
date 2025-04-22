@@ -6,7 +6,7 @@ var animation_sprite: = $AnimatedSprite2D
 @onready
 var animation_player: = $AnimationPlayer
 @onready
-var Sprite: = %Sprite2D
+var sprite: = %Sprite2D
 @onready
 var jump_high_timer: = %JumpHighTimer
 @onready

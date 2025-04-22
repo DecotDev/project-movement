@@ -1,6 +1,5 @@
 extends PlayerState
-@onready
-var Sprite: Node = %Sprite2D
+
 var input_direction_x: int
 
 func enter(previous_state_path: String, data := {}) -> void:
