@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Project Movement"
-run/main_scene="res://Scences/world.tscn"
+run/main_scene="uid://dnykjbxqrrwle"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=165
 config/icon="res://icon.svg"

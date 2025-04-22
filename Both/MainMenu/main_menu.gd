@@ -1,5 +1,7 @@
 extends Control
 
+func _ready() -> void:
+	$VBoxContainer/HeavenButton.grab_focus()
 
 func _on_heaven_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Heaven/heaven_main.tscn")
