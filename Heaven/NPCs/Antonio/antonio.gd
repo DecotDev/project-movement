@@ -13,7 +13,7 @@ const lines_disabled: Array[String] = [
 	"Bueno, en español mejor", 
 	"Que beinvenido, me llamo Antonio y que ¡VIVA FRANCO!"
 ]
-@export
+@export_multiline
 var lines: Array[String] = [
 	"Hi, welcome to Heaven!",
 	"By the way, I'm Antonio"
