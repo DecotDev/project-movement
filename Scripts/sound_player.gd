@@ -10,6 +10,9 @@ const bep1: = preload("res://Both/TextBox/SFX/Bep1.wav")
 const bep2: = preload("res://Both/TextBox/SFX/Bep2.wav")
 const bep3: = preload("res://Both/TextBox/SFX/Bep3.wav")
 
+	#Songs
+const journey_day: = preload("res://Both/StartJourneyDay.mp3")
+
 #Hell
 const supressed_shot: = preload("res://Assets/Guns/SupressedShot.wav")
 const mag_and_rag: = preload("res://Assets/Guns/MagAndRack.mp3")
@@ -20,15 +23,17 @@ const hellfire_chill_symphony: AudioStream = preload("res://Assets/HellMusic/Hel
 const demon_dancefloor: = preload("res://Assets/HellMusic/DemonDancefloor.mp3")
 const pixelated_inferno: = preload("res://Assets/HellMusic/PixelatedInferno.mp3")
 
+#Connections
 @onready
 var sfx_1: = $SFX1
 @onready
 var background_music_player: = %BackgroundMusicPlayer
 @onready
-var audioPlayers: = $AudioPlayers
+var audio_players: = $AudioPlayers
+@onready
+var menu_music_player: = $MenuMusicPlayer
 
 var actual_song_num: int
-
 var previous_song_num: int
 
 var hell_music: Array[AudioStream] = [pick_coin, hellfire_symphony, hellfire_chill_symphony, demon_dancefloor, pixelated_inferno]
@@ -38,7 +43,7 @@ func _ready() -> void:
 	music_player = get_tree().get_root().find_child("MusicPlayer", true, false)
 
 func play_sound(sound: AudioStream) -> void:
-	for audioStreamPlayer in audioPlayers.get_children():
+	for audioStreamPlayer in audio_players.get_children():
 		if not audioStreamPlayer.playing:
 			audioStreamPlayer.stream = sound
 			audioStreamPlayer.volume_db = Global.sound_effects_db
@@ -58,6 +63,13 @@ func play_music(music: AudioStream, music_position: float) -> void:
 	var actual_song: AudioStream = hell_music[actual_song_num]
 	background_music_player.stream = actual_song
 	background_music_player.play(music_position)
+
+func play_menu_music() -> void:
+	if !menu_music_player.playing:
+		menu_music_player.volume_db = Global.meun_music_db
+		menu_music_player.stream = journey_day
+		menu_music_player.play()
+	
 
 func resume_music() -> void:
 	var actual_song: AudioStream = hell_music[actual_song_num]
@@ -81,3 +93,7 @@ func _on_background_music_player_finished() -> void:
 	actual_song_num = 0
 	play_music(null, 0)
 	music_player.update_playing_label()
+
+
+func _on_menu_music_payer_finished() -> void:
+	play_menu_music()

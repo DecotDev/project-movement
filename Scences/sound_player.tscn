@@ -11,6 +11,8 @@ script = ExtResource("1_7ba34")
 unique_name_in_owner = true
 volume_db = -6.0
 
+[node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="AudioPlayers" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
@@ -30,3 +32,4 @@ volume_db = -6.0
 [node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="AudioPlayers"]
 
 [connection signal="finished" from="BackgroundMusicPlayer" to="." method="_on_background_music_player_finished"]
+[connection signal="finished" from="MenuMusicPlayer" to="." method="_on_menu_music_payer_finished"]
