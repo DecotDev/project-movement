@@ -26,6 +26,9 @@ var rng: = RandomNumberGenerator.new()
 var chance: int
 #var can_shoot: bool = true
 
+func damage_demon() -> void:
+	pass
+
 func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
@@ -41,6 +44,7 @@ func take_damage() -> void:
 			%AuxAnimationPlayer.play("SmallHurt")
 		health -= 1
 	if health <= 0:
+		about_to_be_destroyed.emit()
 		destroyed = true
 		#%DetectionArea.get_child(0).set_deferred("disabled", true)
 		#%AttackArea.get_child(0).set_deferred("disabled", true)
@@ -49,12 +53,12 @@ func take_damage() -> void:
 		%PatrolX.finished.emit("Destroyed")
 		
 func gen_orb() -> void:
-	chance = rng.randi_range(1,6)
-	if chance > 4 :
+	chance = rng.randi_range(1,8)
+	if chance > 3 :
 		var new_orb: = SMALL_HELL_ORB.instantiate()
 		new_orb.global_position = global_position
 		orbs.add_child(new_orb)
-	elif chance == 3:
+	elif chance < 4:
 		var new_orb: = BIG_HELL_ORB.instantiate()
 		new_orb.global_position = global_position + Vector2(-26,-16)
 		orbs.add_child(new_orb)
@@ -90,3 +94,5 @@ func _on_reactivation_timer_timeout() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Jiggle":
 		%AnimationPlayer.play("Charge")
+		
+signal about_to_be_destroyed

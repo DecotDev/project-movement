@@ -45,6 +45,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		new_projectile.global_position = %ShootPoint.global_position
 		#new_projectile.global_rotation = %ShootPoint.rotation
 		#new_projectile.global_rotation += rng.randf_range(-0.02, 0.02)
+		new_projectile.creator = temple
 		temple.projectiles.add_child(new_projectile)
 		#print("Projectile shoot")
 		

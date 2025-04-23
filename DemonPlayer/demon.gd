@@ -4,8 +4,8 @@ class_name Demon
 
 @onready
 var mouse_label: = %MouseLabel
-#@onready
-#var sprite: = %SpriteSuitDemon
+@onready
+var sprite: = %SpriteSuitDemon
 @onready
 var gun: = %Gun
 @onready
@@ -27,6 +27,7 @@ var gun_moved_right: bool = false
 var input_direction: Vector2
 var movement_speed: int = 24
 var invencible: bool = false
+var flash_invencible: bool = false
 
 var dash_cooldown: float = 1.2
 
@@ -49,13 +50,30 @@ func update_skills_coowldown() -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("damage_demon") and !invencible:
-		Global.demon_health -= 1
-		gui.update_health_label()
+		_recieve_damage()
+		#Global.demon_health -= 1
+		#gui.update_health_label()
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.has_method("damage_demon") and !invencible:
-		Global.demon_health -= 1
-		gui.update_health_label()
+		_recieve_damage()
+		#Global.demon_health -= 1
+		#gui.update_health_label()
+		
+func _recieve_damage() -> void:
+	if flash_invencible: return
+	SoundPlayer.play_sound(SoundPlayer.hurt_short)
+	Global.demon_health -= 1
+	gui.update_health_label()
+	flash()
+		
+func flash() -> void:
+	flash_invencible = true
+	%FlashTimer.start()
+	sprite.set_instance_shader_parameter("flash_opacity", 1.0)
+	#sprite.material.set_instance_shader_parameter("flash_opacity", 1.0)
+	#sprite.material.set_shader_param("flash_opacity", 1)
+	
 #func _physics_process(delta: float) -> void:
 		#mouse_label.text = ("Char X: " + str(position.x) + "\nChar Y: " + str(position.y) + "\nMaus X: " + str(get_global_mouse_position()) + "\nCamera X: " + str(camera.position.x) + "\nCamera Y: " + str(camera.position.y) + "\nMD_df X: " + str(camera.mouse_demon_diff.x) +"\nMD_df Y: " + str(camera.mouse_demon_diff.y))
 	#camera.mouse_pos = get_global_mouse_position()
@@ -87,3 +105,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 
 func _on_dash_cooldown_timer_timeout() -> void:
 	dash_available = true
+
+
+func _on_flash_timer_timeout() -> void:
+	flash_invencible = false
+	sprite.set_instance_shader_parameter("flash_opacity", 0.0)
+	#sprite.material.set_instance_shader_parameter("flash_opacity", 0.0)
+	#sprite.material.set_shader_param("flash_opacity", 0)

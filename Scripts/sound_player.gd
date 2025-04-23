@@ -18,6 +18,10 @@ const supressed_shot: = preload("res://Assets/Guns/SupressedShot.wav")
 const mag_and_rag: = preload("res://Assets/Guns/MagAndRack.mp3")
 const dry_fire: = preload("res://Assets/Guns/DryFire.mp3")
 
+const hurt_short: = preload("res://Both/SFX/HurtShort.wav")
+const hurt_mid: = preload("res://Both/SFX/HurtMid.wav")
+
+	#Songs
 const hellfire_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireSymphony.mp3")
 const hellfire_chill_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireChillSymphony.mp3")
 const demon_dancefloor: = preload("res://Assets/HellMusic/DemonDancefloor.mp3")

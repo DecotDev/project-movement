@@ -60,3 +60,5 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_1d0a6")
 }
+
+[node name="EmptyNode" type="Node" parent="."]

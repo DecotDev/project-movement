@@ -99,6 +99,10 @@ label_settings = SubResource("LabelSettings_rjark")
 vertical_alignment = 1
 clip_text = true
 
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="PlayButton" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
@@ -109,3 +113,4 @@ clip_text = true
 [connection signal="mouse_entered" from="NextButton" to="." method="_on_next_button_mouse_entered"]
 [connection signal="mouse_exited" from="NextButton" to="." method="_on_next_button_mouse_exited"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

@@ -6,6 +6,13 @@ var control: bool = true
 @onready
 var playing_label: = %PlayingLabel
 
+func _ready() -> void:
+	$StartTimer.start()
+	
+func _on_start_timer_timeout() -> void:
+	$PlayButton.button_pressed = true
+	#_on_play_button_toggled(true)
+
 func _on_play_button_toggled(toggled_on: bool) -> void:
 	if toggled_on and control:
 		if !SoundPlayer.background_music_player.playing:
