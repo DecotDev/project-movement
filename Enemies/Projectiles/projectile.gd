@@ -16,9 +16,9 @@ func _ready() -> void:
 	demon = get_tree().get_root().find_child("Demon", true, false)
 	if creator and creator.has_signal("about_to_be_destroyed"):
 		creator.about_to_be_destroyed.connect(_on_creator_destroyed)
-		print("signal connected")
-	else:
-		print("signal not connected")
+		#print("signal connected")
+	#else:
+		#print("signal not connected")
 	#direction = global_position.direction_to(demon.global_position)
 	#direction += Vector2(rng.randf_range(-deviation, deviation),rng.randf_range(-deviation, deviation))
 	
