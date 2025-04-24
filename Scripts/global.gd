@@ -1,5 +1,7 @@
 extends Node
 
+var world: bool
+
 var angel_player_bloqued: bool = false
 var player_health: int = 3
 var player_coins: int = 0

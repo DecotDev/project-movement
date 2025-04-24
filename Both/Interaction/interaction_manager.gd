@@ -4,6 +4,7 @@ extends Node2D
 @onready
 var interaction_label: = %InteractionLabel
 var angel_player: Node
+var demon_player: Node
 
 const base_text: = "[E] to "
 
@@ -12,10 +13,15 @@ var can_interact: bool = true
 
 func _ready() -> void:
 	angel_player = get_tree().get_root().find_child("Lumber", true, false)
+	demon_player = get_tree().get_root().find_child("Demon", true, false)
 	
 func _process(delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
-		active_areas.sort_custom(_sort_by_distance_to_player)
+		if Global.world:
+			active_areas.sort_custom(_sort_by_distance_to_angel_player)
+		else:
+			if active_areas.size() > 1:
+				active_areas.sort_custom(_sort_by_distance_to_demon_player)
 		interaction_label.text = base_text + active_areas[0].action_name
 		interaction_label.global_position = active_areas[0].global_position
 		interaction_label.position.y -= 120
@@ -36,10 +42,15 @@ func _input(event: InputEvent) -> void:
 			
 			can_interact = true
 
-func _sort_by_distance_to_player(area1: Area2D, area2: Area2D) -> float:
+func _sort_by_distance_to_angel_player(area1: Area2D, area2: Area2D) -> float:
 	var area1_to_angel_player: float = angel_player.global_position.distance_to(area1.global_position)
-	var area2_to_angel_player: float = angel_player.global_position.distance_to(area1.global_position)
+	var area2_to_angel_player: float = angel_player.global_position.distance_to(area2.global_position)
 	return area1_to_angel_player < area2_to_angel_player
+	
+func _sort_by_distance_to_demon_player(area1: Area2D, area2: Area2D) -> float:
+	var area1_to_demon_player: float = demon_player.global_position.distance_to(area1.global_position)
+	var area2_to_demon_player: float = demon_player.global_position.distance_to(area2.global_position)
+	return area1_to_demon_player < area2_to_demon_player
 
 func register_area(area: InteractionArea) -> void:
 	active_areas.push_back(area)

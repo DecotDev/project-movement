@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://de5x2c3v4se5o"]
+
+[ext_resource type="Script" uid="uid://il3h4hymddal" path="res://Both/Elevator/elevator.gd" id="1_amj75"]
+[ext_resource type="Texture2D" uid="uid://rtmsfy7rluqb" path="res://icon.svg" id="1_pfp1m"]
+[ext_resource type="PackedScene" uid="uid://dlxiise7nb8i0" path="res://Both/Interaction/InteractionArea/interaction_area.tscn" id="3_251dg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amj75"]
+size = Vector2(139, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thcjr"]
+size = Vector2(80, 146)
+
+[node name="Elevator" type="Area2D"]
+script = ExtResource("1_amj75")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.07812, 1.13672)
+texture = ExtResource("1_pfp1m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_amj75")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_251dg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_thcjr")
+debug_color = Color(0.928629, 2.99373e-05, 0.663915, 0.42)
+
+[node name="ElevatorTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="ElevatorTimer" to="." method="_on_elevator_timer_timeout"]

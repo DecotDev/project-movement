@@ -96,6 +96,7 @@ size = Vector2(56, 17)
 radius = 33.0151
 
 [node name="Demon" type="CharacterBody2D"]
+collision_layer = 129
 script = ExtResource("1_fs57w")
 
 [node name="SpriteSuitDemon" type="Sprite2D" parent="."]

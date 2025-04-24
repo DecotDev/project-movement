@@ -7,12 +7,6 @@ var animation_player: = %AnimationPlayer
 var interaction_area: = %InteractionArea
 
 #Data
-const lines_disabled: Array[String] = [
-	"Hi, welcome to Heaven!",
-	"By the way, I'm Antonio",
-	"Bueno, en español mejor", 
-	"Que beinvenido, me llamo Antonio y que ¡VIVA FRANCO!"
-]
 @export_multiline
 var lines: Array[String] = [
 	"Hi, welcome to Heaven!",
