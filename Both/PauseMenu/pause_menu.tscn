@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://cytvublh5of22"]
+
+[ext_resource type="Shader" uid="uid://cygiluyhel646" path="res://Both/PauseMenu/pause_menu.gdshader" id="1_8e4y5"]
+[ext_resource type="Script" uid="uid://bi3ep0iv45qq1" path="res://Both/PauseMenu/pause_menu.gd" id="1_x6dri"]
+[ext_resource type="StyleBox" uid="uid://lpfe3lwwc57t" path="res://Both/PauseMenu/pause_menu.tres" id="3_m80l3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x6dri"]
+shader = ExtResource("1_8e4y5")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_m80l3"]
+resource_name = "Blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer:theme_override_styles/panel:bg_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.33, 0.33, 0.33, 0), Color(0.329158, 0.329158, 0.329158, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_705lk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer:theme_override_styles/panel:bg_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.329158, 0.329158, 0.329158, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dy5s4"]
+_data = {
+&"Blur": SubResource("Animation_m80l3"),
+&"RESET": SubResource("Animation_705lk")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m80l3"]
+bg_color = Color(0.329158, 0.329158, 0.329158, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x6dri")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_x6dri")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dy5s4")
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -380.0
+offset_right = 460.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m80l3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -235
+alignment = 1
+
+[node name="ExitMainMenuButton" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_m80l3")
+text = "Exit Main Menu"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_m80l3")
+text = "Settings"
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_m80l3")
+text = "Resume"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ExitMainMenuButton" to="." method="_on_exit_main_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
