@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://coxh6hgcgcwsp"]
 
 [ext_resource type="FontFile" uid="uid://fjt3f14rqfdo" path="res://Hell/GUI/Fonts/PIXELADE.TTF" id="1_8nk5k"]
-[ext_resource type="Script" uid="uid://ddad504fo81qs" path="res://Both/TextBox/interaction_manager.gd" id="1_34vei"]
+[ext_resource type="Script" uid="uid://ddad504fo81qs" path="res://Both/Interaction/interaction_manager.gd" id="1_34vei"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_34vei"]
 font = ExtResource("1_8nk5k")
