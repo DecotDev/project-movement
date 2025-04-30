@@ -304,7 +304,7 @@ script = ExtResource("6_sys07")
 [node name="Dashing" type="Node" parent="StateMachine"]
 script = ExtResource("8_q0ewp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="HeavenCamera" type="Camera2D" parent="."]
 position = Vector2(0, -30)
 process_callback = 0
 position_smoothing_enabled = true

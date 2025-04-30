@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_thcjr")
 debug_color = Color(0.928629, 2.99373e-05, 0.663915, 0.42)
 
 [node name="ElevatorTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="ElevatorTimer" to="." method="_on_elevator_timer_timeout"]

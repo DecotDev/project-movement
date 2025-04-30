@@ -7,6 +7,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	demon.move_and_slide()
 
 func physics_update(delta: float) -> void:
+	if Global.demon_player_bloqued == true: return
 	demon.camera.mouse_pos = demon.get_global_mouse_position()
 	demon.update_skills_coowldown()
 	if demon.camera.mouse_pos.x < demon.position.x:

@@ -7,6 +7,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 
 func physics_update(delta: float) -> void:
+	if Global.demon_player_bloqued == true: finished.emit(IDLE)
 	demon.camera.mouse_pos = demon.get_global_mouse_position()
 	demon.input_direction = Input.get_vector("Left","Right","Up","Down")
 	#input_direction = input_direction.normalized()

@@ -19,6 +19,7 @@ var wave_text_duration: int = 6
 
 func _ready() -> void:
 	update_health_label()
+	update_hell_orbs_label()
 	#%TextureProgressBar.value = 2
 	wave_label.text = ("")
 

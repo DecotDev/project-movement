@@ -134,7 +134,7 @@ position = Vector2(0, 24.5)
 shape = SubResource("RectangleShape2D_h0ij0")
 debug_color = Color(0.909583, 0.271589, 0.324396, 0.42)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="HellCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 top_level = true
 position_smoothing_speed = 20.0

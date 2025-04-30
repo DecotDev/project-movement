@@ -9,7 +9,7 @@ var sprite: = %SpriteSuitDemon
 @onready
 var gun: = %Gun
 @onready
-var camera: = %Camera2D
+var camera: = %HellCamera
 @onready
 var hitbox: = %Hitbox
 @onready

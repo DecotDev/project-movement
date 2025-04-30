@@ -1,8 +1,8 @@
 extends Control
 
 func _ready() -> void:
+	hide()
 	$AnimationPlayer.play("RESET")
-	$PanelContainer/VBoxContainer/ResumeButton.grab_focus()
 
 func _process(delta: float) -> void:
 	escape()
@@ -16,6 +16,7 @@ func resume() -> void:
 	hide()
 	
 func pause() -> void:
+	Global.save_data()
 	show()
 	$PanelContainer/VBoxContainer/ResumeButton.grab_focus()
 	get_tree().paused = true

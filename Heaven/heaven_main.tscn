@@ -33,7 +33,7 @@ debug_color = Color(0.784432, 0.406175, 0.413918, 0.42)
 
 [node name="Lumber" parent="." instance=ExtResource("2_oyb2g")]
 unique_name_in_owner = true
-position = Vector2(1839, 820)
+position = Vector2(66, 816)
 
 [node name="HeavenGUI" parent="." instance=ExtResource("3_5nbyf")]
 unique_name_in_owner = true

@@ -18,6 +18,7 @@ func _ready() -> void:
 	gui.update_ammo_label(ammo, magazine_size)
 
 func _physics_process(delta: float) -> void:
+	if Global.demon_player_bloqued == true: return
 	
 	look_at(get_global_mouse_position())
 	blowback_reset()
