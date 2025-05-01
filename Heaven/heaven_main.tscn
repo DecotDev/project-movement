@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://xda3hm6jkonn" path="res://Scences/green_tile_map.tscn" id="4_cp6mn"]
 [ext_resource type="PackedScene" uid="uid://su36nwt2p6xr" path="res://Scences/spike.tscn" id="5_ik0pd"]
 [ext_resource type="PackedScene" uid="uid://de5x2c3v4se5o" path="res://Both/Elevator/elevator.tscn" id="7_ae5uu"]
-[ext_resource type="PackedScene" uid="uid://b2m5av577jxks" path="res://Scences/portal.tscn" id="8_e0m4b"]
 [ext_resource type="PackedScene" uid="uid://biahw6dfm1g0d" path="res://Heaven/NPCs/Antonio/antonio.tscn" id="9_ffcaw"]
+[ext_resource type="PackedScene" uid="uid://chorc78ixeaqf" path="res://Heaven/TileMaps/heaven_tile_map_layer.tscn" id="11_scjam"]
 [ext_resource type="PackedScene" uid="uid://cytvublh5of22" path="res://Both/PauseMenu/pause_menu.tscn" id="11_vq3j3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76jn0"]
@@ -22,6 +22,10 @@ script = ExtResource("1_l8av3")
 position = Vector2(949, 573.5)
 scale = Vector2(7.08594, 7.08594)
 texture = ExtResource("1_8p2lp")
+
+[node name="HeavenTileMapLayer" parent="." instance=ExtResource("11_scjam")]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAABAAAAAAACAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAADAAMAAAALAAUAAAAAAAAAAAAMAAUAAAACAAAAAAAIAAMAAAACAAAAAAAFAAMAAAACAAAAAAAEAAMAAAABAAAAAAADAAMAAAABAAAAAAACAAMAAAAAAAAAAAD//wMAAAACAAAAAAD+/wMAAAABAAAAAAD9/wMAAAABAAAAAAD8/wMAAAABAAAAAAD7/wMAAAAAAAAAAAAMAAEAAAADAAIAAAAMAAIAAAADAAMAAAAMAAAAAAADAAIAAAAMAP//AAADAAIAAAAMAP7/AAADAAEAAAANAP//AAACAAAAAAAPAP7/AAADAAEAAAAPAP//AAAAAAUAAAAQAP//AAACAAAAAAAPAPz/AAADAAMAAAAPAPv/AAAAAAQAAAAQAPv/AAACAAAAAAATAP7/AAADAAIAAAATAP//AAABAAUAAAASAP//AAAAAAAAAAASAPv/AAAAAAAAAAATAPv/AAABAAQAAAATAPz/AAADAAIAAAAJAAQAAAADAAAAAAAHAAMAAAAAAAAAAAAPAAQAAAADAAEAAAAPAAUAAAABAAUAAAAOAAUAAAAAAAAAAAARAAQAAAADAAEAAAARAAUAAAAAAAUAAAASAAUAAAACAAAAAAAUAAQAAAAAAAAAAAAVAAQAAAABAAQAAAAVAAUAAAADAAMAAAATAP3/AAADAAIAAAA=")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(40, -32)
@@ -102,9 +106,6 @@ scale = Vector2(24, 4)
 position = Vector2(5880, 848)
 scale = Vector2(15, 4)
 
-[node name="Portal" parent="." instance=ExtResource("8_e0m4b")]
-position = Vector2(-932, 822)
-
 [node name="Antonio" parent="." instance=ExtResource("9_ffcaw")]
 position = Vector2(642, 820)
 
@@ -127,4 +128,3 @@ position = Vector2(-375, 935)
 [connection signal="body_entered" from="Coins/Coin8" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coins/Coin4" to="Lumber" method="_on_coin_body_entered"]
 [connection signal="body_entered" from="Coins/Coin5" to="Lumber" method="_on_coin_body_entered"]
-[connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]
