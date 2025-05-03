@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwysr3hped6cl"]
+
+[ext_resource type="Script" uid="uid://c5v658vpgcfad" path="res://Currency/HeavenCoins/Small/small_heaven_coin.gd" id="1_sb81g"]
+[ext_resource type="Texture2D" uid="uid://b2vujqaxqy8ll" path="res://Currency/HeavenCoins/Small/SmallHCoin.png" id="2_tcq6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ptj2"]
+atlas = ExtResource("2_tcq6k")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkv5q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_oms6w"]
+resource_name = "Float"
+length = 0.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 8), Vector2(0, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_mkuwj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0vlnq"]
+_data = {
+&"Float": SubResource("Animation_oms6w"),
+&"RESET": SubResource("Animation_mkuwj")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k22js"]
+radius = 25.0
+
+[node name="SmallHeavenCoin" type="Area2D"]
+script = ExtResource("1_sb81g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_jkv5q")
+animation = &"new_animation"
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0vlnq")
+}
+autoplay = "Float"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 24)
+shape = SubResource("CircleShape2D_k22js")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
