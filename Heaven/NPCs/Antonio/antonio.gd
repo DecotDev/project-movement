@@ -13,8 +13,12 @@ var lines: Array[String] = [
 	"By the way, I'm Antonio"
 ]
 
+@export
+var flipped: bool = false
+
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
+	$Sprite.flip_h = flipped
 	
 func _on_interact() -> void:
 	#print("Hi")
@@ -42,6 +46,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		animation_player.seek(current_time, true)
 		if body.global_position.x < global_position.x:
 			$Sprite.flip_h = true
+		else: 
+			body.global_position.x < global_position.x
+			$Sprite.flip_h = false
 		#var idle_length: float = animation_player.get_animation("Idle").length
 		#var idel_near_length: float = animation_player.get_animation("IdleNear").length
 		#var current_time: float = animation_player.current_animation_position
@@ -55,4 +62,4 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		var current_time: float = animation_player.current_animation_position
 		animation_player.play("Idle")
 		animation_player.seek(current_time, true)
-		$Sprite.flip_h = false
+		$Sprite.flip_h = flipped
