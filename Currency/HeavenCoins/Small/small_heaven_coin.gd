@@ -10,7 +10,7 @@ func _ready() -> void:
 func _on_body_entered(body: Player) -> void:
 	if body.name == "Lumber":
 		Global.player_coins += 1
-		gui.label_coins.text = ("Coins: " +  str(Global.player_coins))
+		gui.update_heaven_coins_label()
 		SoundPlayer.play_sound(SoundPlayer.pick_coin)
 		self.queue_free()
 

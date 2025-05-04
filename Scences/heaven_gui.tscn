@@ -1,7 +1,192 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx13mehul60kb"]
+[gd_scene load_steps=16 format=3 uid="uid://dx13mehul60kb"]
 
 [ext_resource type="Texture2D" uid="uid://bs74t7m0fhshk" path="res://Heaven/GUI/godot_icon.png" id="1_lahjv"]
 [ext_resource type="Script" uid="uid://d383agfrsyfk6" path="res://Scripts/heaven_gui.gd" id="1_sutog"]
+[ext_resource type="FontFile" uid="uid://fjt3f14rqfdo" path="res://Hell/GUI/Fonts/PIXELADE.TTF" id="3_4xuqh"]
+[ext_resource type="Texture2D" uid="uid://b2vujqaxqy8ll" path="res://Currency/HeavenCoins/Small/SmallHCoin.png" id="3_m4yqc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tt8e8"]
+font = ExtResource("3_4xuqh")
+font_size = 39
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tx1j"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enlub"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eyoq"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6uwj"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(0, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ksfx"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(12, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep3q6"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(24, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in0at"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(36, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ptj2"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80peq"]
+atlas = ExtResource("3_m4yqc")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xuqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tx1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enlub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6uwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ksfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep3q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in0at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80peq")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 16.0
+}]
 
 [node name="HeavenGUI" type="Control"]
 layout_mode = 3
@@ -35,13 +220,25 @@ layout_mode = 2
 texture = ExtResource("1_lahjv")
 
 [node name="CoinsContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 20.0
-offset_top = 148.0
-offset_right = 173.0
-offset_bottom = 216.0
+offset_left = 76.0
+offset_top = 151.0
+offset_right = 229.0
+offset_bottom = 219.0
 
-[node name="Coins" type="Label" parent="CanvasLayer/CoinsContainer"]
+[node name="HeavenCoins" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_left = 84.0
+offset_top = 165.0
+offset_right = 99.0
+offset_bottom = 205.0
 theme_override_font_sizes/font_size = 48
-text = "Coins: "
+text = "0"
+label_settings = SubResource("LabelSettings_tt8e8")
+
+[node name="HeavenCoinsAnimatedSprite" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(20, 160)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_4xuqh")
+animation = &"new_animation"
+autoplay = "new_animation"
+centered = false

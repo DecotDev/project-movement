@@ -495,25 +495,27 @@ label_settings = SubResource("LabelSettings_ymdol")
 
 [node name="HealthLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_top = 158.0
-offset_right = 100.0
-offset_bottom = 181.0
+offset_left = 157.0
+offset_top = 54.0
+offset_right = 257.0
+offset_bottom = 77.0
 text = "Health"
 
 [node name="HellOrbsLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 offset_left = 60.0
-offset_top = 231.0
+offset_top = 166.0
 offset_right = 127.0
-offset_bottom = 271.0
+offset_bottom = 206.0
 text = "0"
 label_settings = SubResource("LabelSettings_ghusu")
 
 [node name="EnemiesLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_top = 176.0
-offset_right = 83.0
-offset_bottom = 199.0
+offset_left = 157.0
+offset_top = 72.0
+offset_right = 240.0
+offset_bottom = 95.0
 text = "Enemies: 0"
 
 [node name="WaveLabel" type="Label" parent="CanvasLayer"]
@@ -571,7 +573,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("5_55ewe")
 
 [node name="DisplayOrbs" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(29, 249)
+position = Vector2(29, 184)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7wb5k")
 autoplay = "default"

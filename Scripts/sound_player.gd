@@ -21,6 +21,9 @@ const dry_fire: = preload("res://Assets/Guns/DryFire.mp3")
 const hurt_short: = preload("res://Both/SFX/HurtShort.wav")
 const hurt_mid: = preload("res://Both/SFX/HurtMid.wav")
 
+const small_orb_pickup: = preload("res://Currency/HellOrbs/Small/small_orb_pickup.wav")
+const big_orb_pickup: = preload("res://Currency/HellOrbs/Big/big_orb_pickup.wav")
+
 	#Songs
 const hellfire_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireSymphony.mp3")
 const hellfire_chill_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireChillSymphony.mp3")

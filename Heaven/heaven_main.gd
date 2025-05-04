@@ -3,7 +3,6 @@ extends Node2D
 @onready
 var heaven_gui: = %HeavenGUI
 
-
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	SoundPlayer.menu_music_player.stop()
