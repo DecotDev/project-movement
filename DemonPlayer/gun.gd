@@ -64,7 +64,6 @@ func change_firing_mode() -> void:
 		full_auto = false
 	else:
 		full_auto = true
-
 func shoot() -> void:
 	shot_sound()
 	blowback()
