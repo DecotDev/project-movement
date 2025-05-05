@@ -14,10 +14,15 @@ var dash_cooldown_bar: = %DashCooldownBar
 var health_flask: = %HealthFlask
 @onready
 var animation_player: = %AnimationPlayer
+@onready
+var hell_orbs_label: = %HellOrbsLabel
 
 var wave_text_duration: int = 6
+var hell_orbs_label_original_position: Vector2
+
 
 func _ready() -> void:
+	hell_orbs_label_original_position = hell_orbs_label.position
 	update_health_label()
 	update_hell_orbs_label()
 	#%TextureProgressBar.value = 2
@@ -63,4 +68,10 @@ func update_dash_cooldown_bar(progress: float) -> void:
 	dash_cooldown_bar.value = 100 - progress
 	
 func update_hell_orbs_label() -> void:
-	%HellOrbsLabel.text = ("" + str(Global.hell_orbs))
+	%HellOrbsLabel.text = (str(Global.hell_orbs))
+	var orb_tween: = get_tree().create_tween()
+	hell_orbs_label.scale = Vector2(2,2)
+	orb_tween.tween_property(hell_orbs_label, "scale", Vector2(1,1), 0.20).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	var orb_pos_tween: = get_tree().create_tween()
+	hell_orbs_label.position = hell_orbs_label.position - Vector2(8,18)
+	orb_pos_tween.tween_property(hell_orbs_label, "position", hell_orbs_label_original_position, 0.20).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

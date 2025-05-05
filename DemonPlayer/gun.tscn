@@ -62,4 +62,16 @@ unique_name_in_owner = true
 wait_time = 0.8
 one_shot = true
 
+[node name="FireRateTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.28
+one_shot = true
+
+[node name="FireModeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
+
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
+[connection signal="timeout" from="FireModeTimer" to="." method="_on_fire_mode_timer_timeout"]

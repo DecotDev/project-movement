@@ -1,7 +1,11 @@
 extends Area2D
 
 @onready
-var reload_timer: Node = %ReloadTimer
+var reload_timer: Timer = %ReloadTimer
+@onready
+var fire_rate_timer: Timer = %FireRateTimer
+@onready
+var fire_mode_timer: Timer = %FireModeTimer
 @onready
 var sprite: = %SpriteTest
 @onready
@@ -11,7 +15,11 @@ var rng: = RandomNumberGenerator.new()
 var magazine_size: int = 12
 var ammo: int = 12
 var reloading: bool = false
+var fire_rate_wait: = false
 var gui: Node = null
+var dry_fire_counter: int = 0
+var full_auto: bool = true
+var fire_mode_wait: bool = false
 
 func _ready() -> void:
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
@@ -23,11 +31,39 @@ func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	blowback_reset()
 	
-	if Input.is_action_just_pressed("Shoot") and !reloading and !Global.gui_focus:
-		if ammo > 0: shoot()
-		else: dry_fire()
+	if Input.is_action_just_pressed("B") and !fire_mode_wait:
+		change_firing_mode()
+	
+	if full_auto: 
+		if Input.is_action_pressed("Shoot") and !reloading and!fire_rate_wait and !Global.gui_focus:
+			fire_rate_timer.start()
+			fire_rate_wait = true
+			if ammo > 0: shoot()
+			elif dry_fire_counter >= 2:
+				reload()
+			else: 
+				dry_fire()
+	
+	else:
+		if Input.is_action_just_pressed("Shoot") and !reloading and !Global.gui_focus:
+			#print(str(dry_fire_counter))
+			if ammo > 0: shoot()
+			elif dry_fire_counter >= 2:
+				reload()
+			else: 
+				dry_fire()
+			
 	if (Input.is_action_just_pressed("Reload") or Input.is_action_just_pressed("RightMouse") ) and ammo != magazine_size and !reloading:
 		reload()
+		
+func change_firing_mode() -> void:
+	fire_mode_timer.start()
+	fire_mode_wait = true
+	SoundPlayer.play_sound(SoundPlayer.gun_mode_click)
+	if full_auto:
+		full_auto = false
+	else:
+		full_auto = true
 
 func shoot() -> void:
 	shot_sound()
@@ -98,9 +134,18 @@ func reload() -> void:
 	
 func dry_fire() -> void:
 	SoundPlayer.play_sound(SoundPlayer.dry_fire)
+	dry_fire_counter += 1
 
 func _on_reload_timer_timeout() -> void:
+	dry_fire_counter = 0
 	ammo = magazine_size
 	gui.update_ammo_label(ammo, magazine_size)
 	gui.disable_reloading()
 	reloading = false
+
+
+func _on_fire_rate_timer_timeout() -> void:
+	fire_rate_wait = false
+
+func _on_fire_mode_timer_timeout() -> void:
+	fire_mode_wait = false

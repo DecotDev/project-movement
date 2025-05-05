@@ -13,6 +13,7 @@ func physics_update(delta: float) -> void:
 
 func take_damage() -> void:
 	flying_head.animation_player.play("Hurt")
+	SoundPlayer.play_sound(SoundPlayer.gun_hit)
 	push_back()
 	#flying_head.velocity *= 0.3
 	flying_head.health -= 1
@@ -21,6 +22,7 @@ func take_damage() -> void:
 		%Hitbox.set_deferred("disabled", true)
 		Global.killed_enemies += 1
 		flying_head.gui.update_enemies_label()
+		SoundPlayer.play_sound(SoundPlayer.flying_head_death)
 		%AnimationPlayer.play("Destroyed")
 		flying_head.gen_orb()
 		await  %AnimationPlayer.animation_finished

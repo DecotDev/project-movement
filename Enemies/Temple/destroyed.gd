@@ -2,6 +2,7 @@ extends TempleState
 
 func enter(previous_state_path: String, data := {}) -> void:
 	temple.gen_orb()
+	SoundPlayer.play_sound(SoundPlayer.temple_destroyed)
 	#print("e- Destroy")
 	state_label.text = "Destroy"
 	%Explosion.set_deferred("visible", true)

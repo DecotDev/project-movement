@@ -38,6 +38,7 @@ func _ready() -> void:
 	
 func take_damage() -> void:
 	if health != 0:
+		SoundPlayer.play_sound(SoundPlayer.gun_hit)
 		if !shooting:
 			%AuxAnimationPlayer.play("Hurt")
 		else:

@@ -17,12 +17,18 @@ const journey_day: = preload("res://Both/StartJourneyDay.mp3")
 const supressed_shot: = preload("res://Assets/Guns/SupressedShot.wav")
 const mag_and_rag: = preload("res://Assets/Guns/MagAndRack.mp3")
 const dry_fire: = preload("res://Assets/Guns/DryFire.mp3")
+const gun_mode_click: = preload("res://DemonPlayer/gun_mode_click.mp3")
+const gun_hit: = preload("res://DemonPlayer/gun_hit.wav")
 
 const hurt_short: = preload("res://Both/SFX/HurtShort.wav")
 const hurt_mid: = preload("res://Both/SFX/HurtMid.wav")
 
 const small_orb_pickup: = preload("res://Currency/HellOrbs/Small/small_orb_pickup.wav")
 const big_orb_pickup: = preload("res://Currency/HellOrbs/Big/big_orb_pickup.wav")
+
+	#Enemies
+const flying_head_death: = preload("res://Enemies/FlyingHead/flying_head_death.wav")
+const temple_destroyed: = preload("res://Enemies/Temple/temple_destroyed.wav")
 
 	#Songs
 const hellfire_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireSymphony.mp3")
