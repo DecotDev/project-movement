@@ -2,7 +2,6 @@ extends PlayerState
 
 
 func enter(previous_state_path: String, data := {}) -> void:
-
 	player.velocity = Vector2(0,0)
 	print("Hurt state entered")
 	player.move_and_slide()
