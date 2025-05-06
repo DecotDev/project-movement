@@ -30,6 +30,8 @@ const big_orb_pickup: = preload("res://Currency/HellOrbs/Big/big_orb_pickup.wav"
 const flying_head_death: = preload("res://Enemies/FlyingHead/flying_head_death.wav")
 const temple_destroyed: = preload("res://Enemies/Temple/temple_destroyed.wav")
 
+const projectile_fly: = preload("res://Enemies/Projectiles/projectile_fly.wav")
+
 	#Songs
 const hellfire_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireSymphony.mp3")
 const hellfire_chill_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireChillSymphony.mp3")
@@ -60,8 +62,16 @@ func play_sound(sound: AudioStream) -> void:
 		if not audioStreamPlayer.playing:
 			audioStreamPlayer.stream = sound
 			audioStreamPlayer.volume_db = Global.sound_effects_db
+			if sound == supressed_shot:
+				audioStreamPlayer.volume_db = Global.shoot_db + Global.sound_effects_db
+			elif sound == flying_head_death:
+				audioStreamPlayer.volume_db = Global.flying_head_death + Global.sound_effects_db
 			audioStreamPlayer.play()
 			break
+
+func play_2d_sound(sound: AudioStream) -> void:
+	$AudioStreamPlayer2D.stream = sound
+	$AudioStreamPlayer2D.play()
 			
 func play_sfx_1(sound: AudioStream) -> void:
 	sfx_1.stream = sound

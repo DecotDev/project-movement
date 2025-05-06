@@ -22,9 +22,10 @@ func take_damage() -> void:
 		%Hitbox.set_deferred("disabled", true)
 		Global.killed_enemies += 1
 		flying_head.gui.update_enemies_label()
-		SoundPlayer.play_sound(SoundPlayer.flying_head_death)
 		%AnimationPlayer.play("Destroyed")
 		flying_head.gen_orb()
+		#await get_tree().create_timer(0.07).timeout
+		SoundPlayer.play_sound(SoundPlayer.flying_head_death)
 		await  %AnimationPlayer.animation_finished
 		flying_head.queue_free()
 

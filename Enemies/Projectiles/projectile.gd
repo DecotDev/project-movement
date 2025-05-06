@@ -30,7 +30,7 @@ func charge() -> void:
 	direction = global_position.direction_to(demon.global_position)
 	direction += Vector2(rng.randf_range(-deviation, deviation),rng.randf_range(-deviation, deviation))
 	charging = false
-	
+	SoundPlayer.play_2d_sound(SoundPlayer.projectile_fly)
 
 
 func _physics_process(delta: float) -> void:
@@ -41,7 +41,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		position += direction * SPEED * delta
 		travelled_distance += SPEED * delta
-
 		if travelled_distance > RANGE:
 			queue_free()
 
