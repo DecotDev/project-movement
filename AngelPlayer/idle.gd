@@ -9,6 +9,8 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	
+	#if player.is_on_floor(): player.last_floor_position = player.position
+	
 	if Global.angel_player_bloqued:
 		return
 	
@@ -22,6 +24,7 @@ func physics_update(delta: float) -> void:
 		player.coyote_jump = true
 		finished.emit(FALLING)
 	elif Input.is_action_just_pressed("Up"):
+		if !player.just_hit: player.last_floor_position = player.position
 		finished.emit(JUMPING)
 	elif (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")) and (!Input.is_action_pressed("Left") or !Input.is_action_pressed("Right")):
 		finished.emit(RUNNING)

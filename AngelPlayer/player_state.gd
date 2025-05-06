@@ -5,6 +5,8 @@ const RUNNING = "Running"
 const JUMPING = "Jumping"
 const FALLING = "Falling"
 const DASHING = "Dashing"
+const HURT = "Hurt"
+const RESPAWNING = "Respawning"
 
 var player: Player
 

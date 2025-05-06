@@ -18,6 +18,7 @@ func physics_update(delta: float) -> void:
 			finished.emit(IDLE)
 		return
 	var input_direction_x := Input.get_axis("Left", "Right")
+	if player.just_respawned == true: input_direction_x = 0
 	player.velocity.x = player.speed * input_direction_x 
 	if player.just_dashed:
 		if player.dash_slow_fall <= 5:
@@ -56,6 +57,8 @@ func physics_update(delta: float) -> void:
 		finished.emit(DASHING)
 	
 	if player.is_on_floor():
+		if player.just_hit: return
+		player.just_respawned = false
 		if player.buffered_jump:
 			player.jump_buffer_wait_timer.start()
 		if is_equal_approx(input_direction_x, 0.0):

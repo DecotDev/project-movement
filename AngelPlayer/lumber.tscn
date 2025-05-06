@@ -1,103 +1,17 @@
-[gd_scene load_steps=31 format=3 uid="uid://c5b8wa7kknj3k"]
+[gd_scene load_steps=25 format=3 uid="uid://c5b8wa7kknj3k"]
 
 [ext_resource type="Script" uid="uid://ba4h7p5wwvjjp" path="res://AngelPlayer/lumber.gd" id="1_0u7ud"]
-[ext_resource type="Texture2D" uid="uid://b0p3dsdnffaps" path="res://Heaven/Chars/lumber.png" id="1_wrv2l"]
+[ext_resource type="Shader" uid="uid://ctrribycrblwy" path="res://Both/Shaders/flash.gdshader" id="2_cyod2"]
 [ext_resource type="Script" uid="uid://bysi54m4b6lmm" path="res://AngelPlayer/idle.gd" id="3_2di42"]
 [ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="3_i0uop"]
 [ext_resource type="Texture2D" uid="uid://ceflo7isqanpf" path="res://Heaven/Chars/lumber04.png" id="3_lte0i"]
 [ext_resource type="Script" uid="uid://buwssrk45jqis" path="res://AngelPlayer/running.gd" id="4_agx24"]
+[ext_resource type="Texture2D" uid="uid://c5h4aq8dw4vx5" path="res://AngelPlayer/respawn.png" id="4_onvq3"]
 [ext_resource type="Script" uid="uid://cc813n7unnd2p" path="res://AngelPlayer/jumping.gd" id="5_wnbuf"]
 [ext_resource type="Script" uid="uid://daf3yj47cg6kd" path="res://AngelPlayer/falling.gd" id="6_sys07"]
 [ext_resource type="Script" uid="uid://cvi0ieawhof4n" path="res://AngelPlayer/dashing.gd" id="8_q0ewp"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nb7jq"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(0, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfr23"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(16, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mvn2e"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(32, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_72hjr"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(0, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aiay5"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(0, 24, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1h36p"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(16, 24, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_opi6h"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(0, 24, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ojtbg"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(0, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsw22"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(32, 24, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxa26"]
-atlas = ExtResource("1_wrv2l")
-region = Rect2(48, 24, 16, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xpr0p"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nb7jq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hfr23")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mvn2e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72hjr")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aiay5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1h36p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_opi6h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ojtbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bsw22")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pxa26")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bsw22")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ojtbg")
-}],
-"loop": true,
-"name": &"Run",
-"speed": 10.0
-}]
+[ext_resource type="Script" uid="uid://utxg2gqvpk42" path="res://AngelPlayer/hurt.gd" id="10_cyod2"]
+[ext_resource type="Script" uid="uid://bqibxgaskwjoe" path="res://AngelPlayer/respawning.gd" id="12_bkse3"]
 
 [sub_resource type="Animation" id="Animation_nlkj3"]
 resource_name = "Dash"
@@ -182,6 +96,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Respawn:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Respawn:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_eyhxb"]
 resource_name = "Run"
@@ -201,6 +139,47 @@ tracks/0/keys = {
 "values": [8, 9, 8, 0, 10, 11, 1]
 }
 
+[sub_resource type="Animation" id="Animation_bkse3"]
+resource_name = "Respawn"
+length = 0.7
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Respawn:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.05, 0.09, 0.13, 0.17, 0.21, 0.25, 0.29, 0.33, 0.37, 0.41, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Respawn:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.44, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.419394, 0.449697, 0.48, 0.510303, 0.570909, 0.599697, 0.63, 0.66),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 24, 25, 26, 27, 28, 29, 30, 16]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l5nyu"]
 _data = {
 &"Dash": SubResource("Animation_nlkj3"),
@@ -208,8 +187,12 @@ _data = {
 &"Idle": SubResource("Animation_phfjy"),
 &"Jump": SubResource("Animation_6xycc"),
 &"RESET": SubResource("Animation_1uw5g"),
+&"Respawn": SubResource("Animation_bkse3"),
 &"Run": SubResource("Animation_eyhxb")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onvq3"]
+shader = ExtResource("2_cyod2")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6xto"]
 atlas = ExtResource("3_lte0i")
@@ -227,13 +210,6 @@ collision_layer = 131
 collision_mask = 7
 script = ExtResource("1_0u7ud")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(2, 0)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_xpr0p")
-animation = &"Idle"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_l5nyu")
@@ -241,11 +217,22 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_onvq3")
+instance_shader_parameters/flash_opacity = 0.0
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_s6xto")
 hframes = 8
 vframes = 5
 frame = 1
+
+[node name="Respawn" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("4_onvq3")
+hframes = 5
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -285,6 +272,16 @@ unique_name_in_owner = true
 wait_time = 0.4
 one_shot = true
 
+[node name="HurtTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.8
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_i0uop")
 initial_state = NodePath("Idle")
@@ -303,6 +300,13 @@ script = ExtResource("6_sys07")
 
 [node name="Dashing" type="Node" parent="StateMachine"]
 script = ExtResource("8_q0ewp")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("10_cyod2")
+
+[node name="Respawning" type="Node" parent="StateMachine"]
+script = ExtResource("12_bkse3")
 
 [node name="HeavenCamera" type="Camera2D" parent="."]
 position = Vector2(0, -30)
@@ -365,3 +369,5 @@ shape = SubResource("RectangleShape2D_slkpi")
 [connection signal="timeout" from="Timers/CoyoteTimer" to="StateMachine/Falling" method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Timers/DashFinishTimer" to="StateMachine/Dashing" method="_on_dash_finish_timer_timeout"]
 [connection signal="timeout" from="Timers/DashFallImpulseTimer" to="StateMachine/Falling" method="_on_dash_fall_impulse_timeout"]
+[connection signal="timeout" from="Timers/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
+[connection signal="timeout" from="Timers/RespawnTimer" to="StateMachine/Respawning" method="_on_respawn_timer_timeout"]

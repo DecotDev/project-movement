@@ -15,7 +15,9 @@ func physics_update(delta: float) -> void:
 	if Global.angel_player_bloqued:
 		finished.emit(IDLE)
 		return
-		
+	
+	#if player.is_on_floor(): player.last_floor_position = player.position
+	
 	var input_direction_x := Input.get_axis("Left", "Right")
 	player.velocity.x = player.speed * input_direction_x
 	#player.velocity.y += player.gravity * delta
@@ -32,6 +34,7 @@ func physics_update(delta: float) -> void:
 		player.coyote_jump = true
 		finished.emit(FALLING)
 	elif Input.is_action_just_pressed("Up"):
+		if !player.just_hit: player.last_floor_position = player.position
 		finished.emit(JUMPING)
 	#elif is_equal_approx(input_direction_x, 0.0):
 	elif is_equal_approx(input_direction_x, 0.0):

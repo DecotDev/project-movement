@@ -27,7 +27,13 @@ var dash_label: = %DashLabel
 var dash_finish_timer: = %DashFinishTimer
 @onready
 var dash_fall_impulse_timer: = %DashFallImpulseTimer
+@onready
+var hurt_timer: = %HurtTimer
+@onready
+var respawn_timer: = %RespawnTimer
 
+@onready
+var hurt_state: = %Hurt
 
 #var speed = 550
 var speed: int = 600
@@ -50,3 +56,9 @@ var coyote_jump: bool = false
 var was_on_floor: bool = false
 var just_dashed: bool = false
 var dash_slow_fall: int = 0
+var just_respawned: bool = false
+var last_floor_position: Vector2
+var just_hit: = false
+
+func get_hurt() -> void:
+	hurt_state.finished.emit("Hurt")

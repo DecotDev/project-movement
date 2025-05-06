@@ -11,3 +11,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	#heaven_gui.update_health_icon()
 	#heaven_gui.update_health_icon()
 	#get_tree().reload_current_scene()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.get_hurt()
