@@ -11,6 +11,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.just_hit = true
 	player.jump_buffer_timer.stop()
 	player.buffered_jump = false
+	player.last_angel_position[0] = player.last_angel_position[1]
 	flash()
 #func physics_update(delta: float) -> void:
 

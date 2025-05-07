@@ -14,7 +14,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	#print( str(input_direction_x))
-	player.velocity.x = (600 * input_direction_x) * 2
+	player.velocity.x = (player.speed * input_direction_x) * 2
 	#if player.velocity.y < 0:
 		#player.velocity.y *= 0.9
 	#else:

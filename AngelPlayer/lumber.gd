@@ -36,15 +36,15 @@ var respawn_timer: = %RespawnTimer
 var hurt_state: = %Hurt
 
 #var speed = 550
-var speed: int = 600
+var speed: int = 560 #600
 #var jump_impulse = 1400
 #var gravity = 4000
 var jump_impulse: int = 1400
 var gravity: int = 4000
 var fast_fall_vel: int = 200
 #var past_vel_y: int = 0
-var dash_impulse: int = 540
-var dash_impulse_reset: int = 540
+var dash_impulse: int = 520 #540
+var dash_impulse_reset: int = 520 #540
 var max_y_speed: int = 1300
 #var acceleration = 600000
 var friction: int = 0
@@ -57,7 +57,9 @@ var was_on_floor: bool = false
 var just_dashed: bool = false
 var dash_slow_fall: int = 0
 var just_respawned: bool = false
+var last_angel_position: Array[Vector2] = [Vector2(-4539.0, 1367.0),Vector2(-4539.0, 1367.0),Vector2(-4539.0, 1367.0)]
 var last_floor_position: Vector2 = Vector2(-4539.0, 1367.0)
+var old_last_floor_position: Vector2 = Vector2(-4539.0, 1367.0)
 var just_hit: = false
 
 func get_hurt() -> void:
