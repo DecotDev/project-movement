@@ -2,6 +2,7 @@ extends PlayerState
 
 
 func enter(previous_state_path: String, data := {}) -> void:
+	Global.angel_player_bloqued = true
 	player.animation_player.pause()
 	player.velocity = Vector2(0,0)
 	print("Hurt state entered")

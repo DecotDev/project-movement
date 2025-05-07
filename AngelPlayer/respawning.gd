@@ -1,6 +1,7 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	Global.angel_player_bloqued = false
 	player.just_hit = false
 	player.just_respawned = true
 	player.animation_player.play("Respawn")

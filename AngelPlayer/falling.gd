@@ -6,7 +6,7 @@ var sprite: Node = %Sprite2D
 func enter(previous_state_path: String, data := {}) -> void:
 	player.state_label.text = "Falling"
 	player.animation_player.play("Fall")
-	if player.just_dashed:
+	if player.just_dashed and !player.just_respawned:
 		player.dash_fall_impulse_timer.start()
 	player.coyote_timer.start()
 
