@@ -19,15 +19,14 @@ func physics_update(delta: float) -> void:
 	player.vel_x_label.text = "Speed: " + str(player.velocity.x)
 	player.move_and_slide()
 
+	
+
 	if not player.is_on_floor():
 		player.was_on_floor = true
 		player.coyote_jump = true
 		finished.emit(FALLING)
 	elif Input.is_action_just_pressed("Up"):
 		if !player.just_hit:
-			#player.old_last_floor_position = player.last_floor_position
-			#player.last_floor_position = player.position
-			player.last_angel_position[2] = player.last_angel_position[1]
 			player.last_angel_position[1] = player.last_angel_position[0]
 			player.last_angel_position[0] = player.position
 		finished.emit(JUMPING)

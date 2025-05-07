@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm74o6nee3yf6"]
+
+[ext_resource type="Texture2D" uid="uid://bs74t7m0fhshk" path="res://Heaven/GUI/godot_icon.png" id="1_1q6b8"]
+
+[node name="GoldenLever" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.114955, 0.127232)
+texture = ExtResource("1_1q6b8")
