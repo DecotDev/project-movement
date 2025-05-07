@@ -70,8 +70,8 @@ func update_dash_cooldown_bar(progress: float) -> void:
 func update_hell_orbs_label() -> void:
 	%HellOrbsLabel.text = (str(Global.hell_orbs))
 	var orb_tween: = get_tree().create_tween()
-	hell_orbs_label.scale = Vector2(2,2)
-	orb_tween.tween_property(hell_orbs_label, "scale", Vector2(1,1), 0.20).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	hell_orbs_label.scale = Vector2(1.8,1.8)
+	orb_tween.tween_property(hell_orbs_label, "scale", Vector2(1,1), 0.26).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	var orb_pos_tween: = get_tree().create_tween()
 	hell_orbs_label.position = hell_orbs_label.position - Vector2(8,18)
-	orb_pos_tween.tween_property(hell_orbs_label, "position", hell_orbs_label_original_position, 0.20).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	orb_pos_tween.tween_property(hell_orbs_label, "position", hell_orbs_label_original_position, 0.26).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

@@ -16,7 +16,7 @@ var killed_enemies: int = 0
 var current_wave: int = 1
 
 var sound_effects_db: float = -2.4
-var shoot_db: float = -4.0
+var shoot_db: float = -7.0
 var flying_head_death: float = -2.0
 var meun_music_db: = -12
 

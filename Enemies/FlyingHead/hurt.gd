@@ -18,6 +18,7 @@ func take_damage() -> void:
 	#flying_head.velocity *= 0.3
 	flying_head.health -= 1
 	if flying_head.health <= 0:
+		SoundPlayer.play_sound(SoundPlayer.gun_hit)
 		flying_head.dead = true
 		%Hitbox.set_deferred("disabled", true)
 		Global.killed_enemies += 1

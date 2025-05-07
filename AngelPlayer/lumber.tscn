@@ -215,6 +215,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_l5nyu")
 }
 
+[node name="RespawnBaackground" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_onvq3")

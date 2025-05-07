@@ -37,7 +37,7 @@ func _ready() -> void:
 	%Explosion.set_deferred("visible", false)
 	
 func take_damage() -> void:
-	if health != 0:
+	if health > 0:
 		SoundPlayer.play_sound(SoundPlayer.gun_hit)
 		if !shooting:
 			%AuxAnimationPlayer.play("Hurt")

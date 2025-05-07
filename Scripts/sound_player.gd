@@ -37,6 +37,7 @@ const hellfire_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireS
 const hellfire_chill_symphony: AudioStream = preload("res://Assets/HellMusic/HellfireChillSymphony.mp3")
 const demon_dancefloor: = preload("res://Assets/HellMusic/DemonDancefloor.mp3")
 const pixelated_inferno: = preload("res://Assets/HellMusic/PixelatedInferno.mp3")
+const front_incursion: = preload("res://Assets/HellMusic/Front_Incursion.wav")
 
 #Connections
 @onready
@@ -51,8 +52,8 @@ var menu_music_player: = $MenuMusicPlayer
 var actual_song_num: int
 var previous_song_num: int
 
-var hell_music: Array[AudioStream] = [pick_coin, hellfire_symphony, hellfire_chill_symphony, demon_dancefloor, pixelated_inferno]
-var hell_music_info: Array[String] = ["Coin - Pitch", "Hellfire Symphony", "Hellfire Chill","Demon dancefloor", "Pixelated Inferno"]
+var hell_music: Array[AudioStream] = [pick_coin, hellfire_symphony, hellfire_chill_symphony, demon_dancefloor, pixelated_inferno, front_incursion]
+var hell_music_info: Array[String] = ["Coin - Pitch", "Hellfire Symphony", "Hellfire Chill","Demon dancefloor", "Pixelated Inferno", "Front Incursion"]
 
 func _ready() -> void:
 	music_player = get_tree().get_root().find_child("MusicPlayer", true, false)
