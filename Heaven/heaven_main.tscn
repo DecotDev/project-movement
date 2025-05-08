@@ -81,15 +81,15 @@ unique_name_in_owner = true
 
 [node name="GoldenDoor" parent="Items/Doors" instance=ExtResource("9_ag0t0")]
 position = Vector2(-3042, 428)
-link_code = 1
+link_codes = Array[int]([1, 2])
 
 [node name="GoldenDoor3" parent="Items/Doors" instance=ExtResource("9_ag0t0")]
 position = Vector2(-2979, 428)
-link_code = 2
+link_codes = Array[int]([2])
 
 [node name="GoldenDoor2" parent="Items/Doors" instance=ExtResource("9_ag0t0")]
 position = Vector2(-3232, 1132)
-link_code = 3
+link_codes = Array[int]([3])
 
 [node name="GoldenLever" parent="Items" instance=ExtResource("10_ict1f")]
 position = Vector2(-4949, -40)
@@ -258,7 +258,7 @@ rotation = -1.5708
 spike_direction = "Left"
 
 [node name="MiniSpike11" parent="Spikes" instance=ExtResource("13_jp4a3")]
-position = Vector2(-3088, 354)
+position = Vector2(-3086, 348)
 rotation = -1.5708
 spike_direction = "Left"
 

@@ -44,9 +44,10 @@ func unpull() -> void:
 func link_codes() -> void:
 	if link_code != 0:
 		for door in linked_doors.get_children():
-			if door.link_code == link_code:
-				connect("lever_just_pulled", Callable(door, "_order_recieved"))
-				print("linked succesfully")
+			for door_link_code: int in door.link_codes:
+				if door_link_code == link_code:
+					connect("lever_just_pulled", Callable(door, "_order_recieved"))
+					print("linked succesfully")
 	else: print("error linking")
 
 

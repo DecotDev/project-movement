@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @export
-var link_code: int
+var link_codes: Array[int]
 
 @export
 var closed: bool = true
