@@ -1,10 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm74o6nee3yf6"]
+[gd_scene load_steps=9 format=3 uid="uid://cm74o6nee3yf6"]
 
-[ext_resource type="Texture2D" uid="uid://bs74t7m0fhshk" path="res://Heaven/GUI/godot_icon.png" id="1_1q6b8"]
+[ext_resource type="Texture2D" uid="uid://x7u1vimdxukx" path="res://Heaven/Items/GoldenLever/GoldenLever.png" id="1_hahf4"]
+[ext_resource type="Script" uid="uid://2qcj4i7rxiai" path="res://Heaven/Items/GoldenLever/golden_lever.gd" id="1_wrx7y"]
+[ext_resource type="PackedScene" uid="uid://dlxiise7nb8i0" path="res://Both/Interaction/InteractionArea/interaction_area.tscn" id="2_wrx7y"]
 
-[node name="GoldenLever" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_v4emj"]
+radius = 53.3667
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -1)
-scale = Vector2(0.114955, 0.127232)
-texture = ExtResource("1_1q6b8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8eas"]
+atlas = ExtResource("1_hahf4")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6v4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8eas")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nguyc"]
+atlas = ExtResource("1_hahf4")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5kqd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nguyc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GoldenLever" type="Node2D"]
+script = ExtResource("1_wrx7y")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_wrx7y")]
+position = Vector2(2, 0)
+action_name = "pull"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_v4emj")
+
+[node name="Center" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_c6v4m")
+
+[node name="Right" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_n5kqd")

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_enum("Up", "Left", "Right") var spike_direction: String = "Up"
+@export_enum("Up", "Left", "Right", "Down") var spike_direction: String = "Up"
 
 func _ready() -> void:
 	match spike_direction:
@@ -10,6 +10,8 @@ func _ready() -> void:
 			$AnimatedSprite2D.play("left")
 		"Right":
 			$AnimatedSprite2D.play("right")
+		"Down":
+			$AnimatedSprite2D.play("down")
 
 
 func _on_body_entered(body: Node2D) -> void:
