@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnykjbxqrrwle"]
+[gd_scene load_steps=3 format=3 uid="uid://dnykjbxqrrwle"]
 
 [ext_resource type="Script" uid="uid://d0mth1pcyp40h" path="res://Both/MainMenu/main_menu.gd" id="1_kn4uv"]
+[ext_resource type="Texture2D" uid="uid://g38l1oj3cyvk" path="res://Both/MainMenu/MainMenuMockup.png" id="2_i1s0u"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kn4uv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_i1s0u")
+centered = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

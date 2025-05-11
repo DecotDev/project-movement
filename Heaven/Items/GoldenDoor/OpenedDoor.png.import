@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wqml8j28h70y"
-path="res://.godot/imported/OpenDoor.png-c3b398bf6512fac293580528757d02f7.ctex"
+uid="uid://cjymge4hn8pxn"
+path="res://.godot/imported/OpenedDoor.png-1e89bc4dfe835088d6fd11ee139336ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Heaven/Items/GoldenDoor/OpenDoor.png"
-dest_files=["res://.godot/imported/OpenDoor.png-c3b398bf6512fac293580528757d02f7.ctex"]
+source_file="res://Heaven/Items/GoldenDoor/OpenedDoor.png"
+dest_files=["res://.godot/imported/OpenedDoor.png-1e89bc4dfe835088d6fd11ee139336ed.ctex"]
 
 [params]
 
