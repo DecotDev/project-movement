@@ -299,7 +299,9 @@ position = Vector2(-4196, 560)
 position = Vector2(-3744, 684)
 
 [node name="MiniSpike33" parent="Spikes" instance=ExtResource("13_jp4a3")]
-position = Vector2(-3745, 594)
+position = Vector2(-3745, 588)
+rotation = 3.14159
+spike_direction = "Down"
 
 [node name="MiniSpike32" parent="Spikes" instance=ExtResource("13_jp4a3")]
 position = Vector2(-3608, 236)

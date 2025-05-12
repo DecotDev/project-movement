@@ -242,7 +242,7 @@ sprite_frames = SubResource("SpriteFrames_2jj3a")
 autoplay = "default"
 centered = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Lever" type="Sprite2D" parent="."]
 position = Vector2(-20, -20)
 scale = Vector2(4, 4)
 texture = ExtResource("5_nguyc")

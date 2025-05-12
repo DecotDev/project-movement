@@ -31,14 +31,16 @@ func lever_control() -> void:
 
 func pull() -> void:
 	pulled = true
-	$Center.hide()
-	$Right.show()
+	$Lever.frame = 1
+	#$Center.hide()
+	#$Right.show()
 	emit_signal("lever_just_pulled", link_code, pulled)
 	
 func unpull() -> void:
 	pulled = false
-	$Right.hide()
-	$Center.show()
+	$Lever.frame = 0
+	#$Right.hide()
+	#$Center.show()
 	emit_signal("lever_just_pulled", link_code, pulled)
 
 func link_codes() -> void:
@@ -53,10 +55,12 @@ func link_codes() -> void:
 
 func set_pull() -> void:
 	pulled = true
-	$Center.hide()
-	$Right.show()
+	$Lever.frame = 1
+	#$Center.hide()
+	#$Right.show()
 	
 func set_unpull() -> void:
 	pulled = false
-	$Right.hide()
-	$Center.show()
+	$Lever.frame = 0
+	#$Right.hide()
+	#$Center.show()
