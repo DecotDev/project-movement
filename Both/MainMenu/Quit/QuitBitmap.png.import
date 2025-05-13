@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bu1cvuri54d0t"
+path="res://.godot/imported/QuitBitmap.png-eea2a7a05b5969add0160a8556ab1e8a.res"
+
+[deps]
+
+source_file="res://Both/MainMenu/Quit/QuitBitmap.png"
+dest_files=["res://.godot/imported/QuitBitmap.png-eea2a7a05b5969add0160a8556ab1e8a.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

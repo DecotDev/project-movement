@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx13mehul60kb"]
+[gd_scene load_steps=21 format=3 uid="uid://dx13mehul60kb"]
 
 [ext_resource type="Texture2D" uid="uid://bs74t7m0fhshk" path="res://Heaven/GUI/godot_icon.png" id="1_lahjv"]
 [ext_resource type="Script" uid="uid://d383agfrsyfk6" path="res://Scripts/heaven_gui.gd" id="1_sutog"]
@@ -188,6 +188,63 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_4xuqh"]
+font = ExtResource("3_4xuqh")
+font_size = 139
+
+[sub_resource type="Animation" id="Animation_tt8e8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/EmeraldsLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4xuqh"]
+resource_name = "emerald_start"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/EmeraldsLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uv8qw"]
+resource_name = "emerald_stop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/EmeraldsLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uv8qw"]
+_data = {
+&"RESET": SubResource("Animation_tt8e8"),
+&"emerald_start": SubResource("Animation_4xuqh"),
+&"emerald_stop": SubResource("Animation_uv8qw")
+}
+
 [node name="HeavenGUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -242,3 +299,33 @@ sprite_frames = SubResource("SpriteFrames_4xuqh")
 animation = &"new_animation"
 autoplay = "new_animation"
 centered = false
+
+[node name="EmeraldsLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.5
+offset_top = 24.0
+offset_right = 85.5
+offset_bottom = 165.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+text = "0/1"
+label_settings = SubResource("LabelSettings_4xuqh")
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_uv8qw")
+}
+
+[node name="EmeraldTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="EmeraldTimer" to="." method="_on_emerald_timer_timeout"]

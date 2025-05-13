@@ -2,6 +2,9 @@ extends Node
 
 var world: bool
 
+var max_emeralds: int = 7
+var player_emeralds: int
+
 var angel_player_bloqued: bool = false
 var demon_player_bloqued: bool = false
 var player_health: int = 3
@@ -26,7 +29,8 @@ var gui_focus: bool = false
 func save_data() -> void:
 	var save_dictionary: Dictionary = {
 		"player_coins": player_coins,
-		"hell_orbs": hell_orbs
+		"hell_orbs": hell_orbs,
+		"player_emeralds": player_emeralds
 	}
 	var file:  = FileAccess.open("user://save.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_dictionary))
@@ -44,3 +48,5 @@ func load_data() -> void:
 				player_coins = data["player_coins"]
 			if data.has("hell_orbs"):
 				hell_orbs = data["hell_orbs"]
+			if data.has("player_emeralds"):
+				hell_orbs = data["player_emeralds"]
