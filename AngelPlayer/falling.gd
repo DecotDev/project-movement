@@ -4,6 +4,7 @@ var sprite: Node = %Sprite2D
 
 
 func enter(previous_state_path: String, data := {}) -> void:
+	if player.just_hit: return
 	player.state_label.text = "Falling"
 	player.animation_player.play("Fall")
 	if player.just_dashed and !player.just_respawned:
@@ -50,7 +51,7 @@ func physics_update(delta: float) -> void:
 		player.jump_buffer_timer.start()
 		player.buffered_jump = true
 	
-	if Input.is_action_just_pressed("Up") and player.was_on_floor and player.coyote_jump:
+	if Input.is_action_just_pressed("Up") and player.was_on_floor and player.coyote_jump and !player.just_hit:
 		finished.emit(JUMPING)
 	
 	if Input.is_action_just_pressed("Shift") and !player.just_dashed:

@@ -3,6 +3,7 @@ extends PlayerState
 var sprite: = %Sprite2D 
 
 func enter(previous_state_path: String, data := {}) -> void:
+	if player.just_hit: return
 	#if player.velocity.x != 0.0:
 		#player.animation_player.play("Run")
 	player.state_label.text = "Running"

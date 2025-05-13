@@ -4,6 +4,9 @@ var sprite: = %Sprite2D
 
 
 func enter(previous_state_path: String, data := {}) -> void:
+	if player.just_hit:
+		print("Jump with hit")
+		return
 	#if player.buffered_jump:
 	#	player.velocity.y = -player.jump_impulse
 	#else:

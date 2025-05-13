@@ -187,6 +187,7 @@ script = ExtResource("1_doxvi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sfo0g")
+autoplay = "default"
 frame_progress = 0.902219
 centered = false
 
@@ -194,3 +195,5 @@ centered = false
 position = Vector2(32, 34)
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_2slo0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

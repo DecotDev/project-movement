@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bh0opwr3bpgia"]
+[gd_scene load_steps=20 format=4 uid="uid://bh0opwr3bpgia"]
 
 [ext_resource type="Script" uid="uid://blvvpu04djaw1" path="res://Heaven/heaven_main.gd" id="1_l8av3"]
 [ext_resource type="PackedScene" uid="uid://c5b8wa7kknj3k" path="res://AngelPlayer/lumber.tscn" id="2_oyb2g"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://chorc78ixeaqf" path="res://Heaven/TileMaps/heaven_tile_map_layer.tscn" id="11_scjam"]
 [ext_resource type="PackedScene" uid="uid://cytvublh5of22" path="res://Both/PauseMenu/pause_menu.tscn" id="11_vq3j3"]
 [ext_resource type="PackedScene" uid="uid://bjkg3gwa7qy7l" path="res://Heaven/Deadly/HeavenSpikes/heaven_spikes.tscn" id="12_37atv"]
+[ext_resource type="PackedScene" uid="uid://cnshqt7hwvfxv" path="res://Currency/HeavenCoins/SpecialCoin/special_coin.tscn" id="12_ci8bv"]
 [ext_resource type="PackedScene" uid="uid://b0v8ao0sq38yb" path="res://Heaven/Deadly/HeavenSpikes/mini_heaven_spike.tscn" id="13_jp4a3"]
 
 [node name="HeavenMain" type="Node2D"]
@@ -96,11 +97,11 @@ position = Vector2(-4949, -40)
 link_code = 2
 
 [node name="GoldenLever2" parent="Items" instance=ExtResource("10_ict1f")]
-position = Vector2(-3364, 472)
+position = Vector2(-3376, 472)
 link_code = 1
 
 [node name="GoldenLever3" parent="Items" instance=ExtResource("10_ict1f")]
-position = Vector2(-2735, 472)
+position = Vector2(-2792, 472)
 link_code = 3
 
 [node name="Coins" type="Node" parent="."]
@@ -148,7 +149,7 @@ position = Vector2(-2887, 297)
 position = Vector2(-2810, 297)
 
 [node name="HeavenCoin21" parent="Coins" instance=ExtResource("7_scjam")]
-position = Vector2(-3385, 385)
+position = Vector2(-3381, 384)
 
 [node name="HeavenCoin20" parent="Coins" instance=ExtResource("7_scjam")]
 position = Vector2(-4279, -94)
@@ -176,6 +177,17 @@ position = Vector2(-2840, 1249)
 
 [node name="HeavenCoin12" parent="Coins" instance=ExtResource("7_scjam")]
 position = Vector2(-2694, 1342)
+
+[node name="SpecialCoins" type="Node" parent="."]
+
+[node name="SpecialCoin" parent="SpecialCoins" instance=ExtResource("12_ci8bv")]
+position = Vector2(-2856, 32)
+
+[node name="SpecialCoin2" parent="SpecialCoins" instance=ExtResource("12_ci8bv")]
+position = Vector2(-3256, 416)
+
+[node name="SpecialCoin3" parent="SpecialCoins" instance=ExtResource("12_ci8bv")]
+position = Vector2(-3640, 432)
 
 [node name="TileMapLayer" parent="." instance=ExtResource("4_cp6mn")]
 scale = Vector2(16, 16)

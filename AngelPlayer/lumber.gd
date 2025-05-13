@@ -62,4 +62,5 @@ var last_angel_position: Array[Vector2] = [Vector2(-4539.0, 1367.0),Vector2(-453
 var just_hit: = false
 
 func get_hurt() -> void:
+	just_hit = true
 	hurt_state.finished.emit("Hurt")

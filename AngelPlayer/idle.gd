@@ -1,6 +1,7 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	if player.just_hit: return
 	player.state_label.text = "Idle"
 	player.velocity.x = 0.0
 	player.animation_player.play("Idle")
@@ -29,10 +30,11 @@ func physics_update(delta: float) -> void:
 		if !player.just_hit:
 			player.last_angel_position[1] = player.last_angel_position[0]
 			player.last_angel_position[0] = player.position
-		finished.emit(JUMPING)
+			finished.emit(JUMPING)
 	elif (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")) and (!Input.is_action_pressed("Left") or !Input.is_action_pressed("Right")):
 		finished.emit(RUNNING)
 
 func _on_jump_buffer_wait_timer_timeout() -> void:
-	finished.emit(JUMPING)
+	if !player.just_hit:
+		finished.emit(JUMPING)
 	
