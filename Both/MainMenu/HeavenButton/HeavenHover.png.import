@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwyskgv43joaf"
-path="res://.godot/imported/hex.png-a8b7be9864ecbf7546325db5801966e6.ctex"
+uid="uid://ctrq0won31caq"
+path="res://.godot/imported/HeavenHover.png-63e2d74475487a952db73c7484844538.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hell/hex.png"
-dest_files=["res://.godot/imported/hex.png-a8b7be9864ecbf7546325db5801966e6.ctex"]
+source_file="res://Both/MainMenu/HeavenButton/HeavenHover.png"
+dest_files=["res://.godot/imported/HeavenHover.png-63e2d74475487a952db73c7484844538.ctex"]
 
 [params]
 

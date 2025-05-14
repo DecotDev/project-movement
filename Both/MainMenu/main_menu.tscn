@@ -1,12 +1,17 @@
-[gd_scene load_steps=22 format=4 uid="uid://dnykjbxqrrwle"]
+[gd_scene load_steps=23 format=3 uid="uid://dnykjbxqrrwle"]
 
 [ext_resource type="Script" uid="uid://d0mth1pcyp40h" path="res://Both/MainMenu/main_menu.gd" id="1_kn4uv"]
 [ext_resource type="Texture2D" uid="uid://g38l1oj3cyvk" path="res://Both/MainMenu/MainMenuMockup.png" id="2_i1s0u"]
-[ext_resource type="Texture2D" uid="uid://bt8m2hbttgyln" path="res://Both/MainMenu/Hell/HellNormal.png" id="3_d7xtp"]
-[ext_resource type="Texture2D" uid="uid://dx83pl6fu5h13" path="res://Both/MainMenu/Hell/HellPressed.png" id="4_r31fs"]
-[ext_resource type="Texture2D" uid="uid://bdnvwlderwqv2" path="res://Both/MainMenu/Hell/HellHover.png" id="5_p5mbw"]
-[ext_resource type="Texture2D" uid="uid://dnadbbynf5dlg" path="res://Both/MainMenu/Hell/HellOutline.png" id="6_yigdr"]
-[ext_resource type="BitMap" uid="uid://dqu7xfb4cfcm0" path="res://Both/MainMenu/Hell/HellBitmap.png" id="7_foo2x"]
+[ext_resource type="Texture2D" uid="uid://bt8m2hbttgyln" path="res://Both/MainMenu/HellButton/HellNormal.png" id="3_d7xtp"]
+[ext_resource type="Texture2D" uid="uid://b826en2he2nvk" path="res://Both/MainMenu/HeavenButton/HeavenNormal.png" id="3_l4bi2"]
+[ext_resource type="Texture2D" uid="uid://0hsyikb5yctm" path="res://Both/MainMenu/HeavenButton/HeavenPressed.png" id="4_q64yn"]
+[ext_resource type="Texture2D" uid="uid://dx83pl6fu5h13" path="res://Both/MainMenu/HellButton/HellPressed.png" id="4_r31fs"]
+[ext_resource type="Texture2D" uid="uid://ctrq0won31caq" path="res://Both/MainMenu/HeavenButton/HeavenHover.png" id="5_2kgaa"]
+[ext_resource type="Texture2D" uid="uid://bdnvwlderwqv2" path="res://Both/MainMenu/HellButton/HellHover.png" id="5_p5mbw"]
+[ext_resource type="Texture2D" uid="uid://c1ugkqcrg24yb" path="res://Both/MainMenu/HeavenButton/HeavenOutline.png" id="6_jdm0o"]
+[ext_resource type="Texture2D" uid="uid://dnadbbynf5dlg" path="res://Both/MainMenu/HellButton/HellOutline.png" id="6_yigdr"]
+[ext_resource type="BitMap" uid="uid://dqu7xfb4cfcm0" path="res://Both/MainMenu/HellButton/HellBitmap.png" id="7_foo2x"]
+[ext_resource type="BitMap" uid="uid://bnh72ruci4lmf" path="res://Both/MainMenu/HeavenButton/HeavenBitmap.png" id="7_q3sg6"]
 [ext_resource type="Texture2D" uid="uid://dbag3niyvif1m" path="res://Both/MainMenu/Quit/QuitNormal.png" id="11_6ylwo"]
 [ext_resource type="Texture2D" uid="uid://dewff7whpy3de" path="res://Both/MainMenu/Settings/SettingsNormal.png" id="11_bcjqc"]
 [ext_resource type="Texture2D" uid="uid://dh14n5oobccba" path="res://Both/MainMenu/Quit/QuitPressed.png" id="12_6ylwo"]
@@ -17,21 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://ctmqdiind1bw6" path="res://Both/MainMenu/Settings/SettingsOutline.png" id="14_foo2x"]
 [ext_resource type="BitMap" uid="uid://bh1p0uceoxywo" path="res://Both/MainMenu/Settings/SettingsBitmap.png" id="14_yigdr"]
 [ext_resource type="Texture2D" uid="uid://cdi0cib36h2be" path="res://Both/MainMenu/Quit/QuitOutline.png" id="19_p5mbw"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l4bi2"]
-load_path = "res://.godot/imported/WPlayNormal.png-5b551c9ba3cbdc0d42acd30057ec9f6a.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q64yn"]
-load_path = "res://.godot/imported/WPlayPressed.png-f0ef243ac1775a63ff754a900ac95b9c.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2kgaa"]
-load_path = "res://.godot/imported/WPlayHover.png-9d5878a9d7c242d3d47b0edaa4ec7723.ctex"
-
-[sub_resource type="BitMap" id="BitMap_jdm0o"]
-data = {
-"data": PackedByteArray("4P///////////////////w8AAAAAAAAAAAAAAAAAwP///////////////////z8AAAAAAAAAAAAAAAAAgP////////////////////8AAAAAAAAAAAAAAAAAAP////////////////////8DAAAAAAAAAAAAAAAAAP7///////////////////8PAAAAAAAAAAAAAAAAAPz///////////////////8fAAAAAAAAAAAAAAAAAPD///////////////////9/AAAAAAAAAAAAAAAAAMD/////////////////////AAAAAAAAAAAAAAAAAAD/////////////////////AwAAAAAAAAAAAAAAAAD8////////////////////BwAAAAAAAAAAAAAAAADw////////////////////HwAAAAAAAAAAAAAAAADA////////////////////PwAAAAAAAAAAAAAAAAAA/////////////////////wAAAAAAAAAAAAAAAAAA/P///////////////////wEAAAAAAAAAAAAAAAAA8P///////////////////wcAAAAAAAAAAAAAAAAAwP///////////////////w8AAAAAAAAAAAAAAAAAAP///////////////////z8AAAAAAAAAAAAAAAAAAPz//////////////////38AAAAAAAAAAAAAAAAAAPD///////////////////8BAAAAAAAAAAAAAAAAAMD///////////////////8DAAAAAAAAAAAAAAAAAAD///////////////////8PAAAAAAAAAAAAAAAAAAD8//////////////////8fAAAAAAAAAAAAAAAAAADw//////////////////9/AAAAAAAAAAAAAAAAAADA////////////////////AAAAAAAAAAAAAAAAAAAA////////////////////AwAAAAAAAAAAAAAAAAAA/P//////////////////BwAAAAAAAAAAAAAAAAAA8P//////////////////HwAAAAAAAAAAAAAAAAAAwP//////////////////PwAAAAAAAAAAAAAAAAAAAP///////////////////wAAAAAAAAAAAAAAAAAAAPz//////////////////wEAAAAAAAAAAAAAAAAAAPD//////////////////wcAAAAAAAAAAAAAAAAAAMD//////////////////w8AAAAAAAAAAAAAAAAAAAD//////////////////z8AAAAAAAAAAAAAAAAAAAD8/////////////////38AAAAAAAAAAAAAAAAAAADw//////////////////8BAAAAAAAAAAAAAAAAAADA//////////////////8DAAAAAAAAAAAAAAAAAAAA//////////////////8PAAAAAAAAAAAAAAAAAAAA/P////////////////8fAAAAAAAAAAAAAAAAAAAA8P////////////////9/AAAAAAAAAAAAAAAAAAAAwP//////////////////AAAAAAAAAAAAAAAAAAAAAP//////////////////AwAAAAAAAAAAAAAAAAAAAPz/////////////////BwAAAAAAAAAAAAAAAAAAAPD/////////////////HwAAAAAAAAAAAAAAAAAAAMD/////////////////PwAAAAAAAAAAAAAAAAAAAAD//////////////////wAAAAAAAAAAAAAAAAAAAAD8/////////////////wEAAAAAAAAAAAAAAAAAAADw/////////////////wcAAAAAAAAAAAAAAAAAAADA/////////////////w8AAAAAAAAAAAAAAAAAAAAA/////////////////z8AAAAAAAAAAAAAAAAAAAAA/P///////////////38AAAAAAAAAAAAAAAAAAAAA8P////////////////8BAAAAAAAAAAAAAAAAAAAAwP////////////////8DAAAAAAAAAAAAAAAAAAAAAP////////////////8PAAAAAAAAAAAAAAAAAAAAAPz///////////////8fAAAAAAAAAAAAAAAAAAAAAPD///////////////9/AAAAAAAAAAAAAAAAAAAAAMD/////////////////AAAAAAAAAAAAAAAAAAAAAAD/////////////////AwAAAAAAAAAAAAAAAAAAAAD8////////////////BwAAAAAAAAAAAAAAAAAAAADw////////////////HwAAAAAAAAAAAAAAAAAAAADA////////////////PwAAAAAAAAAAAAAAAAAAAAAA/////////////////wAAAAAAAAAAAAAAAAAAAAAA/P///////////////wEAAAAAAAAAAAAAAAAAAAAA8P///////////////wcAAAAAAAAAAAAAAAAAAAAAwP///////////////x8AAAAAAAAAAAAAAAAAAAAAAP///////////////38AAAAAAAAAAAAAAAAAAAAAAPz///////////////8BAAAAAAAAAAAAAAAAAAAAAAA="),
-"size": Vector2i(242, 66)
-}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -60,18 +50,18 @@ offset_bottom = 526.0
 scale = Vector2(4, 4)
 focus_neighbor_right = NodePath("../HellPlayButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
-texture_normal = SubResource("CompressedTexture2D_l4bi2")
-texture_pressed = SubResource("CompressedTexture2D_q64yn")
-texture_hover = SubResource("CompressedTexture2D_2kgaa")
-texture_focused = SubResource("CompressedTexture2D_2kgaa")
-texture_click_mask = SubResource("BitMap_jdm0o")
+texture_normal = ExtResource("3_l4bi2")
+texture_pressed = ExtResource("4_q64yn")
+texture_hover = ExtResource("5_2kgaa")
+texture_focused = ExtResource("6_jdm0o")
+texture_click_mask = ExtResource("7_q3sg6")
 
 [node name="HellPlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 476.0
+offset_left = 480.0
 offset_top = 460.0
-offset_right = 718.0
-offset_bottom = 526.0
+offset_right = 724.0
+offset_bottom = 528.0
 scale = Vector2(4, 4)
 focus_neighbor_left = NodePath("../HeavenPlayButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
@@ -112,12 +102,16 @@ texture_focused = ExtResource("19_p5mbw")
 texture_click_mask = ExtResource("14_1011k")
 
 [connection signal="timeout" from="MusicStartTimer" to="." method="_on_music_start_timer_timeout"]
+[connection signal="button_down" from="HeavenPlayButton" to="." method="_on_heaven_play_button_button_down"]
+[connection signal="button_up" from="HeavenPlayButton" to="." method="_on_heaven_play_button_button_up"]
+[connection signal="focus_entered" from="HeavenPlayButton" to="." method="_on_heaven_play_button_focus_entered"]
 [connection signal="focus_exited" from="HeavenPlayButton" to="." method="_on_heaven_play_button_focus_exited"]
 [connection signal="mouse_entered" from="HeavenPlayButton" to="." method="_on_heaven_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="HeavenPlayButton" to="." method="_on_heaven_play_button_mouse_exited"]
 [connection signal="pressed" from="HeavenPlayButton" to="." method="_on_heaven_play_button_pressed"]
 [connection signal="button_down" from="HellPlayButton" to="." method="_on_hell_play_button_button_down"]
 [connection signal="button_up" from="HellPlayButton" to="." method="_on_hell_play_button_button_up"]
+[connection signal="focus_entered" from="HellPlayButton" to="." method="_on_hell_play_button_focus_entered"]
 [connection signal="focus_exited" from="HellPlayButton" to="." method="_on_hell_play_button_focus_exited"]
 [connection signal="mouse_entered" from="HellPlayButton" to="." method="_on_hell_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="HellPlayButton" to="." method="_on_hell_play_button_mouse_exited"]

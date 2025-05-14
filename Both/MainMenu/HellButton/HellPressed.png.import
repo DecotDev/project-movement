@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ihdikc1j8gc"
-path="res://.godot/imported/hell_round.png-1807142aca463375e4b07cb337858147.ctex"
+uid="uid://dx83pl6fu5h13"
+path="res://.godot/imported/HellPressed.png-3b87ae2a1f13f5fb404717fd07d67ffb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hell/hell_round.png"
-dest_files=["res://.godot/imported/hell_round.png-1807142aca463375e4b07cb337858147.ctex"]
+source_file="res://Both/MainMenu/HellButton/HellPressed.png"
+dest_files=["res://.godot/imported/HellPressed.png-3b87ae2a1f13f5fb404717fd07d67ffb.ctex"]
 
 [params]
 

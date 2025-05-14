@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt8m2hbttgyln"
-path="res://.godot/imported/HellNormal.png-321e2c9ac9e9017d11a31102fa4edcfb.ctex"
+uid="uid://0hsyikb5yctm"
+path="res://.godot/imported/HeavenPressed.png-aa300b205c4f7d2f8bb1598221fc0637.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Both/MainMenu/Hell/HellNormal.png"
-dest_files=["res://.godot/imported/HellNormal.png-321e2c9ac9e9017d11a31102fa4edcfb.ctex"]
+source_file="res://Both/MainMenu/HeavenButton/HeavenPressed.png"
+dest_files=["res://.godot/imported/HeavenPressed.png-aa300b205c4f7d2f8bb1598221fc0637.ctex"]
 
 [params]
 

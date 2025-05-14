@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwfkm5xql06s4"
-path="res://.godot/imported/Cursor32.png-5d97169c90254f1beedc8c1ee113ce20.ctex"
+uid="uid://dnadbbynf5dlg"
+path="res://.godot/imported/HellOutline.png-34553a01b04d10a8b4667f0ac1284c55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hell/Cursor32.png"
-dest_files=["res://.godot/imported/Cursor32.png-5d97169c90254f1beedc8c1ee113ce20.ctex"]
+source_file="res://Both/MainMenu/HellButton/HellOutline.png"
+dest_files=["res://.godot/imported/HellOutline.png-34553a01b04d10a8b4667f0ac1284c55.ctex"]
 
 [params]
 

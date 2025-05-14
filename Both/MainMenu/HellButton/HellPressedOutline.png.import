@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdnvwlderwqv2"
-path="res://.godot/imported/HellHover.png-479140e3adc67390c34ddde5ff43b77c.ctex"
+uid="uid://5y5mmibp0vn1"
+path="res://.godot/imported/HellPressedOutline.png-b372f32d0701e38c954339dea4e8dcde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Both/MainMenu/Hell/HellHover.png"
-dest_files=["res://.godot/imported/HellHover.png-479140e3adc67390c34ddde5ff43b77c.ctex"]
+source_file="res://Both/MainMenu/HellButton/HellPressedOutline.png"
+dest_files=["res://.godot/imported/HellPressedOutline.png-b372f32d0701e38c954339dea4e8dcde.ctex"]
 
 [params]
 
