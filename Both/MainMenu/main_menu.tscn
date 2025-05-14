@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnykjbxqrrwle"]
+[gd_scene load_steps=21 format=4 uid="uid://dnykjbxqrrwle"]
 
 [ext_resource type="Script" uid="uid://d0mth1pcyp40h" path="res://Both/MainMenu/main_menu.gd" id="1_kn4uv"]
 [ext_resource type="Texture2D" uid="uid://g38l1oj3cyvk" path="res://Both/MainMenu/MainMenuMockup.png" id="2_i1s0u"]
@@ -16,8 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://b7evarkfhbyxl" path="res://Both/MainMenu/Settings/SettingsPressed.png" id="12_r31fs"]
 [ext_resource type="Texture2D" uid="uid://dm367qxhjro6a" path="res://Both/MainMenu/Quit/QuitHover.png" id="13_1011k"]
 [ext_resource type="Texture2D" uid="uid://jifvnnxu2msa" path="res://Both/MainMenu/Settings/SettingsHover.png" id="13_p5mbw"]
-[ext_resource type="BitMap" uid="uid://bu1cvuri54d0t" path="res://Both/MainMenu/Quit/QuitBitmap.png" id="14_1011k"]
+[ext_resource type="BitMap" uid="uid://qei4a5uodybf" path="res://Both/MainMenu/Quit/QuitBitmap.png" id="14_1011k"]
 [ext_resource type="BitMap" uid="uid://baqelhywfbnj0" path="res://Both/MainMenu/Settings/SettingsBitmap.png" id="14_yigdr"]
+[ext_resource type="Texture2D" uid="uid://cdi0cib36h2be" path="res://Both/MainMenu/Quit/QuitOutline.png" id="19_p5mbw"]
+
+[sub_resource type="BitMap" id="BitMap_p5mbw"]
+data = {
+"data": PackedByteArray("+P/////8//////7/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////f/////8//////x8="),
+"size": Vector2i(40, 40)
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -94,6 +101,20 @@ texture_normal = ExtResource("11_6ylwo")
 texture_pressed = ExtResource("12_6ylwo")
 texture_hover = ExtResource("13_1011k")
 texture_focused = ExtResource("13_1011k")
+texture_click_mask = SubResource("BitMap_p5mbw")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1623.0
+offset_top = 349.0
+offset_right = 1663.0
+offset_bottom = 389.0
+scale = Vector2(4, 4)
+focus_neighbor_left = NodePath("../HellPlayButton")
+texture_normal = ExtResource("11_6ylwo")
+texture_pressed = ExtResource("12_6ylwo")
+texture_hover = ExtResource("13_1011k")
+texture_focused = ExtResource("19_p5mbw")
 texture_click_mask = ExtResource("14_1011k")
 
 [connection signal="timeout" from="MusicStartTimer" to="." method="_on_music_start_timer_timeout"]
