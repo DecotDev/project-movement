@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cng4ddmjneg8d"
-path="res://.godot/imported/WPlayHover.png-9d5878a9d7c242d3d47b0edaa4ec7723.ctex"
+uid="uid://bgilugej6cv7a"
+path="res://.godot/imported/QuitPressedOutline.png-68428e1bdfab39016e6df543b83c6136.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Both/MainMenu/Play/WPlayHover.png"
-dest_files=["res://.godot/imported/WPlayHover.png-9d5878a9d7c242d3d47b0edaa4ec7723.ctex"]
+source_file="res://Both/MainMenu/Quit/QuitPressedOutline.png"
+dest_files=["res://.godot/imported/QuitPressedOutline.png-68428e1bdfab39016e6df543b83c6136.ctex"]
 
 [params]
 

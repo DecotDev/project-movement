@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvam63wmhun3y"
-path="res://.godot/imported/RplayHover.png-7b7da9f94aa901b1735cfb7a266751a8.ctex"
+uid="uid://dx83pl6fu5h13"
+path="res://.godot/imported/HellPressed.png-c3879dce5d5789a8d171b835dd15ef7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Both/MainMenu/Play/RplayHover.png"
-dest_files=["res://.godot/imported/RplayHover.png-7b7da9f94aa901b1735cfb7a266751a8.ctex"]
+source_file="res://Both/MainMenu/Hell/HellPressed.png"
+dest_files=["res://.godot/imported/HellPressed.png-c3879dce5d5789a8d171b835dd15ef7c.ctex"]
 
 [params]
 

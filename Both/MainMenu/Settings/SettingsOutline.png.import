@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5bmcmjp4gyi3"
-path="res://.godot/imported/RPlayNormal.png-2730f546a50cece39e038fc3d9949641.ctex"
+uid="uid://ctmqdiind1bw6"
+path="res://.godot/imported/SettingsOutline.png-008d7a6d2d688ca539e218d90473b6e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Both/MainMenu/Play/RPlayNormal.png"
-dest_files=["res://.godot/imported/RPlayNormal.png-2730f546a50cece39e038fc3d9949641.ctex"]
+source_file="res://Both/MainMenu/Settings/SettingsOutline.png"
+dest_files=["res://.godot/imported/SettingsOutline.png-008d7a6d2d688ca539e218d90473b6e3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chqyurd0unk00"
-path="res://.godot/imported/RPlayPressed.png-014366f8500d4e17e2af4435a42b3b4a.ctex"
+uid="uid://bdnvwlderwqv2"
+path="res://.godot/imported/HellHover.png-479140e3adc67390c34ddde5ff43b77c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Both/MainMenu/Play/RPlayPressed.png"
-dest_files=["res://.godot/imported/RPlayPressed.png-014366f8500d4e17e2af4435a42b3b4a.ctex"]
+source_file="res://Both/MainMenu/Hell/HellHover.png"
+dest_files=["res://.godot/imported/HellHover.png-479140e3adc67390c34ddde5ff43b77c.ctex"]
 
 [params]
 

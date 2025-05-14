@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dqu7xfb4cfcm0"
+path="res://.godot/imported/HellBitmap.png-5ea027ea41e1c8b64ccb5ee6ceacfcd3.res"
+
+[deps]
+
+source_file="res://Both/MainMenu/Hell/HellBitmap.png"
+dest_files=["res://.godot/imported/HellBitmap.png-5ea027ea41e1c8b64ccb5ee6ceacfcd3.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

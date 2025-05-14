@@ -72,7 +72,7 @@ tile_map_data = PackedByteArray("AAABAAAAAAACAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAADAAM
 
 [node name="Lumber" parent="." instance=ExtResource("2_oyb2g")]
 unique_name_in_owner = true
-position = Vector2(-3653, 76)
+position = Vector2(-4530, 1409)
 
 [node name="HeavenGUI" parent="." instance=ExtResource("3_5nbyf")]
 unique_name_in_owner = true
@@ -147,7 +147,7 @@ position = Vector2(-2887, 373)
 position = Vector2(-2887, 297)
 
 [node name="HeavenCoin24" parent="Coins" instance=ExtResource("7_scjam")]
-position = Vector2(-2810, 297)
+position = Vector2(-2797, 297)
 
 [node name="HeavenCoin21" parent="Coins" instance=ExtResource("7_scjam")]
 position = Vector2(-3381, 384)
@@ -181,9 +181,6 @@ position = Vector2(-2694, 1342)
 
 [node name="SpecialCoins" type="Node" parent="."]
 
-[node name="SpecialCoin" parent="SpecialCoins" instance=ExtResource("12_ci8bv")]
-position = Vector2(-2856, 32)
-
 [node name="SpecialCoin2" parent="SpecialCoins" instance=ExtResource("12_ci8bv")]
 position = Vector2(-3256, 416)
 
@@ -197,10 +194,16 @@ tile_map_data = PackedByteArray("AAAmABIAAAAAAAAAAAAnABIAAAAAAAAAAAAoABIAAAAAAAA
 [node name="Emeralds" type="Node" parent="."]
 
 [node name="Emerald" parent="Emeralds" instance=ExtResource("14_3hibf")]
-position = Vector2(-3517, 425)
+position = Vector2(-3922, 42)
+
+[node name="Emerald4" parent="Emeralds" instance=ExtResource("14_3hibf")]
+position = Vector2(-6036, 519)
+
+[node name="Emerald3" parent="Emeralds" instance=ExtResource("14_3hibf")]
+position = Vector2(-3067, 1139)
 
 [node name="Emerald2" parent="Emeralds" instance=ExtResource("14_3hibf")]
-position = Vector2(-3150, 424)
+position = Vector2(-2789, 370)
 
 [node name="Spikes" type="Node" parent="."]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dufcpowy7e44v"
-path="res://.godot/imported/WPlayPressed.png-f0ef243ac1775a63ff754a900ac95b9c.ctex"
+uid="uid://5y5mmibp0vn1"
+path="res://.godot/imported/HellPressedOutline.png-9eed2a9ba0910060d20f365bcfbd06a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Both/MainMenu/Play/WPlayPressed.png"
-dest_files=["res://.godot/imported/WPlayPressed.png-f0ef243ac1775a63ff754a900ac95b9c.ctex"]
+source_file="res://Both/MainMenu/Hell/HellPressedOutline.png"
+dest_files=["res://.godot/imported/HellPressedOutline.png-9eed2a9ba0910060d20f365bcfbd06a0.ctex"]
 
 [params]
 
