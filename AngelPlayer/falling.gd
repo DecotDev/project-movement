@@ -58,6 +58,7 @@ func physics_update(delta: float) -> void:
 		finished.emit(DASHING)
 	
 	if player.is_on_floor():
+		player.just_dashed = false
 		if player.just_hit: return
 		player.just_respawned = false
 		if player.buffered_jump:
@@ -76,4 +77,4 @@ func _on_coyote_timer_timeout() -> void:
 
 func _on_dash_fall_impulse_timeout() -> void:
 	player.dash_label.text = "false"
-	player.just_dashed = false
+	#player.just_dashed = false

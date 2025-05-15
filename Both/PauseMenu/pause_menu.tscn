@@ -1,9 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://cytvublh5of22"]
+[gd_scene load_steps=23 format=3 uid="uid://cytvublh5of22"]
 
 [ext_resource type="Shader" uid="uid://cygiluyhel646" path="res://Both/PauseMenu/pause_menu.gdshader" id="1_8e4y5"]
 [ext_resource type="Script" uid="uid://bi3ep0iv45qq1" path="res://Both/PauseMenu/pause_menu.gd" id="1_x6dri"]
-[ext_resource type="StyleBox" uid="uid://lpfe3lwwc57t" path="res://Both/PauseMenu/pause_menu.tres" id="3_m80l3"]
-[ext_resource type="Texture2D" uid="uid://3u13ns5nhvea" path="res://Both/PauseMenu/PauseBG.png" id="4_705lk"]
+[ext_resource type="Texture2D" uid="uid://dj2x3u8emc04" path="res://Both/PauseMenu/HeavenPauseBG.png" id="2_8q0r3"]
+[ext_resource type="Texture2D" uid="uid://c2dssu78iwdw2" path="res://Both/PauseMenu/PResumeNormal.png" id="3_s6hq5"]
+[ext_resource type="Texture2D" uid="uid://d3egj6x3jum6i" path="res://Both/PauseMenu/PResumePressed.png" id="4_mqoq8"]
+[ext_resource type="Texture2D" uid="uid://hc4vtxb3xvx1" path="res://Both/PauseMenu/PSettingsNormal.png" id="5_8loan"]
+[ext_resource type="Texture2D" uid="uid://u8q188sshwdl" path="res://Both/PauseMenu/PResumeHover.png" id="5_dhku3"]
+[ext_resource type="BitMap" uid="uid://dkn6tcbi64fku" path="res://Both/PauseMenu/PResumeNormalBitmap.png" id="5_xsw63"]
+[ext_resource type="Texture2D" uid="uid://dn6p83oh0kij0" path="res://Both/PauseMenu/PResumeOutline.png" id="6_qnvgs"]
+[ext_resource type="Texture2D" uid="uid://n6orx75lipk7" path="res://Both/PauseMenu/PSettingsPressed.png" id="6_xsw63"]
+[ext_resource type="Texture2D" uid="uid://dk3n604lc1e3n" path="res://Both/PauseMenu/PMainMenuNormal.png" id="7_dhku3"]
+[ext_resource type="BitMap" uid="uid://it1byd25gc28" path="res://Both/PauseMenu/PSettingsNormalBitmap.png" id="8_dhku3"]
+[ext_resource type="Texture2D" uid="uid://bhgj85q7ah0tt" path="res://Both/PauseMenu/PMainMenuPressed.png" id="8_h2uio"]
+[ext_resource type="Texture2D" uid="uid://bvdudnorev67k" path="res://Both/PauseMenu/PSettingsHover.png" id="9_h2uio"]
+[ext_resource type="Texture2D" uid="uid://cqhbqjpgp1x2f" path="res://Both/PauseMenu/PSettingsOutline.png" id="11_cgnxl"]
+[ext_resource type="BitMap" uid="uid://dm2ah5whjujkr" path="res://Both/PauseMenu/PMainMenuNormalBitmap.png" id="11_h2uio"]
+[ext_resource type="Texture2D" uid="uid://cxj7eox8jvjhd" path="res://Both/PauseMenu/PMainMenuHover.png" id="13_r5ocs"]
+[ext_resource type="Texture2D" uid="uid://cdcloend8hnde" path="res://Both/PauseMenu/PMainMenuOutline.png" id="16_h4gsc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x6dri"]
 shader = ExtResource("1_8e4y5")
@@ -22,12 +36,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.4]
+"values": [0.0, 3.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/path = NodePath("PauseBackground:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,22 +53,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PanelContainer:theme_override_styles/panel:bg_color")
+tracks/2/path = NodePath("Resume:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.33, 0.33, 0.33, 0), Color(0, 0, 0, 0.87451)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PauseBackground:modulate")
+tracks/3/path = NodePath("Settings:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainMenu:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -78,34 +104,46 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/path = NodePath("PauseBackground:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PanelContainer:theme_override_styles/panel:bg_color")
+tracks/2/path = NodePath("Resume:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.329158, 0.329158, 0.329158, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PauseBackground:modulate")
+tracks/3/path = NodePath("Settings:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainMenu:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -118,13 +156,6 @@ _data = {
 &"RESET": SubResource("Animation_705lk")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m80l3"]
-bg_color = Color(0.329158, 0.329158, 0.329158, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
-
 [node name="PauseMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -135,75 +166,90 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x6dri")
 
-[node name="PauseBackground" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(480, 160)
-scale = Vector2(4, 4)
-texture = ExtResource("4_705lk")
-centered = false
-
-[node name="TextureButton" type="TextureButton" parent="PauseBackground"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureButton2" type="TextureButton" parent="PauseBackground"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureButton3" type="TextureButton" parent="PauseBackground"]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_x6dri")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_dy5s4")
-}
+[node name="PauseBackground" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(480, 160)
+scale = Vector2(4, 4)
+texture = ExtResource("2_8q0r3")
+centered = false
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="Resume" type="TextureButton" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -292.0
+offset_top = 288.0
+offset_right = -146.0
+offset_bottom = 328.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_s6hq5")
+texture_pressed = ExtResource("4_mqoq8")
+texture_hover = ExtResource("5_dhku3")
+texture_focused = ExtResource("6_qnvgs")
+texture_click_mask = ExtResource("5_xsw63")
+
+[node name="Settings" type="TextureButton" parent="."]
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -460.0
-offset_top = -380.0
-offset_right = 460.0
-offset_bottom = 380.0
+offset_left = -292.0
+offset_top = -60.0
+offset_right = -146.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_m80l3")
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_8loan")
+texture_pressed = ExtResource("6_xsw63")
+texture_hover = ExtResource("9_h2uio")
+texture_focused = ExtResource("11_cgnxl")
+texture_click_mask = ExtResource("8_dhku3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = -235
-alignment = 1
+[node name="MainMenu" type="TextureButton" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -292.0
+offset_top = -392.0
+offset_right = -146.0
+offset_bottom = -352.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("7_dhku3")
+texture_pressed = ExtResource("8_h2uio")
+texture_hover = ExtResource("13_r5ocs")
+texture_focused = ExtResource("16_h4gsc")
+texture_click_mask = ExtResource("11_h2uio")
 
-[node name="ExitMainMenuButton" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-theme_override_styles/focus = ExtResource("3_m80l3")
-text = "Exit Main Menu"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dy5s4")
+}
 
-[node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-theme_override_styles/focus = ExtResource("3_m80l3")
-text = "Settings"
-
-[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-theme_override_styles/focus = ExtResource("3_m80l3")
-text = "Resume"
-
-[connection signal="pressed" from="PanelContainer/VBoxContainer/ExitMainMenuButton" to="." method="_on_exit_main_menu_button_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="button_down" from="Resume" to="." method="_on_resume_button_down"]
+[connection signal="button_up" from="Resume" to="." method="_on_resume_button_up"]
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="button_down" from="Settings" to="." method="_on_settings_button_down"]
+[connection signal="button_up" from="Settings" to="." method="_on_settings_button_up"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="button_down" from="MainMenu" to="." method="_on_main_menu_button_down"]
+[connection signal="button_up" from="MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

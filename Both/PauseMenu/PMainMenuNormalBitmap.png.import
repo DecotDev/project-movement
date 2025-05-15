@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dm2ah5whjujkr"
+path="res://.godot/imported/PMainMenuNormalBitmap.png-34ee971fe2bbf27a7fc53abe875423c8.res"
+
+[deps]
+
+source_file="res://Both/PauseMenu/PMainMenuNormalBitmap.png"
+dest_files=["res://.godot/imported/PMainMenuNormalBitmap.png-34ee971fe2bbf27a7fc53abe875423c8.res"]
+
+[params]
+
+create_from=1
+threshold=0.5
