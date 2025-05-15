@@ -1,11 +1,21 @@
 extends Control
 
+var hell_pause_bg: = preload("res://Both/PauseMenu/HellPauseBG.png")
+var heaven_pause_bg: = preload("res://Both/PauseMenu/HeavenPauseBG.png")
+
 func _ready() -> void:
 	hide()
 	$AnimationPlayer.play("RESET")
 
 func _process(delta: float) -> void:
 	escape()
+
+func _change_background() -> void:
+	if Global.world:
+		$PauseBackground.texture = heaven_pause_bg
+	else:
+		$PauseBackground.texture = hell_pause_bg
+		
 
 func resume() -> void:
 	get_tree().paused = false
@@ -16,6 +26,7 @@ func resume() -> void:
 	hide()
 	
 func pause() -> void:
+	_change_background()
 	Global.save_data()
 	show()
 	$PanelContainer/VBoxContainer/ResumeButton.grab_focus()
