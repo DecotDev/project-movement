@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dnykjbxqrrwle"]
+[gd_scene load_steps=31 format=3 uid="uid://dnykjbxqrrwle"]
 
 [ext_resource type="Script" uid="uid://d0mth1pcyp40h" path="res://Both/MainMenu/main_menu.gd" id="1_kn4uv"]
-[ext_resource type="Texture2D" uid="uid://g38l1oj3cyvk" path="res://Both/MainMenu/MainMenuMockup.png" id="2_i1s0u"]
+[ext_resource type="Texture2D" uid="uid://bhxufslysjkhi" path="res://Both/MainMenu/BackgroundDeco.png" id="2_3m7ps"]
 [ext_resource type="Texture2D" uid="uid://bt8m2hbttgyln" path="res://Both/MainMenu/HellButton/HellNormal.png" id="3_d7xtp"]
 [ext_resource type="Texture2D" uid="uid://b826en2he2nvk" path="res://Both/MainMenu/HeavenButton/HeavenNormal.png" id="3_l4bi2"]
 [ext_resource type="Texture2D" uid="uid://0hsyikb5yctm" path="res://Both/MainMenu/HeavenButton/HeavenPressed.png" id="4_q64yn"]
@@ -22,6 +22,14 @@
 [ext_resource type="Texture2D" uid="uid://ctmqdiind1bw6" path="res://Both/MainMenu/Settings/SettingsOutline.png" id="14_foo2x"]
 [ext_resource type="BitMap" uid="uid://bh1p0uceoxywo" path="res://Both/MainMenu/Settings/SettingsBitmap.png" id="14_yigdr"]
 [ext_resource type="Texture2D" uid="uid://cdi0cib36h2be" path="res://Both/MainMenu/Quit/QuitOutline.png" id="19_p5mbw"]
+[ext_resource type="Texture2D" uid="uid://cd5xyvqs8iits" path="res://Both/MainMenu/Title/H.png" id="23_3m7ps"]
+[ext_resource type="Texture2D" uid="uid://dia2tkbqxkafq" path="res://Both/MainMenu/Title/E.png" id="24_svk3r"]
+[ext_resource type="Texture2D" uid="uid://buireeh0j14si" path="res://Both/MainMenu/Title/A.png" id="25_kvo7d"]
+[ext_resource type="Texture2D" uid="uid://dw844uv6ca1xk" path="res://Both/MainMenu/Title/V.png" id="26_3d6rv"]
+[ext_resource type="Texture2D" uid="uid://dnpumujfjyixi" path="res://Both/MainMenu/Title/N.png" id="27_hobna"]
+[ext_resource type="Texture2D" uid="uid://b5qg2amfi3ymi" path="res://Both/MainMenu/Title/'.png" id="28_gso5n"]
+[ext_resource type="Texture2D" uid="uid://2buyvft8j1qt" path="res://Both/MainMenu/Title/S.png" id="29_xkb1p"]
+[ext_resource type="Texture2D" uid="uid://bwq7rb3g5wtmx" path="res://Both/MainMenu/Title/L.png" id="30_ckj7t"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -32,10 +40,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kn4uv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.247059)
+[node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
-texture = ExtResource("2_i1s0u")
+texture = ExtResource("2_3m7ps")
 centered = false
 
 [node name="MusicStartTimer" type="Timer" parent="."]
@@ -43,10 +50,10 @@ one_shot = true
 
 [node name="HeavenPlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 476.0
+offset_left = 469.0
 offset_top = 460.0
-offset_right = 718.0
-offset_bottom = 526.0
+offset_right = 713.0
+offset_bottom = 528.0
 scale = Vector2(4, 4)
 focus_neighbor_right = NodePath("../HellPlayButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
@@ -58,9 +65,9 @@ texture_click_mask = ExtResource("7_q3sg6")
 
 [node name="HellPlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 480.0
+offset_left = 473.0
 offset_top = 460.0
-offset_right = 724.0
+offset_right = 717.0
 offset_bottom = 528.0
 scale = Vector2(4, 4)
 focus_neighbor_left = NodePath("../HeavenPlayButton")
@@ -101,6 +108,83 @@ texture_hover = ExtResource("13_1011k")
 texture_focused = ExtResource("19_p5mbw")
 texture_click_mask = ExtResource("14_1011k")
 
+[node name="Title" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Title"]
+position = Vector2(120, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("23_3m7ps")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Title"]
+position = Vector2(260, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("24_svk3r")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Title"]
+position = Vector2(400, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("25_kvo7d")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Title"]
+position = Vector2(540, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("26_3d6rv")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="Title"]
+position = Vector2(704, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("24_svk3r")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="Title"]
+position = Vector2(844, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("27_hobna")
+centered = false
+
+[node name="Sprite2D7" type="Sprite2D" parent="Title"]
+position = Vector2(1008, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("28_gso5n")
+centered = false
+
+[node name="Sprite2D8" type="Sprite2D" parent="Title"]
+position = Vector2(1052, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("29_xkb1p")
+centered = false
+
+[node name="Sprite2D9" type="Sprite2D" parent="Title"]
+position = Vector2(1260, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("23_3m7ps")
+centered = false
+
+[node name="Sprite2D10" type="Sprite2D" parent="Title"]
+position = Vector2(1400, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("24_svk3r")
+centered = false
+
+[node name="Sprite2D11" type="Sprite2D" parent="Title"]
+position = Vector2(1540, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("30_ckj7t")
+centered = false
+
+[node name="Sprite2D12" type="Sprite2D" parent="Title"]
+position = Vector2(1680, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("30_ckj7t")
+centered = false
+
+[node name="TitleWaveTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="timeout" from="MusicStartTimer" to="." method="_on_music_start_timer_timeout"]
 [connection signal="button_down" from="HeavenPlayButton" to="." method="_on_heaven_play_button_button_down"]
 [connection signal="button_up" from="HeavenPlayButton" to="." method="_on_heaven_play_button_button_up"]
@@ -128,3 +212,4 @@ texture_click_mask = ExtResource("14_1011k")
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="TitleWaveTimer" to="." method="_on_title_wave_timer_timeout"]

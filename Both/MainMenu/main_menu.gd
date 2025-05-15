@@ -15,6 +15,8 @@ var heaven_normal_outline: = preload("res://Both/MainMenu/HeavenButton/HeavenOut
 var heaven_pressed_outline: = preload("res://Both/MainMenu/HeavenButton/HeavenPressedOutline.png")
 
 func _ready() -> void:
+	$TitleWaveTimer.start()
+	wave_animation()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#$HeavenPlayButton.grab_focus()
 	$MusicStartTimer.start()
@@ -134,3 +136,15 @@ func _on_heaven_play_button_focus_exited() -> void:
 
 func _on_music_start_timer_timeout() -> void:
 	SoundPlayer.play_menu_music()
+
+func _on_title_wave_timer_timeout() -> void:
+	wave_animation()
+
+func wave_animation() -> void:
+	var letters: = get_node("Title")
+	for i in letters.get_child_count():
+		var sprite: = letters.get_child(i)
+		var tween: = create_tween()
+		var delay: = i * 0.15
+		tween.tween_property(sprite, "position:y", sprite.position.y - 15, 0.25).set_trans(Tween.TRANS_SINE).set_delay(delay)
+		tween.tween_property(sprite, "position:y", sprite.position.y, 0.40).set_trans(Tween.TRANS_SINE)
