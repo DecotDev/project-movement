@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dty50rf76sip8"
+path="res://.godot/imported/Emerald2 (2).wav-5eea1dd87bca6ca7470f5fd3a9fadb31.sample"
+
+[deps]
+
+source_file="res://Currency/HeavenCoins/Emerald/Emerald2 (2).wav"
+dest_files=["res://.godot/imported/Emerald2 (2).wav-5eea1dd87bca6ca7470f5fd3a9fadb31.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

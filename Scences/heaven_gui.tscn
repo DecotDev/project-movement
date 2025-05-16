@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dx13mehul60kb"]
+[gd_scene load_steps=21 format=3 uid="uid://bgrf656md6l1i"]
 
 [ext_resource type="Texture2D" uid="uid://bs74t7m0fhshk" path="res://Heaven/GUI/godot_icon.png" id="1_lahjv"]
 [ext_resource type="Script" uid="uid://d383agfrsyfk6" path="res://Scripts/heaven_gui.gd" id="1_sutog"]

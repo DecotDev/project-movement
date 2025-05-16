@@ -9,6 +9,7 @@ const pick_coin: = preload("res://Assets/Sounds/Coin/coin0.wav")
 const bep1: = preload("res://Both/TextBox/SFX/Bep1.wav")
 const bep2: = preload("res://Both/TextBox/SFX/Bep2.wav")
 const bep3: = preload("res://Both/TextBox/SFX/Bep3.wav")
+const emerald_pickup: = preload("res://Currency/HeavenCoins/Emerald/EmeraldPickUp.mp3")
 
 	#Songs
 const journey_day: = preload("res://Both/StartJourneyDay.mp3")

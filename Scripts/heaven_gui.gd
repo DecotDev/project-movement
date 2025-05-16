@@ -35,6 +35,7 @@ func update_heaven_coins_label() -> void:
 	coin_pos_tween.tween_property(heaven_coins_label, "position", coins_label_original_position, 0.20).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func update_emeralds_label() -> void:
+	emeralds_label.text = (str(Global.player_emeralds - 1) + "/" + str(Global.max_emeralds))
 	emerald_timer.start()
 	%AnimationPlayer.play("emerald_start")
 

@@ -80,9 +80,9 @@ texture_click_mask = ExtResource("7_foo2x")
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 472.0
+offset_left = 469.0
 offset_top = 804.0
-offset_right = 514.0
+offset_right = 511.0
 offset_bottom = 846.0
 scale = Vector2(4, 4)
 focus_neighbor_top = NodePath("../HeavenPlayButton")
@@ -95,9 +95,9 @@ texture_click_mask = ExtResource("14_yigdr")
 
 [node name="QuitButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1280.0
+offset_left = 1281.0
 offset_top = 804.0
-offset_right = 1322.0
+offset_right = 1323.0
 offset_bottom = 846.0
 scale = Vector2(4, 4)
 focus_neighbor_left = NodePath("../SettingsButton")
