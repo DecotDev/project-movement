@@ -164,6 +164,8 @@ position = Vector2(-194, -324)
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_m316y")]
 
+[node name="BulletShells" type="Node" parent="."]
+
 [connection signal="child_exiting_tree" from="Spawner/Enemies" to="Spawner" method="_on_enemies_child_exiting_tree"]
 
 [editable path="Spawner"]

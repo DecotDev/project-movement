@@ -1,5 +1,7 @@
 extends Area2D
 
+var bullet_shells: Node = null
+
 @onready
 var reload_timer: Timer = %ReloadTimer
 @onready
@@ -23,6 +25,7 @@ var fire_mode_wait: bool = false
 
 func _ready() -> void:
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
+	bullet_shells = get_tree().get_root().find_child("BulletShells", true, false)
 	gui.update_ammo_label(ammo, magazine_size)
 
 func _physics_process(delta: float) -> void:
@@ -80,6 +83,7 @@ func shoot() -> void:
 		#new_bullet.position.y -= 11
 		#new_bullet.position.y -= 22
 		#new_bullet.global_rotation += 0.3
+		
 		%ShootingPointLeft.add_child(new_bullet)
 	else:
 		#new_bullet.global_position = %CrossHair.global_position
@@ -88,6 +92,7 @@ func shoot() -> void:
 		new_bullet.global_rotation = %ShootingPointRight.global_rotation
 		new_bullet.global_rotation += rng.randf_range(-0.14, 0.14)
 		#new_bullet.position.y -= 11
+		
 		%ShootingPointRight.add_child(new_bullet)
 	eject_shell()
 
@@ -100,13 +105,15 @@ func eject_shell() -> void:
 		new_shell.global_rotation = %EjectionPointLeft.global_rotation
 		new_shell.scale.x = 2
 		new_shell.scale.y = 2
-		%EjectionPointLeft.add_child(new_shell)
+		bullet_shells.add_child(new_shell)
+		#%EjectionPointLeft.add_child(new_shell)
 	else:
 		new_shell.global_position = %EjectionPointRight.global_position
 		new_shell.global_rotation = %EjectionPointRight.global_rotation
 		new_shell.scale.x = 2
 		new_shell.scale.y = 2
-		%EjectionPointRight.add_child(new_shell)
+		bullet_shells.add_child(new_shell)
+		#%EjectionPointRight.add_child(new_shell)
 
 func shot_sound() -> void:
 	SoundPlayer.play_sound(SoundPlayer.supressed_shot)

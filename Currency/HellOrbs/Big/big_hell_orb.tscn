@@ -49,6 +49,8 @@ load_path = "res://.godot/imported/BigOrb.png-f37e1586735bd61e4e927410135790be.c
 radius = 24.0
 
 [node name="big_hell_orb" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_5ged0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -65,7 +67,6 @@ hframes = 4
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(26, 26)
 shape = SubResource("CircleShape2D_8x6th")
 
@@ -75,4 +76,4 @@ scale = Vector2(4, 4)
 texture = ExtResource("3_xm7u0")
 centered = false
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
