@@ -65,9 +65,16 @@ func _on_settings_pressed() -> void:
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().paused = false
+	#get_tree().paused = false
+	$AnimationPlayer.play_backwards("Fade")
 	SoundPlayer.background_music_player.stop()
-	get_tree().change_scene_to_file("res://Both/MainMenu/main_menu.tscn")
+	SoundPlayer.stop_all_sound()
+	if Global.world:
+		SceneTransition.change_scene("res://Both/MainMenu/main_menu.tscn", "PixelBlack")
+	else:
+		SceneTransition.change_scene("res://Both/MainMenu/main_menu.tscn", "PixelBlack")
+	
+	#get_tree().change_scene_to_file("res://Both/MainMenu/main_menu.tscn")
 
 
 func _on_resume_button_down() -> void:

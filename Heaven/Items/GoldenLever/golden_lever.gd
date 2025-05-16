@@ -23,6 +23,7 @@ func _on_interact() -> void:
 	lever_control()
 
 func lever_control() -> void:
+	SoundPlayer.play_sound(SoundPlayer.lever)
 	if !pulled:
 		pull()
 	else:

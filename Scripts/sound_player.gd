@@ -10,6 +10,9 @@ const bep1: = preload("res://Both/TextBox/SFX/Bep1.wav")
 const bep2: = preload("res://Both/TextBox/SFX/Bep2.wav")
 const bep3: = preload("res://Both/TextBox/SFX/Bep3.wav")
 const emerald_pickup: = preload("res://Currency/HeavenCoins/Emerald/EmeraldPickUp.mp3")
+const lever: = preload("res://Heaven/Items/GoldenLever/Lever.mp3")
+const door_open: = preload("res://Heaven/Items/GoldenDoor/DoorOpen.wav")
+const door_close: = preload("res://Heaven/Items/GoldenDoor/DoorClose.wav")
 
 	#Songs
 const journey_day: = preload("res://Both/StartJourneyDay.mp3")
@@ -71,10 +74,17 @@ func play_sound(sound: AudioStream) -> void:
 			audioStreamPlayer.play()
 			break
 
-func play_2d_sound(sound: AudioStream) -> void:
+func stop_all_sound() -> void:
+	for audioStreamPlayer in audio_players.get_children():
+		if audioStreamPlayer.playing:
+			audioStreamPlayer.stop()
+
+func play_2d_sound(sound: AudioStream, db: float) -> void:
+	$AudioStreamPlayer2D.volume_db + db
 	$AudioStreamPlayer2D.stream = sound
 	$AudioStreamPlayer2D.play()
-			
+	
+	
 func play_sfx_1(sound: AudioStream) -> void:
 	sfx_1.stream = sound
 	sfx_1.volume_db = Global.sound_effects_db

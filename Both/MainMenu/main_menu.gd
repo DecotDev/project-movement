@@ -91,7 +91,8 @@ func _on_settings_button_button_down() -> void:
 
 #Hell
 func _on_hell_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Hell/hell_main.tscn")
+	SceneTransition.change_scene("res://Hell/hell_main.tscn", "PixelHell")
+	#get_tree().change_scene_to_file("res://Hell/hell_main.tscn")
 func _on_hell_play_button_mouse_entered() -> void:
 	$HellPlayButton.z_index = 1
 	$HellPlayButton.grab_focus()
@@ -113,7 +114,8 @@ func _on_hell_play_button_focus_exited() -> void:
 
 #Heaven
 func _on_heaven_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Heaven/heaven_main.tscn")
+	SceneTransition.change_scene("res://Heaven/heaven_main.tscn", "PixelHeaven")
+	#get_tree().change_scene_to_file("res://Heaven/heaven_main.tscn")
 func _on_heaven_play_button_mouse_entered() -> void:
 	$HeavenPlayButton.z_index = 1
 	$HeavenPlayButton.grab_focus()

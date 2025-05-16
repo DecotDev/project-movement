@@ -382,3 +382,5 @@ frame_progress = 0.714207
 visible = false
 position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_hcmfc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
