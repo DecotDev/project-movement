@@ -13,7 +13,7 @@ const BIG_HELL_ORB = preload("res://Currency/HellOrbs/Big/big_hell_orb.tscn")
 
 #Stats
 var health: int = 4 #10
-var speed: int = 280
+var speed: int = 320 #280
 var reactivation_time: float = 2.0
 
 #Control

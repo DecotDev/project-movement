@@ -23,7 +23,7 @@ var wave_ongoing: bool = false
 
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_PAUSABLE
+	#process_mode = Node.PROCESS_MODE_PAUSABLE
 	await get_tree().create_timer(1.0, false).timeout
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	bullet_shells = get_tree().get_root().find_child("BulletShells", true, false)
@@ -38,7 +38,7 @@ func spawn_enemies() -> void:
 			enemy = enemies[0]
 		else:
 			enemy = enemies[rng.randi_range(0, enemy_types[Global.current_wave] -1)]
-		await get_tree().create_timer(0.3, false).timeout
+		await get_tree().create_timer(1.2, false).timeout
 		var enemy_node: Node = enemy.instantiate()
 		var spawn_length: = %Spawns.get_child_count()-1
 		var rand_num: = rng.randi_range(0,spawn_length)

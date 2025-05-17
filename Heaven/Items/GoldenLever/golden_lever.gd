@@ -50,7 +50,7 @@ func link_codes() -> void:
 			for door_link_code: int in door.link_codes:
 				if door_link_code == link_code:
 					connect("lever_just_pulled", Callable(door, "_order_recieved"))
-					print("linked succesfully")
+					#print("linked succesfully")
 	else: print("error linking")
 
 

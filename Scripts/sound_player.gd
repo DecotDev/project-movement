@@ -4,6 +4,11 @@ var rng: = RandomNumberGenerator.new()
 
 var music_player: Node = null
 
+#Both
+const accept: = preload("res://Both/MainMenu/Accept.wav")
+const accept_long: = preload("res://Both/MainMenu/AcceptLong.wav")
+const select: = preload("res://Both/MainMenu/Select.wav")
+
 #Heaven
 const pick_coin: = preload("res://Assets/Sounds/Coin/coin0.wav")
 const bep1: = preload("res://Both/TextBox/SFX/Bep1.wav")
@@ -47,6 +52,8 @@ const front_incursion: = preload("res://Assets/HellMusic/Front_Incursion.wav")
 @onready
 var sfx_1: = $SFX1
 @onready
+var sfx_2: = $SFX2
+@onready
 var background_music_player: = %BackgroundMusicPlayer
 @onready
 var audio_players: = $AudioPlayers
@@ -60,6 +67,18 @@ var hell_music: Array[AudioStream] = [pick_coin, hellfire_symphony, hellfire_chi
 var hell_music_info: Array[String] = ["Coin - Pitch", "Hellfire Symphony", "Hellfire Chill","Demon dancefloor", "Pixelated Inferno", "Front Incursion"]
 
 func _ready() -> void:
+	
+	#sfx_1.volume_db = -80
+	#sfx_2.volume_db = -80
+	#$AudioStreamPlayer2D.volume_db = -80
+	#background_music_player.volume_db = -80
+	#menu_music_player.volume_db = -80
+	#for ap in audio_players.get_children():
+		#ap.volume_db = -80
+	
+	print("SFX2 stream at start:", sfx_2.stream)
+	sfx_2.stop()
+	sfx_2.stream = null
 	music_player = get_tree().get_root().find_child("MusicPlayer", true, false)
 
 func play_sound(sound: AudioStream) -> void:
@@ -89,6 +108,16 @@ func play_sfx_1(sound: AudioStream) -> void:
 	sfx_1.stream = sound
 	sfx_1.volume_db = Global.sound_effects_db
 	sfx_1.play()
+	
+func play_sfx_2(sound: AudioStream) -> void:
+	print(">> SFX2 playing:", sound.resource_path)
+	if sound.resource_path == accept_long.resource_path:
+		push_warning("ACCEPT_LONG SOUND TRIGGERED")
+	sfx_2.stream = sound
+	sfx_2.volume_db = Global.sound_effects_db
+	sfx_2.play()
+	#await get_tree().create_timer(0.5).timeout
+	#sfx_2.stream = null
 
 func play_music(music: AudioStream, music_position: float) -> void:
 	if actual_song_num == 0:

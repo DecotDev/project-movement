@@ -247,6 +247,8 @@ offset_right = -146.0
 offset_bottom = 328.0
 grow_horizontal = 2
 scale = Vector2(4, 4)
+focus_neighbor_top = NodePath("../MainMenu")
+focus_neighbor_bottom = NodePath("../Settings")
 texture_normal = ExtResource("3_s6hq5")
 texture_pressed = ExtResource("4_mqoq8")
 texture_hover = ExtResource("5_dhku3")
@@ -269,6 +271,8 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../MainMenu")
 texture_normal = ExtResource("5_8loan")
 texture_pressed = ExtResource("6_xsw63")
 texture_hover = ExtResource("9_h2uio")
@@ -291,6 +295,8 @@ offset_bottom = -352.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(4, 4)
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Resume")
 texture_normal = ExtResource("7_dhku3")
 texture_pressed = ExtResource("8_h2uio")
 texture_hover = ExtResource("13_r5ocs")
@@ -304,10 +310,16 @@ libraries = {
 
 [connection signal="button_down" from="Resume" to="." method="_on_resume_button_down"]
 [connection signal="button_up" from="Resume" to="." method="_on_resume_button_up"]
+[connection signal="mouse_entered" from="Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="Resume" to="." method="_on_resume_mouse_exited"]
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="button_down" from="Settings" to="." method="_on_settings_button_down"]
 [connection signal="button_up" from="Settings" to="." method="_on_settings_button_up"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="button_down" from="MainMenu" to="." method="_on_main_menu_button_down"]
 [connection signal="button_up" from="MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="mouse_entered" from="MainMenu" to="." method="_on_main_menu_mouse_entered"]
+[connection signal="mouse_exited" from="MainMenu" to="." method="_on_main_menu_mouse_exited"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

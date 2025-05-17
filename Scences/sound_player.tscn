@@ -9,6 +9,8 @@ script = ExtResource("1_7ba34")
 
 [node name="SFX1" type="AudioStreamPlayer" parent="."]
 
+[node name="SFX2" type="AudioStreamPlayer" parent="."]
+
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 volume_db = -11.0

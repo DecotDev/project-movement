@@ -4,6 +4,7 @@ var mouse_old_pos: Vector2
 var focus: bool = false
 var mouse: bool = true
 var mouse_on_button: bool = false
+var pressed: bool = false
 
 var quit_normal_outline: = preload("res://Both/MainMenu/Quit/QuitOutline.png")
 var quit_pressed_outline: = preload("res://Both/MainMenu/Quit/QuitPressedOutline.png")
@@ -18,14 +19,15 @@ func _ready() -> void:
 	$TitleWaveTimer.start()
 	wave_animation()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	#$HeavenPlayButton.grab_focus()
-	$MusicStartTimer.start()
+	
+	#$MusicStartTimer.start()
 	mouse_old_pos = get_global_mouse_position()
 	
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		SoundPlayer.play_sfx_1(SoundPlayer.select)
 		mouse_old_pos == get_global_mouse_position()
 		mouse = false
 		if !focus:
@@ -59,8 +61,14 @@ func _process(delta: float) -> void:
 
 #Quit
 func _on_quit_button_pressed() -> void:
+	if pressed: return
+	pressed = true
+	SoundPlayer.play_sfx_2(SoundPlayer.accept)
+	await get_tree().create_timer(0.4).timeout
 	get_tree().quit()
 func _on_quit_button_mouse_entered() -> void:
+	if pressed: return
+	SoundPlayer.play_sfx_1(SoundPlayer.select)
 	$QuitButton.grab_focus()
 	focus = true
 	mouse_on_button = true
@@ -75,8 +83,13 @@ func _on_quit_button_button_down() -> void:
 
 #Settings
 func _on_settings_button_pressed() -> void:
+	if pressed: return
+	pressed = true
+	SoundPlayer.play_sfx2(SoundPlayer.accept)
 	print("Settings to do")
 func _on_settings_button_mouse_entered() -> void:
+	if pressed: return
+	SoundPlayer.play_sfx_1(SoundPlayer.select)
 	$SettingsButton.grab_focus()
 	focus = true
 	mouse_on_button = true
@@ -91,9 +104,15 @@ func _on_settings_button_button_down() -> void:
 
 #Hell
 func _on_hell_play_button_pressed() -> void:
+	if pressed: return
+	pressed = true
+	SoundPlayer.play_sfx_2(SoundPlayer.accept_long)
+	print("Played from hell pressed")
 	SceneTransition.change_scene("res://Hell/hell_main.tscn", "PixelHell")
 	#get_tree().change_scene_to_file("res://Hell/hell_main.tscn")
 func _on_hell_play_button_mouse_entered() -> void:
+	if pressed: return
+	SoundPlayer.play_sfx_1(SoundPlayer.select)
 	$HellPlayButton.z_index = 1
 	$HellPlayButton.grab_focus()
 	focus = true
@@ -114,9 +133,15 @@ func _on_hell_play_button_focus_exited() -> void:
 
 #Heaven
 func _on_heaven_play_button_pressed() -> void:
+	if pressed: return
+	pressed = true
+	SoundPlayer.play_sfx_2(SoundPlayer.accept_long)
+	print("Played from heaven pressed")
 	SceneTransition.change_scene("res://Heaven/heaven_main.tscn", "PixelHeaven")
 	#get_tree().change_scene_to_file("res://Heaven/heaven_main.tscn")
 func _on_heaven_play_button_mouse_entered() -> void:
+	if pressed: return
+	SoundPlayer.play_sfx_1(SoundPlayer.select)
 	$HeavenPlayButton.z_index = 1
 	$HeavenPlayButton.grab_focus()
 	focus = true
