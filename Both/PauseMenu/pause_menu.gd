@@ -87,7 +87,7 @@ func _on_main_menu_pressed() -> void:
 	$AnimationPlayer.play_backwards("Fade")
 	SoundPlayer.background_music_player.stop()
 	SoundPlayer.stop_all_sound()
-	SoundPlayer.play_sfx_2(SoundPlayer.accept_long)
+	SoundPlayer.play_sfx_2(SoundPlayer.temporal)
 	print("Played from pause main menu pressed")
 	if Global.world:
 		SceneTransition.change_scene("res://Both/MainMenu/main_menu.tscn", "PixelBlack")

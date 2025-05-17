@@ -85,7 +85,7 @@ func _on_quit_button_button_down() -> void:
 func _on_settings_button_pressed() -> void:
 	if pressed: return
 	pressed = true
-	SoundPlayer.play_sfx2(SoundPlayer.accept)
+	SoundPlayer.play_sfx_2(SoundPlayer.accept)
 	print("Settings to do")
 func _on_settings_button_mouse_entered() -> void:
 	if pressed: return
@@ -106,7 +106,7 @@ func _on_settings_button_button_down() -> void:
 func _on_hell_play_button_pressed() -> void:
 	if pressed: return
 	pressed = true
-	SoundPlayer.play_sfx_2(SoundPlayer.accept_long)
+	SoundPlayer.play_sfx_2(SoundPlayer.temporal)
 	print("Played from hell pressed")
 	SceneTransition.change_scene("res://Hell/hell_main.tscn", "PixelHell")
 	#get_tree().change_scene_to_file("res://Hell/hell_main.tscn")
@@ -135,7 +135,7 @@ func _on_hell_play_button_focus_exited() -> void:
 func _on_heaven_play_button_pressed() -> void:
 	if pressed: return
 	pressed = true
-	SoundPlayer.play_sfx_2(SoundPlayer.accept_long)
+	SoundPlayer.play_sfx_2(SoundPlayer.temporal)
 	print("Played from heaven pressed")
 	SceneTransition.change_scene("res://Heaven/heaven_main.tscn", "PixelHeaven")
 	#get_tree().change_scene_to_file("res://Heaven/heaven_main.tscn")
