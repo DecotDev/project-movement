@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://dnykjbxqrrwle"]
+[gd_scene load_steps=33 format=3 uid="uid://dnykjbxqrrwle"]
 
 [ext_resource type="Script" uid="uid://d0mth1pcyp40h" path="res://Both/MainMenu/main_menu.gd" id="1_kn4uv"]
 [ext_resource type="Texture2D" uid="uid://bhxufslysjkhi" path="res://Both/MainMenu/BackgroundDeco.png" id="2_3m7ps"]
+[ext_resource type="Shader" uid="uid://dfwh1yunldyoa" path="res://Both/Shaders/VHS_CRT.gdshader" id="2_svk3r"]
 [ext_resource type="Texture2D" uid="uid://bt8m2hbttgyln" path="res://Both/MainMenu/HellButton/HellNormal.png" id="3_d7xtp"]
 [ext_resource type="Texture2D" uid="uid://b826en2he2nvk" path="res://Both/MainMenu/HeavenButton/HeavenNormal.png" id="3_l4bi2"]
 [ext_resource type="Texture2D" uid="uid://0hsyikb5yctm" path="res://Both/MainMenu/HeavenButton/HeavenPressed.png" id="4_q64yn"]
@@ -31,6 +32,30 @@
 [ext_resource type="Texture2D" uid="uid://2buyvft8j1qt" path="res://Both/MainMenu/Title/S.png" id="29_xkb1p"]
 [ext_resource type="Texture2D" uid="uid://bwq7rb3g5wtmx" path="res://Both/MainMenu/Title/L.png" id="30_ckj7t"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvo7d"]
+shader = ExtResource("2_svk3r")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.05
+shader_parameter/scanlines_width = 0.1
+shader_parameter/grille_opacity = 0.07
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.02
+shader_parameter/noise_opacity = 0.2
+shader_parameter/noise_speed = 2.0
+shader_parameter/static_noise_intensity = 0.03
+shader_parameter/aberration = 0.00300005
+shader_parameter/brightness = 1.3
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.02
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.2
+shader_parameter/vignette_opacity = 0.3
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -39,6 +64,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kn4uv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 5
+material = SubResource("ShaderMaterial_kvo7d")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

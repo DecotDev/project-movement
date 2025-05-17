@@ -9,7 +9,7 @@ var test_var: bool = true
 #Both
 const accept: = preload("res://Both/MainMenu/Accept.wav")
 const accept_long: = preload("res://Both/MainMenu/NewAccept.wav")
-const temporal: = preload("res://Both/MainMenu/temporal.wav")
+const return_sound: = preload("res://Both/MainMenu/temporal.wav")
 const select: = preload("res://Both/MainMenu/Select.wav")
 
 #Heaven

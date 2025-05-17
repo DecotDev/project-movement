@@ -20,7 +20,7 @@ func _ready() -> void:
 	wave_animation()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	#$MusicStartTimer.start()
+	$MusicStartTimer.start()
 	mouse_old_pos = get_global_mouse_position()
 	
 	
