@@ -8,7 +8,7 @@ var test_var: bool = true
 
 #Both
 const accept: = preload("res://Both/MainMenu/Accept.wav")
-const accept_long: bool = false
+const accept_long: = preload("res://Both/MainMenu/NewAccept.wav")
 const temporal: = preload("res://Both/MainMenu/temporal.wav")
 const select: = preload("res://Both/MainMenu/Select.wav")
 
@@ -66,17 +66,10 @@ var menu_music_player: = $MenuMusicPlayer
 var actual_song_num: int
 var previous_song_num: int
 
-var hell_music: Array[AudioStream] = [pick_coin, hellfire_symphony, hellfire_chill_symphony, demon_dancefloor, pixelated_inferno, front_incursion]
-var hell_music_info: Array[String] = ["Coin - Pitch", "Hellfire Symphony", "Hellfire Chill","Demon dancefloor", "Pixelated Inferno", "Front Incursion"]
-
-func test() -> void:
-	if test_var:
-		print("Test executed")
-		return
+var hell_music: Array[AudioStream] = [temple_destroyed, hellfire_symphony, hellfire_chill_symphony, demon_dancefloor, pixelated_inferno, front_incursion]
+var hell_music_info: Array[String] = ["Temple Destroyed", "Hellfire Symphony", "Hellfire Chill","Demon dancefloor", "Pixelated Inferno", "Front Incursion"]
 
 func _ready() -> void:
-	test()
-	return
 	
 	#sfx_1.volume_db = -80
 	#sfx_2.volume_db = -80
@@ -92,8 +85,6 @@ func _ready() -> void:
 	music_player = get_tree().get_root().find_child("MusicPlayer", true, false)
 
 func play_sound(sound: AudioStream) -> void:
-	test()
-	return
 	for audioStreamPlayer in audio_players.get_children():
 		if not audioStreamPlayer.playing:
 			audioStreamPlayer.stream = sound
@@ -106,33 +97,22 @@ func play_sound(sound: AudioStream) -> void:
 			break
 
 func stop_all_sound() -> void:
-	test()
-	return
 	for audioStreamPlayer in audio_players.get_children():
 		if audioStreamPlayer.playing:
 			audioStreamPlayer.stop()
 
 func play_2d_sound(sound: AudioStream, db: float) -> void:
-	test()
-	return
 	$AudioStreamPlayer2D.volume_db + db
 	$AudioStreamPlayer2D.stream = sound
 	$AudioStreamPlayer2D.play()
 	
 	
 func play_sfx_1(sound: AudioStream) -> void:
-	test()
-	return
 	sfx_1.stream = sound
 	sfx_1.volume_db = Global.sound_effects_db
 	sfx_1.play()
 	
 func play_sfx_2(sound: AudioStream) -> void:
-	test()
-	return
-	print(">> SFX2 playing:", sound.resource_path)
-	#if sound.resource_path == accept_long.resource_path:
-		#push_warning("ACCEPT_LONG SOUND TRIGGERED")
 	sfx_2.stream = sound
 	sfx_2.volume_db = Global.sound_effects_db
 	sfx_2.play()
@@ -140,8 +120,6 @@ func play_sfx_2(sound: AudioStream) -> void:
 	#sfx_2.stream = null
 
 func play_music(music: AudioStream, music_position: float) -> void:
-	test()
-	return
 	if actual_song_num == 0:
 		actual_song_num = rng.randi_range(1, hell_music.size()-1)
 		while actual_song_num == previous_song_num:
@@ -151,8 +129,6 @@ func play_music(music: AudioStream, music_position: float) -> void:
 	background_music_player.play(music_position)
 
 func play_menu_music() -> void:
-	test()
-	return
 	if !menu_music_player.playing:
 		menu_music_player.volume_db = Global.meun_music_db
 		menu_music_player.stream = journey_day
@@ -160,22 +136,16 @@ func play_menu_music() -> void:
 	
 
 func resume_music() -> void:
-	test()
-	return
 
 	var actual_song: AudioStream = hell_music[actual_song_num]
 	background_music_player.stream = actual_song
 	
 func play_next_song() -> void:
-	test()
-	return
 	previous_song_num = actual_song_num
 	actual_song_num = 0
 	play_music(null, 0)
 	
 func play_previous_song() -> void:
-	test()
-	return
 	var music_position: float = background_music_player.get_playback_position()
 	if music_position > 3:
 		play_music(null, 0)
@@ -184,8 +154,6 @@ func play_previous_song() -> void:
 		play_music(null, 0)
 
 func _on_background_music_player_finished() -> void:
-	test()
-	return
 	previous_song_num = actual_song_num
 	actual_song_num = 0
 	play_music(null, 0)
@@ -193,6 +161,4 @@ func _on_background_music_player_finished() -> void:
 
 
 func _on_menu_music_payer_finished() -> void:
-	test()
-	return
 	play_menu_music()
