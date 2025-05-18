@@ -13,8 +13,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 	#print("shooting: " + str(temple.shooting))
 	temple.can_lock_player = true
 	temple.direction = Vector2(0,0)
-	%AnimationPlayer.play("Jiggle")
-	%AnimationPlayer.get_animation(%AnimationPlayer.current_animation).loop_mode = 1
+	if temple.spawning:
+		%AuxAnimationPlayer.play("Spawn")
+		temple.spawn_timer.start()
+	else:
+		%AnimationPlayer.play("Jiggle")
+		%AnimationPlayer.get_animation(%AnimationPlayer.current_animation).loop_mode = 1
 	state_label.text = "Patrol X"
 	right = false
 	left = false
@@ -45,3 +49,18 @@ func physics_update(delta: float) -> void:
 		#Global.killed_enemies += 1
 		#flying_head.gui.update_enemies_label()
 		#flying_head.queue_free()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if !temple.spawning: return
+	if anim_name == "Spawn":
+		temple.spawning = false
+		%AnimationPlayer.play("Jiggle")
+		%AnimationPlayer.get_animation(%AnimationPlayer.current_animation).loop_mode = 1
+
+
+func _on_spawn_timer_timeout() -> void:
+	if temple.spawning:
+		temple.spawning = false
+		%AnimationPlayer.play("Jiggle")
+		%AnimationPlayer.get_animation(%AnimationPlayer.current_animation).loop_mode = 1

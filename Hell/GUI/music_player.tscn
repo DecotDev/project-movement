@@ -3,32 +3,30 @@
 [ext_resource type="Script" uid="uid://bl8pt7mve5l48" path="res://Hell/GUI/music_player.gd" id="1_nkgi7"]
 [ext_resource type="Texture2D" uid="uid://0nwljxi2uo0d" path="res://Hell/GUI/MusicPlayer/music_bar.png" id="2_k4xj7"]
 [ext_resource type="FontFile" uid="uid://fjt3f14rqfdo" path="res://Hell/GUI/Fonts/PIXELADE.TTF" id="3_5rohl"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k4xj7"]
-load_path = "res://.godot/imported/play_butons.png-01821c244b015330971490d88c8e0932.ctex"
+[ext_resource type="Texture2D" uid="uid://dx01sxoe7r3fc" path="res://Hell/GUI/MusicPlayer/play_butons.png" id="3_ba354"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2ugy"]
-atlas = SubResource("CompressedTexture2D_k4xj7")
+atlas = ExtResource("3_ba354")
 region = Rect2(95, 0, 22, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3pav"]
-atlas = SubResource("CompressedTexture2D_k4xj7")
+atlas = ExtResource("3_ba354")
 region = Rect2(95, 12, 22, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8ia0"]
-atlas = SubResource("CompressedTexture2D_k4xj7")
+atlas = ExtResource("3_ba354")
 region = Rect2(84, 0, 11, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqnhx"]
-atlas = SubResource("CompressedTexture2D_k4xj7")
+atlas = ExtResource("3_ba354")
 region = Rect2(84, 12, 11, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjark"]
-atlas = SubResource("CompressedTexture2D_k4xj7")
+atlas = ExtResource("3_ba354")
 region = Rect2(117, 0, 11.9, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnyht"]
-atlas = SubResource("CompressedTexture2D_k4xj7")
+atlas = ExtResource("3_ba354")
 region = Rect2(117, 12, 11.9, 12)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rjark"]

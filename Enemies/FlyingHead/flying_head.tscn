@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://qllip7vlobs6"]
+[gd_scene load_steps=14 format=3 uid="uid://qllip7vlobs6"]
 
 [ext_resource type="Script" uid="uid://gu0ng8yhi8wd" path="res://Enemies/FlyingHead/flying_head.gd" id="1_urndj"]
+[ext_resource type="Shader" uid="uid://c5lt2cy2aonh5" path="res://Both/Shaders/new_teleport.gdshader" id="2_ytw1b"]
 [ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="3_6ism7"]
 [ext_resource type="Script" uid="uid://bilfng4ahdhsk" path="res://Enemies/FlyingHead/moving.gd" id="4_dn8th"]
 [ext_resource type="Script" uid="uid://byxut1ep6i60f" path="res://Enemies/FlyingHead/hurt.gd" id="5_n1ptx"]
@@ -66,14 +67,47 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:instance_shader_parameters/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+
+[sub_resource type="Animation" id="Animation_ytw1b"]
+resource_name = "Spawn"
+length = 0.6
+step = 0.06
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:instance_shader_parameters/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.588235),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.18, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_735dd"]
 _data = {
 &"Destroyed": SubResource("Animation_m8f5w"),
 &"Hurt": SubResource("Animation_57apd"),
 &"Idle": SubResource("Animation_8crib"),
-&"RESET": SubResource("Animation_tiis3")
+&"RESET": SubResource("Animation_tiis3"),
+&"Spawn": SubResource("Animation_ytw1b")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdh1p"]
+shader = ExtResource("2_ytw1b")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ytw1b"]
 load_path = "res://.godot/imported/flying_head.png-a2e068c8d3458ce204928a7c9ecb6ec8.ctex"
@@ -95,6 +129,10 @@ libraries = {
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_tdh1p")
+instance_shader_parameters/beam_size = 0.05
+instance_shader_parameters/color = Color(1, 0, 0, 1)
+instance_shader_parameters/progress = 0.25
 scale = Vector2(4, 4)
 texture = SubResource("CompressedTexture2D_ytw1b")
 hframes = 8
@@ -137,4 +175,5 @@ unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true
 
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Moving" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]

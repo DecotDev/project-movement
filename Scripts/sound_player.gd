@@ -22,6 +22,8 @@ const lever: = preload("res://Heaven/Items/GoldenLever/Lever.mp3")
 const door_open: = preload("res://Heaven/Items/GoldenDoor/DoorOpen.wav")
 const door_close: = preload("res://Heaven/Items/GoldenDoor/DoorClose.wav")
 
+const spike_death: = preload("res://AngelPlayer/SpikeDeath.wav")
+
 	#Songs
 const journey_day: = preload("res://Both/StartJourneyDay.mp3")
 
@@ -66,8 +68,8 @@ var menu_music_player: = $MenuMusicPlayer
 var actual_song_num: int
 var previous_song_num: int
 
-var hell_music: Array[AudioStream] = [temple_destroyed, hellfire_symphony, hellfire_chill_symphony, demon_dancefloor, pixelated_inferno, front_incursion]
-var hell_music_info: Array[String] = ["Temple Destroyed", "Hellfire Symphony", "Hellfire Chill","Demon dancefloor", "Pixelated Inferno", "Front Incursion"]
+var hell_music: Array[AudioStream] = [pick_coin, hellfire_symphony, hellfire_chill_symphony, demon_dancefloor, pixelated_inferno, front_incursion]
+var hell_music_info: Array[String] = ["Coin - Pitch", "Hellfire Symphony", "Hellfire Chill","Demon dancefloor", "Pixelated Inferno", "Front Incursion"]
 
 func _ready() -> void:
 	

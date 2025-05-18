@@ -66,6 +66,7 @@ grow_vertical = 2
 script = ExtResource("1_kn4uv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = 5
 material = SubResource("ShaderMaterial_kvo7d")
 layout_mode = 0

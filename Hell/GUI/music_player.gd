@@ -41,6 +41,8 @@ func _on_previous_button_pressed() -> void:
 		$PlayButton.button_pressed = true
 	update_playing_label()
 
+
+#Algo peta aqui
 func update_playing_label() -> void:
 	await get_tree().create_timer(0.1).timeout
 	playing_label.text = (str(SoundPlayer.hell_music_info[SoundPlayer.actual_song_num]))

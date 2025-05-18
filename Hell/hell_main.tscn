@@ -113,49 +113,54 @@ tile_set = SubResource("TileSet_p5did")
 position = Vector2(-873, -611)
 
 [node name="Marker2D2" type="Marker2D" parent="Spawner/Spawns" index="1"]
-position = Vector2(-220, -846)
+position = Vector2(-240, -771)
 
-[node name="Marker2D3" type="Marker2D" parent="Spawner/Spawns" index="2"]
-position = Vector2(887, -812)
+[node name="Marker2D17" type="Marker2D" parent="Spawner/Spawns" index="2"]
+position = Vector2(168, -771)
 
-[node name="Marker2D4" type="Marker2D" parent="Spawner/Spawns" index="3"]
-position = Vector2(974, 95)
+[node name="Marker2D3" type="Marker2D" parent="Spawner/Spawns" index="3"]
+position = Vector2(905, -765)
 
-[node name="Marker2D10" type="Marker2D" parent="Spawner/Spawns" index="4"]
-position = Vector2(958, -272)
+[node name="Marker2D4" type="Marker2D" parent="Spawner/Spawns" index="4"]
+position = Vector2(898, 86)
 
-[node name="Marker2D5" type="Marker2D" parent="Spawner/Spawns" index="5"]
-position = Vector2(956, 405)
+[node name="Marker2D10" type="Marker2D" parent="Spawner/Spawns" index="5"]
+position = Vector2(903, -279)
 
-[node name="Marker2D6" type="Marker2D" parent="Spawner/Spawns" index="6"]
-position = Vector2(648, 791)
+[node name="Marker2D5" type="Marker2D" parent="Spawner/Spawns" index="6"]
+position = Vector2(901, 405)
 
-[node name="Marker2D16" type="Marker2D" parent="Spawner/Spawns" index="7"]
+[node name="Marker2D6" type="Marker2D" parent="Spawner/Spawns" index="7"]
+position = Vector2(630, 765)
+
+[node name="Marker2D16" type="Marker2D" parent="Spawner/Spawns" index="8"]
 position = Vector2(857, 706)
 
-[node name="Marker2D7" type="Marker2D" parent="Spawner/Spawns" index="8"]
+[node name="Marker2D7" type="Marker2D" parent="Spawner/Spawns" index="9"]
 position = Vector2(-282, 775)
 
-[node name="Marker2D8" type="Marker2D" parent="Spawner/Spawns" index="9"]
-position = Vector2(-935, 433)
+[node name="Marker2D8" type="Marker2D" parent="Spawner/Spawns" index="10"]
+position = Vector2(-896, 437)
 
-[node name="Marker2D9" type="Marker2D" parent="Spawner/Spawns" index="10"]
+[node name="Marker2D9" type="Marker2D" parent="Spawner/Spawns" index="11"]
 position = Vector2(-914, -205)
 
-[node name="Marker2D11" type="Marker2D" parent="Spawner/Spawns" index="11"]
-position = Vector2(-934, 66)
+[node name="Marker2D11" type="Marker2D" parent="Spawner/Spawns" index="12"]
+position = Vector2(-908, 64)
 
-[node name="Marker2D12" type="Marker2D" parent="Spawner/Spawns" index="12"]
-position = Vector2(-640, -797)
+[node name="Marker2D12" type="Marker2D" parent="Spawner/Spawns" index="13"]
+position = Vector2(-651, -779)
 
-[node name="Marker2D13" type="Marker2D" parent="Spawner/Spawns" index="13"]
-position = Vector2(488, -826)
+[node name="Marker2D13" type="Marker2D" parent="Spawner/Spawns" index="14"]
+position = Vector2(509, -763)
 
-[node name="Marker2D14" type="Marker2D" parent="Spawner/Spawns" index="14"]
+[node name="Marker2D14" type="Marker2D" parent="Spawner/Spawns" index="15"]
 position = Vector2(-800, 781)
 
-[node name="Marker2D15" type="Marker2D" parent="Spawner/Spawns" index="15"]
-position = Vector2(305, 801)
+[node name="Marker2D15" type="Marker2D" parent="Spawner/Spawns" index="16"]
+position = Vector2(305, 768)
+
+[node name="Temp" type="Node" parent="Spawner"]
 
 [node name="Elevator" parent="." instance=ExtResource("6_1p6gk")]
 position = Vector2(-194, -324)

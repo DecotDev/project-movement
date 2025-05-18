@@ -10,6 +10,8 @@ var projectiles: Node
 var orbs: Node
 const SMALL_HELL_ORB = preload("res://Currency/HellOrbs/Small/small_hell_orb.tscn")
 const BIG_HELL_ORB = preload("res://Currency/HellOrbs/Big/big_hell_orb.tscn")
+@onready
+var spawn_timer: = $SpawnTimer
 
 #Stats
 var health: int = 4 #10
@@ -24,6 +26,7 @@ var destroyed: bool = false
 var demon_out_of_range: = false
 var rng: = RandomNumberGenerator.new()
 var chance: int
+var spawning: bool = true
 #var can_shoot: bool = true
 
 func damage_demon() -> void:
@@ -37,12 +40,14 @@ func _ready() -> void:
 	%Explosion.set_deferred("visible", false)
 	
 func take_damage() -> void:
+	
 	if health > 0:
 		SoundPlayer.play_sound(SoundPlayer.gun_hit)
-		if !shooting:
-			%AuxAnimationPlayer.play("Hurt")
-		else:
-			%AuxAnimationPlayer.play("SmallHurt")
+		if !spawning:
+			if !shooting:
+				%AuxAnimationPlayer.play("Hurt")
+			else:
+				%AuxAnimationPlayer.play("SmallHurt")
 		health -= 1
 	if health <= 0:
 		about_to_be_destroyed.emit()

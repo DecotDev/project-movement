@@ -23,6 +23,8 @@ var shoot_db: float = -7.0
 var flying_head_death: float = -2.0
 var meun_music_db: = -12
 
+var max_wave: = 100
+
 var gui_focus: bool = false
 
 

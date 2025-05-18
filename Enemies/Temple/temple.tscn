@@ -1,14 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://cqxo6jxe3yg04"]
+[gd_scene load_steps=28 format=3 uid="uid://cqxo6jxe3yg04"]
 
 [ext_resource type="Script" uid="uid://cr1ta043l2wkv" path="res://Enemies/Temple/temple.gd" id="1_f8p47"]
 [ext_resource type="Script" uid="uid://wvyjj1cwm6rh" path="res://StateMachine/state_machine.gd" id="1_yrx7d"]
 [ext_resource type="Texture2D" uid="uid://dvnr6qay6g3v8" path="res://Enemies/Temple/temple_hurt.png" id="2_20xap"]
+[ext_resource type="Shader" uid="uid://c5lt2cy2aonh5" path="res://Both/Shaders/new_teleport.gdshader" id="2_nxl46"]
 [ext_resource type="Texture2D" uid="uid://c3rd0rkn15j5e" path="res://Enemies/Temple/explosioneffect.png" id="3_gt6tl"]
 [ext_resource type="Script" uid="uid://b3ooikffkiilg" path="res://Enemies/Temple/patrol_x.gd" id="3_k7spc"]
 [ext_resource type="Script" uid="uid://djny2mhmy44y4" path="res://Enemies/Temple/patrol_y.gd" id="4_a50vg"]
 [ext_resource type="Script" uid="uid://bfbire5j4bv6e" path="res://Enemies/Temple/charging.gd" id="5_ft7e5"]
 [ext_resource type="Script" uid="uid://nlffsolumg4o" path="res://Enemies/Temple/shooting.gd" id="6_kggnc"]
 [ext_resource type="Script" uid="uid://dq8thf4uvawps" path="res://Enemies/Temple/destroyed.gd" id="7_gck77"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axder"]
+shader = ExtResource("2_nxl46")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0um8"]
 load_path = "res://.godot/imported/temple.png-cefd5664df802ac1d4472e02a08b74e6.ctex"
@@ -118,6 +122,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:instance_shader_parameters/progress")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.22]
+}
 
 [sub_resource type="Animation" id="Animation_kggnc"]
 resource_name = "Reload"
@@ -136,6 +152,11 @@ tracks/0/keys = {
 "values": [13, 12, 11, 10, 9, 8, 7, 6, 5, 4]
 }
 
+[sub_resource type="Animation" id="Animation_wf1bu"]
+resource_name = "Spawn"
+length = 0.8
+step = 0.06
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4o6r0"]
 _data = {
 &"Charge": SubResource("Animation_k7spc"),
@@ -143,7 +164,8 @@ _data = {
 &"Ignite": SubResource("Animation_f8p47"),
 &"Jiggle": SubResource("Animation_l4q42"),
 &"RESET": SubResource("Animation_b82kl"),
-&"Reload": SubResource("Animation_kggnc")
+&"Reload": SubResource("Animation_kggnc"),
+&"Spawn": SubResource("Animation_wf1bu")
 }
 
 [sub_resource type="Animation" id="Animation_ygwx6"]
@@ -193,11 +215,29 @@ tracks/0/keys = {
 "values": [15, 5, 15]
 }
 
+[sub_resource type="Animation" id="Animation_nxl46"]
+resource_name = "Spawn"
+length = 0.8
+step = 0.06
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:instance_shader_parameters/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.22, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wf1bu"]
 _data = {
 &"Hurt": SubResource("Animation_ygwx6"),
 &"RESET": SubResource("Animation_bhkls"),
-&"SmallHurt": SubResource("Animation_o4fh0")
+&"SmallHurt": SubResource("Animation_o4fh0"),
+&"Spawn": SubResource("Animation_nxl46")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k7spc"]
@@ -217,6 +257,10 @@ script = ExtResource("1_f8p47")
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_index = 1
+material = SubResource("ShaderMaterial_axder")
+instance_shader_parameters/beam_size = 0.05
+instance_shader_parameters/color = Color(1, 0, 0, 1)
+instance_shader_parameters/progress = 0.22
 scale = Vector2(4, 4)
 texture = SubResource("CompressedTexture2D_h0um8")
 hframes = 4
@@ -331,7 +375,12 @@ unique_name_in_owner = true
 wait_time = 4096.0
 one_shot = true
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/PatrolX" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Charging" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Shooting" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
@@ -339,3 +388,4 @@ one_shot = true
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="ChargeTimer" to="StateMachine/Charging" method="_on_charge_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="StateMachine/PatrolX" method="_on_spawn_timer_timeout"]

@@ -92,8 +92,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_x675w"]
 radius = 27.2603
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_01r6t"]
-radius = 4.31567
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x675w"]
+radius = 6.5
+height = 17.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0ij0"]
 size = Vector2(56, 17)
@@ -150,8 +151,9 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GatherDespawn"]
+position = Vector2(0, -1)
 scale = Vector2(4, 4)
-shape = SubResource("CircleShape2D_01r6t")
+shape = SubResource("CapsuleShape2D_x675w")
 debug_color = Color(0.576904, 0.553292, 1.92523e-07, 0.42)
 
 [node name="WalkBox" type="CollisionShape2D" parent="."]

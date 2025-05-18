@@ -24,6 +24,7 @@ DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 InteractionManager="*res://Both/Interaction/interaction_manager.tscn"
 DialogManager="*res://Both/TextBox/DialogManager.gd"
 SceneTransition="*res://Both/Transitions/scene_transition.tscn"
+VhsCrt="*res://Both/Shaders/VHS_CRT.tscn"
 
 [debug]
 
