@@ -4,6 +4,7 @@ extends Node2D
 var heaven_gui: = %HeavenGUI
 
 func _ready() -> void:
+	InteractionManager.clear_active_areas()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	SoundPlayer.menu_music_player.stop()
 	SoundPlayer.background_music_player.stop()

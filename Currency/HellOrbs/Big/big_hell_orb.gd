@@ -15,7 +15,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Demon and !collected:
 		collected = true
 		player = area.get_parent()
-		Global.hell_orbs += 1
+		Global.hell_orbs += 5
 		SoundPlayer.play_sound(SoundPlayer.small_orb_pickup)
 	elif area.name == "GatherDespawn" and collected:
 		queue_free()

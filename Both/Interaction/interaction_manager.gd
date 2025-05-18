@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 		else:
 			if active_areas.size() > 1:
 				active_areas.sort_custom(_sort_by_distance_to_demon_player)
+			#active_areas.sort_custom(_sort_by_distance_to_demon_player)
 		interaction_label.text = base_text + active_areas[0].action_name
 		interaction_label.global_position = active_areas[0].global_position
 		interaction_label.position.y -= 120
@@ -48,8 +49,12 @@ func _sort_by_distance_to_angel_player(area1: Area2D, area2: Area2D) -> float:
 	return area1_to_angel_player < area2_to_angel_player
 	
 func _sort_by_distance_to_demon_player(area1: Area2D, area2: Area2D) -> float:
+	#print("Active Areas: " + str(active_areas.size()))
+	#print("Area 1 parent: " + str(area1.get_parent().name))
+	#print("Area 2 parent: " + str(area2.get_parent().name))
 	var area1_to_demon_player: float = demon_player.global_position.distance_to(area1.global_position)
 	var area2_to_demon_player: float = demon_player.global_position.distance_to(area2.global_position)
+	#if area1_to_demon_player < area2_to_demon_player: print("true")
 	return area1_to_demon_player < area2_to_demon_player
 
 func register_area(area: InteractionArea) -> void:
@@ -59,3 +64,6 @@ func unregister_area(area: InteractionArea) -> void:
 	var index: int = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index) 
+		
+func clear_active_areas() -> void:
+	active_areas.clear()
