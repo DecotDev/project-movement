@@ -215,6 +215,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_l5nyu")
 }
 
+[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="."]
+
 [node name="RespawnBaackground" type="Sprite2D" parent="."]
 position = Vector2(0, 8)
 scale = Vector2(4, 4)

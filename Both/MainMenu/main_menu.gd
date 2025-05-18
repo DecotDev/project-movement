@@ -106,6 +106,7 @@ func _on_settings_button_button_down() -> void:
 func _on_hell_play_button_pressed() -> void:
 	if pressed: return
 	pressed = true
+	Global.world = false
 	SoundPlayer.play_sfx_2(SoundPlayer.accept_long)
 	print("Played from hell pressed")
 	SceneTransition.change_scene("res://Hell/hell_main.tscn", "PixelHell")
@@ -135,6 +136,7 @@ func _on_hell_play_button_focus_exited() -> void:
 func _on_heaven_play_button_pressed() -> void:
 	if pressed: return
 	pressed = true
+	Global.world = true
 	SoundPlayer.play_sfx_2(SoundPlayer.accept_long)
 	print("Played from heaven pressed")
 	SceneTransition.change_scene("res://Heaven/heaven_main.tscn", "PixelHeaven")

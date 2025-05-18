@@ -71,7 +71,7 @@ tile_map_data = PackedByteArray("AACv/xcAAAAAAAAAAACw/xcAAAABAAAAAACx/xcAAAABAAA
 
 [node name="Lumber" parent="." instance=ExtResource("2_oyb2g")]
 unique_name_in_owner = true
-position = Vector2(-3376, 312)
+position = Vector2(-4764, 1428)
 
 [node name="HeavenGUI" parent="." instance=ExtResource("3_5nbyf")]
 unique_name_in_owner = true

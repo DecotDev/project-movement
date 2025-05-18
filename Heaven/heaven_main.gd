@@ -9,8 +9,8 @@ func _ready() -> void:
 	SoundPlayer.menu_music_player.stop()
 	SoundPlayer.background_music_player.stop()
 	Global.world = true
-	Global.angel_player_bloqued = false
-	Global.demon_player_bloqued = false
+	#Global.angel_player_bloqued = false
+	#Global.demon_player_bloqued = false
 
 func _on_portal_body_entered(body: Node2D) -> void:
 	get_tree().change_scene_to_file("res://Hell/hell_main.tscn")

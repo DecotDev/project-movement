@@ -35,4 +35,11 @@ debug_color = Color(0.928629, 2.99373e-05, 0.663915, 0.42)
 wait_time = 2.0
 one_shot = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="EnterTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="ElevatorTimer" to="." method="_on_elevator_timer_timeout"]
+[connection signal="timeout" from="EnterTimer" to="." method="_on_enter_timer_timeout"]

@@ -5,13 +5,24 @@ extends Area2D
 var heaven_camera: Camera2D
 @onready
 var hell_camera: Camera2D
+var bloqued: bool = false
+
+#@onready
+#var target_cam_pos: Vector2
 
 func _ready() -> void:
 	$InteractionArea.interact = Callable(self, "_on_interact")
 	heaven_camera = get_tree().get_root().find_child("HeavenCamera", true, false)
 	hell_camera = get_tree().get_root().find_child("HellCamera", true, false)
-
+	#target_cam_pos = heaven_camera.position
+	if bloqued: return
+	if Global.world:
+		enter_to_heaven()
+	else: 
+		enter_to_hell()
+	bloqued = true
 func _on_interact() -> void:
+	if bloqued: return
 	print("Elevator taken")
 	if Global.world:
 		transition_to_hell()
@@ -20,10 +31,13 @@ func _on_interact() -> void:
 	$ElevatorTimer.start()
 
 func _on_elevator_timer_timeout() -> void:
+	print("Elevator timer finished")
 	if Global.world:
 		get_tree().change_scene_to_file("res://Hell/hell_main.tscn")
+		Global.world = false
 	else: 
 		get_tree().change_scene_to_file("res://Heaven/heaven_main.tscn")
+		Global.world = true
 
 func transition_to_hell() -> void:
 	Global.angel_player_bloqued = true
@@ -36,3 +50,27 @@ func transition_to_heaven() -> void:
 	var tween: = get_tree().create_tween()
 	tween.tween_property(hell_camera, "position", Vector2(hell_camera.position.x,hell_camera.position.y -1000), 2)
 	#get_tree().change_scene_to_file("res://Heaven/heaven_main.tscn")
+	
+func enter_to_hell() -> void:
+	$EnterTimer.start()
+	print("Hell entered")
+	pass
+func enter_to_heaven()-> void:
+	$EnterTimer.start()
+	print("Heaven entered")
+	#var target_cam_pos: Vector2 = heaven_camera.position
+	#target_cam_pos = heaven_camera.position
+	Global.angel_player_bloqued = true
+	heaven_camera.position_smoothing_enabled = false
+	heaven_camera.position = heaven_camera.position + Vector2(0,1000)
+	var tween: = get_tree().create_tween()
+	tween.tween_property(heaven_camera, "position", Vector2(0,0), 2)
+	await get_tree().create_timer(0.4, false).timeout
+	heaven_camera.position_smoothing_enabled = true
+
+func _on_enter_timer_timeout() -> void:
+	if Global.world:
+		Global.angel_player_bloqued = false
+	else:
+		Global.demon_player_bloqued = false
+	bloqued = false
