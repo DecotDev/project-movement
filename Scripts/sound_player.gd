@@ -159,6 +159,7 @@ func _on_background_music_player_finished() -> void:
 	previous_song_num = actual_song_num
 	actual_song_num = 0
 	play_music(null, 0)
+	await get_tree().create_timer(0.2).timeout
 	music_player.update_playing_label()
 
 

@@ -29,3 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 		body.take_damage()
 		queue_free()
 		
+	if body.name == "HellTileMapLayer":
+		#await get_tree().create_timer(0.05,false).timeout
+		#print("Bullet ")
+		queue_free()

@@ -14,7 +14,7 @@ uniform float size_3 = 0.05;
 
 void fragment() {
 	float noise = texture(burn_texture, UV).r * (1.0 - (size_1 + size_2 + size_3 + 0.01));
-	
+
 	COLOR = texture(TEXTURE, UV);
 	COLOR.a -= step(percentage, noise);
 	COLOR.rgb = mix(COLOR.rgb, layer_3.rgb, step(percentage, noise + size_1 + size_2 + size_3));

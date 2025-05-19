@@ -15,6 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.elevator_block: return
 	mouse_pos = get_global_mouse_position()
 	mouse_demon_diff = (mouse_pos - demon.global_position)
 	

@@ -32,12 +32,20 @@ func _ready() -> void:
 
 func update_ammo_label(ammo: int, magazine_size: int) -> void:
 	%AmmoLeftLabel.text = (str(ammo) + "/" + str(magazine_size))
-
+	
 
 func enable_reloading() -> void:
 	reloading_label.visible = true
+	reloading_label.modulate.a = 1.0
 	
 func disable_reloading() -> void:
+	
+	var reload_tween: = get_tree().create_tween()
+	#reloading_label.scale = Vector2(1.8,1.8)
+	reload_tween.tween_property(reloading_label, "modulate:a", 0.0, 0.3)
+	await reload_tween.finished
+	print("Reload twin finished")
+	#.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	reloading_label.visible = false
 	
 func update_health_label() -> void:

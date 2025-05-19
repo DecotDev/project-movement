@@ -26,6 +26,7 @@ var meun_music_db: = -12
 var max_wave: = 100
 
 var gui_focus: bool = false
+var elevator_block: bool = true
 
 
 func save_data() -> void:

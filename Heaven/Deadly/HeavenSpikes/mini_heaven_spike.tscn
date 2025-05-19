@@ -705,6 +705,7 @@ script = ExtResource("1_jpqbq")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_p4lj3")
 animation = &"right"
+frame_progress = 0.936902
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-2, -20, -10, -8, -18, 8, -18, 20, 18, 20, 18, 8, 10, -8, 2, -20)
