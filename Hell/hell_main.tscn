@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://coibfkpqkmlbp"]
+[gd_scene load_steps=13 format=4 uid="uid://coibfkpqkmlbp"]
 
 [ext_resource type="Script" uid="uid://b5tdis0uonh6i" path="res://Hell/hell_main.gd" id="1_kcyqm"]
 [ext_resource type="PackedScene" uid="uid://cyqmka5o1vy3y" path="res://Hell/TileMaps/hell_tile_map_layer.tscn" id="1_pmk8h"]
@@ -94,6 +94,9 @@ physics_layer_0/collision_layer = 255
 sources/3 = SubResource("TileSetAtlasSource_uifv5")
 pattern_0 = SubResource("TileMapPattern_kcyqm")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m316y"]
+size = Vector2(362.5, 266.5)
+
 [node name="HellMain" type="Node2D"]
 script = ExtResource("1_kcyqm")
 
@@ -163,6 +166,11 @@ position = Vector2(-800, 781)
 
 [node name="Marker2D15" type="Marker2D" parent="Spawner/Spawns" index="16"]
 position = Vector2(305, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/SafeArea" index="0"]
+position = Vector2(-1752, -24)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_m316y")
 
 [node name="Temp" type="Node" parent="Spawner"]
 

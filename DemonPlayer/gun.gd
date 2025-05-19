@@ -67,6 +67,7 @@ func change_firing_mode() -> void:
 		full_auto = false
 	else:
 		full_auto = true
+	gui.update_fire_mode_label(full_auto)
 func shoot() -> void:
 	shot_sound()
 	blowback()

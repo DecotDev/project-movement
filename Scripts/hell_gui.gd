@@ -19,7 +19,7 @@ var hell_orbs_label: = %HellOrbsLabel
 @onready
 var wave_animation_player: = %WaveAnimationPlayer
 
-var wave_text_duration: int = 6
+var wave_text_duration: int = 3 #6
 var hell_orbs_label_original_position: Vector2
 
 
@@ -71,6 +71,7 @@ func update_wave_label() -> void:
 	wave_label.text = "" 
 	wave_label.text = ("WAVE " + str(Global.current_wave))
 	wave_animation_player.play("Burn_IN")
+	SoundPlayer.play_sound(SoundPlayer.guitar_dark_fade)
 	#wave_label.visible = true
 	await get_tree().create_timer(wave_text_duration).timeout
 	
@@ -88,3 +89,9 @@ func update_hell_orbs_label() -> void:
 	var orb_pos_tween: = get_tree().create_tween()
 	hell_orbs_label.position = hell_orbs_label.position - Vector2(8,18)
 	orb_pos_tween.tween_property(hell_orbs_label, "position", hell_orbs_label_original_position, 0.26).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func update_fire_mode_label(full_auto: bool) -> void:
+	if full_auto:
+		%FireModeLabel.text = ("Full auto")
+	else:
+		%FireModeLabel.text = ("Semi")

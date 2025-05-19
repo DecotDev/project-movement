@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dbi28s0peaois"]
+[gd_scene load_steps=61 format=3 uid="uid://dbi28s0peaois"]
 
 [ext_resource type="Script" uid="uid://dtpa2y07yoax1" path="res://Scripts/hell_gui.gd" id="1_p8bu5"]
 [ext_resource type="Texture2D" uid="uid://3b2afpah6xcq" path="res://Hell/GUI/Health/health_full.png" id="2_ag6gy"]
@@ -261,6 +261,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_qlihj"]
 resource_name = "Burn_IN"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -268,7 +269,7 @@ tracks/0/path = NodePath("BurnTextureRect:material:shader_parameter/percentage")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -353,6 +354,10 @@ region = Rect2(0, 0, 26, 33)
 [sub_resource type="LabelSettings" id="LabelSettings_86yr6"]
 font = ExtResource("4_xsaaw")
 font_size = 32
+font_color = Color(0.5, 0, 0.0666666, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2giok"]
+font = ExtResource("4_xsaaw")
 font_color = Color(0.5, 0, 0.0666666, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ymdol"]
@@ -586,6 +591,19 @@ theme_override_font_sizes/font_size = 46
 text = "12/12"
 label_settings = SubResource("LabelSettings_86yr6")
 horizontal_alignment = 1
+
+[node name="FireModeLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+z_index = 1
+offset_left = 128.0
+offset_top = 1028.0
+offset_right = 232.0
+offset_bottom = 1060.0
+theme_override_font_sizes/font_size = 46
+text = "Full auto"
+label_settings = SubResource("LabelSettings_2giok")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="ReloadingLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true

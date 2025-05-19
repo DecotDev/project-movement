@@ -33,12 +33,14 @@ const mag_and_rag: = preload("res://Assets/Guns/MagAndRack.mp3")
 const dry_fire: = preload("res://Assets/Guns/DryFire.mp3")
 const gun_mode_click: = preload("res://DemonPlayer/gun_mode_click.mp3")
 const gun_hit: = preload("res://DemonPlayer/gun_hit.wav")
-
 const hurt_short: = preload("res://Both/SFX/HurtShort.wav")
 const hurt_mid: = preload("res://Both/SFX/HurtMid.wav")
-
+	#Orbs
 const small_orb_pickup: = preload("res://Currency/HellOrbs/Small/small_orb_pickup.wav")
 const big_orb_pickup: = preload("res://Currency/HellOrbs/Big/big_orb_pickup.wav")
+
+	#GUI
+const guitar_dark_fade: = preload("res://Hell/GUI/SFX/GuitarDarkFade.mp3")
 
 	#Enemies
 const flying_head_death: = preload("res://Enemies/FlyingHead/flying_head_death.wav")

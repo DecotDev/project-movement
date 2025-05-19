@@ -98,3 +98,15 @@ func _on_enemies_child_exiting_tree(node: Node) -> void:
 
 func _on_orbs_child_exiting_tree(node: Node) -> void:
 	gui.update_hell_orbs_label()
+
+
+
+
+func _on_safe_area_body_entered(body: Node2D) -> void:
+	if body.name == "HellTileMapLayer": return
+	print("Seafe are entered: " + str(body.name))
+
+
+func _on_safe_area_body_exited(body: Node2D) -> void:
+	if body.name == "HellTileMapLayer": return
+	print("Seafe are exited: " + str(body.name))

@@ -10,7 +10,7 @@
 size = Vector2(139, 146)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thcjr"]
-size = Vector2(80, 146)
+size = Vector2(80, 123)
 
 [sub_resource type="Animation" id="Animation_l3qtq"]
 resource_name = "Close"
@@ -118,7 +118,7 @@ shape = SubResource("RectangleShape2D_amj75")
 [node name="InteractionArea" parent="." instance=ExtResource("3_251dg")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-4, 0)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_thcjr")
 debug_color = Color(0.928629, 2.99373e-05, 0.663915, 0.42)
 

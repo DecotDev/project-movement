@@ -25,4 +25,10 @@ unique_name_in_owner = true
 
 [node name="Orbs" type="Node" parent="."]
 
+[node name="SafeArea" type="Area2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
 [connection signal="child_exiting_tree" from="Orbs" to="." method="_on_orbs_child_exiting_tree"]
+[connection signal="body_entered" from="SafeArea" to="." method="_on_safe_area_body_entered"]
+[connection signal="body_exited" from="SafeArea" to="." method="_on_safe_area_body_exited"]
