@@ -52,48 +52,51 @@ var total_coins_collected: int
 		#print("Warning: HeavenDoors node not found in the scene tree!")
 
 func save_data() -> void:
-	if world:
-		heaven_doors = get_tree().get_root().find_child("HeavenDoors", true, false).get_children()
+	var existing_data := {}
+	if FileAccess.file_exists("user://save.json"):
+		var file := FileAccess.open("user://save.json", FileAccess.READ)
+		existing_data = JSON.parse_string(file.get_as_text())
+		file.close()
+		if typeof(existing_data) != TYPE_DICTIONARY:
+			existing_data = {}
+	
 	var save_dictionary: Dictionary = {
 		"player_coins": player_coins,
 		"hell_orbs": hell_orbs,
 		"player_emeralds": player_emeralds,
 		"max_reached_wave": max_reached_wave,
 		"total_waves_played": total_waves_played,
-		"killed_enemies": killed_enemies,
-		"heaven_doors": {}
-		
+		"killed_enemies": killed_enemies,		
 	}
-	if world:
-		print("Saving, heaven_doors.size: " + str(heaven_doors.size()))
-		for door in heaven_doors:
-			print("Heaven Door id: " + str(door.id) + " Closed: " + str(door.closed))
-			save_dictionary["heaven_doors"][door.id] = door.closed
 	var file:  = FileAccess.open("user://save.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_dictionary))
 	file.close()
 	
 func save_heaven_data() -> void:
+	var existing_data := {}
+	if FileAccess.file_exists("user://heaven_save.json"):
+		var file := FileAccess.open("user://heaven_save.json", FileAccess.READ)
+		existing_data = JSON.parse_string(file.get_as_text())
+		file.close()
+		if typeof(existing_data) != TYPE_DICTIONARY:
+			existing_data = {}
+	
+	
 	if world:
 		heaven_doors = get_tree().get_root().find_child("HeavenDoors", true, false).get_children()
 	var save_dictionary: Dictionary = {
-		"player_coins": player_coins,
-		"hell_orbs": hell_orbs,
-		"player_emeralds": player_emeralds,
-		"max_reached_wave": max_reached_wave,
-		"total_waves_played": total_waves_played,
-		"killed_enemies": killed_enemies,
-		"heaven_doors": {}
-		
+		"heaven_doors": existing_data.get("heaven_doors", {})
 	}
-	if world:
-		print("Saving, heaven_doors.size: " + str(heaven_doors.size()))
-		for door in heaven_doors:
-			print("Heaven Door id: " + str(door.id) + " Closed: " + str(door.closed))
-			save_dictionary["heaven_doors"][door.id] = door.closed
-	var file:  = FileAccess.open("user://save.json", FileAccess.WRITE)
+	print("Saving, heaven_doors.size: " + str(heaven_doors.size()))
+	for door in heaven_doors:
+		print("Heaven Door id: " + str(door.id) + " Closed: " + str(door.closed))
+		save_dictionary["heaven_doors"][door.id] = door.closed
+	var file:  = FileAccess.open("user://heaven_save.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_dictionary))
 	file.close()
+	
+func save_hell_data() -> void:
+	pass
 
 func load_data() -> void:
 	if FileAccess.file_exists("user://save.json"):
@@ -114,8 +117,8 @@ func load_data() -> void:
 
 func load_heaven_data() -> void:
 	heaven_doors = get_tree().get_root().find_child("HeavenDoors", true, false).get_children()
-	if FileAccess.file_exists("user://save.json"):
-		var file := FileAccess.open("user://save.json", FileAccess.READ)
+	if FileAccess.file_exists("user://heaven_save.json"):
+		var file := FileAccess.open("user://Heaven_save.json", FileAccess.READ)
 		var json := file.get_as_text()
 		file.close()
 
@@ -128,3 +131,6 @@ func load_heaven_data() -> void:
 					door.closed = heaven_doors_data[key]
 					print("Loaded door " + key + ": " + str(door.closed))
 					door.apply_export_var()
+
+func load_hell_data() -> void:
+	pass
