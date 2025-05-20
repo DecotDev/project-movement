@@ -26,10 +26,10 @@ var wave_ongoing: bool = false
 func _ready() -> void:
 	#process_mode = Node.PROCESS_MODE_PAUSABLE
 	generate_enemies()
-	await get_tree().create_timer(6.0, false).timeout
+	#await get_tree().create_timer(6.0, false).timeout
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	bullet_shells = get_tree().get_root().find_child("BulletShells", true, false)
-	spawn_enemies()
+	#spawn_enemies()
 
 func generate_enemies() -> void:
 	var num: int = 0
@@ -110,3 +110,5 @@ func _on_safe_area_body_entered(body: Node2D) -> void:
 func _on_safe_area_body_exited(body: Node2D) -> void:
 	if body.name == "HellTileMapLayer": return
 	print("Seafe are exited: " + str(body.name))
+	await get_tree().create_timer(0.5, false).timeout
+	spawn_enemies()
