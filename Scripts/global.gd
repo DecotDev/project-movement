@@ -72,6 +72,28 @@ func save_data() -> void:
 	var file:  = FileAccess.open("user://save.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_dictionary))
 	file.close()
+	
+func save_heaven_data() -> void:
+	if world:
+		heaven_doors = get_tree().get_root().find_child("HeavenDoors", true, false).get_children()
+	var save_dictionary: Dictionary = {
+		"player_coins": player_coins,
+		"hell_orbs": hell_orbs,
+		"player_emeralds": player_emeralds,
+		"max_reached_wave": max_reached_wave,
+		"total_waves_played": total_waves_played,
+		"killed_enemies": killed_enemies,
+		"heaven_doors": {}
+		
+	}
+	if world:
+		print("Saving, heaven_doors.size: " + str(heaven_doors.size()))
+		for door in heaven_doors:
+			print("Heaven Door id: " + str(door.id) + " Closed: " + str(door.closed))
+			save_dictionary["heaven_doors"][door.id] = door.closed
+	var file:  = FileAccess.open("user://save.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(save_dictionary))
+	file.close()
 
 func load_data() -> void:
 	if FileAccess.file_exists("user://save.json"):
