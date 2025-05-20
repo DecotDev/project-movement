@@ -1,6 +1,7 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	#Global.save_data()
 	if player.just_hit: return
 	player.state_label.text = "Idle"
 	player.velocity.x = 0.0

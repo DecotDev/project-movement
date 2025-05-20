@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready
-var linked_doors: = get_parent().get_node("Doors")
+var linked_doors: = get_parent().get_node("HeavenDoors")
 
 @export
 var pulled: bool = false

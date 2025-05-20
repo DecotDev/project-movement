@@ -86,6 +86,7 @@ func next_wave() -> void:
 	Global.current_wave += 1
 	print("Wave: " + str(Global.current_wave))
 	print("Enemies: " + str(enemy_spawn[Global.current_wave]))
+	Global.save_data()
 	await get_tree().create_timer(3.0, false).timeout
 	for child in bullet_shells.get_children():
 		child.queue_free()

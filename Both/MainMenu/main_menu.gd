@@ -23,6 +23,10 @@ func _ready() -> void:
 	$MusicStartTimer.start()
 	mouse_old_pos = get_global_mouse_position()
 	
+	Global.load_data()
+	#RESTE EMERALDS
+	Global.player_emeralds = 0
+	
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):

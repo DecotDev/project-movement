@@ -2,6 +2,8 @@ extends StaticBody2D
 
 @export
 var link_codes: Array[int]
+@export
+var id: int
 
 @export
 var closed: bool = true

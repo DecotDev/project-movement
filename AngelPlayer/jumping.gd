@@ -4,6 +4,7 @@ var sprite: = %Sprite2D
 
 
 func enter(previous_state_path: String, data := {}) -> void:
+	#Global.save_data()
 	if player.just_hit:
 		print("Jump with hit")
 		return

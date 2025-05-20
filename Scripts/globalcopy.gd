@@ -64,11 +64,12 @@ func save_data() -> void:
 		"heaven_doors": {}
 		
 	}
-	if world:
-		print("Saving, heaven_doors.size: " + str(heaven_doors.size()))
-		for door in heaven_doors:
-			print("Heaven Door id: " + str(door.id) + " Closed: " + str(door.closed))
-			save_dictionary["heaven_doors"][door.id] = door.closed
+	
+	print("Saving, heaven_doors.size: " + str(heaven_doors.size()))
+	#var heaven_doors: = get_tree().get_root().find_child("HeavenDoors", true, false).get_children()
+	for door in heaven_doors:
+		#print("Heaven Door id: " + str(door.id) + " Closed: " + str(door.closed))
+		save_dictionary["heaven_doors"][door.id] = door.closed
 	var file:  = FileAccess.open("user://save.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_dictionary))
 	file.close()
@@ -93,16 +94,21 @@ func load_data() -> void:
 func load_heaven_data() -> void:
 	heaven_doors = get_tree().get_root().find_child("HeavenDoors", true, false).get_children()
 	if FileAccess.file_exists("user://save.json"):
-		var file := FileAccess.open("user://save.json", FileAccess.READ)
-		var json := file.get_as_text()
+		var file: = FileAccess.open("user://save.json", FileAccess.READ)
+		var json: = file.get_as_text()
 		file.close()
 
 		var data: Dictionary = JSON.parse_string(json)
-		if typeof(data) == TYPE_DICTIONARY and data.has("heaven_doors"):
-			var heaven_doors_data: Dictionary = data["heaven_doors"]
-			for door in heaven_doors:
-				var key := str(door.id)
-				if heaven_doors_data.has(key):
-					door.closed = heaven_doors_data[key]
-					print("Loaded door " + key + ": " + str(door.closed))
-					door.apply_export_var()
+		if typeof(data) == TYPE_DICTIONARY:
+			if data.has("heaven_doors"):
+				var heaven_doors_data: Dictionary = data["heaven_doors"]
+				#var heaven_doors: = get_tree().get_root().find_child("HeavenDoors", true, false).get_children()
+				print("Loading, heaven_doors.size: " + str(heaven_doors.size()))
+				for door in heaven_doors:
+					print("Load num")
+					if heaven_doors_data.has(str(door.id)):
+						#door.closed = heaven_doors_data[door.id]
+						door.closed = heaven_doors_data[str(door.id)]
+						print("SETTING saved value to door " + str(door.id) + " " + str(heaven_doors_data[str(door.id)]))
+						door.apply_export_var() # update visuals
+					print("Heaven Door id: " + str(door.id) + " Closed: " + str(door.closed))

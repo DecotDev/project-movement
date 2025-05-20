@@ -168,6 +168,7 @@ position = Vector2(-800, 781)
 position = Vector2(305, 768)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/SafeArea" index="0"]
+visible = false
 position = Vector2(-1752, -24)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_m316y")

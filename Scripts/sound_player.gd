@@ -87,6 +87,9 @@ func _ready() -> void:
 	sfx_2.stop()
 	sfx_2.stream = null
 	music_player = get_tree().get_root().find_child("MusicPlayer", true, false)
+	
+func instanciate_music_player() -> void:
+	music_player = get_tree().get_root().find_child("MusicPlayer", true, false)
 
 func play_sound(sound: AudioStream) -> void:
 	for audioStreamPlayer in audio_players.get_children():
@@ -161,6 +164,7 @@ func _on_background_music_player_finished() -> void:
 	previous_song_num = actual_song_num
 	actual_song_num = 0
 	play_music(null, 0)
+	music_player = get_tree().get_root().find_child("MusicPlayer", true, false)
 	await get_tree().create_timer(0.2).timeout
 	music_player.update_playing_label()
 

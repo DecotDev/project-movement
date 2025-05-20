@@ -16,6 +16,8 @@ func _ready() -> void:
 	hell_camera = get_tree().get_root().find_child("HellCamera", true, false)
 	#target_cam_pos = heaven_camera.position
 	if bloqued: return
+	$CanvasLayer/LeftDoor.visible = true
+	$CanvasLayer/RightDoor.visible = true
 	if Global.world:
 		enter_to_heaven()
 	else: 
@@ -23,6 +25,8 @@ func _ready() -> void:
 	Global.elevator_block = true
 	bloqued = true
 func _on_interact() -> void:
+	$CanvasLayer/LeftDoor.visible = true
+	$CanvasLayer/RightDoor.visible = true
 	if bloqued: return
 	print("Elevator taken")
 	if Global.world:

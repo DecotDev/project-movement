@@ -134,6 +134,7 @@ func blowback_reset() -> void:
 		sprite.rotation = lerp(sprite.rotation, 0.0, 0.3)
 
 func reload() -> void:
+	Global.save_data()
 	SoundPlayer.play_sound(SoundPlayer.mag_and_rag)
 	reloading = true
 	gui.enable_reloading()
