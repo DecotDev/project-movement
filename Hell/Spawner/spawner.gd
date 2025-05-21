@@ -45,6 +45,7 @@ func generate_enemies() -> void:
 	print(str(enemy_spawn))
 
 func spawn_enemies() -> void:
+	if Global.demon_health < 1: return
 	var enemy: PackedScene
 	wave_ongoing = true
 	gui.update_wave_label()
@@ -91,6 +92,11 @@ func next_wave() -> void:
 	for child in bullet_shells.get_children():
 		child.queue_free()
 	spawn_enemies()
+#
+#func clear_wave() -> void:
+	#for node in %Enemies.get_children():
+		#node.set_physics_process(false)
+		#node.set_process(false)
 
 
 func _on_enemies_child_exiting_tree(node: Node) -> void:

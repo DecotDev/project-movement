@@ -63,7 +63,8 @@ func update_health_label() -> void:
 		animation_player.play("2_beat")
 	elif demon_health > 0:
 		animation_player.play("1_beat")
-	
+	elif demon_health < 1:
+		animation_player.play("0_left")
 func update_enemies_label() -> void:
 	enemies_label.text = ("Enemeies killed: " + str(Global.killed_enemies))
 	

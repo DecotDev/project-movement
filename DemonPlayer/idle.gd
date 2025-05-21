@@ -1,6 +1,8 @@
 extends DemonPlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	print("Idle state entered health: " + str(Global.demon_health))
+	if Global.demon_health < 1: return
 	state_label.text = "Idle"
 	%AnimationPlayer.play("Idle")
 	demon.velocity = Vector2(0,0)

@@ -1,13 +1,22 @@
 extends DemonPlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	print("Moving state entered")
+	#if Global.player_health < 1:
+		#print("On moving enter death")
+		#return
 	state_label.text = "MovShoot"
+
 	%AnimationPlayer.play("Run")
 	
 
 
 func physics_update(delta: float) -> void:
-	if Global.demon_player_bloqued == true: finished.emit(IDLE)
+	#if Global.player_health < 1:
+		#print("On moving death")
+		#return
+	if Global.demon_player_bloqued == true: # and Global.demon_health > 0:
+		finished.emit(IDLE)
 	demon.camera.mouse_pos = demon.get_global_mouse_position()
 	demon.input_direction = Input.get_vector("Left","Right","Up","Down")
 	#input_direction = input_direction.normalized()
@@ -33,14 +42,5 @@ func physics_update(delta: float) -> void:
 
 	if Input.is_action_just_pressed("Space") and demon.dash_available:
 		finished.emit(DASH)
-	elif is_equal_approx(demon.input_direction.x, 0.0) and is_equal_approx(demon.input_direction.y, 0.0):
+	elif is_equal_approx(demon.input_direction.x, 0.0) and is_equal_approx(demon.input_direction.y, 0.0): #and Global.demon_health > 0:
 		finished.emit(IDLE)
-
-
-
-
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	pass
-	#if body.has_method("damage_demon"):
-		#Global.demon_health -= 1
-		#demon.gui.update_health_label()

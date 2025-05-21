@@ -1,6 +1,7 @@
 extends DemonPlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	if Global.player_health < 1: return
 	demon.dash_available = false
 	demon.dash_cooldown_timer.start()
 	demon.velocity *= 1.9
