@@ -68,6 +68,7 @@ func spawn_enemies_old() -> void:
 	wave_ongoing = true
 	gui.update_wave_label()
 	for i in enemy_spawn[Global.current_wave]:
+		print("")
 		await get_tree().create_timer(0.3, false).timeout
 		var fh: Node = flying_head.instantiate()
 		var spawn_length: = %Spawns.get_child_count()-1

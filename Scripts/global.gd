@@ -12,6 +12,7 @@ var heaven_doors: Array[Node] = []
 
 var angel_player_bloqued: bool = false
 var demon_player_bloqued: bool = false
+var hell_respawn: = false
 var player_health: int = 3
 var player_coins: int = 0
 var demon_health: int = 6

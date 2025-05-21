@@ -12,9 +12,10 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 
 func physics_update(delta: float) -> void:
-	#if Global.player_health < 1:
-		#print("On moving death")
-		#return
+	#if demon.just_respawned:
+		#demon.just_respawned = false
+		#finished.emit(IDLE)
+
 	if Global.demon_player_bloqued == true: # and Global.demon_health > 0:
 		finished.emit(IDLE)
 	demon.camera.mouse_pos = demon.get_global_mouse_position()

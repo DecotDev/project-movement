@@ -29,3 +29,9 @@ func change_scene(scene: String, animation: String) -> void:
 		
 		
 	#$AnimationPlayer.play_backwards("Dissolve")
+
+func play_pixel_black() -> void:
+	$PixelTransition.visible = true
+	$AnimationPlayer.play("PixelBlack")
+	await $AnimationPlayer.animation_finished
+	$AnimationPlayer.play("PixelBlackOUT")

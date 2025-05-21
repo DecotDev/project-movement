@@ -25,9 +25,11 @@ func _ready() -> void:
 	Global.elevator_block = true
 	bloqued = true
 func _on_interact() -> void:
+	if bloqued: return
+	bloqued = true
 	$CanvasLayer/LeftDoor.visible = true
 	$CanvasLayer/RightDoor.visible = true
-	if bloqued: return
+
 	print("Elevator taken")
 	if Global.world:
 		transition_to_hell()

@@ -51,7 +51,8 @@ func pause() -> void:
 	pressed = false
 	_change_background()
 	Global.save_data()
-	Global.save_heaven_data()
+	if Global.world:
+		Global.save_heaven_data()
 	show()
 	$Resume.grab_focus()
 	get_tree().paused = true
