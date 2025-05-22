@@ -7,6 +7,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	%AnimationPlayer.play("Idle")
 	demon.velocity = Vector2(0,0)
 	demon.move_and_slide()
+	
 
 func physics_update(delta: float) -> void:
 	if Global.demon_player_bloqued == true: return
