@@ -11,8 +11,12 @@ const base_text: = "[E] to "
 var active_areas: Array[Area2D]
 var can_interact: bool = true
 
-func _ready() -> void:
+#func _ready() -> void:
+	
+func load_players_node() -> void:
 	angel_player = get_tree().get_root().find_child("Lumber", true, false)
+	print("Angel Payer value:")
+	print(angel_player)
 	demon_player = get_tree().get_root().find_child("Demon", true, false)
 	
 func _process(delta: float) -> void:
@@ -44,6 +48,9 @@ func _input(event: InputEvent) -> void:
 			can_interact = true
 
 func _sort_by_distance_to_angel_player(area1: Area2D, area2: Area2D) -> float:
+	print("Active Areas: " + str(active_areas.size()))
+	print("Area 1 parent: " + str(area1.get_parent().name))
+	print("Area 2 parent: " + str(area2.get_parent().name))
 	var area1_to_angel_player: float = angel_player.global_position.distance_to(area1.global_position)
 	var area2_to_angel_player: float = angel_player.global_position.distance_to(area2.global_position)
 	return area1_to_angel_player < area2_to_angel_player

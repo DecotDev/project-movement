@@ -61,7 +61,6 @@ func spawn_enemies() -> void:
 		var spawn_position: Vector2 = %Spawns.get_child(rand_num).position
 		enemy_node.position = spawn_position
 		%Enemies.add_child(enemy_node)
-		
 	wave_ongoing = false
 		
 func spawn_enemies_old() -> void:
@@ -89,7 +88,7 @@ func next_wave() -> void:
 	print("Wave: " + str(Global.current_wave))
 	print("Enemies: " + str(enemy_spawn[Global.current_wave]))
 	Global.save_data()
-	await get_tree().create_timer(3.0, false).timeout
+	await get_tree().create_timer(4.0, false).timeout
 	for child in bullet_shells.get_children():
 		child.queue_free()
 	spawn_enemies()
