@@ -71,7 +71,7 @@ tile_map_data = PackedByteArray("AACv/xcAAAAAAAAAAACw/xcAAAABAAAAAACx/xcAAAABAAA
 
 [node name="Lumber" parent="." instance=ExtResource("2_oyb2g")]
 unique_name_in_owner = true
-position = Vector2(692, 1364)
+position = Vector2(674, 1364)
 
 [node name="HeavenGUI" parent="." instance=ExtResource("3_5nbyf")]
 unique_name_in_owner = true
@@ -392,7 +392,7 @@ lines = Array[String](["Hi, I'm Antonio yup", "[w], [A], [S], [D] to move and...
 flipped = true
 
 [node name="Elevator" parent="." instance=ExtResource("7_ae5uu")]
-position = Vector2(688, 1335)
+position = Vector2(670, 1334)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

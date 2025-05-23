@@ -1,17 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://de5x2c3v4se5o"]
+[gd_scene load_steps=16 format=3 uid="uid://de5x2c3v4se5o"]
 
 [ext_resource type="Script" uid="uid://il3h4hymddal" path="res://Both/Elevator/elevator.gd" id="1_amj75"]
-[ext_resource type="Texture2D" uid="uid://rtmsfy7rluqb" path="res://icon.svg" id="1_pfp1m"]
 [ext_resource type="PackedScene" uid="uid://dlxiise7nb8i0" path="res://Both/Interaction/InteractionArea/interaction_area.tscn" id="3_251dg"]
 [ext_resource type="Texture2D" uid="uid://dw5jry2rois1c" path="res://Both/Elevator/LeftDoor.png" id="4_pt0pt"]
 [ext_resource type="Texture2D" uid="uid://ckbkyiyxkx8v7" path="res://Both/Elevator/RightDoor.png" id="5_isyld"]
 [ext_resource type="Texture2D" uid="uid://7fh36133f4wr" path="res://Both/Elevator/Elevator.png" id="6_isyld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amj75"]
-size = Vector2(139, 146)
+size = Vector2(452, 326)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thcjr"]
-size = Vector2(80, 123)
+size = Vector2(59, 61.5)
 
 [sub_resource type="Animation" id="Animation_l3qtq"]
 resource_name = "Close"
@@ -102,6 +101,62 @@ _data = {
 &"RESET": SubResource("Animation_isyld")
 }
 
+[sub_resource type="Animation" id="Animation_h5lye"]
+resource_name = "OpenElevator"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_ujwme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pp7gf"]
+resource_name = "CloseElevator"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8emi"]
+_data = {
+&"CloseElevator": SubResource("Animation_pp7gf"),
+&"OpenElevator": SubResource("Animation_h5lye"),
+&"RESET": SubResource("Animation_ujwme")
+}
+
 [node name="Elevator" type="Area2D"]
 z_index = 2
 collision_layer = 32
@@ -109,17 +164,22 @@ collision_mask = 32
 script = ExtResource("1_amj75")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.07812, 1.13672)
-texture = ExtResource("1_pfp1m")
+z_index = 10
+position = Vector2(0, -54)
+scale = Vector2(4, 4)
+texture = ExtResource("6_isyld")
+hframes = 4
+vframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+[node name="OpenShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_amj75")
+debug_color = Color(0, 0.6, 0.701961, 0.309804)
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_251dg")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -1.5)
+position = Vector2(0, 30.75)
 shape = SubResource("RectangleShape2D_thcjr")
 debug_color = Color(0.928629, 2.99373e-05, 0.663915, 0.42)
 
@@ -132,8 +192,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_h5lye")
 }
 
+[node name="ElevatorAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_j8emi")
+}
+
 [node name="EnterTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
+
+[node name="DoorsTimer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -150,12 +220,8 @@ position = Vector2(1440, 540)
 scale = Vector2(4, 4)
 texture = ExtResource("5_isyld")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0, -54)
-scale = Vector2(4, 4)
-texture = ExtResource("6_isyld")
-hframes = 4
-vframes = 2
-
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="ElevatorTimer" to="." method="_on_elevator_timer_timeout"]
 [connection signal="timeout" from="EnterTimer" to="." method="_on_enter_timer_timeout"]
+[connection signal="timeout" from="DoorsTimer" to="." method="_on_doors_timer_timeout"]

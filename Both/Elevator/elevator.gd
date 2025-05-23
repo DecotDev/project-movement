@@ -5,7 +5,12 @@ extends Area2D
 var heaven_camera: Camera2D
 @onready
 var hell_camera: Camera2D
+@onready
+var elevator_animation_player: = %ElevatorAnimationPlayer
+
 var bloqued: bool = false
+
+var automatic_doors: bool = false
 
 #@onready
 #var target_cam_pos: Vector2
@@ -30,6 +35,7 @@ func _on_interact() -> void:
 	$CanvasLayer/LeftDoor.visible = true
 	$CanvasLayer/RightDoor.visible = true
 
+	elevator_animation_player.play("CloseElevator")
 	print("Elevator taken")
 	if Global.world:
 		transition_to_hell()
@@ -64,6 +70,7 @@ func transition_to_heaven() -> void:
 	
 func enter_to_hell() -> void:
 	$EnterTimer.start()
+	$DoorsTimer.start()
 	$AnimationPlayer.play("Open")
 	print("Hell entered")
 	Global.demon_player_bloqued = true
@@ -78,6 +85,7 @@ func enter_to_hell() -> void:
 
 func enter_to_heaven()-> void:
 	$EnterTimer.start()
+	$DoorsTimer.start()
 	$AnimationPlayer.play("Open")
 	print("Heaven entered")
 	#var target_cam_pos: Vector2 = heaven_camera.position
@@ -96,4 +104,21 @@ func _on_enter_timer_timeout() -> void:
 	else:
 		Global.demon_player_bloqued = false
 	bloqued = false
+	automatic_doors = true
 	Global.elevator_block = false
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if !automatic_doors: return
+	if body is Player or Demon:
+		elevator_animation_player.play("OpenElevator")
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if !automatic_doors: return
+	if body is Player or Demon:
+		elevator_animation_player.play("CloseElevator")
+
+
+func _on_doors_timer_timeout() -> void:
+	elevator_animation_player.play("OpenElevator")
