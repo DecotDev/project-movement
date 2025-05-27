@@ -258,6 +258,7 @@ script = ExtResource("1_sutog")
 
 [node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 2708.0

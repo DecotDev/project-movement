@@ -111,14 +111,29 @@ func _on_enter_timer_timeout() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if !automatic_doors: return
 	if body is Player or Demon:
+		z_index = 2
 		elevator_animation_player.play("OpenElevator")
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if !automatic_doors: return
 	if body is Player or Demon:
+		z_index = 10
 		elevator_animation_player.play("CloseElevator")
 
 
 func _on_doors_timer_timeout() -> void:
+	#$Sprite2D.z_index = 0
 	elevator_animation_player.play("OpenElevator")
+
+
+func _on_interaction_area_body_entered(body: Node2D) -> void:
+	if body is Player or Demon:
+		$Sprite2D.z_index = 10
+		$Case.z_index = 10
+
+
+func _on_interaction_area_body_exited(body: Node2D) -> void:
+	if body is Player or Demon:
+		$Sprite2D.z_index = 0
+		$Case.z_index = 0

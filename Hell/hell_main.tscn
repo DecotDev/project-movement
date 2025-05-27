@@ -107,7 +107,7 @@ tile_map_data = PackedByteArray("AADu//T/AwAEAAAAAADu//X/AwAEAAAAAADu//b/AwAEAAA
 tile_set = SubResource("TileSet_p5did")
 
 [node name="Demon" parent="." instance=ExtResource("2_kcyqm")]
-position = Vector2(-2051, -291)
+position = Vector2(-2052, -295)
 
 [node name="HellGUI" parent="." instance=ExtResource("3_1p6gk")]
 
