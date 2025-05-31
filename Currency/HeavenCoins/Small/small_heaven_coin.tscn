@@ -232,7 +232,6 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_jkv5q")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.327147
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

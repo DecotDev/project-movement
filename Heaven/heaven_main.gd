@@ -1,8 +1,5 @@
 extends Node2D
 
-@onready
-var heaven_gui: = %HeavenGUI
-
 func _ready() -> void:
 	InteractionManager.clear_active_areas()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -13,6 +10,3 @@ func _ready() -> void:
 	#Global.demon_player_bloqued = false
 	Global.load_heaven_data()
 	InteractionManager.load_players_node()
-
-func _on_portal_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://Hell/hell_main.tscn")

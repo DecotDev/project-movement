@@ -71,7 +71,7 @@ tile_map_data = PackedByteArray("AACv/xcAAAAAAAAAAACw/xcAAAABAAAAAACx/xcAAAABAAA
 
 [node name="Lumber" parent="." instance=ExtResource("2_oyb2g")]
 unique_name_in_owner = true
-position = Vector2(674, 1364)
+position = Vector2(670, 1364)
 
 [node name="HeavenGUI" parent="." instance=ExtResource("3_5nbyf")]
 unique_name_in_owner = true
@@ -373,24 +373,6 @@ position = Vector2(-4338, 606)
 rotation = 1.5708
 spike_direction = "Right"
 
-[node name="Antonio" parent="." instance=ExtResource("9_ffcaw")]
-position = Vector2(-3136, 1172)
-
-[node name="Antonio2" parent="." instance=ExtResource("9_ffcaw")]
-position = Vector2(-2945, 1172)
-lines = Array[String](["Hi, I'm Antonio 2"])
-flipped = true
-
-[node name="Antonio3" parent="." instance=ExtResource("9_ffcaw")]
-position = Vector2(1060, 1364)
-lines = Array[String](["WHAT THE HEAVEN? Where did you come from?", "Uh, nevermind. You can ask Antonio about game controls"])
-flipped = true
-
-[node name="Antonio4" parent="." instance=ExtResource("9_ffcaw")]
-position = Vector2(1214, 1364)
-lines = Array[String](["Hi, I'm Antonio yup", "[w], [A], [S], [D] to move and...", "You can dash mid air with [SHIFT]"])
-flipped = true
-
 [node name="Elevator" parent="." instance=ExtResource("7_ae5uu")]
 position = Vector2(670, 1334)
 
@@ -398,3 +380,23 @@ position = Vector2(670, 1334)
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_vq3j3")]
 visible = false
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="Antonio" parent="NPCs" instance=ExtResource("9_ffcaw")]
+position = Vector2(-3136, 1172)
+
+[node name="Antonio2" parent="NPCs" instance=ExtResource("9_ffcaw")]
+position = Vector2(-2945, 1172)
+lines = Array[String](["Hi, I'm Antonio 2"])
+flipped = true
+
+[node name="Antonio3" parent="NPCs" instance=ExtResource("9_ffcaw")]
+position = Vector2(1060, 1364)
+lines = Array[String](["WHAT THE HEAVEN? Where did you come from?", "Uh, nevermind. You can ask Antonio about game controls"])
+flipped = true
+
+[node name="Antonio4" parent="NPCs" instance=ExtResource("9_ffcaw")]
+position = Vector2(1214, 1364)
+lines = Array[String](["Hi, I'm Antonio yup", "[w], [A], [S], [D] to move and...", "You can dash mid air with [SHIFT]"])
+flipped = true

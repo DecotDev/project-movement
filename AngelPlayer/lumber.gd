@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+# Connections
 @onready
 var animation_player: = $AnimationPlayer
 @onready

@@ -88,7 +88,7 @@ func _on_quit_button_button_down() -> void:
 #Settings
 func _on_settings_button_pressed() -> void:
 	if pressed: return
-	pressed = true
+	#pressed = true
 	SoundPlayer.play_sfx_2(SoundPlayer.accept)
 	print("Settings to do")
 func _on_settings_button_mouse_entered() -> void:

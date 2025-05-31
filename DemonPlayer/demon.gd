@@ -42,7 +42,7 @@ var spawner: Node = null
 func _ready() -> void:
 	sprite.z_index = 4
 	
-	Global.demon_health = 1
+	#Global.demon_health = 1
 	
 	gui = get_tree().get_root().find_child("HellGUI", true, false)
 	spawner = get_tree().get_root().find_child("Spawner", true, false)
