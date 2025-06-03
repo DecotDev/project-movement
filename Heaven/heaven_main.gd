@@ -10,3 +10,4 @@ func _ready() -> void:
 	#Global.demon_player_bloqued = false
 	Global.load_heaven_data()
 	InteractionManager.load_players_node()
+	SoundPlayer.play_heaven_background_music()

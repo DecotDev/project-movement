@@ -917,6 +917,7 @@ label_settings = SubResource("LabelSettings_ymdol")
 
 [node name="HealthLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 offset_left = 157.0
 offset_top = 54.0
 offset_right = 257.0
@@ -934,6 +935,7 @@ label_settings = SubResource("LabelSettings_ghusu")
 
 [node name="EnemiesLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 offset_left = 157.0
 offset_top = 72.0
 offset_right = 240.0
@@ -947,7 +949,7 @@ offset_top = 999.0
 offset_right = 895.0
 offset_bottom = 1015.0
 scale = Vector2(4, 4)
-value = 80.0
+value = 100.0
 rounded = true
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_55ewe")
@@ -960,7 +962,7 @@ offset_top = 999.0
 offset_right = 990.0
 offset_bottom = 1015.0
 scale = Vector2(4, 4)
-value = 80.0
+value = 100.0
 rounded = true
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_xhryp")

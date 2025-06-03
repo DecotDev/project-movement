@@ -29,6 +29,7 @@ func _ready() -> void:
 	update_hell_orbs_label()
 	#%TextureProgressBar.value = 2
 	wave_label.text = ("")
+	%AnimationPlayer.play("RESET")
 
 func update_ammo_label(ammo: int, magazine_size: int) -> void:
 	%AmmoLeftLabel.text = (str(ammo) + "/" + str(magazine_size))

@@ -21,6 +21,7 @@ const emerald_pickup: = preload("res://Currency/HeavenCoins/Emerald/EmeraldPickU
 const lever: = preload("res://Heaven/Items/GoldenLever/Lever.mp3")
 const door_open: = preload("res://Heaven/Items/GoldenDoor/DoorOpen.wav")
 const door_close: = preload("res://Heaven/Items/GoldenDoor/DoorClose.wav")
+const cloudy_day: = preload("res://Heaven/Songs/CloudyDay.mp3")
 
 const spike_death: = preload("res://AngelPlayer/SpikeDeath.wav")
 
@@ -160,6 +161,10 @@ func play_previous_song() -> void:
 		actual_song_num = previous_song_num
 		play_music(null, 0)
 
+func play_heaven_background_music() -> void:
+	%HeavenMusicPlayer.stream = cloudy_day
+	%HeavenMusicPlayer.play()
+
 func _on_background_music_player_finished() -> void:
 	previous_song_num = actual_song_num
 	actual_song_num = 0
@@ -171,3 +176,7 @@ func _on_background_music_player_finished() -> void:
 
 func _on_menu_music_payer_finished() -> void:
 	play_menu_music()
+
+
+func _on_heaven_music_player_finished() -> void:
+	%HeavenMusicPlayer.play()

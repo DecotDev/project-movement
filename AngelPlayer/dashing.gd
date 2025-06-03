@@ -30,7 +30,9 @@ func physics_update(delta: float) -> void:
 	player.move_and_slide()
 
 func _on_dash_finish_timer_timeout() -> void:
+	if player.just_respawned: return
 	if player.just_hit == false:
+
 		player.just_dashed = true
 		player.dash_label.text = "true"
 

@@ -56,7 +56,7 @@ var was_on_floor: bool = false
 var just_dashed: bool = false
 var dash_slow_fall: int = 0
 var just_respawned: bool = false
-var last_angel_position: Array[Vector2] = [Vector2(-4539.0, 1367.0),Vector2(-4539.0, 1367.0)]
+var last_angel_position: Array[Vector2] = [Vector2(1148.0, 1359.0),Vector2(1148.0, 1359.0)]
 
 var just_hit: = false
 
