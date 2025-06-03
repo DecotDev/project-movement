@@ -165,6 +165,10 @@ func play_heaven_background_music() -> void:
 	%HeavenMusicPlayer.stream = cloudy_day
 	%HeavenMusicPlayer.play()
 
+func stop_heaven_music() -> void:
+	%HeavenMusicPlayer.stop()
+	%HeavenMusicPlayer.seek(0.0)
+
 func _on_background_music_player_finished() -> void:
 	previous_song_num = actual_song_num
 	actual_song_num = 0
